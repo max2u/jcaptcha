@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+
+  <extend>${basedir}/../base_project.xml</extend>
+  <artifactId>jcaptcha-service</artifactId>
+
+  <name>jcaptcha-service</name>
+
+    <package>com.octo.captcha.service</package>
+
+  <description>
+      <![CDATA[
+      <b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
+<br/>The open source java framework for captcha definition and integration
+<br/>
+      A captcha service is able to provides questions, challenges and to validate an answer according an id.<BR/>
+ jcaptcha service aims to provide interfaces and implementation of generic and typed captcha services.<br/>
+ It uses the jcaptcha-engine to retrieve captchas.
+
+  ]]>
+  </description>
+  <!-- a short description of what the project does -->
+  <shortDescription>
+     JCAPTCHA service : interface and implementation of the captcha service
+    </shortDescription>
+
+  <dependencies>
+    <dependency>
+      <groupId>jcaptcha</groupId>
+      <artifactId>jcaptcha-core</artifactId>
+      <version>${project.version}</version>
+      <jar/>
+      <type/>
+      <url>http://jcaptcha.sourceforge.net</url>
+      <properties/>
+    </dependency>
+
+     <dependency>
+      <groupId>jcaptcha</groupId>
+      <artifactId>jcaptcha-engine</artifactId>
+      <version>${project.version}</version>
+      <jar/>
+      <type/>
+      <properties/>
+    </dependency>
+
+
+
+
+  </dependencies>
+
+
+</project>
+
