@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project
+  default="jcaptcha:all"
+  xmlns:j="jelly:core"
+  xmlns:maven="jelly:maven"
+  xmlns:artifact="artifact"
+  xmlns:ant="jelly:ant">
+
+  <goal name="jcaptcha:all" description="build and package a jcaptcha distribution, builds the jcaptcha-maven site">
+        <attainGoal name="jcaptcha:clean"/>
+        <attainGoal name="jcaptcha:deploy-jhlab"/>
+           <attainGoal name="jcaptcha:jars"/>
+        <attainGoal name="multiproject:site"/>
+        <attainGoal name="jcaptcha:dist-src"/>
+        <attainGoal name="jcaptcha:dist-bin"/>
+  </goal>
+
+ <goal name="jcaptcha:clean" description="clean the whole project">
+    <attainGoal name="clean"/>
+    <maven:reactor
+            basedir="${basedir}"
+            includes="*/project.xml"
+            excludes="project.xml"
+            goals="clean"
+            banner="jars"
+            ignoreFailures="true"/>
+       </goal>
+
+
+
+     <goal name="jcaptcha:jars" description="build and install jcaptcha jars">
+    	<maven:reactor
+        basedir="${basedir}"
+        includes="*/project.xml"
+        excludes="project.xml"
+        goals="jar:install"
+        banner="jars"
+        ignoreFailures="false"/>
+     </goal>
+
+
+
+
+  <goal name="jcaptcha:dist-src" description="build and package a jcaptcha distribution">
+    <ant:mkdir dir="${maven.build.dir}/distributions"/>
+
+    <ant:zip zipfile="${maven.build.dir}/distributions/${pom.artifactId}-src-${pom.currentVersion}.zip">
+    	<ant:fileset dir="${basedir}">
+    		<exclude name="**/target/**"/>
+    		<exclude name="**/CVS/**"/>
+    	</ant:fileset>
+    </ant:zip>
+  </goal>
+
+   <goal name="jcaptcha:dist-bin" description="build and package a jcaptcha distribution">
+	<ant:mkdir dir="${maven.build.dir}/distributions/bin/tozip"/>
+	<ant:mkdir dir="${maven.build.dir}/distributions/bin/temp/unjared"/>
+    <ant:copy todir="${maven.build.dir}/distributions/bin/temp" flatten="true">
+    	<ant:fileset dir="${basedir}">
+    		<include name="**/jcaptcha*-${pom.currentVersion}.jar"/>
+    		<include name="**/imaging-01012005.jar"/>
+    		<exclude name="${maven.build.dir}"/>
+    	</ant:fileset>
+    </ant:copy>
+    
+    <unzip dest="${maven.build.dir}/distributions/bin/temp/unjared">
+		<fileset dir="${maven.build.dir}/distributions/bin/temp">
+			<include name="*.jar"/>
+		</fileset>
+	</unzip>
+
+  <jar destfile="${maven.build.dir}/distributions/bin/tozip/${pom.artifactId}-all-${pom.currentVersion}.jar" basedir="${maven.build.dir}/distributions/bin/temp/unjared">
+  </jar>
+   
+   <ant:copy todir="${maven.build.dir}/distributions/bin/tozip/">
+    	<ant:fileset dir="${basedir}/engine/src/conf">
+    		<include name="**/*.jpg"/>
+    	</ant:fileset>
+
+       <ant:fileset dir="${basedir}/module-struts/src/java/META-INF">
+              <include name="jcaptcha.tld"/>
+       </ant:fileset>
+
+       <ant:fileset dir="${basedir}/">
+              <include name="LICENSE.txt"/>
+       </ant:fileset>
+       
+
+    	<ant:fileset dir="${maven.build.dir}">
+    		<include name="docs/**"/>
+    	</ant:fileset>
+
+   </ant:copy>
+	
+   <ant:zip zipfile="${maven.build.dir}/distributions/${pom.artifactId}-bin-${pom.currentVersion}.zip"
+    	>
+    	<ant:fileset dir="${maven.build.dir}/distributions/bin/tozip">
+    		
+    	</ant:fileset>
+    </ant:zip>
+
+  </goal>
+
+
+  <goal name="jcaptcha:deploy-jhlab" description="copy jhlabs librairy to your maven local repository">
+    <ant:mkdir dir="${maven.repo.local}/jhlabs/jars"/>
+    <ant:copy file="${basedir}/lib/imaging-01012005.jar" todir="${maven.repo.local}/jhlabs/jars"/>
+  </goal>
+
+
+    <!--postGoal name="multiproject:site">
+        <copy todir="${maven.build.dir}/docs">
+                <fileset dir="images/samples">
+                    <includes name="*.jpg"/>
+
+                </fileset>
+        </copy>
+    </postGoal-->
+
+</project>

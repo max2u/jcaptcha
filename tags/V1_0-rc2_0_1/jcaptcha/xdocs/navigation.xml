@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE navigation[
+ <!ENTITY items_inc SYSTEM "file:xdocs/items.inc">
+ <!ENTITY links_inc SYSTEM "file:xdocs/links.inc">
+ <!ENTITY nav_inc SYSTEM "file:xdocs/nav.inc">
+ ]>
+
+<project name="JCaptcha" href="http://jcaptcha.sourceforge.net/">
+
+    <title>JCaptcha</title>
+    <body>
+        &links_inc;
+       <menu name="Menu" collapse="true">
+            <item name="Main" href="main.html"/>
+            <item name="Architecture" href="architecture.html"/>
+            <item name="Why?" href="why.html"/>
+			<item name="Current status" href="status.html"/>
+            <item name="RoadMap" href="roadmap.html"/>
+            <item name="Thanks" href="thanks.html"/>
+            <item name="References" href="references.html"/>
+           &nav_inc;
+           &items_inc;
+        </menu>
+
+    </body>
+</project>
