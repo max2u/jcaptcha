@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project
+  default="assemble"
+  xmlns:j="jelly:core"
+  xmlns:maven="jelly:maven"
+  xmlns:artifact="artifact"
+  xmlns:ant="jelly:ant">
+
+  <preGoal name="multiproject:site">
+    <ant:copy file="${basedir}/images/organization-logo.jpg" todir="${maven.build.dir}/docs/images"/>
+    <ant:copy file="${basedir}/images/project-logo.jpg" todir="${maven.build.dir}/docs/images"/>
+    <maven:reactor
+        basedir="${basedir}"
+        includes="**/${pattern}/**/project.xml"
+        excludes="project.xml"
+        goals="site"
+        banner="generating documentation"
+        ignoreFailures="false"/>
+  </preGoal>
+
+  <goal name="assemble">
+    <maven:reactor
+        basedir="${basedir}"
+        includes="**/${pattern}/**/project.xml"
+        excludes="project.xml"
+        goals="assemble"
+        banner="Building"
+        ignoreFailures="false"/>
+  </goal>
+
+  <goal name="build">
+    <maven:reactor 
+        basedir="${basedir}"
+        includes="**/${pattern}/**/project.xml"
+        excludes="project.xml,samples-web/project.xml"
+        goals="dist"
+        banner="distribution"
+        ignoreFailures="false"/>
+    <maven:reactor 
+        basedir="${basedir}"
+        includes="samples-web/project.xml"
+        goals="assemble"
+        banner="distribution"
+        ignoreFailures="false"/>
+    <maven:reactor 
+        basedir="${basedir}"
+        includes="samples-web/project.xml"
+        goals="dist:build-src"
+        banner="distribution"
+        ignoreFailures="false"/>
+    <ant:mkdir dir="${maven.build.dir}/distributions"/>
+    <ant:mkdir dir="${maven.build.dir}/src-distributions"/>
+    <ant:unzip dest="${maven.build.dir}/distributions">
+    	<ant:fileset dir="${basedir}/core/target/distributions" includes="*.zip" excludes="*src.zip"/>
+    	<ant:fileset dir="${basedir}/samples/target/distributions" includes="*.zip" excludes="*src.zip"/>
+    	<ant:fileset dir="${basedir}/j2ee/target/distributions" includes="*.zip" excludes="*src.zip"/>
+    </ant:unzip>
+   
+    <ant:mkdir dir="${maven.build.dir}/distributions/jcaptcha-samples-web-${pom.currentVersion}"/>
+    <ant:copy todir="${maven.build.dir}/distributions/jcaptcha-samples-web-${pom.currentVersion}">
+    	<ant:fileset dir="${basedir}/samples-web/target">
+    		<include name="jcaptcha-samples-web.war"/>
+    	</ant:fileset>
+    </ant:copy>
+   
+    <ant:unzip dest="${maven.build.dir}/src-distributions">
+    	<ant:fileset dir="${basedir}/core/target/distributions" includes="*src.zip"/>
+    	<ant:fileset dir="${basedir}/samples/target/distributions" includes="*src.zip"/>
+    	<ant:fileset dir="${basedir}/samples-web/target/distributions" includes="*src.zip"/>
+    	<ant:fileset dir="${basedir}/j2ee/target/distributions" includes="*src.zip"/>
+    </ant:unzip>
+    
+    <ant:copy todir="${maven.build.dir}/distributions">
+    	<ant:fileset dir="${basedir}">
+    		<include name="LICENSE.txt"/>
+    	</ant:fileset>
+    </ant:copy>
+    
+    <ant:copy todir="${maven.build.dir}/distributions">
+    	<ant:fileset dir="${basedir}/core">
+    		<include name="doc/**"/>
+    	</ant:fileset>
+    	<ant:fileset dir="${basedir}/j2ee">
+    		<include name="doc/**"/>
+    	</ant:fileset>
+    	<ant:fileset dir="${basedir}/samples">
+    		<include name="doc/**"/>
+    	</ant:fileset>
+    </ant:copy>
+    
+    <ant:copy todir="${maven.build.dir}/src-distributions">
+    	<ant:fileset dir="${basedir}">
+    		<include name="*.xml"/>
+    		<include name="*.txt"/>
+    		<include name="*.properties"/>
+    	</ant:fileset>
+    </ant:copy>
+    
+    <ant:zip zipfile="${maven.build.dir}/${pom.artifactId}-${pom.currentVersion}.zip"
+    	basedir="${maven.build.dir}/distributions"/>
+    <ant:zip zipfile="${maven.build.dir}/${pom.artifactId}-${pom.currentVersion}-src.zip"
+    	basedir="${maven.build.dir}/src-distributions"/>
+  </goal>
+  
+  <preGoal name="clean">
+    <maven:reactor 
+        basedir="${basedir}"
+        includes="**/${pattern}/**/project.xml"
+        excludes="project.xml"
+        goals="clean"
+        banner="cleanning"
+        ignoreFailures="false"/>
+  </preGoal>
+</project>
