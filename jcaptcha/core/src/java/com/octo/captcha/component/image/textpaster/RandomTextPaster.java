@@ -496,7 +496,6 @@ public class RandomTextPaster extends AbstractTextPaster
 
     protected Color[] textColors = null;
 
-    private Random rng = new Random();
 
     public RandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
         Color textColor)

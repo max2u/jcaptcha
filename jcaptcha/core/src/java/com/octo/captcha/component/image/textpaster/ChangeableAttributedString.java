@@ -358,37 +358,37 @@ public class ChangeableAttributedString
         return buf.toString();
     }
 
-    int length()
+    public int length()
     {
         return bounds.length;
     }
 
-    double getX(int index)
+    public double getX(int index)
     {
         return getBounds(index).getX();
     }
 
-    double getY(int index)
+    public double getY(int index)
     {
         return getBounds(index).getY();
     }
 
-    double getHeight(int index)
+    public double getHeight(int index)
     {
         return getBounds(index).getHeight();
     }
 
-    double getTotalWidth()
+    public double getTotalWidth()
     {
         return getX(length() - 1) + getWidth(length() - 1);
     }
 
-    double getWidth(int index)
+    public double getWidth(int index)
     {
         return getBounds(index).getWidth();
     }
 
-    double getAscent(int index)
+    public double getAscent(int index)
     {
         return getMetric(index).getAscent();
     }
@@ -398,7 +398,7 @@ public class ChangeableAttributedString
         return getMetric(index).getDescent();
     }
 
-    double getMaxWidth()
+   public double getMaxWidth()
     {
         double maxWidth = -1;
 
@@ -414,7 +414,7 @@ public class ChangeableAttributedString
         return maxWidth;
     }
 
-    double getMaxAscent()
+   public double getMaxAscent()
     {
         double maxAscent = -1;
 
@@ -430,7 +430,7 @@ public class ChangeableAttributedString
         return maxAscent;
     }
 
-    double getMaxDescent()
+    public double getMaxDescent()
     {
         double maxDescent = -1;
 
@@ -446,7 +446,7 @@ public class ChangeableAttributedString
         return maxDescent;
     }
 
-    double getMaxHeight()
+    public double getMaxHeight()
     {
         double maxHeight = -1;
         for (int i = 0; i < bounds.length; i++)
@@ -471,17 +471,17 @@ public class ChangeableAttributedString
         return getY(0) + getMaxHeight();
     }
 
-    Rectangle2D getBounds(int index)
+    public Rectangle2D getBounds(int index)
     {
         return bounds[index];
     }
 
-    LineMetrics getMetric(int index)
+    public LineMetrics getMetric(int index)
     {
         return metrics[index];
     }
 
-    AttributedCharacterIterator getIterator(int i)
+    public AttributedCharacterIterator getIterator(int i)
     {
         return aStrings[i].getIterator();
     }
