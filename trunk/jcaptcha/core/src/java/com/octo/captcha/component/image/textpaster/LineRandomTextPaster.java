@@ -486,6 +486,7 @@ import java.text.AttributedString;
 * TextColor by default.
 * 
 * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
+* @deprecated use the {@link DecoratedRandomTextPaster} instead
 * @version 1.0
 * @see {http://www.parc.xerox.com/research/istl/projects/captcha/default.html}
 */

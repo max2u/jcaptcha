@@ -480,9 +480,10 @@ import java.text.AttributedString;
  * </p>
  * You may specify the number of holes per glyph : 3 by default. You may specify the color of holes :
  * TextColor by default.
- * 
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
+ * @deprecated  use the {@link DecoratedRandomTextPaster} instead
  * @see {http://www.parc.xerox.com/research/istl/projects/captcha/default.html}
  */
 public class BaffleRandomTextPaster extends RandomTextPaster
