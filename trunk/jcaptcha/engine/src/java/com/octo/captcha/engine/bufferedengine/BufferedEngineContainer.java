@@ -195,7 +195,7 @@ public abstract class BufferedEngineContainer implements CaptchaEngine
             log.debug("feed locale :   " + locale.toString() + " ratio count : " + ratioCount);
         }
 
-        boolean hasLocale = it.hasNext();
+        boolean hasLocale = (locale == null)?false:true;
 
         while (i < config.getFeedSize().intValue() && hasLocale
             && persistentBuffer.size() <= config.getMaxPersistentMemorySize().intValue())

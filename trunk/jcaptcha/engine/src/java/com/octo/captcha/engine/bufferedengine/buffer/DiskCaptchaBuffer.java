@@ -1,16 +1,5 @@
 package com.octo.captcha.engine.bufferedengine.buffer;
 
-import org.apache.commons.collections.Buffer;
-import org.apache.commons.collections.MapIterator;
-import org.apache.commons.collections.buffer.SynchronizedBuffer;
-import org.apache.commons.collections.buffer.UnboundedFifoBuffer;
-import org.apache.commons.collections.map.HashedMap;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.octo.captcha.Captcha;
-import com.octo.captcha.CaptchaException;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -22,13 +11,22 @@ import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
-import org.apache.commons.collections.BufferUnderflowException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Locale;
 import java.util.NoSuchElementException;
+
+import org.apache.commons.collections.BufferUnderflowException;
+import org.apache.commons.collections.MapIterator;
+import org.apache.commons.collections.buffer.UnboundedFifoBuffer;
+import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.octo.captcha.Captcha;
+import com.octo.captcha.CaptchaException;
 
 /**
  * Simple implmentation of a disk captcha buffer
