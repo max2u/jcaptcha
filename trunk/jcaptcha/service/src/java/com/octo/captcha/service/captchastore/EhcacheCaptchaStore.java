@@ -501,6 +501,7 @@ public class EhcacheCaptchaStore implements CaptchaStore {
             Element el = this.cache.get(id);
             return el!=null&&el.getValue()!=null;
         } catch (CacheException e) {
+            log.error(e);
             return false;
         }
     }
@@ -536,7 +537,8 @@ public class EhcacheCaptchaStore implements CaptchaStore {
               return null;
             }
         } catch (CacheException e) {
-           return null;
+            log.error(e);
+            return null;
         }
     }
 
@@ -555,12 +557,8 @@ public class EhcacheCaptchaStore implements CaptchaStore {
      * get the size of this store
      */
     public int getSize() {
-        try {
-            return cache.getSize();
-        } catch (CacheException e) {
-            log.error(e);
-            return -1;
-        }
+            return (int)cache.getMemoryStoreSize()+cache.getDiskStoreSize();
+
     }
 
     /**
@@ -582,7 +580,7 @@ public class EhcacheCaptchaStore implements CaptchaStore {
         try {
             cache.removeAll();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e);
         }
     }
 
