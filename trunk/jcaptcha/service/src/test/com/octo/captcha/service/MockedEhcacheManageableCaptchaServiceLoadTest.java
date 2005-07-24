@@ -464,16 +464,12 @@
 package com.octo.captcha.service;
 
 
-
-
-
 public class MockedEhcacheManageableCaptchaServiceLoadTest extends ServiceLoadTestAbstract {
     EhcacheManageableCaptchaService ehcacheManageableCaptchaService;
 
     protected void setUp() throws Exception {
-         this.service = new MockedEhCacheManageableCaptchaService(new MockCaptchaEngine(),
-                 160,1000
-                );
+        this.service = new MockedEhCacheManageableCaptchaService(new MockCaptchaEngine(),
+                160, 1000);
         AbstractManageableCaptchaServiceTest.CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION = 0;
     }
 

@@ -464,23 +464,21 @@
 package com.octo.captcha.service;
 
 
-
 import net.sf.ehcache.CacheManager;
 
 public class EhcacheManageableCaptchaServiceTest extends AbstractManageableCaptchaServiceTest {
     EhcacheManageableCaptchaService ehcacheManageableCaptchaService;
 
     protected void setUp() throws Exception {
-         this.service = new MockedEhCacheManageableCaptchaService(new MockCaptchaEngine(),
-                 MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS,MAX_CAPTCHA_STORE_SIZE
-                );
+        this.service = new MockedEhCacheManageableCaptchaService(new MockCaptchaEngine(),
+                MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS, MAX_CAPTCHA_STORE_SIZE);
         AbstractManageableCaptchaServiceTest.CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION = 0;
     }
 
     protected void tearDown() throws Exception {
         super.tearDown();
         getMService().emptyCaptchaStore();
-        CacheManager.getInstance().removeCache(EhcacheManageableCaptchaService.CACHE_NAME_PREFIX  + EhcacheManageableCaptchaService.DEFAULT_CACHE_NAME);
+        CacheManager.getInstance().removeCache(EhcacheManageableCaptchaService.CACHE_NAME_PREFIX + EhcacheManageableCaptchaService.DEFAULT_CACHE_NAME);
     }
 
 
@@ -490,7 +488,7 @@ public class EhcacheManageableCaptchaServiceTest extends AbstractManageableCaptc
     */
 
     public void testSetCaptchaStoreMaxSize() throws Exception {
-            super.getMService().setCaptchaStoreMaxSize(CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION);
+        super.getMService().setCaptchaStoreMaxSize(CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION);
         assertEquals("modified size",
                 CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION, getMService().getCaptchaStoreMaxSize());
     }
@@ -508,12 +506,12 @@ public class EhcacheManageableCaptchaServiceTest extends AbstractManageableCaptc
     }
 
     public void testAutomaticGarbaging() throws Exception {
-       
+
     }
 
     public void testGetNumberOfGarbageCollectableCaptchas() throws Exception {
-        
+
     }
 
-     
+
 }

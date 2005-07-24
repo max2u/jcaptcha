@@ -468,14 +468,13 @@ import com.octo.captcha.service.ServiceLoadTestAbstract;
 
 /**
  * Load test of the default Service implementation
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class DefaultManageableImageCaptchaServiceLoadTest extends ServiceLoadTestAbstract
-{
+public class DefaultManageableImageCaptchaServiceLoadTest extends ServiceLoadTestAbstract {
 
-    protected void setUp() throws Exception
-    {
+    protected void setUp() throws Exception {
         this.service = new DefaultManageableImageCaptchaService();
     }
 }

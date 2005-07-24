@@ -466,11 +466,9 @@ package com.octo.captcha.service.sound;
 import com.octo.captcha.Captcha;
 import com.octo.captcha.service.AbstractManageableCaptchaService;
 import com.octo.captcha.service.CaptchaServiceException;
-import com.octo.captcha.service.image.ImageCaptchaService;
 import com.octo.captcha.service.captchastore.CaptchaStore;
 
 import javax.sound.sampled.AudioInputStream;
-import java.awt.image.BufferedImage;
 import java.util.Locale;
 
 /**

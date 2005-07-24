@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class AbstractManageableCaptchaServiceTest extends AbstractCaptchaServiceTest {
     public static int MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS = 2;
-    public static  int CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION = 2 * SIZE;
+    public static int CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION = 2 * SIZE;
     public static int MAX_CAPTCHA_STORE_SIZE = 3 * SIZE;
 
 
@@ -98,7 +98,7 @@ public class AbstractManageableCaptchaServiceTest extends AbstractCaptchaService
         assertTrue("store size should be the same(this test may fail if time to load the store is > min guaranted...)",
                 getMService().getCaptchaStoreSize() == CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION);
         //wait,  and collect
-        Thread.sleep(MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS * 1000+100);
+        Thread.sleep(MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS * 1000 + 100);
         getMService().garbageCollectCaptchaStore();
         assertTrue("store should be empty",
                 getMService().getCaptchaStoreSize() == 0);
@@ -389,27 +389,27 @@ public class AbstractManageableCaptchaServiceTest extends AbstractCaptchaService
             }
         }
 
-        Thread.sleep(1000 );
+        Thread.sleep(1000);
         getMService().setMinGuarantedStorageDelayInSeconds(1);
-        Thread.sleep(1000);    
+        Thread.sleep(1000);
         try {
-             fullLoad();
+            fullLoad();
 
-            } catch (CaptchaServiceException e) {
-                fail("should not have thrown a captcha store full exception");
-            }
+        } catch (CaptchaServiceException e) {
+            fail("should not have thrown a captcha store full exception");
+        }
 
     }
 
     private void fullLoad() {
-        int i=0;
+        int i = 0;
         try {
             for (i = 0; i < MAX_CAPTCHA_STORE_SIZE; i++) {
                 String id = String.valueOf(i);
                 service.generateAndStoreCaptcha(Locale.getDefault(), id);
             }
         } catch (CaptchaServiceException e) {
-            System.out.println("i = "+i);
+            System.out.println("i = " + i);
             e.printStackTrace();
             throw e;
         }
