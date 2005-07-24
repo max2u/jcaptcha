@@ -472,11 +472,16 @@ import com.octo.captcha.Captcha;
  * Date: 23 oct. 2004
  * Time: 15:29:39
  */
-public abstract class TextCaptcha implements Captcha{
+public abstract class TextCaptcha implements Captcha {
 
     private Boolean hasChallengeBeenCalled = Boolean.FALSE;
     protected String question;
     protected String challenge;
+
+    protected TextCaptcha(String question, String challenge) {
+        this.challenge = challenge;
+        this.question = question;
+    }
 
     /**
      * Accessor captcha question.
@@ -496,7 +501,7 @@ public abstract class TextCaptcha implements Captcha{
         return getTextChallenge();
     }
 
-     /**
+    /**
      * Accerssor for the questionned challenge in text format.
      *
      * @return the challenge
@@ -505,7 +510,6 @@ public abstract class TextCaptcha implements Captcha{
         hasChallengeBeenCalled = Boolean.TRUE;
         return challenge;
     }
-
 
 
     /**
@@ -527,8 +531,7 @@ public abstract class TextCaptcha implements Captcha{
      *
      * @return true if getChallenge has been called false otherwise.
      */
-    public Boolean hasGetChalengeBeenCalled()
-    {
+    public Boolean hasGetChalengeBeenCalled() {
         return hasChallengeBeenCalled;
     }
 }

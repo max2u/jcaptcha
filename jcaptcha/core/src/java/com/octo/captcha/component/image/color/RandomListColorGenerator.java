@@ -6,19 +6,18 @@
  */
 package com.octo.captcha.component.image.color;
 
-import java.awt.Color;
-import java.util.Random;
-
 import com.octo.captcha.CaptchaException;
+
+import java.awt.*;
+import java.util.Random;
 
 /**
  * A RandomListColor returns a random color have been picked from a user defined colors list.
- * 
+ *
  * @author Benoit Doumas
  * @author Chrsitian Blavier
  */
-public class RandomListColorGenerator implements ColorGenerator
-{
+public class RandomListColorGenerator implements ColorGenerator {
     /**
      * List of colors that can be selected
      */
@@ -31,18 +30,15 @@ public class RandomListColorGenerator implements ColorGenerator
 
     /**
      * Constructor that take an array of Color
+     *
      * @param colorsList the array of color
      */
-    public RandomListColorGenerator(Color[] colorsList)
-    {
-        if (colorsList == null) 
-        {
+    public RandomListColorGenerator(Color[] colorsList) {
+        if (colorsList == null) {
             throw new CaptchaException("Color list cannot be null");
         }
-        for (int i = 0; i < colorsList.length; i++)
-        {
-            if (colorsList[i] == null)
-            {
+        for (int i = 0; i < colorsList.length; i++) {
+            if (colorsList[i] == null) {
                 throw new CaptchaException("One or several color is null");
             }
         }
@@ -52,8 +48,7 @@ public class RandomListColorGenerator implements ColorGenerator
     /**
      * @see com.octo.captcha.component.image.color.ColorGenerator#getNextColor()
      */
-    public Color getNextColor()
-    {
+    public Color getNextColor() {
         int index = random.nextInt(this.colorsList.length);
         return this.colorsList[index];
     }

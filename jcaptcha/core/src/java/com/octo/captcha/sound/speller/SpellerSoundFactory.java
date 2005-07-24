@@ -464,11 +464,6 @@
 
 package com.octo.captcha.sound.speller;
 
-import java.util.Locale;
-import java.util.Random;
-
-import javax.sound.sampled.AudioInputStream;
-
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.CaptchaQuestionHelper;
 import com.octo.captcha.component.sound.wordtosound.WordToSound;
@@ -478,14 +473,17 @@ import com.octo.captcha.component.wordgenerator.WordGenerator;
 import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
 
+import javax.sound.sampled.AudioInputStream;
+import java.util.Locale;
+import java.util.Random;
+
 /**
  * Factory for SpellerSound
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class SpellerSoundFactory extends SoundCaptchaFactory
-{
+public class SpellerSoundFactory extends SoundCaptchaFactory {
 
     private WordGenerator wordGenerator;
 
@@ -502,50 +500,41 @@ public class SpellerSoundFactory extends SoundCaptchaFactory
 
     /**
      * Construct a GimpySoundFactory from a word generator component and a wordtosound component
-     * 
-     * @param thewordGenerator
-     *            component
-     * @param theword2Sound
-     *            component
+     *
+     * @param thewordGenerator component
+     * @param theword2Sound    component
      */
     public SpellerSoundFactory(WordGenerator wordGenerator, WordToSound word2Sound,
-        SpellerWordDecorator wordDecorator)
-    {
-        if (wordGenerator == null)
-        {
+                               SpellerWordDecorator wordDecorator) {
+        if (wordGenerator == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "SpellingSoundFactory : WordGenerator can't be null");
+                    + "SpellingSoundFactory : WordGenerator can't be null");
         }
-        if (word2Sound == null)
-        {
+        if (word2Sound == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "SpellingSoundFactory : Word2Sound can't be null");
+                    + "SpellingSoundFactory : Word2Sound can't be null");
         }
-        if (wordDecorator == null)
-        {
+        if (wordDecorator == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "SpellingSoundFactory : wordDecorator can't be null");
+                    + "SpellingSoundFactory : wordDecorator can't be null");
         }
         this.wordGenerator = wordGenerator;
         this.word2Sound = word2Sound;
         this.wordDecorator = wordDecorator;
     }
 
-    public WordToSound getWordToSound()
-    {
+    public WordToSound getWordToSound() {
         return this.word2Sound;
     }
 
-    public WordGenerator getWordGenerator()
-    {
+    public WordGenerator getWordGenerator() {
         return this.wordGenerator;
     }
 
     /**
      * @return a Sound Captcha
      */
-    public SoundCaptcha getSoundCaptcha()
-    {
+    public SoundCaptcha getSoundCaptcha() {
         String word = this.wordGenerator.getWord(getRandomLenght(), Locale.getDefault());
         AudioInputStream sound = this.word2Sound.getSound(wordDecorator.decorateWord(word));
         SoundCaptcha soundCaptcha = new SpellerSound(getQuestion(Locale.getDefault()), sound, word);
@@ -553,28 +542,24 @@ public class SpellerSoundFactory extends SoundCaptchaFactory
     }
 
     /**
-     * @param locale
-     *            the locale
+     * @param locale the locale
      * @return a localized sound captcha
      */
-    public SoundCaptcha getSoundCaptcha(Locale locale)
-    {
+    public SoundCaptcha getSoundCaptcha(Locale locale) {
         String word = this.wordGenerator.getWord(getRandomLenght(), locale);
         AudioInputStream sound = this.word2Sound.getSound(wordDecorator.decorateWord(word), locale);
         SoundCaptcha soundCaptcha = new SpellerSound(getQuestion(locale), sound, word);
         return soundCaptcha;
     }
 
-    protected String getQuestion(Locale locale)
-    {
+    protected String getQuestion(Locale locale) {
         return CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY);
     }
 
-    protected Integer getRandomLenght()
-    {
+    protected Integer getRandomLenght() {
         Integer wordLenght;
         int range = getWordToSound().getMaxAcceptedWordLenght()
-            - getWordToSound().getMinAcceptedWordLenght();
+                - getWordToSound().getMinAcceptedWordLenght();
         int randomRange = range != 0 ? myRandom.nextInt(range + 1) : 0;
         wordLenght = new Integer(randomRange + getWordToSound().getMinAcceptedWordLenght());
         return wordLenght;

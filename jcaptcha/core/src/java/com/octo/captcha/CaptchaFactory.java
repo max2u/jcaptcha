@@ -476,8 +476,7 @@ import java.util.Locale;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface CaptchaFactory
-{
+public interface CaptchaFactory {
 
     /**
      * builds a captcha

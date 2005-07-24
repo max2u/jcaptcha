@@ -478,8 +478,7 @@ import java.util.Locale;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class DictionaryWordGenerator implements WordGenerator
-{
+public class DictionaryWordGenerator implements WordGenerator {
 
     private Locale defaultLocale;
 
@@ -487,8 +486,7 @@ public class DictionaryWordGenerator implements WordGenerator
 
     private HashMap localizedwords = new HashMap();
 
-    public DictionaryWordGenerator(DictionaryReader reader)
-    {
+    public DictionaryWordGenerator(DictionaryReader reader) {
         this.factory = reader;
         //add the default wordlist to the localisedWordList
         this.defaultLocale = factory.getWordList().getLocale();
@@ -501,8 +499,7 @@ public class DictionaryWordGenerator implements WordGenerator
      * @param lenght
      * @return a String of lenght between min and max lenght
      */
-    public final String getWord(Integer lenght)
-    {
+    public final String getWord(Integer lenght) {
         return getWord(lenght, defaultLocale);
     }
 
@@ -515,15 +512,13 @@ public class DictionaryWordGenerator implements WordGenerator
      * @return a String of lenght between min and max lenght according to the
      *         given locale
      */
-    public String getWord(Integer lenght, Locale locale)
-    {
+    public String getWord(Integer lenght, Locale locale) {
         WordList words;
         words = getWordList(locale);
 
         String word = words.getNextWord(lenght);
         //check if word with the specified lenght exist
-        if (word == null)
-        {
+        if (word == null) {
             //if not see if any
             throw new CaptchaException("No word of lenght : " + lenght +
                     " exists in dictionnary! please " +
@@ -532,14 +527,11 @@ public class DictionaryWordGenerator implements WordGenerator
         return word;
     }
 
-    final WordList getWordList(Locale locale)
-    {
+    final WordList getWordList(Locale locale) {
         WordList words;
-        if (localizedwords.containsKey(locale))
-        {
+        if (localizedwords.containsKey(locale)) {
             words = (WordList) localizedwords.get(locale);
-        } else
-        {
+        } else {
 
             words = factory.getWordList(locale);
             //add to cache

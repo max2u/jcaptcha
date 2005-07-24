@@ -464,9 +464,9 @@
 
 package com.octo.captcha.sound.gimpy;
 
-import javax.sound.sampled.AudioInputStream;
-
 import com.octo.captcha.sound.SoundCaptcha;
+
+import javax.sound.sampled.AudioInputStream;
 
 /**
  * <p>Description: </p>
@@ -475,32 +475,26 @@ import com.octo.captcha.sound.SoundCaptcha;
  * @author Benoit Doumas
  * @version 1.0
  */
-public class GimpySound extends SoundCaptcha
-{
+public class GimpySound extends SoundCaptcha {
 
     private String response;
 
     public GimpySound(String thequestion,
-        AudioInputStream thechallenge, String theresponse)
-    {
+                      AudioInputStream thechallenge, String theresponse) {
         super(thequestion, thechallenge);
         this.response = theresponse;
     }
 
-    public Boolean validateResponse(Object theresponse)
-    {
-        if ((theresponse != null) && (theresponse instanceof String))
-        {
+    public Boolean validateResponse(Object theresponse) {
+        if ((theresponse != null) && (theresponse instanceof String)) {
             return this.validateResponse((String) theresponse);
-        } else
-        {
+        } else {
             return Boolean.FALSE;
         }
     }
 
-    public Boolean validateResponse(String theresponse)
-    {
-        return new Boolean(theresponse.equals(this.response));
+    public Boolean validateResponse(String theresponse) {
+        return new Boolean(this.response.equalsIgnoreCase(theresponse));
     }
 
 }

@@ -48,6 +48,8 @@ public class BaffleTextDecorator implements TextDecorator {
      */
     private ColorGenerator holesColorGenerator = null;
 
+    private int alphaCompositeType = AlphaComposite.SRC_OVER;
+
 
     /**
      * @param numberOfHolesPerGlyph
@@ -65,6 +67,7 @@ public class BaffleTextDecorator implements TextDecorator {
      * @param holesColorGenerator   The colors for holes
      */
     public BaffleTextDecorator(Integer numberOfHolesPerGlyph, ColorGenerator holesColorGenerator) {
+
         this.numberOfHolesPerGlyph = numberOfHolesPerGlyph != null ? numberOfHolesPerGlyph
                 : this.numberOfHolesPerGlyph;
         this.holesColorGenerator = holesColorGenerator != null ? holesColorGenerator
@@ -72,12 +75,25 @@ public class BaffleTextDecorator implements TextDecorator {
     }
 
 
+    /**
+     * @param numberOfHolesPerGlyph Number of holes around glyphes
+     * @param holesColorGenerator   The colors for holes
+     */
+    public BaffleTextDecorator(Integer numberOfHolesPerGlyph, ColorGenerator holesColorGenerator, Integer alphaCompositeType) {
+        this(numberOfHolesPerGlyph, holesColorGenerator);
+        this.alphaCompositeType = alphaCompositeType != null ? alphaCompositeType.intValue() : this.alphaCompositeType;
+    }
+
+
     public void decorateSAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString) {
 
-
-        g2.setColor(holesColorGenerator.getNextColor());
+        Color oldColor = g2.getColor();
+        Composite oldComp = g2.getComposite();
+        g2.setComposite(AlphaComposite.getInstance(alphaCompositeType));
 
         for (int j = 0; j < attributedWord.getIterator().getEndIndex(); j++) {
+            g2.setColor(holesColorGenerator.getNextColor());
+
             Rectangle2D bounds = newAttrString.getBounds(j).getFrame();
             double circleMaxSize = (double) bounds.getWidth() / 2;
             for (int i = 0; i < numberOfHolesPerGlyph.intValue(); i++) {
@@ -90,6 +106,8 @@ public class BaffleTextDecorator implements TextDecorator {
                 g2.fill(circle);
             }
         }
+        g2.setColor(oldColor);
+        g2.setComposite(oldComp);
     }
 }
 

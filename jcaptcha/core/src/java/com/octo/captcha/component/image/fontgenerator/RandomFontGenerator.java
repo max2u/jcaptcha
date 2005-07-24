@@ -464,13 +464,9 @@
 
 package com.octo.captcha.component.image.fontgenerator;
 
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.awt.*;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 
 /**
  * <p>Description: </p>
@@ -483,7 +479,7 @@ public class RandomFontGenerator extends AbstractFontGenerator {
      * list of valid fonts.
      */
     protected static java.util.List defaultFonts;
-    
+
     /**
      * list of fonts given by constructor.
      */
@@ -515,7 +511,7 @@ public class RandomFontGenerator extends AbstractFontGenerator {
     public RandomFontGenerator(Integer minFontSize, Integer maxFontSize) {
         super(minFontSize, maxFontSize);
     }
-    
+
     public RandomFontGenerator(Integer minFontSize, Integer maxFontSize, Font[] fontsList) {
         super(minFontSize, maxFontSize);
         fonts = initializeFonts(fontsList);
@@ -528,7 +524,7 @@ public class RandomFontGenerator extends AbstractFontGenerator {
      * @return a Font
      */
     public Font getFont() {
-        
+
         //defaultFonts are initialized one time, cause static
         if (defaultFonts == null) {
             // we cache a lot of decisions about fonts -- do this as little as possible
@@ -538,9 +534,8 @@ public class RandomFontGenerator extends AbstractFontGenerator {
                 }
             }
         }
-        
-        if (fonts == null)
-        {
+
+        if (fonts == null) {
             fonts = defaultFonts;
         }
 
@@ -564,8 +559,8 @@ public class RandomFontGenerator extends AbstractFontGenerator {
     /**
      * Create an array of fonts that is known to properly represent all the characters in requiredCharacters.
      *
-     * @see #requiredCharacters
      * @return array of fonts
+     * @see #requiredCharacters
      */
     private List initializeFonts(Font[] uncheckFonts) {
 
@@ -584,10 +579,10 @@ public class RandomFontGenerator extends AbstractFontGenerator {
 
             // a font is removed if it cannot display the characters we need.
 
-            for(int i=0;i<requiredCharacters.length();i++){
+            for (int i = 0; i < requiredCharacters.length(); i++) {
                 if (!f.canDisplay(requiredCharacters.charAt(i))) {
                     iter.remove();
-                     break;
+                    break;
                 }
             }
 
@@ -627,7 +622,6 @@ public class RandomFontGenerator extends AbstractFontGenerator {
     }
 
     /**
-     *
      * @param badFontNamePrefixes an array of font name prefixes that should be not used in generating captchas
      */
     public void setBadFontNamePrefixes(String[] badFontNamePrefixes) {

@@ -489,8 +489,7 @@ import java.io.Serializable;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface Captcha extends Serializable
-{
+public interface Captcha extends Serializable {
 
     /**
      * Accessor captcha question.

@@ -473,12 +473,11 @@ import java.awt.image.ImageFilter;
 
 /**
  * Use an array of java.awt.image.ImageFilter to deform an image
- * 
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
  */
-public class ImageDeformationByFilters implements ImageDeformation
-{
+public class ImageDeformationByFilters implements ImageDeformation {
 
     /**
      * Filters to defrom the image
@@ -487,45 +486,37 @@ public class ImageDeformationByFilters implements ImageDeformation
 
     /**
      * Constructor with an array of ImageFilter
-     * 
-     * @param filters
-     *                  Filters to defrom the image
+     *
+     * @param filters Filters to defrom the image
      */
-    public ImageDeformationByFilters(ImageFilter[] filters)
-    {
+    public ImageDeformationByFilters(ImageFilter[] filters) {
         super();
         this.filters = filters;
     }
 
     /**
      * Deforms an image
-     * 
-     * @param image
-     *                  the image to be deformed
+     *
+     * @param image the image to be deformed
      * @return the deformed image
      */
-    public BufferedImage deformImage(BufferedImage image)
-    {
-        if (filters != null)
-        {
+    public BufferedImage deformImage(BufferedImage image) {
+        if (filters != null) {
             BufferedImage clone = new BufferedImage(image.getWidth(), image.getHeight(), image
-                .getType());
+                    .getType());
             clone.getGraphics().drawImage(image, 0, 0, null, null);
             FilteredImageSource filtered;
 
-            for (int i = 0; i < filters.length; i++)
-            {
+            for (int i = 0; i < filters.length; i++) {
                 ImageFilter filter = filters[i];
                 filtered = new FilteredImageSource(clone.getSource(), filter);
                 Image temp = ToolkitFactory.getToolkit().createImage(filtered);
-                clone.getGraphics().drawImage(temp, 0, 0, new Color(255,255,255,0), null);
+                clone.getGraphics().drawImage(temp, 0, 0, new Color(255, 255, 255, 0), null);
             }
 
             clone.getGraphics().dispose();
             return clone;
-        }
-        else
-        {
+        } else {
             return image;
         }
     }

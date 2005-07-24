@@ -463,38 +463,34 @@ END OF TERMS AND CONDITIONS
 */
 package com.octo.captcha.component.sound.wordtosound;
 
-import javax.sound.sampled.AudioInputStream;
-
 import com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator;
+
+import javax.sound.sampled.AudioInputStream;
 
 /**
  * Clean use of FreeTTS, without effect.
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class CleanFreeTTSWordToSound extends AbstractFreeTTSWordToSound
-{
-    public CleanFreeTTSWordToSound()
-    {
+public class CleanFreeTTSWordToSound extends AbstractFreeTTSWordToSound {
+    public CleanFreeTTSWordToSound() {
         super();
     }
 
     /**
      * @see com.octo.captcha.component.sound.wordtosound.AbstractFreeTTSWordToSound#AbstractFreeTTSWordToSound(String,
-     *      String, int, int)
+            *      String, int, int)
      */
     public CleanFreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLenght,
-        int maxAcceptedWordLenght)
-    {
+                                   int maxAcceptedWordLenght) {
         super(configurator, minAcceptedWordLenght, maxAcceptedWordLenght);
     }
 
     /**
      * @see com.octo.captcha.component.sound.wordtosound.AbstractFreeTTSWordToSound#addEffects(javax.sound.sampled.AudioInputStream)
      */
-    protected AudioInputStream addEffects(AudioInputStream sound)
-    {
+    protected AudioInputStream addEffects(AudioInputStream sound) {
         return sound;
     }
 

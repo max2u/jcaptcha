@@ -463,16 +463,6 @@
  */
 package com.octo.captcha.component.sound.wordtosound;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.SequenceInputStream;
-import java.util.Locale;
-import java.util.Vector;
-
-import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.AudioInputStream;
-
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurator;
 import com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator;
@@ -481,14 +471,22 @@ import com.sun.speech.freetts.VoiceManager;
 import com.sun.speech.freetts.audio.AudioPlayer;
 import com.sun.speech.freetts.util.Utilities;
 
+import javax.sound.sampled.AudioFormat;
+import javax.sound.sampled.AudioInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.SequenceInputStream;
+import java.util.Locale;
+import java.util.Vector;
+
 /**
  * WordToSound implementation with FreeTTS an openSource Text To Speech implementation.
- * 
+ *
  * @author Benoit
  * @version 1.0
  */
-public abstract class AbstractFreeTTSWordToSound implements WordToSound
-{
+public abstract class AbstractFreeTTSWordToSound implements WordToSound {
     public static String defaultVoiceName = "kevin16";
 
     public static String defaultVoicePackage = "com.sun.speech.freetts.en.us.cmu_time_awb.AlanVoiceDirectory,com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory";
@@ -516,13 +514,12 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
 
     /**
      * Constructor
-     * 
+     *
      * @deprecated
      */
-    public AbstractFreeTTSWordToSound()
-    {
+    public AbstractFreeTTSWordToSound() {
         configurator = new FreeTTSSoundConfigurator(AbstractFreeTTSWordToSound.defaultVoiceName,
-            AbstractFreeTTSWordToSound.defaultVoicePackage, 1.0f, 100, 100);
+                AbstractFreeTTSWordToSound.defaultVoicePackage, 1.0f, 100, 100);
 
         minAcceptedWordLenght = 4;
         maxAcceptedWordLenght = 6;
@@ -532,19 +529,14 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
     /**
      * Constructor for a FreeTTS implmentation of WordToSound. This constructor imply that
      * WordToSound only use one voice define by voiceName, with its own locale
-     * 
-     * @param voiceName
-     *            Voice Name to be use to produce the sound by default (with getSound())
-     * @param voicePackages
-     *            Voice Packages where voices are defined see WordToSoundFreeTTS.defaultVoicePackage
-     * @param minAcceptedWordLenght
-     *            Lenght Minimal of generated words
-     * @param maxAcceptedWordLenght
-     *            Lenght Maximal of generated words
+     *
+     * @param voiceName             Voice Name to be use to produce the sound by default (with getSound())
+     * @param voicePackages         Voice Packages where voices are defined see WordToSoundFreeTTS.defaultVoicePackage
+     * @param minAcceptedWordLenght Lenght Minimal of generated words
+     * @param maxAcceptedWordLenght Lenght Maximal of generated words
      */
     public AbstractFreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLenght,
-        int maxAcceptedWordLenght)
-    {
+                                      int maxAcceptedWordLenght) {
         this.configurator = configurator;
         this.minAcceptedWordLenght = minAcceptedWordLenght;
         this.maxAcceptedWordLenght = maxAcceptedWordLenght;
@@ -554,8 +546,7 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
     /**
      * @see com.octo.captcha.component.sound.wordtosound.WordToSound#getSound(java.lang.String)
      */
-    public AudioInputStream getSound(String word) throws CaptchaException
-    {
+    public AudioInputStream getSound(String word) throws CaptchaException {
         //return a sound generated with the default voice.
         voice = defaultVoice;
         return addEffects(stringToSound(word));
@@ -563,38 +554,29 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
 
     /**
      * @see com.octo.captcha.component.sound.wordtosound.WordToSound#getSound(java.lang.String,
-     *      java.util.Locale)
+            *      java.util.Locale)
      */
-    public AudioInputStream getSound(String word, Locale locale) throws CaptchaException
-    {
+    public AudioInputStream getSound(String word, Locale locale) throws CaptchaException {
 
         Voice[] voices = voiceManager.getVoices();
         Voice selectedVoice = null;
 
         //if the default voice is corresponding
-        if (defaultVoice.getLocale().equals(locale))
-        {
+        if (defaultVoice.getLocale().equals(locale)) {
             voice = defaultVoice;
-        }
-        else
-        {
+        } else {
             //try to find a voice corresponding to the locale
-            for (int i = 0; i < voices.length; i++)
-            {
-                if (voices[i].getLocale().equals(locale))
-                {
+            for (int i = 0; i < voices.length; i++) {
+                if (voices[i].getLocale().equals(locale)) {
                     selectedVoice = voices[i];
                 }
             }
 
-            if (selectedVoice != null)
-            {
+            if (selectedVoice != null) {
                 selectedVoice.allocate();
                 voice = selectedVoice;
                 configureVoice(voice);
-            }
-            else
-            {
+            } else {
                 throw new CaptchaException("No voice corresponding to the Locale");
             }
         }
@@ -602,13 +584,11 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
         return addEffects(stringToSound(word));
     }
 
-    public int getMaxAcceptedWordLenght()
-    {
+    public int getMaxAcceptedWordLenght() {
         return maxAcceptedWordLenght;
     }
 
-    public int getMinAcceptedWordLenght()
-    {
+    public int getMinAcceptedWordLenght() {
         return minAcceptedWordLenght;
     }
 
@@ -620,10 +600,8 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
     /**
      * Method to initialise FreeTTS
      */
-    private void init()
-    {
-        if (!isInitiated)
-        {
+    private void init() {
+        if (!isInitiated) {
             //Voices use by freeTTS, we define where they are, currently in the java en_us.jar
             //add the package
             addToSystemesPropetites(this.configurator.getLocation());
@@ -644,19 +622,15 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
     /**
      * Add the package to the system properties, will be used by FreeTTS to find all data for
      * voices.
-     * 
+     *
      * @param soundPackage
      */
-    private static void addToSystemesPropetites(String soundPackage)
-    {
+    private static void addToSystemesPropetites(String soundPackage) {
         //get the prop, if not exist inti, else add to the prop
         String packages = System.getProperty(FREETTS_PROPERTIES_KEY);
-        if (packages == null)
-        {
+        if (packages == null) {
             packages = soundPackage;
-        }
-        else if (packages.indexOf(soundPackage) == -1)
-        {
+        } else if (packages.indexOf(soundPackage) == -1) {
             packages += "," + soundPackage;
         }
 
@@ -665,10 +639,10 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
 
     /**
      * Configue the voice with the SoundConfigurator
+     *
      * @param voice
      */
-    private void configureVoice(Voice voice)
-    {
+    private void configureVoice(Voice voice) {
         voice.setPitch(configurator.getPitch());
         voice.setVolume(configurator.getVolume());
         voice.setRate(configurator.getRate());
@@ -677,15 +651,13 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
     /**
      * Main method for this service Return an image with the specified. Synchronisation is very
      * important, for multi threading execution
-     * 
-     * @param sentence
-     *            Written sentece to transform into speech
+     *
+     * @param sentence Written sentece to transform into speech
      * @return the generated sound
      * @throws com.octo.captcha.CaptchaException
-     *             if word is invalid or an exception occurs during the sound generation
+     *          if word is invalid or an exception occurs during the sound generation
      */
-    public synchronized AudioInputStream stringToSound(String sentence) throws CaptchaException
-    {
+    public synchronized AudioInputStream stringToSound(String sentence) throws CaptchaException {
         //use the custom (see inner class) InputStreamAudioPlayer, which provide interface to
         // Audio Stream
         InputStreamAudioPlayer audioPlayer = new InputStreamAudioPlayer();
@@ -703,8 +675,7 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
      * Implementation of freeTTS AudioPlayer interface, to produce an audioInputStream, this is not
      * a very clean way since it doesn't really play. But it is the only way to get a stream easily
      */
-    private class InputStreamAudioPlayer implements AudioPlayer
-    {
+    private class InputStreamAudioPlayer implements AudioPlayer {
         private boolean debug = false;
 
         private AudioFormat currentFormat = null;
@@ -721,131 +692,109 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
 
         /**
          * Constructs a InputStreamAudioPlayer
-         * 
-         * @param baseName
-         *            the base name of the audio file
-         * @param type
-         *            the type of audio output
+         *
+         * @param baseName the base name of the audio file
+         * @param type     the type of audio output
          */
-        public InputStreamAudioPlayer()
-        {
+        public InputStreamAudioPlayer() {
             debug = Utilities.getBoolean("com.sun.speech.freetts.audio.AudioPlayer.debug");
             outputList = new Vector();
         }
 
         /**
          * Sets the audio format for this player
-         * 
-         * @param format
-         *            the audio format
-         * @throws UnsupportedOperationException
-         *             if the line cannot be opened with the given format
+         *
+         * @param format the audio format
+         * @throws UnsupportedOperationException if the line cannot be opened with the given format
          */
-        public synchronized void setAudioFormat(AudioFormat format)
-        {
+        public synchronized void setAudioFormat(AudioFormat format) {
             currentFormat = format;
         }
 
         /**
          * Gets the audio format for this player
-         * 
+         *
          * @return format the audio format
          */
-        public AudioFormat getAudioFormat()
-        {
+        public AudioFormat getAudioFormat() {
             return currentFormat;
         }
 
         /**
          * Pauses audio output
          */
-        public void pause()
-        {
+        public void pause() {
         }
 
         /**
          * Resumes audio output
          */
-        public synchronized void resume()
-        {
+        public synchronized void resume() {
         }
 
         /**
          * Cancels currently playing audio
          */
-        public synchronized void cancel()
-        {
+        public synchronized void cancel() {
         }
 
         /**
          * Prepares for another batch of output. Larger groups of output (such as all output
          * associated with a single FreeTTSSpeakable) should be grouped between a reset/drain pair.
          */
-        public synchronized void reset()
-        {
+        public synchronized void reset() {
         }
 
         /**
          * Starts the first sample timer
          */
-        public void startFirstSampleTimer()
-        {
+        public void startFirstSampleTimer() {
         }
 
         /**
          * Closes this audio player
          */
-        public synchronized void close()
-        {
-            try
-            {
+        public synchronized void close() {
+            try {
                 audioInputStream.close();
-            }
-            catch (IOException ioe)
-            {
+            } catch (IOException ioe) {
                 System.err.println("Problem while closing the audioInputSteam");
             }
 
         }
 
-        public AudioInputStream getAudioInputStream()
-        {
+        public AudioInputStream getAudioInputStream() {
             InputStream tInputStream = new SequenceInputStream(outputList.elements());
             AudioInputStream tAudioInputStream = new AudioInputStream(tInputStream, currentFormat,
-                totBytes / currentFormat.getFrameSize());
+                    totBytes / currentFormat.getFrameSize());
 
             return tAudioInputStream;
         }
 
         /**
          * Returns the current volume.
-         * 
+         *
          * @return the current volume (between 0 and 1)
          */
-        public float getVolume()
-        {
+        public float getVolume() {
             return 1.0f;
         }
 
         /**
          * Sets the current volume.
-         * 
-         * @param volume
-         *            the current volume (between 0 and 1)
+         *
+         * @param volume the current volume (between 0 and 1)
          */
-        public void setVolume(float volume)
-        {
+        public void setVolume(float volume) {
         }
 
         /**
          * Starts the output of a set of data. Audio data for a single utterance should be grouped
          * between begin/end pairs.
-         * 
-         * @param size
-         *            the size of data between now and the end
+         *
+         * @param size the size of data between now and the end
          */
-        public void begin(int size)
-        {
+        public void begin(int size) {
             outputData = new byte[size];
             curIndex = 0;
         }
@@ -853,12 +802,11 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
         /**
          * Marks the end of a set of data. Audio data for a single utterance should be groupd
          * between begin/end pairs.
-         * 
+         *
          * @return true if the audio was output properly, false if the output was cancelled or
          *         interrupted.
          */
-        public boolean end()
-        {
+        public boolean end() {
             outputList.add(new ByteArrayInputStream(outputData));
             totBytes += outputData.length;
             return true;
@@ -866,58 +814,49 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
 
         /**
          * Waits for all queued audio to be played
-         * 
+         *
          * @return true if the audio played to completion, false if the audio was stopped
          */
-        public boolean drain()
-        {
+        public boolean drain() {
             return true;
         }
 
         /**
          * Gets the amount of played since the last mark
-         * 
+         *
          * @return the amount of audio in milliseconds
          */
-        public synchronized long getTime()
-        {
+        public synchronized long getTime() {
             return -1L;
         }
 
         /**
          * Resets the audio clock
          */
-        public synchronized void resetTime()
-        {
+        public synchronized void resetTime() {
         }
 
         /**
          * Writes the given bytes to the audio stream
-         * 
-         * @param audioData
-         *            audio data to write to the device
+         *
+         * @param audioData audio data to write to the device
          * @return <code>true</code> of the write completed successfully, <code> false </code> if
          *         the write was cancelled.
          */
-        public boolean write(byte[] audioData)
-        {
+        public boolean write(byte[] audioData) {
             return write(audioData, 0, audioData.length);
         }
 
         /**
          * Writes the given bytes to the audio stream
-         * 
-         * @param bytes
-         *            audio data to write to the device
-         * @param offset
-         *            the offset into the buffer
-         * @param size
-         *            the size into the buffer
+         *
+         * @param bytes  audio data to write to the device
+         * @param offset the offset into the buffer
+         * @param size   the size into the buffer
          * @return <code>true</code> of the write completed successfully, <code> false </code> if
          *         the write was cancelled.
          */
-        public boolean write(byte[] bytes, int offset, int size)
-        {
+        public boolean write(byte[] bytes, int offset, int size) {
             System.arraycopy(bytes, offset, outputData, curIndex, size);
             curIndex += size;
             return true;
@@ -926,35 +865,30 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
         /**
          * Waits for resume. If this audio player is paused waits for the player to be resumed.
          * Returns if resumed, cancelled or shutdown.
-         * 
+         *
          * @return true if the output has been resumed, false if the output has been cancelled or
          *         shutdown.
          */
-        private synchronized boolean waitResume()
-        {
+        private synchronized boolean waitResume() {
             return true;
         }
 
         /**
          * Returns the name of this audioplayer
-         * 
+         *
          * @return the name of the audio player
          */
-        public String toString()
-        {
+        public String toString() {
             return "AudioInputStreamAudioPlayer";
         }
 
         /**
          * Outputs a debug message if debugging is turned on
-         * 
-         * @param msg
-         *            the message to output
+         *
+         * @param msg the message to output
          */
-        private void debugPrint(String msg)
-        {
-            if (debug)
-            {
+        private void debugPrint(String msg) {
+            if (debug) {
                 System.out.println(toString() + ": " + msg);
             }
         }
@@ -962,8 +896,7 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound
         /**
          * Shows metrics for this audio player
          */
-        public void showMetrics()
-        {
+        public void showMetrics() {
         }
     }
 

@@ -484,8 +484,7 @@ import java.util.Properties;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class MockToolkit extends Toolkit
-{
+public class MockToolkit extends Toolkit {
 
     /**
      * Creates this toolkit's implementation of <code>Button</code> using the
@@ -496,8 +495,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Button
      * @see java.awt.peer.ButtonPeer
      */
-    protected ButtonPeer createButton(Button target)
-    {
+    protected ButtonPeer createButton(Button target) {
         return null;
     }
 
@@ -510,8 +508,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.TextField
      * @see java.awt.peer.TextFieldPeer
      */
-    protected TextFieldPeer createTextField(TextField target)
-    {
+    protected TextFieldPeer createTextField(TextField target) {
         return null;
     }
 
@@ -524,8 +521,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Label
      * @see java.awt.peer.LabelPeer
      */
-    protected LabelPeer createLabel(Label target)
-    {
+    protected LabelPeer createLabel(Label target) {
         return null;
     }
 
@@ -538,8 +534,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.List
      * @see java.awt.peer.ListPeer
      */
-    protected ListPeer createList(List target)
-    {
+    protected ListPeer createList(List target) {
         return null;
     }
 
@@ -552,8 +547,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Checkbox
      * @see java.awt.peer.CheckboxPeer
      */
-    protected CheckboxPeer createCheckbox(Checkbox target)
-    {
+    protected CheckboxPeer createCheckbox(Checkbox target) {
         return null;
     }
 
@@ -566,8 +560,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Scrollbar
      * @see java.awt.peer.ScrollbarPeer
      */
-    protected ScrollbarPeer createScrollbar(Scrollbar target)
-    {
+    protected ScrollbarPeer createScrollbar(Scrollbar target) {
         return null;
     }
 
@@ -581,8 +574,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.peer.ScrollPanePeer
      * @since JDK1.1
      */
-    protected ScrollPanePeer createScrollPane(ScrollPane target)
-    {
+    protected ScrollPanePeer createScrollPane(ScrollPane target) {
         return null;
     }
 
@@ -595,8 +587,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.TextArea
      * @see java.awt.peer.TextAreaPeer
      */
-    protected TextAreaPeer createTextArea(TextArea target)
-    {
+    protected TextAreaPeer createTextArea(TextArea target) {
         return null;
     }
 
@@ -609,8 +600,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Choice
      * @see java.awt.peer.ChoicePeer
      */
-    protected ChoicePeer createChoice(Choice target)
-    {
+    protected ChoicePeer createChoice(Choice target) {
         return null;
     }
 
@@ -623,8 +613,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Frame
      * @see java.awt.peer.FramePeer
      */
-    protected FramePeer createFrame(Frame target)
-    {
+    protected FramePeer createFrame(Frame target) {
         return null;
     }
 
@@ -637,8 +626,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Canvas
      * @see java.awt.peer.CanvasPeer
      */
-    protected CanvasPeer createCanvas(Canvas target)
-    {
+    protected CanvasPeer createCanvas(Canvas target) {
         return null;
     }
 
@@ -651,8 +639,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Panel
      * @see java.awt.peer.PanelPeer
      */
-    protected PanelPeer createPanel(Panel target)
-    {
+    protected PanelPeer createPanel(Panel target) {
         return null;
     }
 
@@ -665,8 +652,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Window
      * @see java.awt.peer.WindowPeer
      */
-    protected WindowPeer createWindow(Window target)
-    {
+    protected WindowPeer createWindow(Window target) {
         return null;
     }
 
@@ -679,8 +665,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Dialog
      * @see java.awt.peer.DialogPeer
      */
-    protected DialogPeer createDialog(Dialog target)
-    {
+    protected DialogPeer createDialog(Dialog target) {
         return null;
     }
 
@@ -693,8 +678,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.MenuBar
      * @see java.awt.peer.MenuBarPeer
      */
-    protected MenuBarPeer createMenuBar(MenuBar target)
-    {
+    protected MenuBarPeer createMenuBar(MenuBar target) {
         return null;
     }
 
@@ -707,8 +691,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.Menu
      * @see java.awt.peer.MenuPeer
      */
-    protected MenuPeer createMenu(Menu target)
-    {
+    protected MenuPeer createMenu(Menu target) {
         return null;
     }
 
@@ -722,8 +705,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.peer.PopupMenuPeer
      * @since JDK1.1
      */
-    protected PopupMenuPeer createPopupMenu(PopupMenu target)
-    {
+    protected PopupMenuPeer createPopupMenu(PopupMenu target) {
         return null;
     }
 
@@ -736,8 +718,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.MenuItem
      * @see java.awt.peer.MenuItemPeer
      */
-    protected MenuItemPeer createMenuItem(MenuItem target)
-    {
+    protected MenuItemPeer createMenuItem(MenuItem target) {
         return null;
     }
 
@@ -750,8 +731,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.FileDialog
      * @see java.awt.peer.FileDialogPeer
      */
-    protected FileDialogPeer createFileDialog(FileDialog target)
-    {
+    protected FileDialogPeer createFileDialog(FileDialog target) {
         return null;
     }
 
@@ -764,9 +744,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.CheckboxMenuItem
      * @see java.awt.peer.CheckboxMenuItemPeer
      */
-    protected CheckboxMenuItemPeer createCheckboxMenuItem(
-            CheckboxMenuItem target)
-    {
+    protected CheckboxMenuItemPeer createCheckboxMenuItem(CheckboxMenuItem target) {
         return null;
     }
 
@@ -781,8 +759,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.GraphicsEnvironment#getAllFonts
      * @deprecated see java.awt.GraphicsEnvironment#getAllFonts
      */
-    protected FontPeer getFontPeer(String name, int style)
-    {
+    protected FontPeer getFontPeer(String name, int style) {
         return null;
     }
 
@@ -791,8 +768,7 @@ public class MockToolkit extends Toolkit
      *
      * @return the size of this toolkit's screen, in pixels.
      */
-    public Dimension getScreenSize()
-    {
+    public Dimension getScreenSize() {
         return null;
     }
 
@@ -801,8 +777,7 @@ public class MockToolkit extends Toolkit
      *
      * @return this toolkit's screen resolution, in dots-per-inch.
      */
-    public int getScreenResolution()
-    {
+    public int getScreenResolution() {
         return 0;
     }
 
@@ -820,8 +795,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.image.ColorModel
      * @see java.awt.Component#getColorModel
      */
-    public ColorModel getColorModel()
-    {
+    public ColorModel getColorModel() {
         return null;
     }
 
@@ -837,8 +811,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.GraphicsEnvironment#getAvailableFontFamilyNames()
      * @deprecated see {@link java.awt.GraphicsEnvironment#getAvailableFontFamilyNames()}
      */
-    public String[] getFontList()
-    {
+    public String[] getFontList() {
         return new String[0];
     }
 
@@ -852,8 +825,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.GraphicsEnvironment#getScreenDevices
      * @deprecated This returns integer metrics for the default screen.
      */
-    public FontMetrics getFontMetrics(Font font)
-    {
+    public FontMetrics getFontMetrics(Font font) {
         return null;
     }
 
@@ -864,8 +836,7 @@ public class MockToolkit extends Toolkit
      * This method ensures that the display is up-to-date. It is useful for
      * animation.
      */
-    public void sync()
-    {
+    public void sync() {
 
     }
 
@@ -884,8 +855,7 @@ public class MockToolkit extends Toolkit
      * @return an image which gets its pixel data from the specified file.
      * @see #createImage(String)
      */
-    public Image getImage(String filename)
-    {
+    public Image getImage(String filename) {
         return null;
     }
 
@@ -903,8 +873,7 @@ public class MockToolkit extends Toolkit
      * @return an image which gets its pixel data from the specified URL.
      * @see #createImage(java.net.URL)
      */
-    public Image getImage(URL url)
-    {
+    public Image getImage(URL url) {
         return null;
     }
 
@@ -918,8 +887,7 @@ public class MockToolkit extends Toolkit
      * @return an image which gets its pixel data from the specified file.
      * @see #getImage(String)
      */
-    public Image createImage(String filename)
-    {
+    public Image createImage(String filename) {
         return null;
     }
 
@@ -932,8 +900,7 @@ public class MockToolkit extends Toolkit
      * @return an image which gets its pixel data from the specified URL.
      * @see #getImage(java.net.URL)
      */
-    public Image createImage(URL url)
-    {
+    public Image createImage(URL url) {
         return null;
     }
 
@@ -969,8 +936,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.image.ImageObserver
      */
     public boolean prepareImage(Image image, int width, int height,
-                                ImageObserver observer)
-    {
+                                ImageObserver observer) {
         return false;
     }
 
@@ -1011,8 +977,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.image.ImageObserver
      */
     public int checkImage(Image image, int width, int height,
-                          ImageObserver observer)
-    {
+                          ImageObserver observer) {
         return 0;
     }
 
@@ -1025,8 +990,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.image.ImageProducer
      * @see java.awt.Component#createImage(java.awt.image.ImageProducer)
      */
-    public Image createImage(ImageProducer producer)
-    {
+    public Image createImage(ImageProducer producer) {
         return null;
     }
 
@@ -1043,8 +1007,7 @@ public class MockToolkit extends Toolkit
      * @since JDK1.1
      */
     public Image createImage(byte[] imagedata, int imageoffset,
-                             int imagelength)
-    {
+                             int imagelength) {
         return null;
     }
 
@@ -1080,8 +1043,7 @@ public class MockToolkit extends Toolkit
      * @see RuntimePermission
      * @since JDK1.1
      */
-    public PrintJob getPrintJob(Frame frame, String jobtitle, Properties props)
-    {
+    public PrintJob getPrintJob(Frame frame, String jobtitle, Properties props) {
         return null;
     }
 
@@ -1090,8 +1052,7 @@ public class MockToolkit extends Toolkit
      *
      * @since JDK1.1
      */
-    public void beep()
-    {
+    public void beep() {
 
     }
 
@@ -1133,8 +1094,7 @@ public class MockToolkit extends Toolkit
      * @see java.awt.AWTPermission
      * @since JDK1.1
      */
-    public Clipboard getSystemClipboard()
-    {
+    public Clipboard getSystemClipboard() {
         return null;
     }
 
@@ -1144,17 +1104,14 @@ public class MockToolkit extends Toolkit
      * from a Toolkit subclass.  Implementations wishing to modify
      * the default EventQueue support should subclass this method.
      */
-    protected EventQueue getSystemEventQueueImpl()
-    {
+    protected EventQueue getSystemEventQueueImpl() {
         return null;
     }
 
     /**
      * create the peer for a DragSourceContext
      */
-    public DragSourceContextPeer createDragSourceContextPeer(
-            DragGestureEvent dge) throws InvalidDnDOperationException
-    {
+    public DragSourceContextPeer createDragSourceContextPeer(DragGestureEvent dge) throws InvalidDnDOperationException {
         return null;
     }
 
@@ -1168,8 +1125,7 @@ public class MockToolkit extends Toolkit
      * @return style attribute map, or null
      * @since 1.3
      */
-    public Map mapInputMethodHighlight(InputMethodHighlight highlight)
-    {
+    public Map mapInputMethodHighlight(InputMethodHighlight highlight) {
         return null;
     }
 

@@ -469,17 +469,15 @@ package com.octo.captcha.component.worddecorator;
  * question) or transforming the word into a semantical set (like a reverese spelling). It
  * hightlight the word for a cognitive entity (human), but hide it form a logical finite engine
  * (computer)
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public interface WordDecorator
-{
+public interface WordDecorator {
     /**
      * Function that decorate a word with semantic information.
-     * 
-     * @param original
-     *            word
+     *
+     * @param original word
      * @return the semantic infomation
      */
     public String decorateWord(String original);

@@ -483,8 +483,7 @@ import java.util.Random;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class FishEyeFactory extends ImageCaptchaFactory
-{
+public class FishEyeFactory extends ImageCaptchaFactory {
 
     public static final String BUNDLE_QUESTION_KEY = FishEye.class.getName();
 
@@ -505,30 +504,25 @@ public class FishEyeFactory extends ImageCaptchaFactory
      */
     public FishEyeFactory(BackgroundGenerator generator,
                           ImageDeformation deformation, Integer scale,
-                          Integer tolerance)
-    {
-        if (generator == null)
-        {
+                          Integer tolerance) {
+        if (generator == null) {
             throw new CaptchaException("Invalid configuration for a FishEyeFactory "
                     + ": BackgroundGenerator can't be null");
         }
-        if (deformation == null)
-        {
+        if (deformation == null) {
             throw new CaptchaException("Invalid configuration "
                     + "for a FishEyeFactory : ImageDeformation"
                     + " can't be null");
         }
         this.deformation = deformation;
         this.generator = generator;
-        if (scale == null || scale.intValue() < 1 || scale.intValue() > 99)
-        {
+        if (scale == null || scale.intValue() < 1 || scale.intValue() > 99) {
             throw new CaptchaException("Invalid configuration for a"
                     + " FishEyeFactory : scale"
                     + " can't be null, and must be between 1 and 99");
         }
         this.scale = scale;
-        if (tolerance == null || tolerance.intValue() < 0)
-        {
+        if (tolerance == null || tolerance.intValue() < 0) {
             throw new CaptchaException("Invalid configuration for"
                     + " a FishEyeFactory : tolerance"
                     + " can't be null, and must be positive");
@@ -542,8 +536,7 @@ public class FishEyeFactory extends ImageCaptchaFactory
      *
      * @return the image captcha with default locale
      */
-    public ImageCaptcha getImageCaptcha()
-    {
+    public ImageCaptcha getImageCaptcha() {
         return getImageCaptcha(Locale.getDefault());
     }
 
@@ -552,8 +545,7 @@ public class FishEyeFactory extends ImageCaptchaFactory
      *
      * @return a pixCaptcha with the question :"spell the word"
      */
-    public ImageCaptcha getImageCaptcha(Locale locale)
-    {
+    public ImageCaptcha getImageCaptcha(Locale locale) {
         BufferedImage background = generator.getBackground();
         BufferedImage out = new BufferedImage(background.getWidth(),
                 background.getHeight(), background.getType());
@@ -572,8 +564,7 @@ public class FishEyeFactory extends ImageCaptchaFactory
         out.getGraphics().dispose();
         Point center = new Point(xPos + (scaledX / 2), yPos + (scaledY / 2));
 
-        return new FishEye(
-                CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY),
+        return new FishEye(CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY),
                 out, center, tolerance);
     }
 

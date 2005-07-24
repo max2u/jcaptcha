@@ -480,8 +480,7 @@ import java.util.StringTokenizer;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class FishEye extends ImageCaptcha
-{
+public class FishEye extends ImageCaptcha {
 
     private Point deformationCenter;
     private Integer tolerance;
@@ -497,8 +496,7 @@ public class FishEye extends ImageCaptcha
      *                          in pixels.
      */
     protected FishEye(String question, BufferedImage challenge,
-                      Point deformationCenter, Integer tolerance)
-    {
+                      Point deformationCenter, Integer tolerance) {
         super(question, challenge);
         this.deformationCenter = deformationCenter;
         this.tolerance = tolerance;
@@ -510,20 +508,16 @@ public class FishEye extends ImageCaptcha
      * @param response to the question concerning the chalenge
      * @return true if the answer is correct, false otherwise.
      */
-    public Boolean validateResponse(Object response)
-    {
+    public Boolean validateResponse(Object response) {
         //if a point go
-        if (response instanceof Point)
-        {
+        if (response instanceof Point) {
             Point point = (Point) response;
             return validateResponse(point);
             //else if string response
-        } else if (response instanceof String)
-        {
+        } else if (response instanceof String) {
             String s = (String) response;
             //ty to parse it
-            try
-            {
+            try {
 
                 //String[] coordonates = new String[2];
                 StringTokenizer token = new StringTokenizer(s, ",");
@@ -531,13 +525,11 @@ public class FishEye extends ImageCaptcha
                 Point point = new Point(Integer.parseInt(token.nextToken()),
                         Integer.parseInt(token.nextToken()));
                 return validateResponse(point);
-            } catch (Throwable e)
-            {
+            } catch (Throwable e) {
                 //catch all and return false
                 return Boolean.FALSE;
             }
-        } else
-        {
+        } else {
             return Boolean.FALSE;
         }
 
@@ -550,11 +542,9 @@ public class FishEye extends ImageCaptcha
      * @return true if distance from the given point and the deformation center
      *         is less than tolerance, false otherwise
      */
-    private Boolean validateResponse(Point point)
-    {
+    private Boolean validateResponse(Point point) {
 
-        if (point.distance(deformationCenter) <= tolerance.doubleValue())
-        {
+        if (point.distance(deformationCenter) <= tolerance.doubleValue()) {
             return Boolean.TRUE;
         }
         return Boolean.FALSE;

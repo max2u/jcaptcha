@@ -469,17 +469,14 @@ import com.sun.image.codec.jpeg.ImageFormatException;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageDecoder;
 
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.StringTokenizer;
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  * <p>File reader background generator that return a random image (JPEG ONLY)
@@ -538,8 +535,8 @@ public class FileReaderRandomBackgroundGenerator extends
      */
     protected static Map cachedDirectories = new HashMap();
 
-    protected  File findDirectory(String rootPath) {
-        if ( cachedDirectories.containsKey(rootPath) ) {
+    protected File findDirectory(String rootPath) {
+        if (cachedDirectories.containsKey(rootPath)) {
             return (File) cachedDirectories.get(rootPath);
         }
 
@@ -605,17 +602,16 @@ public class FileReaderRandomBackgroundGenerator extends
         return dir;
     }
 
-    private StringTokenizer getClasspathFromSystemProperty()
-	{
-		String classpath ;
+    private StringTokenizer getClasspathFromSystemProperty() {
+        String classpath;
 
-		classpath = System.getProperty( "java.class.path") ;
-		StringTokenizer token = new StringTokenizer(classpath,File.pathSeparator );
-    	return token;
-	}
+        classpath = System.getProperty("java.class.path");
+        StringTokenizer token = new StringTokenizer(classpath, File.pathSeparator);
+        return token;
+    }
 
 
-    private  void appendFilePath(StringBuffer triedPath, File dir) {
+    private void appendFilePath(StringBuffer triedPath, File dir) {
         triedPath.append(dir.getAbsolutePath());
         triedPath.append("\n");
     }

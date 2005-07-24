@@ -473,8 +473,7 @@ import java.awt.*;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface FontGenerator
-{
+public interface FontGenerator {
 
     /**
      * Method from imageFromWord method to apply font to String. Implementations

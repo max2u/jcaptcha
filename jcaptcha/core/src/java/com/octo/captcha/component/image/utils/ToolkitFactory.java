@@ -479,53 +479,45 @@ import java.util.Properties;
  * factory return an implementation of this class. For exemple if you set to
  * your virtual machine -Dtoolkit.implementation=com.eteks.awt.PJAToolkit, the
  * factory returns an implementation of com.eteks.awt.PJAToolkit </p>
- *
+ * <p/>
  * see http://www.geocities.com/marcoschmidt.geo/java-image-faq.html#x for more
  * info.
  *
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
- * @version 1.0
- *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class ToolkitFactory
-{
+public class ToolkitFactory {
 
     public static String TOOLKIT_IMPL = "toolkit.implementation";
     private static String toolkitClass;
 
-    public static Toolkit getToolkit()
-    {
+    public static Toolkit getToolkit() {
         Toolkit defaultToolkit = null;// = Toolkit.getDefaultToolkit();
 
         Properties props = System.getProperties();
 
-        try
-        {
+        try {
             String tempToolkitClass = props.getProperty(TOOLKIT_IMPL);
-            if (props.containsKey(TOOLKIT_IMPL))
-            {
+            if (props.containsKey(TOOLKIT_IMPL)) {
                 defaultToolkit = (Toolkit)
                         Class.forName(tempToolkitClass).newInstance();
                 toolkitClass = tempToolkitClass;
-            }else{
+            } else {
                 defaultToolkit = getDefaultToolkit();
             }
 
-        } catch (Throwable e)
-        {
-           throw new CaptchaException("toolkit has not been abble to be "
-                   + "initialized",e);
+        } catch (Throwable e) {
+            throw new CaptchaException("toolkit has not been abble to be "
+                    + "initialized", e);
 
         }
 
-            return defaultToolkit;
+        return defaultToolkit;
 
     }
 
-    private static Toolkit getDefaultToolkit()
-    {
+    private static Toolkit getDefaultToolkit() {
         Toolkit defaultToolkit;
         defaultToolkit = Toolkit.getDefaultToolkit();
         toolkitClass = defaultToolkit.getClass().getName();

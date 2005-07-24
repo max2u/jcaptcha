@@ -464,64 +464,50 @@
 
 package com.octo.captcha.component.image.textpaster;
 
+import com.octo.captcha.component.image.color.ColorGenerator;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
-import com.octo.captcha.component.image.color.ColorGenerator;
-
 /**
- * <p>
+ * <p/>
  * Pastes two times the attributed string with a random decalage from width/20 and height/2
  * </p>
- * 
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
  */
-public class DoubleTextPaster extends AbstractTextPaster
-{
+public class DoubleTextPaster extends AbstractTextPaster {
 
     /**
-     * @param minAcceptedWordLenght
-     *                  Max lenght of a word
-     * @param maxAcceptedWordLenght
-     *                  Min lenght of a word
-     * @param textColor
-     *                  Unique color of text
+     * @param minAcceptedWordLenght Max lenght of a word
+     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param textColor             Unique color of text
      */
     public DoubleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
-        Color textColor)
-    {
+                            Color textColor) {
         super(minAcceptedWordLenght, maxAcceptedWordLenght, textColor);
     }
 
     /**
-     * @param minAcceptedWordLenght
-     *                  Max lenght of a word
-     * @param maxAcceptedWordLenght
-     *                  Min lenght of a word
-     * @param colorGenerator
-     *                  color generator of text
+     * @param minAcceptedWordLenght Max lenght of a word
+     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param colorGenerator        color generator of text
      */
     public DoubleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
-        ColorGenerator colorGenerator)
-    {
+                            ColorGenerator colorGenerator) {
         super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
     }
 
     /**
-     * @param minAcceptedWordLenght
-     *                  Max lenght of a word
-     * @param maxAcceptedWordLenght
-     *                  Min lenght of a word
-     * @param colorGenerator
-     *                  color generator of text
-     * @param manageColorPerGlyph
-     *                  Boolean to set if each glyph can have a new color from the color generator
+     * @param minAcceptedWordLenght Max lenght of a word
+     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param colorGenerator        color generator of text
+     * @param manageColorPerGlyph   Boolean to set if each glyph can have a new color from the color generator
      */
     public DoubleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
-        ColorGenerator colorGenerator, boolean manageColorPerGlyph)
-    {
+                            ColorGenerator colorGenerator, Boolean manageColorPerGlyph) {
         super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
     }
 
@@ -530,14 +516,13 @@ public class DoubleTextPaster extends AbstractTextPaster
      * Implementation must take into account the fact that the text must be readable by human and
      * non by programs. Pastes two times the attributed string with a random decalage from width/20
      * and height/2
-     * 
+     *
      * @param background
      * @param attributedWord
      * @return the final image
      */
     public BufferedImage pasteText(final BufferedImage background,
-        final AttributedString attributedWord)
-    {
+                                   final AttributedString attributedWord) {
         int x = (background.getWidth()) / 20;
         int y = (background.getHeight()) / 2;
         BufferedImage out = copyBackground(background);
@@ -550,7 +535,7 @@ public class DoubleTextPaster extends AbstractTextPaster
 
         // convert string into a series of glyphs we can work with
         ChangeableAttributedString newAttrString = new ChangeableAttributedString(g2,
-            attributedWord, 0);
+                attributedWord, 0);
 
         // space out the glyphs with a little kerning
         newAttrString.useMinimumSpacing(0);
@@ -558,24 +543,18 @@ public class DoubleTextPaster extends AbstractTextPaster
         // shift string to a random spot in the output imge
         newAttrString.moveTo(x, y);
         // now draw each glyph at the appropriate spot on the image.
-        if (isManageColorPerGlyph())
-        {
+        if (isManageColorPerGlyph()) {
             newAttrString.drawString(g2, getColorGenerator());
-        }
-        else
-        {
+        } else {
             newAttrString.drawString(g2);
         }
 
         newAttrString.moveTo(x + myRandom.nextInt(5) + 5, y + myRandom.nextInt(5) + 5);
 
         //draw again
-        if (isManageColorPerGlyph())
-        {
+        if (isManageColorPerGlyph()) {
             newAttrString.drawString(g2, getColorGenerator());
-        }
-        else
-        {
+        } else {
             newAttrString.drawString(g2);
         }
         return out;

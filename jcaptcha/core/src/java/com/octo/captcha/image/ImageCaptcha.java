@@ -478,8 +478,7 @@ import java.io.IOException;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public abstract class ImageCaptcha implements Captcha
-{
+public abstract class ImageCaptcha implements Captcha {
 
     private Boolean hasChallengeBeenCalled = Boolean.FALSE;
 
@@ -487,8 +486,7 @@ public abstract class ImageCaptcha implements Captcha
 
     protected transient BufferedImage challenge;
 
-    protected ImageCaptcha(String question, BufferedImage challenge)
-    {
+    protected ImageCaptcha(String question, BufferedImage challenge) {
         this.challenge = challenge;
         this.question = question;
     }
@@ -498,24 +496,21 @@ public abstract class ImageCaptcha implements Captcha
      *
      * @return the question
      */
-    public final String getQuestion()
-    {
+    public final String getQuestion() {
         return question;
     }
 
     /**
      * @return the challenge
      */
-    public final Object getChallenge()
-    {
+    public final Object getChallenge() {
         return getImageChallenge();
     }
 
     /**
      * @return the image challenge
      */
-    public final BufferedImage getImageChallenge()
-    {
+    public final BufferedImage getImageChallenge() {
         hasChallengeBeenCalled = Boolean.TRUE;
         return challenge;
     };
@@ -530,8 +525,7 @@ public abstract class ImageCaptcha implements Captcha
      * method to dispose the challenge that is no longer used after being
      * dipslayed. So here it is!
      */
-    public final void disposeChallenge()
-    {
+    public final void disposeChallenge() {
         this.challenge = null;
     }
 
@@ -541,30 +535,29 @@ public abstract class ImageCaptcha implements Captcha
      *
      * @return true if getChallenge has been called false otherwise.
      */
-    public Boolean hasGetChalengeBeenCalled()
-    {
+    public Boolean hasGetChalengeBeenCalled() {
         return hasChallengeBeenCalled;
     }
 
     //use jpeg encoding
     private void writeObject(java.io.ObjectOutputStream out)
-         throws IOException{
+            throws IOException {
 
-        if(this.challenge!=null){
-        out.defaultWriteObject();
-        // a jpeg encoder
+        if (this.challenge != null) {
+            out.defaultWriteObject();
+            // a jpeg encoder
             JPEGImageEncoder jpegEncoder =
                     JPEGCodec.createJPEGEncoder(out);
-        jpegEncoder.encode(this.challenge);
-       }
+            jpegEncoder.encode(this.challenge);
+        }
     };
 
-     private void readObject(java.io.ObjectInputStream in)
-         throws IOException, ClassNotFoundException{
-         in.defaultReadObject();
-         JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(in);
-         this.challenge = decoder.decodeAsBufferedImage();
-     };
+    private void readObject(java.io.ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(in);
+        this.challenge = decoder.decodeAsBufferedImage();
+    };
 
 
 }

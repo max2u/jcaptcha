@@ -466,7 +466,6 @@ package com.octo.captcha.component.image.textpaster;
 
 import com.octo.captcha.CaptchaException;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
@@ -477,8 +476,7 @@ import java.text.AttributedString;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface TextPaster
-{
+public interface TextPaster {
 
     /**
      * @return the max word lenght accepted by this word2image service

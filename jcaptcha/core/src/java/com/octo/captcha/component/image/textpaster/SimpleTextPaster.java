@@ -468,36 +468,31 @@ import com.octo.captcha.CaptchaException;
 import com.octo.captcha.component.image.color.ColorGenerator;
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
 /**
- * <p>
+ * <p/>
  * Pastes the text at width/20 and height/2
  * </p>
- * 
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
  */
-public class SimpleTextPaster extends AbstractTextPaster
-{
+public class SimpleTextPaster extends AbstractTextPaster {
 
     public SimpleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
-        Color textColor)
-    {
+                            Color textColor) {
         super(minAcceptedWordLenght, maxAcceptedWordLenght, textColor);
     }
 
     public SimpleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
-        ColorGenerator colorGenerator)
-    {
+                            ColorGenerator colorGenerator) {
         super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
     }
-    
+
     public SimpleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
-        ColorGenerator colorGenerator, boolean manageColorPerGlyph)
-    {
+                            ColorGenerator colorGenerator, Boolean manageColorPerGlyph) {
         super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
     }
 
@@ -505,16 +500,15 @@ public class SimpleTextPaster extends AbstractTextPaster
      * Pastes the attributed string on the backround image and return the final image.
      * Implementation must take into account the fact that the text must be readable by human and
      * non by programs. Pastes the text at width/20 and height/2
-     * 
+     *
      * @param background
      * @param attributedWord
      * @return the final image
      * @throws com.octo.captcha.CaptchaException
-     *             if any exception accurs during paste routine.
+     *          if any exception accurs during paste routine.
      */
     public BufferedImage pasteText(final BufferedImage background,
-        final AttributedString attributedWord) throws CaptchaException
-    {
+                                   final AttributedString attributedWord) throws CaptchaException {
         int x = (background.getWidth()) / 20;
         int y = (background.getHeight()) / 2;
         BufferedImage out = copyBackground(background);
@@ -524,7 +518,7 @@ public class SimpleTextPaster extends AbstractTextPaster
 
         // convert string into a series of glyphs we can work with
         ChangeableAttributedString newAttrString = new ChangeableAttributedString(g2,
-            attributedWord, 2);
+                attributedWord, 2);
 
         // space out the glyphs with a little kerning
         newAttrString.useMinimumSpacing(1);

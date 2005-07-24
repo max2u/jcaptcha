@@ -475,16 +475,14 @@ import java.util.Locale;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public abstract class ImageCaptchaFactory implements CaptchaFactory
-{
+public abstract class ImageCaptchaFactory implements CaptchaFactory {
 
     /**
      * builds a captcha.
      *
      * @return a captcha
      */
-    public final Captcha getCaptcha()
-    {
+    public final Captcha getCaptcha() {
         return getImageCaptcha();
     }
 
@@ -495,8 +493,7 @@ public abstract class ImageCaptchaFactory implements CaptchaFactory
      * @param locale
      * @return a captcha corresponding to the locale
      */
-    public final Captcha getCaptcha(final Locale locale)
-    {
+    public final Captcha getCaptcha(final Locale locale) {
         return getImageCaptcha(locale);
     }
 

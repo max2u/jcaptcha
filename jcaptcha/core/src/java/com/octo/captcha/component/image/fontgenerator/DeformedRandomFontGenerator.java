@@ -474,20 +474,17 @@ import java.util.Random;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.0
  */
-public class DeformedRandomFontGenerator extends RandomFontGenerator
-{
+public class DeformedRandomFontGenerator extends RandomFontGenerator {
 
     private Random rng = new Random();
 
     public DeformedRandomFontGenerator(Integer minFontSize,
-                                       Integer maxFontSize)
-    {
+                                       Integer maxFontSize) {
         super(minFontSize, maxFontSize);
     }
 
-    public Font getFont()
-    {
-          // obtain a font, pick a random size & font
+    public Font getFont() {
+        // obtain a font, pick a random size & font
         Font font = super.getFont();
 
         // rotate each letter by -0.33, +0.33 or about 20 degrees

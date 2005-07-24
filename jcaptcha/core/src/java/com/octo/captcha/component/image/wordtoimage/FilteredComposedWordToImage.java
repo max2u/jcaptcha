@@ -494,8 +494,7 @@ import java.text.AttributedString;
  * @deprecated since beta-4 : use DeformedComposedWordToImage, that now use the
  *             new deformation component.
  */
-public class FilteredComposedWordToImage extends ComposedWordToImage
-{
+public class FilteredComposedWordToImage extends ComposedWordToImage {
 
     private ImageFilter[] backgroundFilters;
     private ImageFilter[] textFilters;
@@ -519,8 +518,7 @@ public class FilteredComposedWordToImage extends ComposedWordToImage
                                        TextPaster textPaster,
                                        ImageFilter[] backgroundFilters,
                                        ImageFilter[] textFilters,
-                                       ImageFilter[] finalFilters)
-    {
+                                       ImageFilter[] finalFilters) {
         super(fontGenerator, background, textPaster);
         this.backgroundFilters = backgroundFilters;
         this.textFilters = textFilters;
@@ -543,13 +541,12 @@ public class FilteredComposedWordToImage extends ComposedWordToImage
      * @throws CaptchaException if word is invalid or if image generation
      *                          fails.
      */
-    public BufferedImage getImage(String word) throws CaptchaException
-    {
+    public BufferedImage getImage(String word) throws CaptchaException {
         BufferedImage background = getBackround();
         AttributedString aword = getAttributedString(word, checkWordLenght(word));
         //copy background
         BufferedImage out = new BufferedImage(background.getWidth(), background.getHeight(),
-            background.getType());
+                background.getType());
         Graphics2D g2 = (Graphics2D) out.getGraphics();
         //paste background
         g2.drawImage(background, 0, 0, out.getWidth(), out.getHeight(), null);
@@ -559,7 +556,7 @@ public class FilteredComposedWordToImage extends ComposedWordToImage
 
         //paste text on a transparent background
         BufferedImage transparent = new BufferedImage(out.getWidth(), out.getHeight(),
-            BufferedImage.TYPE_INT_ARGB);
+                BufferedImage.TYPE_INT_ARGB);
 
         //use textpaster to paste the text
         transparent = pasteText(transparent, aword);
@@ -576,18 +573,15 @@ public class FilteredComposedWordToImage extends ComposedWordToImage
         return out;
     }
 
-    private void applyFilters(BufferedImage image, ImageFilter[] filters)
-    {
+    private void applyFilters(BufferedImage image, ImageFilter[] filters) {
         FilteredImageSource filtered;
-        if (filters != null)
-        {
-            for (int i = 0 ; i < filters.length ; i++)
-            {
+        if (filters != null) {
+            for (int i = 0; i < filters.length; i++) {
                 ImageFilter backgroundFilter = filters[i];
                 filtered = new FilteredImageSource(image.getSource(),
                         backgroundFilter);
                 Image temp = ToolkitFactory.getToolkit().createImage(filtered);
-                image.getGraphics().drawImage(temp, 0, 0, new Color(255,255,255,0), null);
+                image.getGraphics().drawImage(temp, 0, 0, new Color(255, 255, 255, 0), null);
             }
         }
     }

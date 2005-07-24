@@ -475,8 +475,7 @@ import java.util.TreeMap;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class WordList
-{
+public class WordList {
 
     private TreeMap sortedWords = new TreeMap();
 
@@ -489,8 +488,7 @@ public class WordList
      *
      * @param locale
      */
-    public WordList(Locale locale)
-    {
+    public WordList(Locale locale) {
         this.locale = locale;
     };
 
@@ -499,8 +497,7 @@ public class WordList
      *
      * @return th e locale
      */
-    public Locale getLocale()
-    {
+    public Locale getLocale() {
         return locale;
     }
 
@@ -509,16 +506,13 @@ public class WordList
      *
      * @param word
      */
-    public void addWord(String word)
-    {
+    public void addWord(String word) {
         Integer lenght = new Integer(word.length());
-        if (sortedWords.containsKey(lenght))
-        {
+        if (sortedWords.containsKey(lenght)) {
             ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
             thisLenghtwords.add(word);
             sortedWords.put(lenght, thisLenghtwords);
-        } else
-        {
+        } else {
             ArrayList thisLenghtwords = new ArrayList();
             thisLenghtwords.add(word);
             sortedWords.put(lenght, thisLenghtwords);
@@ -533,8 +527,7 @@ public class WordList
      *
      * @return the min lenght of contained word in this wordlist
      */
-    public Integer getMinWord()
-    {
+    public Integer getMinWord() {
         return (Integer) sortedWords.firstKey();
     }
 
@@ -543,8 +536,7 @@ public class WordList
      *
      * @return the max lenght of contained word in this wordlist
      */
-    public Integer getMaxWord()
-    {
+    public Integer getMaxWord() {
         return (Integer) sortedWords.lastKey();
     }
 
@@ -555,15 +547,12 @@ public class WordList
      * @param lenght
      * @return a word of this lenght
      */
-    public String getNextWord(Integer lenght)
-    {
-        if (sortedWords.containsKey(lenght))
-        {
+    public String getNextWord(Integer lenght) {
+        if (sortedWords.containsKey(lenght)) {
             ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
             int pickAWord = myRandom.nextInt(thisLenghtwords.size());
             return (String) thisLenghtwords.get(pickAWord);
-        } else
-        {
+        } else {
             return null;
         }
     }

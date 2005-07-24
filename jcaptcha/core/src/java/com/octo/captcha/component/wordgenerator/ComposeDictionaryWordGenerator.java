@@ -476,11 +476,9 @@ import java.util.Locale;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator
-{
+public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator {
 
-    public ComposeDictionaryWordGenerator(DictionaryReader reader)
-    {
+    public ComposeDictionaryWordGenerator(DictionaryReader reader) {
         super(reader);
     }
 
@@ -493,29 +491,24 @@ public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator
      * @return a String of lenght between min and max lenght according to the
      *         given locale
      */
-    public String getWord(Integer lenght, Locale locale)
-    {
+    public String getWord(Integer lenght, Locale locale) {
         WordList words = getWordList(locale);
         //get the middle
         int firstLenght = (lenght.intValue() / 2);
         //try to find a first word
         String firstWord = null;
-        for (int i = firstLenght ; i < 50 ; i++)
-        {
+        for (int i = firstLenght; i < 50; i++) {
             firstWord = words.getNextWord(new Integer(firstLenght + i));
-            if (firstWord != null)
-            {
+            if (firstWord != null) {
                 firstWord = firstWord.substring(0, firstLenght);
                 break;
             }
         }
         String secondWord = null;
-        for (int i = firstLenght ; i < 50 ; i++)
-        {
+        for (int i = firstLenght; i < 50; i++) {
             secondWord = words.getNextWord(new Integer(lenght.intValue()
                     - firstLenght + i));
-            if (secondWord != null)
-            {
+            if (secondWord != null) {
                 secondWord =
                         secondWord.substring(secondWord.length()
                         - lenght.intValue()
@@ -536,17 +529,13 @@ public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator
     }
 
     private String checkAndFindSmaller(String firstWord, int lenght,
-                                       Locale locale)
-    {
+                                       Locale locale) {
         //if first word is still null, try with a smaller int
         // avoiding infinite loop by chexking size
-        if (firstWord == null)
-        {
-            if (lenght > 1)
-            {
+        if (firstWord == null) {
+            if (lenght > 1) {
                 firstWord = getWord(new Integer(lenght), locale);
-            } else
-            {
+            } else {
                 throw new CaptchaException("No word of lenght : " +
                         lenght + " exists in dictionnary! please " +
                         "update your dictionary or your range!");

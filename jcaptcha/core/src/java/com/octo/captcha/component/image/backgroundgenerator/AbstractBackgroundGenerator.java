@@ -477,8 +477,7 @@ import java.util.Random;
  * @version 1.0
  */
 public abstract class AbstractBackgroundGenerator
-        implements BackgroundGenerator
-{
+        implements BackgroundGenerator {
 
     private int height = 100;
     private int width = 200;
@@ -492,8 +491,7 @@ public abstract class AbstractBackgroundGenerator
      * @param width  the backgroud width
      * @param height the backgroud height
      */
-    AbstractBackgroundGenerator(Integer width, Integer height)
-    {
+    AbstractBackgroundGenerator(Integer width, Integer height) {
         this.width = width != null ? width.intValue() : this.width;
         this.height = height != null ? height.intValue() : this.height;
 
@@ -502,16 +500,14 @@ public abstract class AbstractBackgroundGenerator
     /**
      * @return the generated image height
      */
-    public int getImageHeight()
-    {
+    public int getImageHeight() {
         return height;
     }
 
     /**
      * @return teh generated image width
      */
-    public int getImageWidth()
-    {
+    public int getImageWidth() {
         return width;
     }
 
