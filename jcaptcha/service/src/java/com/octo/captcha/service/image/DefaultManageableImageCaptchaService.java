@@ -468,7 +468,7 @@ package com.octo.captcha.service.image;
 import com.octo.captcha.engine.image.gimpy.DefaultGimpyEngine;
 
 /**
- * <p>Default service implementation : use a ehCache as captcha store, a bufferedEngineContainer and a DefaultGimpyEngine </p>
+ * <p>Default service implementation : use a ehCache as captcha store, and a DefaultGimpyEngine </p>
  * It is initialized with thoses default values :
  * <ul>
  * <li>min guaranted delay : 180s
@@ -496,4 +496,7 @@ public class DefaultManageableImageCaptchaService extends EhcacheManageableImage
         super(new DefaultGimpyEngine(), 180,
                 100000, cacheName);
     }
+    
+
+
 }

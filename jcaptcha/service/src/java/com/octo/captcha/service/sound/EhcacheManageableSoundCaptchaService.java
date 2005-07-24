@@ -470,7 +470,6 @@ import com.octo.captcha.service.EhcacheManageableCaptchaService;
 import com.octo.captcha.service.image.ImageCaptchaService;
 
 import javax.sound.sampled.AudioInputStream;
-import java.awt.image.BufferedImage;
 import java.util.Locale;
 
 /**
