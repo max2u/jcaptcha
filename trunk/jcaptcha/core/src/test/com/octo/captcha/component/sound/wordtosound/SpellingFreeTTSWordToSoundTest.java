@@ -465,19 +465,17 @@
 package com.octo.captcha.component.sound.wordtosound;
 
 import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurator;
-
 import junit.framework.TestCase;
 
 /**
- * <p>
+ * <p/>
  * Description:
  * </p>
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class SpellingFreeTTSWordToSoundTest extends TestCase
-{
+public class SpellingFreeTTSWordToSoundTest extends TestCase {
 
     private FreeTTSWordToSound cleanFreeTTSwordToSound;
 
@@ -487,27 +485,28 @@ public class SpellingFreeTTSWordToSoundTest extends TestCase
 
     /**
      * Constructor for SimpleWordToImageTest.
-     * 
+     *
      * @param name
      */
-    public SpellingFreeTTSWordToSoundTest(String name)
-    {
+    public SpellingFreeTTSWordToSoundTest(String name) {
         super(name);
     }
 
-    public void setUp()
-    {
-        this.cleanFreeTTSwordToSound = new FreeTTSWordToSound(new FreeTTSSoundConfigurator(
-            voiceName, voicePackage, 1.0f, 100, 100), 3, 6);
+    public void setUp() {
+        this.cleanFreeTTSwordToSound = new FreeTTSWordToSound(new FreeTTSSoundConfigurator(voiceName, voicePackage, 1.0f, 100, 100), 3, 6);
+
     }
 
-    public void testGetMaxAcceptedWordLenght()
-    {
+    public void testConfiguration() {
+        this.cleanFreeTTSwordToSound.getSound("test");
+    }
+
+
+    public void testGetMaxAcceptedWordLenght() {
         assertEquals(this.cleanFreeTTSwordToSound.getMaxAcceptedWordLenght(), 6);
     }
 
-    public void testGetMinAcceptedWordLenght()
-    {
+    public void testGetMinAcceptedWordLenght() {
         assertEquals(this.cleanFreeTTSwordToSound.getMinAcceptedWordLenght(), 3);
     }
 }

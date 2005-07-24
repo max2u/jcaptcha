@@ -474,11 +474,9 @@ import java.awt.image.BufferedImage;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class EllipseBackgroundGenerator extends AbstractBackgroundGenerator
-{
+public class EllipseBackgroundGenerator extends AbstractBackgroundGenerator {
 
-    public EllipseBackgroundGenerator(Integer width, Integer height)
-    {
+    public EllipseBackgroundGenerator(Integer width, Integer height) {
         super(width, height);
     }
 
@@ -488,8 +486,7 @@ public class EllipseBackgroundGenerator extends AbstractBackgroundGenerator
      *
      * @return the background image
      */
-    public BufferedImage getBackground()
-    {
+    public BufferedImage getBackground() {
         BufferedImage bimgTP = new BufferedImage(getImageWidth(),
                 getImageHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D g2d = bimgTP.createGraphics();
@@ -506,8 +503,7 @@ public class EllipseBackgroundGenerator extends AbstractBackgroundGenerator
         double delta = 5.0;
         double xt;
         double ts = 0.0;
-        for (xt = 0.0 ; xt < (2.0 * getImageWidth()) ; xt += delta)
-        {
+        for (xt = 0.0; xt < (2.0 * getImageWidth()); xt += delta) {
             Arc2D arc = new Arc2D.Double(0, 0,
                     getImageWidth(), getImageHeight(), 0.0, 360.0, Arc2D.OPEN);
             g2d.draw(arc);

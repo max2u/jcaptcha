@@ -467,12 +467,11 @@ import com.octo.captcha.CaptchaException;
 
 /**
  * Implmenentation for a FreeTTS configuration
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class FreeTTSSoundConfigurator implements SoundConfigurator
-{
+public class FreeTTSSoundConfigurator implements SoundConfigurator {
     String name;
 
     String location;
@@ -485,49 +484,34 @@ public class FreeTTSSoundConfigurator implements SoundConfigurator
 
     /**
      * Contructor for a FreeTTS configuration
-     * 
-     * @param name
-     *            Name of the sound
-     * @param location
-     *            Package containing the sound defined by name
-     * @param volume
-     *            Between 0 and 1.0
-     * @param pitch
-     *            Level of the sound (hetz), between 50 and 250, normal 100
-     * @param rate
-     *            Words per minute, between 1 and 999, normal 150
+     *
+     * @param name     Name of the sound
+     * @param location Package containing the sound defined by name
+     * @param volume   Between 0 and 1.0
+     * @param pitch    Level of the sound (hetz), between 50 and 250, normal 100
+     * @param rate     Words per minute, between 1 and 999, normal 150
      */
     public FreeTTSSoundConfigurator(String name, String location, float volume, float pitch,
-        float rate)
-    {
+                                    float rate) {
         this.name = name;
 
         this.location = location;
 
-        if ((volume <= 1.0) && (volume >= 0))
-        {
+        if ((volume <= 1.0) && (volume >= 0)) {
             this.volume = volume;
-        }
-        else
-        {
+        } else {
             throw new CaptchaException("Volume is between 0 and 1.0");
         }
 
-        if ((pitch <= 250) && (pitch >= 50))
-        {
+        if ((pitch <= 250) && (pitch >= 50)) {
             this.pitch = pitch;
-        }
-        else
-        {
+        } else {
             throw new CaptchaException("Pitch is between 50 and 250");
         }
 
-        if ((rate < 1000) && (rate > 0))
-        {
+        if ((rate < 1000) && (rate > 0)) {
             this.rate = rate;
-        }
-        else
-        {
+        } else {
             throw new CaptchaException("Rate is between 1 and 999");
         }
 
@@ -536,40 +520,35 @@ public class FreeTTSSoundConfigurator implements SoundConfigurator
     /**
      * @see com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator#getVolume()
      */
-    public float getVolume()
-    {
+    public float getVolume() {
         return this.volume;
     }
 
     /**
      * @see com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator#getPitch()
      */
-    public float getPitch()
-    {
+    public float getPitch() {
         return this.pitch;
     }
 
     /**
      * @see com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator#getName()
      */
-    public String getName()
-    {
+    public String getName() {
         return this.name;
     }
 
     /**
      * @see com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator#getRate()
      */
-    public float getRate()
-    {
+    public float getRate() {
         return this.rate;
     }
 
     /**
      * @see com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator#getLocation()
      */
-    public String getLocation()
-    {
+    public String getLocation() {
         return this.location;
     }
 

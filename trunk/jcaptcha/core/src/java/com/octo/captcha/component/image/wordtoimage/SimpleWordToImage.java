@@ -477,51 +477,44 @@ import java.text.AttributedString;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class SimpleWordToImage extends AbstractWordToImage
-{
+public class SimpleWordToImage extends AbstractWordToImage {
 
-    public SimpleWordToImage()
-    {
+    public SimpleWordToImage() {
         super();
     }
 
     /**
      * @return the max word lenght accepted by this word2image service
      */
-    public int getMaxAcceptedWordLenght()
-    {
+    public int getMaxAcceptedWordLenght() {
         return 10;
     }
 
     /**
      * @return the min word lenght accepted by this word2image service
      */
-    public int getMinAcceptedWordLenght()
-    {
+    public int getMinAcceptedWordLenght() {
         return 1;
     }
 
     /**
      * @return the generated image height
      */
-    public int getImageHeight()
-    {
+    public int getImageHeight() {
         return 50;
     }
 
     /**
      * @return the generated image width
      */
-    public int getImageWidth()
-    {
+    public int getImageWidth() {
         return 100;
     }
 
     /**
      * @return the min font size for the generated image
      */
-    public int getMinFontSize()
-    {
+    public int getMinFontSize() {
         return 10;
     }
 
@@ -531,8 +524,7 @@ public class SimpleWordToImage extends AbstractWordToImage
      *
      * @return a Font
      */
-    public Font getFont()
-    {
+    public Font getFont() {
         return GraphicsEnvironment.getLocalGraphicsEnvironment()
                 .getAllFonts()[0];
     }
@@ -543,8 +535,7 @@ public class SimpleWordToImage extends AbstractWordToImage
      *
      * @return the background image
      */
-    public BufferedImage getBackround()
-    {
+    public BufferedImage getBackround() {
         BufferedImage background = new BufferedImage(getImageWidth(),
                 getImageHeight(), BufferedImage.TYPE_INT_RGB);
         return background;
@@ -562,8 +553,7 @@ public class SimpleWordToImage extends AbstractWordToImage
      */
     BufferedImage pasteText(BufferedImage background,
                             AttributedString attributedWord)
-            throws CaptchaException
-    {
+            throws CaptchaException {
         //get graphics
         Graphics graph = background.getGraphics();
         // calcul text position

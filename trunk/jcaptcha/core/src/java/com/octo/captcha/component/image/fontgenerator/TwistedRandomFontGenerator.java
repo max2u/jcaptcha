@@ -473,11 +473,9 @@ import java.awt.geom.AffineTransform;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class TwistedRandomFontGenerator extends RandomFontGenerator
-{
+public class TwistedRandomFontGenerator extends RandomFontGenerator {
 
-    public TwistedRandomFontGenerator(Integer minFontSize, Integer maxFontSize)
-    {
+    public TwistedRandomFontGenerator(Integer minFontSize, Integer maxFontSize) {
         super(minFontSize, maxFontSize);
     }
 
@@ -487,8 +485,7 @@ public class TwistedRandomFontGenerator extends RandomFontGenerator
      *
      * @return a Font
      */
-    public Font getFont()
-    {
+    public Font getFont() {
         AffineTransform at = new AffineTransform();
         float angle = myRandom.nextFloat() / 3;
         at.rotate(myRandom.nextBoolean() ? angle : -angle);

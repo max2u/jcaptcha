@@ -479,8 +479,7 @@ import java.util.Random;
  * thoses interfaces to build an ImageCaptha answered by a String and for which
  * the question is : Spell the word.
  */
-public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory
-{
+public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory {
 
     private Random myRandom = new Random();
     private WordToImage wordToImage;
@@ -488,15 +487,12 @@ public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory
 
     public static final String BUNDLE_QUESTION_KEY = Gimpy.class.getName();
 
-    public GimpyFactory(WordGenerator generator, WordToImage word2image)
-    {
-        if (word2image == null)
-        {
+    public GimpyFactory(WordGenerator generator, WordToImage word2image) {
+        if (word2image == null) {
             throw new CaptchaException("Invalid configuration" +
                     " for a GimpyFactory : WordToImage can't be null");
         }
-        if (generator == null)
-        {
+        if (generator == null) {
             throw new CaptchaException("Invalid configuration" +
                     " for a GimpyFactory : WordGenerator can't be null");
         }
@@ -510,18 +506,15 @@ public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory
      *
      * @return the image captcha with default locale
      */
-    public ImageCaptcha getImageCaptcha()
-    {
+    public ImageCaptcha getImageCaptcha() {
         return getImageCaptcha(Locale.getDefault());
     }
 
-    public WordToImage getWordToImage()
-    {
+    public WordToImage getWordToImage() {
         return wordToImage;
     }
 
-    public WordGenerator getWordGenerator()
-    {
+    public WordGenerator getWordGenerator() {
         return wordGenerator;
     }
 
@@ -530,8 +523,7 @@ public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory
      *
      * @return a pixCaptcha with the question :"spell the word"
      */
-    public ImageCaptcha getImageCaptcha(Locale locale)
-    {
+    public ImageCaptcha getImageCaptcha(Locale locale) {
 
         //lenght
         Integer wordLenght = getRandomLenght();
@@ -539,22 +531,18 @@ public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory
         String word = getWordGenerator().getWord(wordLenght, locale);
 
         BufferedImage image = null;
-        try
-        {
+        try {
             image = getWordToImage().getImage(word);
-        } catch (Throwable e)
-        {
+        } catch (Throwable e) {
             throw new CaptchaException(e);
         }
 
-        ImageCaptcha captcha = new Gimpy(
-                CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY),
+        ImageCaptcha captcha = new Gimpy(CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY),
                 image, word);
         return captcha;
     }
 
-    protected Integer getRandomLenght()
-    {
+    protected Integer getRandomLenght() {
         Integer wordLenght;
         int range = getWordToImage().getMaxAcceptedWordLenght() -
                 getWordToImage().getMinAcceptedWordLenght();

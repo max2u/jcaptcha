@@ -465,12 +465,11 @@ package com.octo.captcha.component.sound.soundconfigurator;
 
 /**
  * Provide configuration of a sound
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public interface SoundConfigurator
-{
+public interface SoundConfigurator {
     /**
      * @return the sound volume
      */

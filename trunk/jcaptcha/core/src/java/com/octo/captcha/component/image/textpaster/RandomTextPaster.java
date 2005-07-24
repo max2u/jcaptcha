@@ -464,33 +464,21 @@
 
 package com.octo.captcha.component.image.textpaster;
 
-import com.octo.captcha.CaptchaException;
 import com.octo.captcha.component.image.color.ColorGenerator;
 
-import java.awt.Color;
-
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.font.FontRenderContext;
-import java.awt.font.LineMetrics;
-import java.awt.font.TextAttribute;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.Point2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
-import java.util.Random;
 
 /**
- * <p>
+ * <p/>
  * Paste the text randomly on the background
  * </p>
- * 
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
  */
-public class RandomTextPaster extends AbstractTextPaster
-{
+public class RandomTextPaster extends AbstractTextPaster {
 
     protected final int kerning = 20;
 
@@ -498,28 +486,24 @@ public class RandomTextPaster extends AbstractTextPaster
 
 
     public RandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
-        Color textColor)
-    {
+                            Color textColor) {
         super(minAcceptedWordLength, maxAcceptedWordLength, textColor);
     }
 
     public RandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
-        Color[] textColors)
-    {
+                            Color[] textColors) {
         super(minAcceptedWordLength, maxAcceptedWordLength);
         this.textColors = textColors;
     }
 
     public RandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
-        ColorGenerator colorGenerator)
-    {
+                            ColorGenerator colorGenerator) {
         super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator);
 
     }
-    
+
     public RandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
-        ColorGenerator colorGenerator, boolean manageColorPerGlyph)
-    {
+                            ColorGenerator colorGenerator, Boolean manageColorPerGlyph) {
         super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
 
     }
@@ -530,29 +514,28 @@ public class RandomTextPaster extends AbstractTextPaster
      * Pastes the attributed string on the backround image and return the final image.
      * Implementation must take into account the fact that the text must be readable by human and
      * non by programs. <p/>
-     * 
+     *
      * @param background
      * @param attributedString
      * @return the final image
      * @throws com.octo.captcha.CaptchaException
-     *             if any exception accurs during paste routine.
+     *          if any exception accurs during paste routine.
      */
     public BufferedImage pasteText(final BufferedImage background,
-        final AttributedString attributedString)
-    {
+                                   final AttributedString attributedString) {
         BufferedImage out = copyBackground(background);
         Graphics2D g2 = pasteBackgroundAndSetTextColor(out, background);
         g2.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS,
-            RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+                RenderingHints.VALUE_FRACTIONALMETRICS_ON);
         g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-            RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         // this doesn't do anything in JDK 1.4, but maybe it will in JDK 1.5
         // attributedString.addAttribute(TextAttribute.WIDTH, TextAttribute.WIDTH_EXTENDED);
 
         // convert string into a series of glyphs we can work with
         ChangeableAttributedString newAttrString = new ChangeableAttributedString(g2,
-            attributedString, kerning);
+                attributedString, kerning);
 
         // space out the glyphs with a little kerning
         newAttrString.useMinimumSpacing(kerning);

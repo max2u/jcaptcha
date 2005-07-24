@@ -947,9 +947,8 @@ public class FileReaderRandomBackgroundGeneratorTest extends TestCase {
         try {
             dir = fileReaderRandomBackgroundGenerator.findDirectory("does not exists");
             fail("should never pass");
-        }
-        catch (Exception e) {
-             // should throw exception
+        } catch (Exception e) {
+            // should throw exception
         }
         dir = fileReaderRandomBackgroundGenerator.findDirectory("imagedir");
         assertValidDir(dir, "imagedir");
@@ -958,15 +957,15 @@ public class FileReaderRandomBackgroundGeneratorTest extends TestCase {
         try {
             new FileReaderRandomBackgroundGenerator(new Integer(2), new Integer(2), "emptyimagedir");
             fail("should never pass");
-        }
-        catch (Exception e) {
-             // should throw exception
+        } catch (Exception e) {
+            // should throw exception
         }
     }
 
 
     /**
      * Requires that directory be a directory, be readable, and have the right name.
+     *
      * @param dir
      * @param expectedName
      */

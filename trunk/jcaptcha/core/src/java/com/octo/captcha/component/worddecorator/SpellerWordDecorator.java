@@ -465,13 +465,12 @@ package com.octo.captcha.component.worddecorator;
 
 /**
  * Simple decorator that provide spelling from a word
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class SpellerWordDecorator implements WordDecorator
-{
-    
+public class SpellerWordDecorator implements WordDecorator {
+
     /**
      * String that separate each charater from the word
      */
@@ -479,27 +478,22 @@ public class SpellerWordDecorator implements WordDecorator
 
     /**
      * Constructor for the Speller Decorator. It spell a word, with a separator
-     * 
-     * @param seprator
-     *            use to separate each char, for instance : ' ' or ', ' or '; ' ...
+     *
+     * @param seprator use to separate each char, for instance : ' ' or ', ' or '; ' ...
      */
-    public SpellerWordDecorator(String seprator)
-    {
+    public SpellerWordDecorator(String seprator) {
         this.separtor = seprator;
     }
 
     /**
      * @see com.octo.captcha.component.worddecorator.WordDecorator#decorateWord(java.lang.String)
      */
-    public String decorateWord(String original)
-    {
+    public String decorateWord(String original) {
         String chars = "";
         //transform the word by separating each character
-        for (int i = 0; i < original.length(); i++)
-        {
+        for (int i = 0; i < original.length(); i++) {
             chars += " " + original.charAt(i);
-            if (i < original.length() - 1)
-            {
+            if (i < original.length() - 1) {
                 chars += separtor;
             }
         }

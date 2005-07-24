@@ -484,8 +484,7 @@ import java.text.AttributedString;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class ComposedWordToImage extends AbstractWordToImage
-{
+public class ComposedWordToImage extends AbstractWordToImage {
 
     private FontGenerator fontGenerator;
     private BackgroundGenerator background;
@@ -501,8 +500,7 @@ public class ComposedWordToImage extends AbstractWordToImage
      */
     public ComposedWordToImage(FontGenerator fontGenerator,
                                BackgroundGenerator background,
-                               TextPaster textPaster)
-    {
+                               TextPaster textPaster) {
         this.background = background;
         this.fontGenerator = fontGenerator;
         this.textPaster = textPaster;
@@ -511,40 +509,35 @@ public class ComposedWordToImage extends AbstractWordToImage
     /**
      * @return the max word lenght accepted by this word2image service
      */
-    public int getMaxAcceptedWordLenght()
-    {
+    public int getMaxAcceptedWordLenght() {
         return textPaster.getMaxAcceptedWordLenght();
     }
 
     /**
      * @return the min word lenght accepted by this word2image service
      */
-    public int getMinAcceptedWordLenght()
-    {
+    public int getMinAcceptedWordLenght() {
         return textPaster.getMinAcceptedWordLenght();
     }
 
     /**
      * @return the generated image height
      */
-    public int getImageHeight()
-    {
+    public int getImageHeight() {
         return background.getImageHeight();
     }
 
     /**
      * @return teh generated image width
      */
-    public int getImageWidth()
-    {
+    public int getImageWidth() {
         return background.getImageWidth();
     }
 
     /**
      * @return the min font size for the generated image
      */
-    public int getMinFontSize()
-    {
+    public int getMinFontSize() {
         return fontGenerator.getMinFontSize();
     }
 
@@ -554,8 +547,7 @@ public class ComposedWordToImage extends AbstractWordToImage
      *
      * @return a Font
      */
-    Font getFont()
-    {
+    Font getFont() {
         return fontGenerator.getFont();
     }
 
@@ -565,8 +557,7 @@ public class ComposedWordToImage extends AbstractWordToImage
      *
      * @return the background image
      */
-    BufferedImage getBackround()
-    {
+    BufferedImage getBackround() {
         return background.getBackground();
     }
 
@@ -582,8 +573,7 @@ public class ComposedWordToImage extends AbstractWordToImage
      */
     BufferedImage pasteText(BufferedImage background,
                             AttributedString attributedWord)
-            throws CaptchaException
-    {
+            throws CaptchaException {
         return textPaster.pasteText(background, attributedWord);
     }
 }

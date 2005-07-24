@@ -472,18 +472,16 @@ import com.octo.captcha.component.wordgenerator.WordGenerator;
 import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
 
+import javax.sound.sampled.AudioInputStream;
 import java.util.Locale;
 import java.util.Random;
-
-import javax.sound.sampled.AudioInputStream;
 
 /**
  * @author Gandin Mathieu
  * @author Benoit Doumas
  * @version 1.1
  */
-public class GimpySoundFactory extends SoundCaptchaFactory
-{
+public class GimpySoundFactory extends SoundCaptchaFactory {
 
     private WordGenerator wordGenerator;
 
@@ -500,23 +498,18 @@ public class GimpySoundFactory extends SoundCaptchaFactory
 
     /**
      * Construct a GimpySoundFactory from a word generator component and a wordtosound component
-     * 
-     * @param thewordGenerator
-     *            component
-     * @param theword2Sound
-     *            component
+     *
+     * @param thewordGenerator component
+     * @param theword2Sound    component
      */
-    public GimpySoundFactory(WordGenerator thewordGenerator, WordToSound theword2Sound)
-    {
-        if (thewordGenerator == null)
-        {
+    public GimpySoundFactory(WordGenerator thewordGenerator, WordToSound theword2Sound) {
+        if (thewordGenerator == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "GimpySoundFactory : WordGenerator can't be null");
+                    + "GimpySoundFactory : WordGenerator can't be null");
         }
-        if (theword2Sound == null)
-        {
+        if (theword2Sound == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "GimpySoundFactory : Word2Sound can't be null");
+                    + "GimpySoundFactory : Word2Sound can't be null");
         }
         this.wordGenerator = thewordGenerator;
         this.word2Sound = theword2Sound;
@@ -524,79 +517,67 @@ public class GimpySoundFactory extends SoundCaptchaFactory
 
     /**
      * Construct a GimpySoundFactory from a word generator component and a wordtosound component
-     * 
-     * @param thewordGenerator
-     *            component
-     * @param theword2Sound
-     *            component
+     *
+     * @param thewordGenerator component
+     * @param theword2Sound    component
      */
     public GimpySoundFactory(WordGenerator wordGenerator, WordToSound word2Sound,
-        WordDecorator wordDecorator)
-    {
-        if (wordGenerator == null)
-        {
+                             WordDecorator wordDecorator) {
+        if (wordGenerator == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "SpellingSoundFactory : WordGenerator can't be null");
+                    + "SpellingSoundFactory : WordGenerator can't be null");
         }
-        if (word2Sound == null)
-        {
+        if (word2Sound == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "SpellingSoundFactory : Word2Sound can't be null");
+                    + "SpellingSoundFactory : Word2Sound can't be null");
         }
-        if (wordDecorator == null)
-        {
+        if (wordDecorator == null) {
             throw new CaptchaException("Invalid configuration for a "
-                + "SpellingSoundFactory : wordAbstractor can't be null");
+                    + "SpellingSoundFactory : wordAbstractor can't be null");
         }
         this.wordGenerator = wordGenerator;
         this.word2Sound = word2Sound;
         this.wordDecorator = wordDecorator;
     }
 
-    public WordToSound getWordToSound()
-    {
+    public WordToSound getWordToSound() {
         return this.word2Sound;
     }
 
-    public WordGenerator getWordGenerator()
-    {
+    public WordGenerator getWordGenerator() {
         return this.wordGenerator;
     }
 
     /**
      * @return a Sound Captcha
      */
-public SoundCaptcha getSoundCaptcha()
-    {
+    public SoundCaptcha getSoundCaptcha() {
         String word = this.wordGenerator.getWord(getRandomLenght(), Locale.getDefault());
         AudioInputStream sound = this.word2Sound.getSound(word);
         SoundCaptcha soundCaptcha = new GimpySound(getQuestion(Locale
-            .getDefault()), sound, word);
+                .getDefault()), sound, word);
         return soundCaptcha;
     }
+
     /**
-     * @param locale
-     *            the locale
+     * @param locale the locale
      * @return a localized sound captcha
      */
-    public SoundCaptcha getSoundCaptcha(Locale locale)
-    {
+    public SoundCaptcha getSoundCaptcha(Locale locale) {
         String word = this.wordGenerator.getWord(getRandomLenght(), locale);
         AudioInputStream sound = this.word2Sound.getSound(word, locale);
         SoundCaptcha soundCaptcha = new GimpySound(getQuestion(locale), sound, word);
         return soundCaptcha;
     }
 
-    protected String getQuestion(Locale locale)
-    {
+    protected String getQuestion(Locale locale) {
         return CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY);
     }
 
-    protected Integer getRandomLenght()
-    {
+    protected Integer getRandomLenght() {
         Integer wordLenght;
         int range = getWordToSound().getMaxAcceptedWordLenght()
-            - getWordToSound().getMinAcceptedWordLenght();
+                - getWordToSound().getMinAcceptedWordLenght();
         int randomRange = range != 0 ? myRandom.nextInt(range + 1) : 0;
         wordLenght = new Integer(randomRange + getWordToSound().getMinAcceptedWordLenght());
         return wordLenght;

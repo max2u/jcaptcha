@@ -472,7 +472,7 @@ import java.awt.image.BufferedImage;
 import java.text.AttributedString;
 
 /**
- * <p>
+ * <p/>
  * Implementation skeleton for the WordToImage component
  * </p>
  * Basically this class implements the imageFromWord method proceding as folow :
@@ -485,12 +485,11 @@ import java.text.AttributedString;
  * <li>Return the newly created image</li>
  * </ul>
  * <p/>This class implements the Template method pattern from the GOF design patterns.
- * 
+ *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
  */
-public abstract class AbstractWordToImage implements WordToImage
-{
+public abstract class AbstractWordToImage implements WordToImage {
 
     /**
      * Creates an image of the provided String This method is a skeleton for creation algorithm. it
@@ -503,13 +502,12 @@ public abstract class AbstractWordToImage implements WordToImage
      * <li>Put the text on the backround using the abstact method pasteText</li>
      * <li>Return the newly created image</li>
      * </ul>
-     * 
+     *
      * @return an image representation of the word
      * @throws com.octo.captcha.CaptchaException
-     *             if word is invalid or if image generation fails.
+     *          if word is invalid or if image generation fails.
      */
-    public BufferedImage getImage(String word) throws CaptchaException
-    {
+    public BufferedImage getImage(String word) throws CaptchaException {
         int wordLenght;
         //check word
         wordLenght = checkWordLenght(word);
@@ -523,13 +521,11 @@ public abstract class AbstractWordToImage implements WordToImage
 
     }
 
-    AttributedString getAttributedString(String word, int wordLenght)
-    {
+    AttributedString getAttributedString(String word, int wordLenght) {
         AttributedString attributedWord = new AttributedString(word);
         //apply font to string
 
-        for (int i = 0; i < wordLenght; i++)
-        {
+        for (int i = 0; i < wordLenght; i++) {
             Font font = getFont();//get the new font for next character
             //apply font to next character
             attributedWord.addAttribute(TextAttribute.FONT, font, i, i + 1);
@@ -537,19 +533,14 @@ public abstract class AbstractWordToImage implements WordToImage
         return attributedWord;
     }
 
-    int checkWordLenght(String word) throws CaptchaException
-    {
+    int checkWordLenght(String word) throws CaptchaException {
         int wordLenght;
-        if (word == null)
-        {
+        if (word == null) {
             throw new CaptchaException("null word");
-        }
-        else
-        {
+        } else {
             wordLenght = word.length();
             if (wordLenght > this.getMaxAcceptedWordLenght()
-                || wordLenght < getMinAcceptedWordLenght())
-            {
+                    || wordLenght < getMinAcceptedWordLenght()) {
                 throw new CaptchaException("invalid lenght word");
             }
         }
@@ -559,7 +550,7 @@ public abstract class AbstractWordToImage implements WordToImage
     /**
      * Method from imageFromWord method to apply font to String. Implementations must take into
      * account the minFontSize and the MaxFontSize.
-     * 
+     *
      * @return a Font
      */
     abstract Font getFont();
@@ -567,7 +558,7 @@ public abstract class AbstractWordToImage implements WordToImage
     /**
      * Generates a backround image on wich text will be paste. Implementations must take into
      * account the imageHeigt and imageWidth.
-     * 
+     *
      * @return the background image
      */
     abstract BufferedImage getBackround();
@@ -576,14 +567,13 @@ public abstract class AbstractWordToImage implements WordToImage
      * Pastes the attributed string on the backround image and return the final image.
      * Implementation must take into account the fact that the text must be readable by human and
      * non by programs
-     * 
+     *
      * @param background
      * @param attributedWord
      * @return the final image
-     * @throws CaptchaException
-     *             if any exception accurs during paste routine.
+     * @throws CaptchaException if any exception accurs during paste routine.
      */
     abstract BufferedImage pasteText(final BufferedImage background,
-        final AttributedString attributedWord) throws CaptchaException;
+                                     final AttributedString attributedWord) throws CaptchaException;
 
 }

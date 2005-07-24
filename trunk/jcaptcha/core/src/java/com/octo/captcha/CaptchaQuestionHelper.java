@@ -474,8 +474,7 @@ import java.util.ResourceBundle;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public final class CaptchaQuestionHelper
-{
+public final class CaptchaQuestionHelper {
 
     /**
      * The bundle name used by this helper
@@ -483,8 +482,7 @@ public final class CaptchaQuestionHelper
     public static final String BUNDLE_NAME =
             CaptchaQuestionHelper.class.getName();
 
-    private CaptchaQuestionHelper()
-    {
+    private CaptchaQuestionHelper() {
     };
 
     /**
@@ -495,8 +493,7 @@ public final class CaptchaQuestionHelper
      *               captcha name
      * @return a localized question
      */
-    public static String getQuestion(Locale locale, String key)
-    {
+    public static String getQuestion(Locale locale, String key) {
         return ResourceBundle.getBundle(BUNDLE_NAME, locale).getString(key);
     }
 

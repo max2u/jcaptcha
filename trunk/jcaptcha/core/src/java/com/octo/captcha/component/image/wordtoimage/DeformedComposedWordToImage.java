@@ -490,8 +490,7 @@ import java.text.AttributedString;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class DeformedComposedWordToImage extends ComposedWordToImage
-{
+public class DeformedComposedWordToImage extends ComposedWordToImage {
 
     private ImageDeformation[] backgroundDeformation;
     private ImageDeformation[] textDeformation;
@@ -515,15 +514,14 @@ public class DeformedComposedWordToImage extends ComposedWordToImage
                                        TextPaster textPaster,
                                        ImageDeformation backgroundDeformation,
                                        ImageDeformation textDeformation,
-                                       ImageDeformation finalDeformation)
-    {
+                                       ImageDeformation finalDeformation) {
         super(fontGenerator, background, textPaster);
         this.backgroundDeformation = new ImageDeformation[]{backgroundDeformation};
         this.textDeformation = new ImageDeformation[]{textDeformation};
         this.finalDeformation = new ImageDeformation[]{finalDeformation};
     }
 
-        /**
+    /**
      * Composed word to image that applys filters
      *
      * @param fontGenerator         a AbstractFontGenerator to implement the
@@ -541,8 +539,7 @@ public class DeformedComposedWordToImage extends ComposedWordToImage
                                        TextPaster textPaster,
                                        ImageDeformation[] backgroundDeformation,
                                        ImageDeformation[] textDeformation,
-                                       ImageDeformation[] finalDeformation)
-    {
+                                       ImageDeformation[] finalDeformation) {
         super(fontGenerator, background, textPaster);
         this.backgroundDeformation = backgroundDeformation;
         this.textDeformation = textDeformation;
@@ -565,31 +562,30 @@ public class DeformedComposedWordToImage extends ComposedWordToImage
      * @throws com.octo.captcha.CaptchaException
      *          if word is invalid or if image generation fails.
      */
-    public BufferedImage getImage(String word) throws CaptchaException
-    {
+    public BufferedImage getImage(String word) throws CaptchaException {
         BufferedImage background = getBackround();
         AttributedString aword = getAttributedString(word, checkWordLenght(word));
         //copy background
         BufferedImage out = new BufferedImage(background.getWidth(), background.getHeight(),
-            background.getType());
+                background.getType());
         Graphics2D g2 = (Graphics2D) out.getGraphics();
         //paste background
         g2.drawImage(background, 0, 0, out.getWidth(), out.getHeight(), null);
         g2.dispose();
         //apply filters to backround
-        for(int i=0;i<backgroundDeformation.length;i++){
+        for (int i = 0; i < backgroundDeformation.length; i++) {
             out = backgroundDeformation[i].deformImage(out);
         }
 
         //paste text on a transparent background
         BufferedImage transparent = new BufferedImage(out.getWidth(), out.getHeight(),
-            BufferedImage.TYPE_INT_ARGB);
+                BufferedImage.TYPE_INT_ARGB);
 
         //use textpaster to paste the text
         transparent = pasteText(transparent, aword);
 
         //and apply deformation
-        for(int i=0;i<textDeformation.length;i++){
+        for (int i = 0; i < textDeformation.length; i++) {
             transparent = textDeformation[i].deformImage(transparent);
         }
 
@@ -599,7 +595,7 @@ public class DeformedComposedWordToImage extends ComposedWordToImage
         g3.drawImage(transparent, 0, 0, null);
         g3.dispose();
         //apply final deformation
-        for(int i=0;i<finalDeformation.length;i++){
+        for (int i = 0; i < finalDeformation.length; i++) {
             out = finalDeformation[i].deformImage(out);
         }
         return out;

@@ -472,8 +472,7 @@ import java.util.Locale;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface WordGenerator
-{
+public interface WordGenerator {
 
     /**
      * Return a word of lenght between min and max lenght

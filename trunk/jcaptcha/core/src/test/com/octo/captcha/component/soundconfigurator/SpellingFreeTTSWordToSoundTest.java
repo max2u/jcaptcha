@@ -465,65 +465,56 @@
 package com.octo.captcha.component.soundconfigurator;
 
 import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurator;
-
 import junit.framework.TestCase;
 
 /**
- * <p>
+ * <p/>
  * Description:
  * </p>
- * 
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class SpellingFreeTTSWordToSoundTest extends TestCase
-{
+public class SpellingFreeTTSWordToSoundTest extends TestCase {
 
     private FreeTTSSoundConfigurator freeTTSConfigurator;
 
     private String packageName = "package";
-    
+
     private String name = "name";
-    
+
     private float pitch = 50.0f;
-    
+
     private float volume = 0.5f;
-    
+
     private float rate = 150.0f;
 
     /**
      * Constructor for SimpleWordToImageTest.
-     * 
+     *
      * @param name
      */
-    public SpellingFreeTTSWordToSoundTest(String name)
-    {
+    public SpellingFreeTTSWordToSoundTest(String name) {
         super(name);
     }
 
-    public void setUp()
-    {
-        this.freeTTSConfigurator = new FreeTTSSoundConfigurator(
-            name, packageName, volume, pitch, rate);
+    public void setUp() {
+        this.freeTTSConfigurator = new FreeTTSSoundConfigurator(name, packageName, volume, pitch, rate);
     }
 
-    public void testGetLocation()
-    {
+    public void testGetLocation() {
         assertEquals(this.freeTTSConfigurator.getLocation(), packageName);
     }
 
-    public void testGetPitch()
-    {
-        assertEquals(this.freeTTSConfigurator.getPitch(),pitch, 1.0f);
+    public void testGetPitch() {
+        assertEquals(this.freeTTSConfigurator.getPitch(), pitch, 1.0f);
     }
-    
-    public void testGetVolume()
-    {
-        assertEquals(this.freeTTSConfigurator.getVolume(),volume, 1.0f);
+
+    public void testGetVolume() {
+        assertEquals(this.freeTTSConfigurator.getVolume(), volume, 1.0f);
     }
-    
-    public void testGetName()
-    {
-        assertEquals(this.freeTTSConfigurator.getName(),name);
+
+    public void testGetName() {
+        assertEquals(this.freeTTSConfigurator.getName(), name);
     }
 }

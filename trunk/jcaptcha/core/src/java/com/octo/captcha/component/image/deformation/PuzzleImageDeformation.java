@@ -464,25 +464,22 @@
 
 package com.octo.captcha.component.image.deformation;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import com.jhlabs.image.RotateFilter;
+import com.octo.captcha.component.image.utils.ToolkitFactory;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.util.Random;
 
-import com.jhlabs.image.RotateFilter;
-import com.octo.captcha.component.image.utils.ToolkitFactory;
-
 /**
  * Deformation where the image is divided in little squares, moved individualty in a random
  * position. Each move is really light, in order to let the captcha readble.
- * 
+ *
  * @author Benoit Doumas
  */
-public class PuzzleImageDeformation implements ImageDeformation
-{
+public class PuzzleImageDeformation implements ImageDeformation {
 
     /**
      * Number of colums to divide the image, max number if rows and colums are managed randomly
@@ -510,21 +507,16 @@ public class PuzzleImageDeformation implements ImageDeformation
      * Conststruct a PuzzleImageDeformation, with the numbers of colums and rows. If
      * manageRowAndColRandomly is set to true, the numbers of rows and colums are choosed between 1
      * and colNum/rowNum
-     * 
-     * @param colNum
-     *                  Number of colums to divide the image, max number if rows and colums are managed
-     *                  randomly
-     * @param rowNum
-     *                  Number of rows to divide the image, max number if rows and colums are managed
-     *                  randomly
-     * @param maxAngleRotation
-     *                  Maximal angle of rotation for each square.
-     * @param manageRowAndColRandomly
-     *                  Rows and colums are managed randomly
+     *
+     * @param colNum                  Number of colums to divide the image, max number if rows and colums are managed
+     *                                randomly
+     * @param rowNum                  Number of rows to divide the image, max number if rows and colums are managed
+     *                                randomly
+     * @param maxAngleRotation        Maximal angle of rotation for each square.
+     * @param manageRowAndColRandomly Rows and colums are managed randomly
      */
     public PuzzleImageDeformation(int colNum, int rowNum, double maxAngleRotation,
-        boolean manageRowAndColRandomly)
-    {
+                                  boolean manageRowAndColRandomly) {
         super();
         this.colNum = colNum;
         this.rowNum = rowNum;
@@ -535,8 +527,7 @@ public class PuzzleImageDeformation implements ImageDeformation
     /*
      * @see com.octo.captcha.component.image.deformation.ImageDeformation#deformImage(java.awt.image.BufferedImage)
      */
-    public BufferedImage deformImage(BufferedImage image)
-    {
+    public BufferedImage deformImage(BufferedImage image) {
 
         int height = image.getHeight();
         int width = image.getWidth();
@@ -559,15 +550,13 @@ public class PuzzleImageDeformation implements ImageDeformation
         Graphics2D gSmall = smallPart.createGraphics();
         FilteredImageSource filtered;
 
-        for (int i = 0; i < colNum; i++)
-        {
-            for (int j = 0; j < rowNum; j++)
-            {
+        for (int i = 0; i < colNum; i++) {
+            for (int j = 0; j < rowNum; j++) {
                 gSmall.drawImage(image, 0, 0, xd, yd, xd * i, yd * j, xd * i + xd, yd * j + yd,
-                    null);
+                        null);
 
                 ImageFilter filter = new RotateFilter(maxAngleRotation * random.nextDouble()
-                    * (random.nextBoolean() ? -1 : 1));
+                        * (random.nextBoolean() ? -1 : 1));
 
                 filtered = new FilteredImageSource(smallPart.getSource(), filter);
                 Image temp = ToolkitFactory.getToolkit().createImage(filtered);

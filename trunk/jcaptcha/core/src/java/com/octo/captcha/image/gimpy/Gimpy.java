@@ -478,13 +478,11 @@ import java.io.Serializable;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class Gimpy extends ImageCaptcha implements Serializable
-{
+public class Gimpy extends ImageCaptcha implements Serializable {
 
     private String response;
 
-    Gimpy(String question, BufferedImage challenge, String response)
-    {
+    Gimpy(String question, BufferedImage challenge, String response) {
         super(question, challenge);
         this.response = response;
     }
@@ -498,8 +496,7 @@ public class Gimpy extends ImageCaptcha implements Serializable
      * @return true if the given response equals the internal response, false
      *         otherwise.
      */
-    public final Boolean validateResponse(final Object response)
-    {
+    public final Boolean validateResponse(final Object response) {
         return (null != response && response instanceof String)
                 ? validateResponse((String) response) : Boolean.FALSE;
     }
@@ -511,8 +508,7 @@ public class Gimpy extends ImageCaptcha implements Serializable
      * @return true if the given response equals the internal response, false
      *         otherwise.
      */
-    private final Boolean validateResponse(final String response)
-    {
+    private final Boolean validateResponse(final String response) {
         return new Boolean(response.equals(this.response));
     };
 
