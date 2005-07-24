@@ -466,19 +466,19 @@ package com.octo.captcha.service.captchastore;
 
 import com.octo.captcha.Captcha;
 import com.octo.captcha.service.CaptchaServiceException;
+import org.apache.commons.collections.FastHashMap;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.commons.collections.FastHashMap;
 
 
 /**
  * Simple store based on a HashMap
  */
 public class MapCaptchaStore implements CaptchaStore {
-    private Map store;
+
+    Map store;
 
     public MapCaptchaStore() {
         this.store = new FastHashMap();
@@ -521,9 +521,6 @@ public class MapCaptchaStore implements CaptchaStore {
      */
     public Captcha getCaptcha(String id) throws CaptchaServiceException {
         Object captcha = store.get(id);
-        if (captcha == null) {
-            throw new CaptchaServiceException("no captcha for specified id is found");
-        }
         return (Captcha) captcha;
     }
 
