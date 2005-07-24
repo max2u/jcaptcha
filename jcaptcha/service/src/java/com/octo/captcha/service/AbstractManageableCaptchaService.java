@@ -465,10 +465,9 @@ package com.octo.captcha.service;
 
 import com.octo.captcha.Captcha;
 import com.octo.captcha.service.captchastore.CaptchaStore;
+import org.apache.commons.collections.FastHashMap;
 
 import java.util.*;
-
-import org.apache.commons.collections.FastHashMap;
 
 /**
  * This class provides default implementation for the management interface.
@@ -492,24 +491,30 @@ public abstract class AbstractManageableCaptchaService
     private int numberOfUncorrectResponse = 0;
     private int numberOfGarbageCollectedCaptcha = 0;
 
-    private HashMap times;
+    private FastHashMap times;
 
     private long oldestCaptcha = 0;//OPTIMIZATION STUFF!
 
 
     protected AbstractManageableCaptchaService(CaptchaStore captchaStore, com.octo.captcha.engine.CaptchaEngine captchaEngine,
-                                               int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize,
-                                               int captchaStoreLoadBeforeGarbageCollection) {
+                                               int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize) {
         super(captchaStore, captchaEngine);
-        if (maxCaptchaStoreSize < captchaStoreLoadBeforeGarbageCollection)
-            throw new IllegalArgumentException("the max store size can't be less than garbage collection size. if you want to disable garbage" +
-                    " collection (this is not recommended) you may set them equals (max=garbage)");
+
         this.setCaptchaStoreMaxSize(maxCaptchaStoreSize);
         this.setMinGuarantedStorageDelayInSeconds(minGuarantedStorageDelayInSeconds);
-        this.setCaptchaStoreSizeBeforeGarbageCollection(captchaStoreLoadBeforeGarbageCollection);
+        this.setCaptchaStoreSizeBeforeGarbageCollection((int) Math.round(0.8*maxCaptchaStoreSize));
         times = new FastHashMap();
     }
 
+    protected AbstractManageableCaptchaService(CaptchaStore captchaStore, com.octo.captcha.engine.CaptchaEngine captchaEngine,
+                                               int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize, int captchaStoreLoadBeforeGarbageCollection) {
+       this(captchaStore, captchaEngine, minGuarantedStorageDelayInSeconds, maxCaptchaStoreSize);
+        if (maxCaptchaStoreSize < captchaStoreLoadBeforeGarbageCollection)
+                   throw new IllegalArgumentException("the max store size can't be less than garbage collection size. if you want to disable garbage" +
+                           " collection (this is not recommended) you may set them equals (max=garbage)");
+        this.setCaptchaStoreSizeBeforeGarbageCollection(captchaStoreLoadBeforeGarbageCollection);
+
+    }
 
     /**
      * Get the fully qualified class name of the concrete CaptchaEngine
@@ -728,7 +733,7 @@ public abstract class AbstractManageableCaptchaService
         //empty the store
         this.store.empty();
         //And the timestamps
-        this.times = new HashMap();
+        this.times = new FastHashMap();
     }
 
 
