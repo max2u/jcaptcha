@@ -464,13 +464,12 @@
 
 package com.octo.captcha.engine;
 
-import java.lang.reflect.Constructor;
-
 import com.octo.captcha.Captcha;
-
 import junit.framework.TestCase;
 import net.sourceforge.groboutils.junit.v1.MultiThreadedTestRunner;
 import net.sourceforge.groboutils.junit.v1.TestRunnable;
+
+import java.lang.reflect.Constructor;
 
 /**
  * Base class for CaptchaEngine load tests...

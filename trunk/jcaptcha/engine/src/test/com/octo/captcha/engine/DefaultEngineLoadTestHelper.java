@@ -6,9 +6,8 @@
  */
 package com.octo.captcha.engine;
 
-import net.sourceforge.groboutils.junit.v1.TestRunnable;
-
 import com.octo.captcha.Captcha;
+import net.sourceforge.groboutils.junit.v1.TestRunnable;
 
 /**
  * @author Benoit
