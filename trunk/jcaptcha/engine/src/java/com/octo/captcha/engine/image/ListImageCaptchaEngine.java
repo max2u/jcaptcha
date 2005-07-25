@@ -465,7 +465,10 @@ DAMAGES.
 package com.octo.captcha.engine.image;
 
 import com.octo.captcha.CaptchaException;
+import com.octo.captcha.CaptchaFactory;
+import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.image.ImageCaptcha;
+import com.octo.captcha.image.ImageCaptchaFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -527,16 +530,30 @@ public abstract class ListImageCaptchaEngine
     }
 
     /**
-     * remove the factory from the gimpy list
-     *
-     * @param factory
-    * @return true if removed, false otherwise
+     * @return captcha factories used by this engine
      */
-//    public boolean removeFactory(
-//            com.octo.captcha.image.ImageCaptchaFactory factory)
-//    {
-//        return this.factories.remove(factory);
-//    }
+    public CaptchaFactory[] getFactories() {
+        return (CaptchaFactory[])this.factories.toArray(new CaptchaFactory[factories.size()]);
+    }
+
+    /**
+     * @param factories new captcha factories for this engine
+     */
+    public void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException {
+        if(factories==null||factories.length==0 ){
+            throw new CaptchaEngineException("impossible to set null or empty factories");
+        }
+      ArrayList tempFactories = new ArrayList();
+
+            for(int i = 0; i<factories.length;i++){
+                if(ImageCaptchaFactory.class.isAssignableFrom(factories[i].getClass())){
+                    throw new CaptchaEngineException("This factory is not an image captcha factory "+factories[i].getClass());
+                }
+                tempFactories.add(factories[i]);
+            }
+
+        this.factories = tempFactories;
+    }
 
     /**
      * This method build a ImageCaptchaFactory.

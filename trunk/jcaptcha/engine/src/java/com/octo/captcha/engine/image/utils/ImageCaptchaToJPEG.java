@@ -466,12 +466,7 @@ package com.octo.captcha.engine.image.utils;
 
 import com.octo.captcha.engine.image.ImageCaptchaEngine;
 import com.octo.captcha.engine.image.fisheye.SimpleFishEyeEngine;
-import com.octo.captcha.engine.image.gimpy.BaffleListGimpyEngine;
-import com.octo.captcha.engine.image.gimpy.BasicListGimpyEngine;
-import com.octo.captcha.engine.image.gimpy.DefaultGimpyEngine;
-import com.octo.captcha.engine.image.gimpy.DeformedBaffleListGimpyEngine;
-import com.octo.captcha.engine.image.gimpy.DoubleRandomListGimpyEngine;
-import com.octo.captcha.engine.image.gimpy.SimpleListImageCaptchaEngine;
+import com.octo.captcha.engine.image.gimpy.*;
 import com.octo.captcha.image.ImageCaptcha;
 
 import java.io.File;

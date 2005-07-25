@@ -463,10 +463,10 @@ DAMAGES.
 */
 package com.octo.captcha.engine.sound;
 
-import java.util.Locale;
-
 import com.octo.captcha.Captcha;
 import com.octo.captcha.sound.SoundCaptcha;
+
+import java.util.Locale;
 
 /**
  * <p>Description: abstract base class for SoundCaptcha engines</p>.

@@ -475,7 +475,7 @@ import com.octo.captcha.component.image.textpaster.TextPaster;
 import com.octo.captcha.component.image.wordtoimage.DeformedComposedWordToImage;
 import com.octo.captcha.engine.image.ListImageCaptchaEngine;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.image.ImageFilter;
 
 /**

@@ -58,6 +58,8 @@
 
 package com.octo.captcha.engine;
 
+import com.octo.captcha.CaptchaFactory;
+
 import java.util.Locale;
 
 /**
@@ -87,4 +89,16 @@ public interface CaptchaEngine
      * @return a new Captcha
      */
     com.octo.captcha.Captcha getNextCaptcha(Locale locale);
+
+
+     /**
+      * @return captcha factories used by this engine
+      */
+    CaptchaFactory[] getFactories();
+
+    /**
+     * @param factories new captcha factories for this engine
+     * @throws CaptchaEngineException if the factories are invalid for this engine
+     */
+    void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException;
 }
