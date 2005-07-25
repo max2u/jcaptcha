@@ -464,6 +464,7 @@ DAMAGES.
 package com.octo.captcha.engine;
 
 import com.octo.captcha.Captcha;
+import com.octo.captcha.CaptchaFactory;
 
 import java.util.Locale;
 
@@ -491,5 +492,21 @@ public class MockCaptchaEngine implements com.octo.captcha.engine.CaptchaEngine 
      */
     public Captcha getNextCaptcha(Locale locale) {
         return new MockCaptcha();
+    }
+
+    /**
+     * @return captcha factories used by this engine
+     */
+    public CaptchaFactory[] getFactories() {
+        return new CaptchaFactory[0];
+    }
+
+    /**
+     * @param factories new captcha factories for this engine
+     * @throws CaptchaEngineException
+     *          if the factories are invalid for this engine
+     */
+    public void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException {
+
     }
 }

@@ -467,9 +467,7 @@ import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurat
 import com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator;
 import com.octo.captcha.component.sound.wordtosound.FreeTTSWordToSound;
 import com.octo.captcha.component.worddecorator.SpellerWordDecorator;
-
 import com.octo.captcha.engine.sound.ListSoundCaptchaEngine;
-
 import com.octo.captcha.sound.speller.SpellerSoundFactory;
 
 /**
