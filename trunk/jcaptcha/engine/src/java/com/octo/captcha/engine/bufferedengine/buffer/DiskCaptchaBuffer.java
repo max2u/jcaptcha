@@ -1,32 +1,16 @@
 package com.octo.captcha.engine.bufferedengine.buffer;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.RandomAccessFile;
-import java.io.Serializable;
-import java.io.StreamCorruptedException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Locale;
-import java.util.NoSuchElementException;
+import com.octo.captcha.Captcha;
+import com.octo.captcha.CaptchaException;
 
-import org.apache.commons.collections.BufferUnderflowException;
 import org.apache.commons.collections.MapIterator;
 import org.apache.commons.collections.buffer.UnboundedFifoBuffer;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.octo.captcha.Captcha;
-import com.octo.captcha.CaptchaException;
+import java.io.*;
+import java.util.*;
 
 /**
  * Simple implmentation of a disk captcha buffer
@@ -579,7 +563,7 @@ public class DiskCaptchaBuffer implements CaptchaBuffer
     /**
      * @see com.octo.captcha.engine.bufferedengine.buffer.CaptchaBuffer#removeCaptcha()
      */
-    public Captcha removeCaptcha() throws BufferUnderflowException
+    public Captcha removeCaptcha() throws NoSuchElementException
     {
         if (isDisposed) return null;
         return removeCaptcha(Locale.getDefault());
@@ -651,7 +635,7 @@ public class DiskCaptchaBuffer implements CaptchaBuffer
     /**
      * @see com.octo.captcha.engine.bufferedengine.buffer.CaptchaBuffer#removeCaptcha(java.util.Locale)
      */
-    public Captcha removeCaptcha(Locale locale) throws BufferUnderflowException
+    public Captcha removeCaptcha(Locale locale) throws NoSuchElementException
     {
         log.debug("entering removeCaptcha(Locale locale)");
         
@@ -666,7 +650,7 @@ public class DiskCaptchaBuffer implements CaptchaBuffer
         }
         if (captchas.size() == 0)
         {
-            throw new BufferUnderflowException();
+            throw new NoSuchElementException();
         }
         return (Captcha) captchas.toArray()[0];
     }

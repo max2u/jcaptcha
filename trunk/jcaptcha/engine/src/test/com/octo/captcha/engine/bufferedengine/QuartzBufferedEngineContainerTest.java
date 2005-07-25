@@ -4,16 +4,13 @@
  */
 package com.octo.captcha.engine.bufferedengine;
 
+import com.octo.captcha.engine.DefaultEngineLoadTestHelper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-
-import com.octo.captcha.engine.DefaultEngineLoadTestHelper;
-
-import junit.framework.TestCase;
 
 /**
  * @author Doumas Benoit

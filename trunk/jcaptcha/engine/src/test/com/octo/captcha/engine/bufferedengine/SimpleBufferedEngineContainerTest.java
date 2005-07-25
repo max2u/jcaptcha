@@ -9,8 +9,6 @@ import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import junit.framework.TestCase;
-
 import java.util.Locale;
 
 /**

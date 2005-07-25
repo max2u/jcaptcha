@@ -113,6 +113,30 @@
            <properties/>
          </dependency>
 
+       <dependency>
+           <groupId>commons-dbcp</groupId>
+           <artifactId>commons-dbcp</artifactId>
+           <version>1.2.1</version>
+           <jar/>
+           <type/>
+           <properties/>
+         </dependency>
+      <dependency>
+           <groupId>commons-pool</groupId>
+           <artifactId>commons-pool</artifactId>
+           <version>1.1</version>
+           <jar/>
+           <type/>
+           <properties/>
+         </dependency>
+            <dependency>
+           <groupId>hsqldb</groupId>
+           <artifactId>hsqldb</artifactId>
+           <version>1.7.3.0</version>
+           <jar/>
+           <type/>
+           <properties/>
+         </dependency>
       <dependency>
            <groupId>commons-collections</groupId>
            <artifactId>commons-collections</artifactId>
@@ -140,12 +164,7 @@
                 <properties/>
               </dependency>
               
-        <dependency>
-            <groupId>springframework</groupId>
-            <artifactId>spring-dao</artifactId>
-            <version>1.2</version>
-            <type>jar</type>
-        </dependency>
+      
         
         <dependency>
             <groupId>springframework</groupId>

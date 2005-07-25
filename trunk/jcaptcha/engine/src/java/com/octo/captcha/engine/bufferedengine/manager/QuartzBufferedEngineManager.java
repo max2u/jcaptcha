@@ -1,10 +1,8 @@
 package com.octo.captcha.engine.bufferedengine.manager;
 
-import java.text.ParseException;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.StringTokenizer;
-
+import com.octo.captcha.CaptchaException;
+import com.octo.captcha.engine.bufferedengine.ContainerConfiguration;
+import com.octo.captcha.engine.bufferedengine.QuartzBufferedEngineContainer;
 import org.apache.commons.collections.MapIterator;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.logging.Log;
@@ -14,9 +12,10 @@ import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 
-import com.octo.captcha.CaptchaException;
-import com.octo.captcha.engine.bufferedengine.ContainerConfiguration;
-import com.octo.captcha.engine.bufferedengine.QuartzBufferedEngineContainer;
+import java.text.ParseException;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.StringTokenizer;
 
 /**
  * Manager of a Quartz Buffered Engine
