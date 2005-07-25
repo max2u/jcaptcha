@@ -6,12 +6,11 @@
  */
 package com.octo.captcha.engine.bufferedengine.buffer;
 
+import com.octo.captcha.Captcha;
+
 import java.util.Collection;
 import java.util.Locale;
-
-import org.apache.commons.collections.BufferUnderflowException;
-
-import com.octo.captcha.Captcha;
+import java.util.NoSuchElementException;
 
 /**
  * CaptchaBuffer is the interface to describe buffers of captchas.
@@ -24,10 +23,10 @@ public interface CaptchaBuffer
      * remove a captcha from the buffer
      * 
      * @return a captcha
-     * @throws BufferUnderflowException
-     *                  if there is no captcha throw BufferUnderflowException
+     * @throws NoSuchElementException
+     *                  if there is no captcha throw NoSuchElementException
      */
-    public Captcha removeCaptcha() throws BufferUnderflowException;
+    public Captcha removeCaptcha() throws NoSuchElementException ;
 
     /**
      * remove a captcha from the buffer corresponding to the locale
@@ -35,10 +34,10 @@ public interface CaptchaBuffer
      * @param locale
      *                  The locale the catcha to remove
      * @return a captcha correponding to the locale
-     * @throws BufferUnderflowException
-     *                  if there is no captcha throw BufferUnderflowException
+     * @throws NoSuchElementException
+     *                  if there is no captcha throw NoSuchElementException
      */
-    public Captcha removeCaptcha(Locale locale) throws BufferUnderflowException;
+    public Captcha removeCaptcha(Locale locale) throws NoSuchElementException;
 
     /**
      * Remove a precise number of captcha

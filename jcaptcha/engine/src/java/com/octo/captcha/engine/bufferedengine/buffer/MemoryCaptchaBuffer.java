@@ -1,20 +1,17 @@
 package com.octo.captcha.engine.bufferedengine.buffer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Locale;
+import com.octo.captcha.Captcha;
 
-import org.apache.commons.collections.BufferUnderflowException;
 import org.apache.commons.collections.buffer.UnboundedFifoBuffer;
 import org.apache.commons.collections.map.HashedMap;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.octo.captcha.Captcha;
+import java.util.*;
 
 /**
- * Simple implmentation of a memory captcha buffer with HashedMap from commons collection
+ * Simple implmentation of a memory captcha buffer with HashedMap from commons collection.
+ *
  * 
  * @author Benoit Doumas
  */
@@ -39,10 +36,11 @@ public class MemoryCaptchaBuffer implements CaptchaBuffer
         log.debug("Initializing Buffer");
     }
 
+
     /**
      * @see com.octo.captcha.engine.bufferedengine.buffer.CaptchaBuffer#removeCaptcha(java.util.Locale)
      */
-    public Captcha removeCaptcha(Locale locale) throws BufferUnderflowException
+    public Captcha removeCaptcha(Locale locale) throws NoSuchElementException
     {
         Captcha captcha = null;
 
@@ -53,7 +51,7 @@ public class MemoryCaptchaBuffer implements CaptchaBuffer
                 captcha = (Captcha) ((UnboundedFifoBuffer) buffers.get(locale)).remove();
                 log.debug("get captcha from MemoryBuffer");
             }
-            catch (BufferUnderflowException e)
+            catch (NoSuchElementException e)
             {
                 log.debug("Buffer empty for locale : " + locale.toString());
             }
@@ -63,7 +61,7 @@ public class MemoryCaptchaBuffer implements CaptchaBuffer
             if (log.isDebugEnabled())
             {
                 log.debug("Locale not present : " + locale.toString());
-                throw new BufferUnderflowException();
+
             }
         }
 
@@ -96,7 +94,7 @@ public class MemoryCaptchaBuffer implements CaptchaBuffer
                 list.add(buffer.remove());
             }
         }
-        catch (BufferUnderflowException e)
+        catch (NoSuchElementException e)
         {
             log.debug("Buffer empty for locale : " + locale.toString());
         }
@@ -115,14 +113,11 @@ public class MemoryCaptchaBuffer implements CaptchaBuffer
         return removeCaptcha(number, Locale.getDefault());
     }
 
-    public Captcha removeCaptcha() throws BufferUnderflowException
+    public Captcha removeCaptcha() throws NoSuchElementException
     {
         return removeCaptcha(Locale.getDefault());
     }
 
-    /**
-     * @see com.octo.captcha.service.buffer.CaptchaBuffer#addCaptcha(com.octo.captcha.Captcha)
-     */
     public void putCaptcha(Captcha captcha, Locale locale)
     {
 

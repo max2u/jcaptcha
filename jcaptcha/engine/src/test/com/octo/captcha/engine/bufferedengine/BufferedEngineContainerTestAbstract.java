@@ -6,12 +6,10 @@
  */
 package com.octo.captcha.engine.bufferedengine;
 
-import java.util.Locale;
-
 import com.octo.captcha.Captcha;
-import com.octo.captcha.engine.CaptchaEngine;
-
 import junit.framework.TestCase;
+
+import java.util.Locale;
 
 /**
  * @author Benoit
@@ -21,6 +19,8 @@ import junit.framework.TestCase;
  */
 public abstract class BufferedEngineContainerTestAbstract extends TestCase
 {
+
+
 
     /*
      * Class under test for Captcha getNextCaptcha()

@@ -1,10 +1,10 @@
 
 package com.octo.captcha.engine.bufferedengine;
 
+import junit.framework.TestCase;
+
 import java.util.HashMap;
 import java.util.Locale;
-
-import junit.framework.TestCase;
 
 /**
  * Unit test the ContainerConfiguration
@@ -35,7 +35,7 @@ public class ContainerConfigurationTest extends TestCase
         
         localRatio.put(Locale.FRANCE, new Double(0.2));
         localRatio.put(Locale.US, new Double(0.8));
-        config = new ContainerConfiguration(localRatio, 0, 0);
+        config = new ContainerConfiguration(localRatio, 0, 0,10,40);
     }
 
     public void testSetFeedSize()
@@ -55,6 +55,42 @@ public class ContainerConfigurationTest extends TestCase
         config.setLocaleRatio(localRatio2);
         
         assertEquals(3, config.getLocaleRatio().size());
+    }
+
+     public void testServeOnlyConfiguredLocales()
+    {
+        HashMap localRatio2 = new HashMap(3);
+        localRatio2.put(Locale.GERMAN, new Double(0.1));
+        localRatio2.put(Locale.CHINA, new Double(0.8));
+        localRatio2.put(Locale.ITALY, new Double(0.1));
+
+         try {
+             config = new ContainerConfiguration(localRatio2, 0, 0,10,40,true,Locale.getDefault());
+             fail("should have thown an exception concerning the default locale");
+         } catch (Exception e) {
+
+         }
+
+          config = new ContainerConfiguration(localRatio2, 0, 0,10,40,false,Locale.KOREAN);
+         try {
+                  config.setServeOnlyConfiguredLocales(true);
+                   fail("should have thown an exception concerning the default locale");
+               } catch (Exception e) {
+
+               }
+        config = new ContainerConfiguration(localRatio2, 0, 0,10,40,true,Locale.GERMAN);
+         config = new ContainerConfiguration(localRatio2, 0, 0,10,40);
+        config.setDefaultLocale(Locale.GERMAN);
+        config.setServeOnlyConfiguredLocales(true);
+
+         try {
+                 config.setDefaultLocale(Locale.JAPAN);
+                   fail("should have thown an exception concerning the default locale");
+               } catch (Exception e) {
+
+               }
+
+
     }
 
     public void testSetMaxPersistentMemorySize()

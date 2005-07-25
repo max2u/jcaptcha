@@ -1,15 +1,14 @@
 
 package com.octo.captcha.engine.bufferedengine.buffer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Locale;
-
 import com.octo.captcha.Captcha;
 import com.octo.captcha.engine.CaptchaEngine;
 import com.octo.captcha.engine.image.gimpy.BasicGimpyEngine;
-
 import junit.framework.TestCase;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Locale;
 
 /**
  * Abstract class to test Buffers

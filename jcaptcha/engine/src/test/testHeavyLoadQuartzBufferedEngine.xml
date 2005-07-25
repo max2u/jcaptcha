@@ -40,17 +40,16 @@
 	</bean>
 
 	<bean
-		class="com.octo.captcha.engine.image.gimpy.DefaultGimpyEngine" id="engine">
+		class="com.octo.captcha.engine.MockCaptchaEngine" id="engine">
 	</bean>
-	
+
 	<bean
 		class="com.octo.captcha.engine.bufferedengine.buffer.MemoryCaptchaBuffer" id="memBuffer">
 	</bean>
 
 	<bean
-		class="com.octo.captcha.engine.bufferedengine.buffer.DiskCaptchaBuffer" id="diskBuffer">
-						<constructor-arg index="0"><value>c:/temp/test</value></constructor-arg>
-						<constructor-arg index="1"><value>false</value></constructor-arg>
+		class="com.octo.captcha.engine.bufferedengine.buffer.MemoryCaptchaBuffer" id="diskBuffer">
+
 	</bean>
 
 	<bean
