@@ -560,6 +560,8 @@ public class SoundToWavHelper
         theResponse.setContentType("audio/x-wav");
         ServletOutputStream responseOutputStream = theResponse.getOutputStream();
         responseOutputStream.write(captchaChallengeAsWav);
+        responseOutputStream.flush();
+        responseOutputStream.close();
     }
 
 }

@@ -465,9 +465,12 @@ DAMAGES.
 package com.octo.captcha.engine.image;
 
 import com.octo.captcha.CaptchaException;
+import com.octo.captcha.CaptchaFactory;
+import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.image.ImageCaptcha;
 import com.octo.captcha.image.ImageCaptchaFactory;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
@@ -529,6 +532,33 @@ public abstract class DefaultImageCaptchaEngine extends ImageCaptchaEngine
     public ImageCaptcha getNextImageCaptcha(Locale locale)
     {
         return getImageCaptchaFactory().getImageCaptcha(locale);
+    }
+
+
+     /**
+     * @return captcha factories used by this engine
+     */
+    public CaptchaFactory[] getFactories() {
+        return factories;
+    }
+
+    /**
+     * @param factories new captcha factories for this engine
+     */
+    public void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException {
+        if(factories==null||factories.length==0 ){
+            throw new CaptchaEngineException("impossible to set null or empty factories");
+        }
+      ArrayList tempFactories = new ArrayList();
+
+            for(int i = 0; i<factories.length;i++){
+                if(ImageCaptchaFactory.class.isAssignableFrom(factories[i].getClass())){
+                    throw new CaptchaEngineException("This factory is not an image captcha factory "+factories[i].getClass());
+                }
+
+            }
+
+        this.factories = (ImageCaptchaFactory[]) tempFactories.toArray(new ImageCaptchaFactory[factories.length]);
     }
 
 }

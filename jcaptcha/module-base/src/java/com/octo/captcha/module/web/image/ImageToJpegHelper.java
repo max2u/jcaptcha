@@ -486,6 +486,9 @@ import org.apache.commons.logging.Log;
  */
 public class ImageToJpegHelper {
 
+
+
+
      /**
      * retrieve a new ImageCaptcha using ImageCaptchaService and
      * flush it to the response.<br/>
@@ -560,6 +563,8 @@ public class ImageToJpegHelper {
         ServletOutputStream responseOutputStream =
                 theResponse.getOutputStream();
         responseOutputStream.write(captchaChallengeAsJpeg);
+        responseOutputStream.flush();
+        responseOutputStream.close();
      }
 
 
