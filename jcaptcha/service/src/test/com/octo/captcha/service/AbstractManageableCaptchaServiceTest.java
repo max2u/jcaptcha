@@ -345,6 +345,7 @@ public class AbstractManageableCaptchaServiceTest extends AbstractCaptchaService
         assertEquals("initial", MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS, getMService().getMinGuarantedStorageDelayInSeconds());
     }
 
+
     public void testAutomaticGarbaging() throws Exception {
         loadAndWait();
         assertEquals("none should have been collected yet", 0, getMService().getNumberOfGarbageCollectedCaptcha());
@@ -435,16 +436,11 @@ public class AbstractManageableCaptchaServiceTest extends AbstractCaptchaService
         }
 
         /**
-         * This method must be implemented by sublcasses and :
-         * Retrieve the challenge from the captcha
-         * Make and return a clone of the challenge
-         * Return the clone
-         * It has be design in order to let the service dipose
-         * the challenge of the captcha after rendering.
-         * It should be implemented for all captcha type (@see ImageCaptchaService implementations
-         * for exemple)
+         * This method must be implemented by sublcasses and : Retrieve the challenge from the captcha Make and return a
+         * clone of the challenge Return the clone It has be design in order to let the service dipose the challenge of
+         * the captcha after rendering. It should be implemented for all captcha type (@see ImageCaptchaService
+         * implementations for exemple)
          *
-         * @param captcha
          * @return a Challenge Clone
          */
         protected Object getChallengeClone(Captcha captcha) {
