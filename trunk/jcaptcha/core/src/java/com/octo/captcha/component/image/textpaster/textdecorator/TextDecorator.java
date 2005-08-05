@@ -475,5 +475,5 @@ import java.text.AttributedString;
  * @version 1.0
  */
 public interface TextDecorator {
-    void decorateSAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString);
+    void decorateAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString);
 }

@@ -49,13 +49,11 @@ public class DecoratedRandomTextPaster extends AbstractTextPaster {
     }
 
     /**
-     * Pastes the attributed string on the backround image and return the final image.
-     * Implementation must take into account the fact that the text must be readable by human and
-     * non by programs
+     * Pastes the attributed string on the backround image and return the final image. Implementation must take into
+     * account the fact that the text must be readable by human and non by programs
      *
-     * @param background
-     * @param attributedWord
      * @return the final image
+     *
      * @throws com.octo.captcha.CaptchaException
      *          if any exception accurs during paste routine.
      */
@@ -89,7 +87,7 @@ public class DecoratedRandomTextPaster extends AbstractTextPaster {
         //and now decorate
         if (decorators != null) {
             for (int i = 0; i < decorators.length; i++) {
-                decorators[i].decorateSAttributedString(g2, attributedWord, newAttrString);
+                decorators[i].decorateAttributedString(g2, attributedWord, newAttrString);
 
             }
         }
