@@ -16,6 +16,10 @@
         <attainGoal name="jcaptcha:dist-bin"/>
   </goal>
 
+
+  
+
+
  <goal name="jcaptcha:clean" description="clean the whole project">
     <attainGoal name="clean"/>
     <maven:reactor
@@ -30,6 +34,8 @@
 
 
      <goal name="jcaptcha:jars" description="build and install jcaptcha jars">
+     
+
     	<maven:reactor
         basedir="${basedir}"
         includes="*/project.xml"
