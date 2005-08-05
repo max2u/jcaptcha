@@ -479,8 +479,8 @@ import java.util.Iterator;
 import java.util.Locale;
 
 /**
- * This class provides an implementation for the ehcache enhanced management interface.
- * It uses the self managed cache ehcache as CaptchaStore
+ * This class provides an implementation for the ehcache enhanced management interface. It uses the self managed cache
+ * ehcache as CaptchaStore
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
@@ -499,79 +499,76 @@ public abstract class EhcacheManageableCaptchaService
     private int numberOfGeneratedCaptchas = 0;
     private int numberOfCorrectResponse = 0;
     private int numberOfUncorrectResponse = 0;
-    public static final String CACHE_NAME_PREFIX= "jcaptcha.store.";
-    public static final String DEFAULT_CACHE_NAME= "default";
+    public static final String CACHE_NAME_PREFIX = "jcaptcha.store.";
+    public static final String DEFAULT_CACHE_NAME = "default";
 
-    public String captchaStoreCacheName ;
+    public String captchaStoreCacheName;
 
 
     protected EhcacheManageableCaptchaService(com.octo.captcha.engine.CaptchaEngine captchaEngine,
                                               int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize) {
-        this(captchaEngine, minGuarantedStorageDelayInSeconds, maxCaptchaStoreSize,DEFAULT_CACHE_NAME);
+        this(captchaEngine, minGuarantedStorageDelayInSeconds, maxCaptchaStoreSize, DEFAULT_CACHE_NAME);
     }
 
 
     protected EhcacheManageableCaptchaService(com.octo.captcha.engine.CaptchaEngine captchaEngine,
-                                                  int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize,
-                                                  String cacheName) {
-            //just to compile : call super first
-            super(new MapCaptchaStore(), captchaEngine);
+                                              int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize,
+                                              String cacheName) {
+        //just to compile : call super first
+        super(new MapCaptchaStore(), captchaEngine);
 
-            //if name is null, use the default one
-            if(cacheName==null||"".equals(cacheName)){
-                cacheName=DEFAULT_CACHE_NAME;
-            }
-            //set the cache name
-            captchaStoreCacheName = CACHE_NAME_PREFIX+cacheName;
-
-            //creates the manager
-            try {
-                this.cacheManager = CacheManager.getInstance();
-            } catch (CacheException e) {
-                log.error(e);
-            }
-            // create a cache with overflow on disk,
-            Cache cache = new Cache(captchaStoreCacheName, maxCaptchaStoreSize, true, false, minGuarantedStorageDelayInSeconds,
-                    minGuarantedStorageDelayInSeconds);
-            //store the cache
-
-            try {
-                if (cacheManager.cacheExists(captchaStoreCacheName)) {
-                    cacheManager.removeCache(captchaStoreCacheName);
-                }
-                cacheManager.addCache(cache);
-            } catch (CacheException e) {
-                log.error(e);
-            }
-            //change the super store
-            super.store = new EhcacheCaptchaStore(cache);
-
-            this.captchaStoreMaxSize = maxCaptchaStoreSize;
-            this.minGuarantedStorageDelayInSeconds = minGuarantedStorageDelayInSeconds;
-
+        //if name is null, use the default one
+        if (cacheName == null || "".equals(cacheName)) {
+            cacheName = DEFAULT_CACHE_NAME;
         }
+        //set the cache name
+        captchaStoreCacheName = CACHE_NAME_PREFIX + cacheName;
+
+        //creates the manager
+        try {
+            this.cacheManager = CacheManager.getInstance();
+        } catch (CacheException e) {
+            log.error(e);
+        }
+        // create a cache with overflow on disk,
+        Cache cache = new Cache(captchaStoreCacheName, maxCaptchaStoreSize, true, false, minGuarantedStorageDelayInSeconds,
+                minGuarantedStorageDelayInSeconds);
+        //store the cache
+
+        try {
+            if (cacheManager.cacheExists(captchaStoreCacheName)) {
+                cacheManager.removeCache(captchaStoreCacheName);
+            }
+            cacheManager.addCache(cache);
+        } catch (CacheException e) {
+            log.error(e);
+        }
+        //change the super store
+        super.store = new EhcacheCaptchaStore(cache);
+
+        this.captchaStoreMaxSize = maxCaptchaStoreSize;
+        this.minGuarantedStorageDelayInSeconds = minGuarantedStorageDelayInSeconds;
+
+    }
 
 
     /**
-     * Get the fully qualified class name of the concrete CaptchaEngine
-     * used by the service.
+     * Get the fully qualified class name of the concrete CaptchaEngine used by the service.
      *
-     * @return the fully qualified class name of the concrete CaptchaEngine
-     *         used by the service.
+     * @return the fully qualified class name of the concrete CaptchaEngine used by the service.
      */
     public String getCaptchaEngineClass() {
         return this.engine.getClass().getName();
     }
 
     /**
-     * Set the fully qualified class name of the concrete CaptchaEngine
-     * used by the service
+     * Set the fully qualified class name of the concrete CaptchaEngine used by the service
      *
-     * @param theClassName the fully qualified class name of the
-     *                     CaptchaEngine used by the service
-     * @throws IllegalArgumentException if className can't be used as the
-     *                                  service CaptchaEngine, either because it can't be instanciated
-     *                                  by the service or it is not a ImageCaptchaEngine concrete class.
+     * @param theClassName the fully qualified class name of the CaptchaEngine used by the service
+     *
+     * @throws IllegalArgumentException if className can't be used as the service CaptchaEngine, either because it can't
+     *                                  be instanciated by the service or it is not a ImageCaptchaEngine concrete
+     *                                  class.
      */
     public void setCaptchaEngineClass(String theClassName)
             throws IllegalArgumentException {
@@ -595,10 +592,8 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * Get the minimum delay (in seconds) a client can
-     * be assured that a captcha generated by the service
-     * can be retrieved and a response to its challenge
-     * tested
+     * Get the minimum delay (in seconds) a client can be assured that a captcha generated by the service can be
+     * retrieved and a response to its challenge tested
      *
      * @return the maximum delay in seconds
      */
@@ -607,14 +602,11 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * set the minimum delay (in seconds)a client can
-     * be assured that a captcha generated by the service
-     * can be retrieved and a response to its challenge
-     * tested
+     * set the minimum delay (in seconds)a client can be assured that a captcha generated by the service can be
+     * retrieved and a response to its challenge tested
      *
      * @param theMinGuarantedStorageDelayInSeconds
-     *         the
-     *         minimum guaranted delay
+     *         the minimum guaranted delay
      */
     public void setMinGuarantedStorageDelayInSeconds(int theMinGuarantedStorageDelayInSeconds) {
         this.minGuarantedStorageDelayInSeconds = theMinGuarantedStorageDelayInSeconds;
@@ -624,9 +616,8 @@ public abstract class EhcacheManageableCaptchaService
 
 
     /**
-     * Get the number of captcha generated since the service is up
-     * WARNING : this value won't be significant if the real number
-     * is > Long.MAX_VALUE
+     * Get the number of captcha generated since the service is up WARNING : this value won't be significant if the real
+     * number is > Long.MAX_VALUE
      *
      * @return the number of captcha generated since the service is up
      */
@@ -635,10 +626,8 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * Get the number of correct responses to captcha challenges since
-     * the service is up.
-     * WARNING : this value won't be significant if the real number
-     * is > Long.MAX_VALUE
+     * Get the number of correct responses to captcha challenges since the service is up. WARNING : this value won't be
+     * significant if the real number is > Long.MAX_VALUE
      *
      * @return the number of correct responses since the service is up
      */
@@ -647,10 +636,8 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * Get the number of uncorrect responses to captcha challenges since
-     * the service is up.
-     * WARNING : this value won't be significant if the real number
-     * is > Long.MAX_VALUE
+     * Get the number of uncorrect responses to captcha challenges since the service is up. WARNING : this value won't
+     * be significant if the real number is > Long.MAX_VALUE
      *
      * @return the number of uncorrect responses since the service is up
      */
@@ -668,11 +655,9 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * Get the number of captchas that can be garbage collected in
-     * the captcha store
+     * Get the number of captchas that can be garbage collected in the captcha store
      *
-     * @return the number of captchas that can be garbage collected
-     *         in the captcha store
+     * @return the number of captchas that can be garbage collected in the captcha store
      */
     public int getNumberOfGarbageCollectableCaptchas() {
         return 0;
@@ -680,9 +665,8 @@ public abstract class EhcacheManageableCaptchaService
 
 
     /**
-     * Get the number of captcha garbage collected since the service is up
-     * WARNING : this value won't be significant if the real number
-     * is > Long.MAX_VALUE
+     * Get the number of captcha garbage collected since the service is up WARNING : this value won't be significant if
+     * the real number is > Long.MAX_VALUE
      *
      * @return the number of captcha garbage collected since the service is up
      */
@@ -699,9 +683,6 @@ public abstract class EhcacheManageableCaptchaService
 
     /**
      * max captchaStore size before garbage collection of the store
-     *
-     * @param captchaStoreSizeBeforeGarbageCollection
-     *
      */
     public void setCaptchaStoreSizeBeforeGarbageCollection(int captchaStoreSizeBeforeGarbageCollection) {
 
@@ -711,10 +692,8 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * This max size is used by the service : it will throw a CaptchaServiceException if the
-     * store is full when a client ask for a captcha.
-     *
-     * @param size
+     * This max size is used by the service : it will throw a CaptchaServiceException if the store is full when a client
+     * ask for a captcha.
      */
     public void setCaptchaStoreMaxSize(int size) {
         this.captchaStoreMaxSize = size;
@@ -733,12 +712,12 @@ public abstract class EhcacheManageableCaptchaService
     }
 
     /**
-     * Garbage collect the captcha store, means all old capthca (captcha in the store wich has been stored
-     * more than the MinGuarantedStorageDelayInSecond
+     * Garbage collect the captcha store, means all old capthca (captcha in the store wich has been stored more than the
+     * MinGuarantedStorageDelayInSecond
      */
     public void garbageCollectCaptchaStore() {
         //to garbage collect, wait 5 minutes or get : see ehcache doco
-        Iterator it=null;
+        Iterator it = null;
         try {
             it = cacheManager.getCache(captchaStoreCacheName).getKeys().iterator();
         } catch (CacheException e) {
@@ -763,7 +742,7 @@ public abstract class EhcacheManageableCaptchaService
     }
 
 
-    private void updateCache()  {
+    private void updateCache() {
 
         Cache cache = new Cache(captchaStoreCacheName, captchaStoreMaxSize, true, false, minGuarantedStorageDelayInSeconds,
                 minGuarantedStorageDelayInSeconds);
@@ -774,21 +753,21 @@ public abstract class EhcacheManageableCaptchaService
             log.error(e);
         }
 
-                try {
-                    cacheManager.removeCache(captchaStoreCacheName);
-                    cacheManager.addCache(cache);
-                    this.store = new EhcacheCaptchaStore(cache);
-                    Cache myCache = cacheManager.getCache(captchaStoreCacheName);
-                    long now = System.currentTimeMillis();
-                    while (it.hasNext()) {
-                        Element el= (Element) it.next();
-                        if((now-el.getCreationTime())<cache.getTimeToLiveSeconds()*1000){
-                            myCache.put(el);
-                        }
-                    }
-                } catch (CacheException e) {
-                   log.error(e);
+        try {
+            cacheManager.removeCache(captchaStoreCacheName);
+            cacheManager.addCache(cache);
+            this.store = new EhcacheCaptchaStore(cache);
+            Cache myCache = cacheManager.getCache(captchaStoreCacheName);
+            long now = System.currentTimeMillis();
+            while (it.hasNext()) {
+                Element el = (Element) it.next();
+                if ((now - el.getCreationTime()) < cache.getTimeToLiveSeconds() * 1000) {
+                    myCache.put(el);
                 }
+            }
+        } catch (CacheException e) {
+            log.error(e);
+        }
 
     }
 
@@ -805,7 +784,7 @@ public abstract class EhcacheManageableCaptchaService
                 }
                 ;
             } catch (CacheException e) {
-               log.error(e);
+                log.error(e);
             }
         }
         return els;
@@ -813,15 +792,12 @@ public abstract class EhcacheManageableCaptchaService
 
     }
 
-
-
-
     //*******
     ///Overriding business methods to add some stats and store management hooks
     ///****
 
     protected Captcha generateAndStoreCaptcha(Locale locale, String ID) {
-       Cache cache = getCache();
+        Cache cache = getCache();
         try {
             if (cache.getSize() >= this.captchaStoreMaxSize) {
                 //impossible ! has to wait
@@ -833,7 +809,7 @@ public abstract class EhcacheManageableCaptchaService
         } catch (CacheException e) {
 
             log.error(e);
-           
+
         }
         Captcha captcha = this.engine.getNextCaptcha(locale);
         this.numberOfGeneratedCaptchas++;
@@ -854,7 +830,9 @@ public abstract class EhcacheManageableCaptchaService
      * captcha from the store.
      *
      * @param ID the ticket provided by the buildCaptchaAndGetID method
+     *
      * @return true if the response is correct, false otherwise.
+     *
      * @throws CaptchaServiceException if the ticket is invalid
      */
     public Boolean validateResponseForID(String ID, Object response) throws CaptchaServiceException {
@@ -868,8 +846,6 @@ public abstract class EhcacheManageableCaptchaService
         }
         return valid;
     }
-
-
 
 
 }

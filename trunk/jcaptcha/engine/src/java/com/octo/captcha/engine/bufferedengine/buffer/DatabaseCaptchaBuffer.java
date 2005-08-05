@@ -19,13 +19,7 @@ import java.util.*;
 /**
  * A database Captcha Buffer.
  * <p/>
- * The database should have the following structure
- * </p>
- * <ul>
- * <li>
- * A captcha column with
- * </li>
- * </ul>
+ * The database should have the following structure </p> <ul> <li> A captcha column with </li> </ul>
  *
  * @author <a href="mailto:marc.antoine.garrigue@gmail.com">Marc-Antoine Garrigue</a>
  * @version 1.0
@@ -48,22 +42,19 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
         this.datasource = datasource;
     }
 
-    public DatabaseCaptchaBuffer(DataSource datasource,String table) {
+    public DatabaseCaptchaBuffer(DataSource datasource, String table) {
         this(datasource);
         this.table = table;
     }
 
     public DatabaseCaptchaBuffer(DataSource datasource, String table, String timeMillisColumn, String hashCodeColumn, String captchaColumn, String localeColumn) {
-        this(datasource,table);
+        this(datasource, table);
         this.timeMillisColumn = timeMillisColumn;
         this.hashCodeColumn = hashCodeColumn;
         this.captchaColumn = captchaColumn;
         this.localeColumn = localeColumn;
 
     }
-
-
-
 
     //Buffer methods
 
@@ -72,6 +63,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      * remove a captcha from the buffer
      *
      * @return a captcha
+     *
      * @throws java.util.NoSuchElementException
      *          if there is no captcha throw NoSuchElementException
      */
@@ -83,7 +75,9 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      * remove a captcha from the buffer corresponding to the locale
      *
      * @param locale The locale the catcha to remove
+     *
      * @return a captcha correponding to the locale
+     *
      * @throws NoSuchElementException if there is no captcha throw NoSuchElementException
      */
     public Captcha removeCaptcha(Locale locale) throws NoSuchElementException {
@@ -99,6 +93,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      * Remove a precise number of captcha
      *
      * @param number The number of captchas to remove
+     *
      * @return a collection of captchas
      */
     public Collection removeCaptcha(int number) {
@@ -110,28 +105,31 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      *
      * @param number The number of captchas to remove
      * @param locale The locale of the removed captchas
+     *
      * @return a collection of captchas
      */
     public Collection removeCaptcha(int number, Locale locale) {
         Connection con = null;
         PreparedStatement ps = null;
         PreparedStatement psdel = null;
-        ResultSet rs=null;
+        ResultSet rs = null;
         Collection collection = new UnboundedFifoBuffer();
-        if(number<1){
+        if (number < 1) {
             return collection;
         }
         try {
             con = datasource.getConnection();
 
 
-            ps = con.prepareStatement("select * from " + table + " where " + localeColumn
+            ps = con.prepareStatement("select *  from " + table + " where " + localeColumn
                     + " = ? order by " + timeMillisColumn);
+
             psdel = con.prepareStatement("delete from " + table + " where " + timeMillisColumn
-                    + "= ? and "+ hashCodeColumn
-                    + "= ? and "+ localeColumn
-                    + "= ?" );
+                    + "= ? and " + hashCodeColumn
+                    + "= ? and " + localeColumn
+                    + "= ?");
             ps.setString(1, locale.toString());
+            ps.setMaxRows(number);
             rs = ps.executeQuery();
             //read
             int i = 0;
@@ -143,9 +141,9 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                     Object captcha = objstr.readObject();
                     collection.add(captcha);
                     //and delete
-                    psdel.setLong(1,rs.getLong(timeMillisColumn));
-                    psdel.setLong(2,rs.getLong(hashCodeColumn));
-                    psdel.setString(3,rs.getString(localeColumn));
+                    psdel.setLong(1, rs.getLong(timeMillisColumn));
+                    psdel.setLong(2, rs.getLong(hashCodeColumn));
+                    psdel.setString(3, rs.getString(localeColumn));
                     psdel.execute();
                 } catch (IOException e) {
                     log.error("error during captcha deserialization, " +
@@ -193,11 +191,9 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
 
     /**
      * Put a captcha with default laocale
-     *
-     * @param captcha
      */
     public void putCaptcha(Captcha captcha) {
-         putCaptcha(captcha,Locale.getDefault() );
+        putCaptcha(captcha, Locale.getDefault());
     }
 
     /**
@@ -207,11 +203,11 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      * @param locale  the locale of the captcha
      */
     public void putCaptcha(Captcha captcha, Locale locale) {
-            if(captcha!=null){
-              Set set = new HashSet();
-              set.add(captcha);
-              putAllCaptcha(set,locale);
-          }
+        if (captcha != null) {
+            Set set = new HashSet();
+            set.add(captcha);
+            putAllCaptcha(set, locale);
+        }
     }
 
     /**
@@ -220,7 +216,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      * @param captchas The captchas to add
      */
     public void putAllCaptcha(Collection captchas) {
-            putAllCaptcha(captchas, Locale.getDefault());
+        putAllCaptcha(captchas, Locale.getDefault());
     }
 
     /**
@@ -239,7 +235,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
             try {
                 con = datasource.getConnection();
                 ps = con.prepareStatement("insert into " + table + "(" + timeMillisColumn + "," +
-                        hashCodeColumn + ","+ localeColumn + "," + captchaColumn + ") values (?,?,?,?)");
+                        hashCodeColumn + "," + localeColumn + "," + captchaColumn + ") values (?,?,?,?)");
 
 
                 while (captIt.hasNext()) {
@@ -261,11 +257,14 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                         if (ps.execute()) {
                             inserted++;
                         }
-                        ;
+                        if (log.isDebugEnabled()) {
+                            log.debug("inserted : " + inserted);
+                        }
                     } catch (IOException e) {
                         log.warn("error during captcha serialization, " +
                                 "check your class versions. removing row from database", e);
                     }
+
                 }
 
             } catch (SQLException e) {
@@ -301,45 +300,46 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
         ResultSet rs = null;
         int size = 0;
 
-            try {
-                con = datasource.getConnection();
-                ps = con.prepareStatement("select count(*) from "+table);
-                rs = ps.executeQuery();
-                if( rs.next() ){
-                    size = rs.getInt(1);
-                }
-                rs.close();
-            } catch (SQLException e) {
-                log.error(DB_ERROR, e);
-                if (rs != null) {
+        try {
+            con = datasource.getConnection();
+            ps = con.prepareStatement("select count(*) from " + table);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                size = rs.getInt(1);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            log.error(DB_ERROR, e);
+            if (rs != null) {
                 try {
                     rs.close();
                 }
                 catch (SQLException ex) {
                 }
             }
-            } finally {
-                if (ps != null) {
-                    try {
-                        ps.close();
-                    } catch (SQLException e) {
-                    }
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
                 }
             }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
 
-      return size;
+        return size;
     }
 
     /**
      * Get the size of the buffer for a locale
      *
      * @param locale the locale to get the size
+     *
      * @return The size of the buffer
      */
     public int size(Locale locale) {
@@ -348,40 +348,40 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
         ResultSet rs = null;
         int size = 0;
 
-            try {
-                con = datasource.getConnection();
-                ps = con.prepareStatement("select count(*) from "+table +" where " + localeColumn + "=?");
-                ps.setString(1,locale.toString());
-                rs = ps.executeQuery();
-                if( rs.next() ){
-                    size = rs.getInt(1);
-                }
-                rs.close();
-            } catch (SQLException e) {
-                log.error(DB_ERROR, e);
-                if (rs != null) {
+        try {
+            con = datasource.getConnection();
+            ps = con.prepareStatement("select count(*) from " + table + " where " + localeColumn + "=?");
+            ps.setString(1, locale.toString());
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                size = rs.getInt(1);
+            }
+            rs.close();
+        } catch (SQLException e) {
+            log.error(DB_ERROR, e);
+            if (rs != null) {
                 try {
                     rs.close();
                 }
                 catch (SQLException ex) {
                 }
             }
-            } finally {
-                if (ps != null) {
-                    try {
-                        ps.close();
-                    } catch (SQLException e) {
-                    }
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
                 }
             }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
 
-      return size;
+        return size;
     }
 
     /**
@@ -397,36 +397,36 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
     public void clear() {
         Connection con = null;
         PreparedStatement ps = null;
-         ResultSet rs = null;
+        ResultSet rs = null;
 
-            try {
-                con = datasource.getConnection();
-                ps = con.prepareStatement("delete from "+table);
-                ps.execute();
+        try {
+            con = datasource.getConnection();
+            ps = con.prepareStatement("delete from " + table);
+            ps.execute();
 
-            } catch (SQLException e) {
-                log.error(DB_ERROR, e);
-                  if (rs != null) {
+        } catch (SQLException e) {
+            log.error(DB_ERROR, e);
+            if (rs != null) {
                 try {
                     rs.close();
                 }
                 catch (SQLException ex) {
                 }
             }
-            } finally {
-                if (ps != null) {
-                    try {
-                        ps.close();
-                    } catch (SQLException e) {
-                    }
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
                 }
             }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
 
 
     }
@@ -437,42 +437,42 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
     public Collection getLocales() {
         Connection con = null;
         PreparedStatement ps = null;
-         ResultSet rs  = null;
-        Set set  = new HashSet();
+        ResultSet rs = null;
+        Set set = new HashSet();
 
-            try {
-                con = datasource.getConnection();
-                ps = con.prepareStatement("select distinct "+localeColumn+" from "+table);
-                rs = ps.executeQuery();
-                while( rs.next() ){
-                    set.add(rs.getString(1));
-                }
-                rs.close();
-            } catch (SQLException e) {
-                log.error(DB_ERROR, e);
-                  if (rs != null) {
+        try {
+            con = datasource.getConnection();
+            ps = con.prepareStatement("select distinct " + localeColumn + " from " + table);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                set.add(rs.getString(1));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            log.error(DB_ERROR, e);
+            if (rs != null) {
                 try {
                     rs.close();
                 }
                 catch (SQLException ex) {
                 }
             }
-            } finally {
-                if (ps != null) {
-                    try {
-                        ps.close();
-                    } catch (SQLException e) {
-                    }
-                }
-                if (con != null) {
-                    try {
-                        con.close();
-                    } catch (SQLException e) {
-                    }
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (SQLException e) {
                 }
             }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
 
-      return set;
+        return set;
     }
 
 
