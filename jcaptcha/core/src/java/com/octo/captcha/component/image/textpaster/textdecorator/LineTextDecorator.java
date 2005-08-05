@@ -16,10 +16,8 @@ import java.util.Random;
 
 /**
  * <p/>
- * text paster that paint  lines on the string
- * </p>
- * You may specify the number of line per glyph : 3 by default. You may specify the color of lines :
- * white by default.
+ * text paster that paint  lines on the string </p> You may specify the number of line per glyph : 3 by default. You may
+ * specify the color of lines : white by default.
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
@@ -43,8 +41,7 @@ public class LineTextDecorator implements TextDecorator {
 
 
     /**
-     * @param numberOfLinesPerGlyph
-     * @param linesColor            Color of the lines
+     * @param linesColor Color of the lines
      */
     public LineTextDecorator(Integer numberOfLinesPerGlyph, Color linesColor) {
         this.numberOfLinesPerGlyph = numberOfLinesPerGlyph != null ? numberOfLinesPerGlyph
@@ -74,7 +71,7 @@ public class LineTextDecorator implements TextDecorator {
         this.alphaCompositeType = alphaCompositeType != null ? alphaCompositeType.intValue() : this.alphaCompositeType;
     }
 
-    public void decorateSAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString) {
+    public void decorateAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString) {
         Color oldColor = g2.getColor();
         Composite oldComp = g2.getComposite();
         g2.setComposite(AlphaComposite.getInstance(alphaCompositeType));
@@ -83,7 +80,7 @@ public class LineTextDecorator implements TextDecorator {
             Rectangle2D bounds = newAttrString.getBounds(j).getFrame();
             double circleMaxSize = (double) bounds.getWidth() / 2;
             for (int i = 0; i < numberOfLinesPerGlyph.intValue(); i++) {
-                double circleSize = circleMaxSize * (1 + myRandom.nextDouble()) / 2;
+                // double circleSize = circleMaxSize * (1 + myRandom.nextDouble()) / 2;
                 double circlex = bounds.getMinX() + bounds.getWidth() * 0.7 * myRandom.nextDouble();
                 double circley = bounds.getMinY() - bounds.getHeight() * 0.5
                         * myRandom.nextDouble();

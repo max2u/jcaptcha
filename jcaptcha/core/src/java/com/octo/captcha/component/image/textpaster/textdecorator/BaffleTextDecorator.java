@@ -15,10 +15,8 @@ import java.util.Random;
 
 /**
  * <p/>
- * text decorator that paint holes on the string (erase some parts)
- * </p>
- * You may specify the number of holes per glyph : 3 by default. You may specify the color of holes :
- * white by default.
+ * text decorator that paint holes on the string (erase some parts) </p> You may specify the number of holes per glyph :
+ * 3 by default. You may specify the color of holes : white by default.
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
@@ -52,8 +50,7 @@ public class BaffleTextDecorator implements TextDecorator {
 
 
     /**
-     * @param numberOfHolesPerGlyph
-     * @param holesColor            Color of the holes
+     * @param holesColor Color of the holes
      */
     public BaffleTextDecorator(Integer numberOfHolesPerGlyph, Color holesColor) {
         this.numberOfHolesPerGlyph = numberOfHolesPerGlyph != null ? numberOfHolesPerGlyph
@@ -85,7 +82,7 @@ public class BaffleTextDecorator implements TextDecorator {
     }
 
 
-    public void decorateSAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString) {
+    public void decorateAttributedString(Graphics2D g2, AttributedString attributedWord, ChangeableAttributedString newAttrString) {
 
         Color oldColor = g2.getColor();
         Composite oldComp = g2.getComposite();
