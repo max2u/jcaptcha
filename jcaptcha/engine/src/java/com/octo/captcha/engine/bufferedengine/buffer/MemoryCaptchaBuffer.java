@@ -18,9 +18,9 @@ import java.util.*;
 public class MemoryCaptchaBuffer implements CaptchaBuffer
 {
 
-    public static final String BUFFER_CACHE_NAME = "BasicCacheCaptchaBuffer";
+    //public static final String BUFFER_CACHE_NAME = "BasicCacheCaptchaBuffer";
 
-    public static final String SCHEDULER_ID = "BasicCacheCaptchaBuffer";
+    //public static final String SCHEDULER_ID = "BasicCacheCaptchaBuffer";
 
     private static final Log log = LogFactory.getLog(MemoryCaptchaBuffer.class);
 
@@ -33,7 +33,9 @@ public class MemoryCaptchaBuffer implements CaptchaBuffer
      */
     public MemoryCaptchaBuffer()
     {
-        log.debug("Initializing Buffer");
+        log.info("Initializing Buffer");
+        log.info("Buffer size : "+ size());
+        log.info("Buffer initialized");
     }
 
 

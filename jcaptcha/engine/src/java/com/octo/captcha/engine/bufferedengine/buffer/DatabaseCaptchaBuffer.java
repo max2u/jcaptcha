@@ -19,7 +19,8 @@ import java.util.*;
 /**
  * A database Captcha Buffer.
  * <p/>
- * The database should have the following structure </p> <ul> <li> A captcha column with </li> </ul>
+ * The database should have the following structure : default Column Name , type </p> <ul> <li> timemillis , long </li>
+ * <li> hashCode , long </li> <li> locale , string </li> <li> captcha , object </li> </ul>
  *
  * @author <a href="mailto:marc.antoine.garrigue@gmail.com">Marc-Antoine Garrigue</a>
  * @version 1.0
@@ -29,32 +30,44 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
     private static final Log log = LogFactory.getLog(DatabaseCaptchaBuffer.class.getName());
 
     //database attributes
-    private DataSource datasource;
+    private  DataSource datasource;
     private String table = "JCAPTCHA_T";
-    private String timeMillisColumn = "timemillis";
-    private String hashCodeColumn = "hashCode";
-    private String localeColumn = "locale";
-    private String captchaColumn = "captcha";
-    private static final String DB_ERROR = "SQL Error, check database connection, or database schema.";
+    private  String timeMillisColumn = "timemillis";
+    private  String hashCodeColumn = "hashCode";
+    private  String localeColumn = "locale";
+    private  String captchaColumn = "captcha";
+    private  static final String DB_ERROR = "SQL Error :";
 
 
     public DatabaseCaptchaBuffer(DataSource datasource) {
+        log.info("Initializing Buffer");
         this.datasource = datasource;
+        log.info("Buffer size : "+ size());
+        log.info("Buffer initialized");
     }
 
     public DatabaseCaptchaBuffer(DataSource datasource, String table) {
-        this(datasource);
+        log.info("Initializing Buffer");
+        this.datasource = datasource;
         this.table = table;
+        log.info("Buffer size : "+ size());
+        log.info("Buffer initialized");
     }
 
     public DatabaseCaptchaBuffer(DataSource datasource, String table, String timeMillisColumn, String hashCodeColumn, String captchaColumn, String localeColumn) {
-        this(datasource, table);
+        log.info("Initializing Buffer");
+        this.datasource = datasource;
+        this.table = table;
         this.timeMillisColumn = timeMillisColumn;
         this.hashCodeColumn = hashCodeColumn;
         this.captchaColumn = captchaColumn;
         this.localeColumn = localeColumn;
-
+        log.info("Buffer size : "+ size());
+        log.info("Buffer initialized");
     }
+
+
+
 
     //Buffer methods
 
@@ -114,10 +127,15 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
         PreparedStatement psdel = null;
         ResultSet rs = null;
         Collection collection = new UnboundedFifoBuffer();
+        Collection temp = new UnboundedFifoBuffer();
         if (number < 1) {
             return collection;
         }
         try {
+            if (log.isDebugEnabled()) {
+                log.debug("try to remove " + number + " captchas");
+            }
+            ;
             con = datasource.getConnection();
 
 
@@ -126,12 +144,12 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
 
             psdel = con.prepareStatement("delete from " + table + " where " + timeMillisColumn
                     + "= ? and " + hashCodeColumn
-                    + "= ? and " + localeColumn
-                    + "= ?");
+                    + "= ? ");//and " + localeColumn
+                    //+ "= ?");
             ps.setString(1, locale.toString());
             ps.setMaxRows(number);
-            rs = ps.executeQuery();
             //read
+            rs = ps.executeQuery();
             int i = 0;
             while (rs.next() && i < number) {
                 try {
@@ -139,35 +157,43 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                     InputStream in = rs.getBinaryStream(captchaColumn);
                     ObjectInputStream objstr = new ObjectInputStream(in);
                     Object captcha = objstr.readObject();
-                    collection.add(captcha);
+                    temp.add(captcha);
                     //and delete
-                    psdel.setLong(1, rs.getLong(timeMillisColumn));
-                    psdel.setLong(2, rs.getLong(hashCodeColumn));
-                    psdel.setString(3, rs.getString(localeColumn));
+                    long time = rs.getLong(timeMillisColumn);
+                    long hash = rs.getLong(hashCodeColumn);
+                    psdel.setLong(1, time);
+                    psdel.setLong(2, hash);
+                    //psdel.setString(3, rs.getString(localeColumn));
                     psdel.execute();
+
+                    if (log.isDebugEnabled()) {
+                        log.debug("removed captcha : " + time + ";"+hash);
+                    }
+                    ;
+
                 } catch (IOException e) {
                     log.error("error during captcha deserialization, " +
                             "check your class versions. removing row from database", e);
-                    rs.deleteRow();
+                    psdel.execute();
                 } catch (ClassNotFoundException e) {
                     log.error("Serialized captcha class in database is not in your classpath!", e);
                 }
 
             }
             rs.close();
+            //only add after commit
+            con.commit();
+            collection.addAll(temp);
         } catch (SQLException e) {
             log.error(DB_ERROR, e);
-
             if (rs != null) {
                 try {
                     rs.close();
-                }
-                catch (SQLException ex) {
+                } catch (SQLException ex) {
                 }
             }
 
         } finally {
-
 
             if (ps != null) {
                 try {
@@ -184,13 +210,11 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                 }
             }
         }
-
-
         return collection;
     }
 
     /**
-     * Put a captcha with default laocale
+     * Put a captcha with default locale
      */
     public void putCaptcha(Captcha captcha) {
         putCaptcha(captcha, Locale.getDefault());
@@ -228,12 +252,17 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
     public void putAllCaptcha(Collection captchas, Locale locale) {
         Connection con = null;
         PreparedStatement ps = null;
-        int inserted = 0;
+
+
         if (captchas != null && captchas.size() > 0) {
             Iterator captIt = captchas.iterator();
+            if (log.isDebugEnabled()) {
+                log.debug("try to insert " + captchas.size() + " captchas");
+            }
 
             try {
                 con = datasource.getConnection();
+                con.setAutoCommit(false);
                 ps = con.prepareStatement("insert into " + table + "(" + timeMillisColumn + "," +
                         hashCodeColumn + "," + localeColumn + "," + captchaColumn + ") values (?,?,?,?)");
 
@@ -242,8 +271,11 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
 
                     Captcha captcha = (Captcha) captIt.next();
                     try {
-                        ps.setLong(1, System.currentTimeMillis());
-                        ps.setLong(2, captcha.hashCode());
+                        long currenttime = System.currentTimeMillis();
+                        long hash = captcha.hashCode();
+
+                        ps.setLong(1, currenttime);
+                        ps.setLong(2, hash);
                         ps.setString(3, locale.toString());
                         // Serialise the entry
                         final ByteArrayOutputStream outstr = new ByteArrayOutputStream();
@@ -254,18 +286,19 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
 
                         ps.setBinaryStream(4, inpstream, outstr.size());
 
-                        if (ps.execute()) {
-                            inserted++;
-                        }
+                        ps.execute();
+
                         if (log.isDebugEnabled()) {
-                            log.debug("inserted : " + inserted);
+                            log.debug("inserted captcha  " + currenttime +";"+hash);
                         }
+                        ;
                     } catch (IOException e) {
                         log.warn("error during captcha serialization, " +
                                 "check your class versions. removing row from database", e);
                     }
-
                 }
+
+                con.commit();
 
             } catch (SQLException e) {
                 log.error(DB_ERROR, e);
@@ -296,7 +329,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      */
     public int size() {
         Connection con = null;
-        PreparedStatement ps = null;
+      PreparedStatement ps = null;
         ResultSet rs = null;
         int size = 0;
 
@@ -308,13 +341,13 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                 size = rs.getInt(1);
             }
             rs.close();
+            con.commit();
         } catch (SQLException e) {
             log.error(DB_ERROR, e);
             if (rs != null) {
                 try {
                     rs.close();
-                }
-                catch (SQLException ex) {
+                } catch (SQLException ex) {
                 }
             }
         } finally {
@@ -332,7 +365,8 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
             }
         }
 
-        return size;
+        return size;    
+
     }
 
     /**
@@ -357,13 +391,13 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                 size = rs.getInt(1);
             }
             rs.close();
+            con.commit();
         } catch (SQLException e) {
             log.error(DB_ERROR, e);
             if (rs != null) {
                 try {
                     rs.close();
-                }
-                catch (SQLException ex) {
+                } catch (SQLException ex) {
                 }
             }
         } finally {
@@ -388,7 +422,6 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      * Release all the ressources and close the buffer.
      */
     public void dispose() {
-
     }
 
     /**
@@ -403,14 +436,14 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
             con = datasource.getConnection();
             ps = con.prepareStatement("delete from " + table);
             ps.execute();
+            con.commit();
 
         } catch (SQLException e) {
             log.error(DB_ERROR, e);
             if (rs != null) {
                 try {
                     rs.close();
-                }
-                catch (SQLException ex) {
+                } catch (SQLException ex) {
                 }
             }
         } finally {
@@ -448,13 +481,13 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                 set.add(rs.getString(1));
             }
             rs.close();
+            con.commit();
         } catch (SQLException e) {
             log.error(DB_ERROR, e);
             if (rs != null) {
                 try {
                     rs.close();
-                }
-                catch (SQLException ex) {
+                } catch (SQLException ex) {
                 }
             }
         } finally {
