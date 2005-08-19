@@ -8,6 +8,7 @@ package com.octo.captcha.engine.bufferedengine;
 
 import com.octo.captcha.Captcha;
 import com.octo.captcha.CaptchaFactory;
+import com.octo.captcha.CaptchaException;
 import com.octo.captcha.engine.CaptchaEngine;
 import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.engine.bufferedengine.buffer.CaptchaBuffer;
@@ -247,15 +248,21 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
                 int batch = toBuild>config.getFeedBatchSize().intValue()?config.getFeedBatchSize().intValue():toBuild;
                 ArrayList captchas = new ArrayList(batch);
                 //build captchas, batch sized
+                int builded=0;
                 for (int i = 0; i < batch ; i++) {
-                    captchas.add(engine.getNextCaptcha(locale));
+                    try {
+                        captchas.add(engine.getNextCaptcha(locale));
+                        builded++;
+                    } catch (CaptchaException e) {
+                        log.warn("Error during captcha construction, skip this one : ", e);
+                    }
                 }
                 //persist
                 persistentBuffer.putAllCaptcha(captchas, locale);
     		    if (log.isInfoEnabled()) {
-                	log.info("feeded persistent buffer with  " + batch + " captchas for locale " + locale);
+                	log.info("feeded persistent buffer with  " + builded + " captchas for locale " + locale);
             	}
-                toBuild-=batch;
+                toBuild-=builded;
             }
             
         }
