@@ -140,7 +140,7 @@ public class DeformedBaffleListGimpyEngine extends ListImageCaptchaEngine
         ImageDeformation none = new ImageDeformationByFilters(null);
         //word generator
         WordGenerator words = new DictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionnary(
+                new com.octo.captcha.component.wordgenerator.FileDictionary(
                         "toddlist"));
         //wordtoimage components
         TextPaster paster = new BaffleRandomTextPaster(new Integer(6), new Integer(

@@ -127,7 +127,7 @@ public class FilteredGimpyEngine
         FontGenerator font = new RandomFontGenerator(new Integer(25),
                 new Integer(35));
         com.octo.captcha.component.wordgenerator.WordGenerator words = new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionnary(
+                new com.octo.captcha.component.wordgenerator.FileDictionary(
                         "toddlist"));
 
 

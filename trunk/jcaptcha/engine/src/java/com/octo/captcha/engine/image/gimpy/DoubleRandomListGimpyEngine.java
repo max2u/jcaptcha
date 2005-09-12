@@ -487,7 +487,7 @@ public class DoubleRandomListGimpyEngine extends ListImageCaptchaEngine
     {
         com.octo.captcha.component.wordgenerator.WordGenerator wordGenerator =
                 new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionnary(
+                new com.octo.captcha.component.wordgenerator.FileDictionary(
                         "toddlist"));
 
         TextPaster doubleRandomTextPaster = new DoubleRandomTextPaster(

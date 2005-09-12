@@ -475,25 +475,25 @@ import java.util.Locale;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.0
  */
-public class FileDictionnaryTest extends TestCase {
+public class FileDictionaryTest extends TestCase {
 
-    private FileDictionnary fileDictionnary;
+    private FileDictionary fileDictionary;
 
     /**
-     * Constructor for FileDictionnaryTest.
+     * Constructor for FileDictionaryTest.
      *
      * @param name
      */
-    public FileDictionnaryTest(String name) {
+    public FileDictionaryTest(String name) {
         super(name);
     }
 
     public void setUp() {
-        this.fileDictionnary = new FileDictionnary("toddlist");
+        this.fileDictionary = new FileDictionary("toddlist");
     }
 
     public void testGetWordList() {
-        WordList test = this.fileDictionnary.getWordList();
+        WordList test = this.fileDictionary.getWordList();
         assertNotNull(test);
         String testWord = test.getNextWord(new Integer(8));
         assertNotNull(testWord);
@@ -503,7 +503,7 @@ public class FileDictionnaryTest extends TestCase {
     }
 
     public void testGetWordListLocale() {
-        WordList test = this.fileDictionnary.getWordList(Locale.US);
+        WordList test = this.fileDictionary.getWordList(Locale.US);
         Locale expected = Locale.US;
         assertNotNull(test);
         String testWord = test.getNextWord(new Integer(8));
