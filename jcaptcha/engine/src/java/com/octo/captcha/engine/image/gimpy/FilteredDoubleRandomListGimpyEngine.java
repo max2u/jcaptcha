@@ -507,7 +507,7 @@ public class FilteredDoubleRandomListGimpyEngine
                         new Integer(27));
         com.octo.captcha.component.wordgenerator.WordGenerator words =
                 new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-                        new com.octo.captcha.component.wordgenerator.FileDictionnary(
+                        new com.octo.captcha.component.wordgenerator.FileDictionary(
                                 "toddlist"));
 
         com.octo.captcha.component.image.wordtoimage.WordToImage word2image =

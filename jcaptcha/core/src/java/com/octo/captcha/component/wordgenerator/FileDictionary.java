@@ -476,11 +476,11 @@ import java.util.StringTokenizer;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.1
  */
-public class FileDictionnary implements DictionaryReader {
+public class FileDictionary implements DictionaryReader {
 
     private String myBundle;
 
-    public FileDictionnary(String bundle) {
+    public FileDictionary(String bundle) {
         myBundle = bundle;
     }
 
