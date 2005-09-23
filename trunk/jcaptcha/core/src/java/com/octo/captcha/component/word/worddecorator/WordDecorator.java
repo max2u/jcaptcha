@@ -461,43 +461,24 @@
 
  END OF TERMS AND CONDITIONS
  */
-package com.octo.captcha.component.worddecorator;
+package com.octo.captcha.component.word.worddecorator;
+
 
 /**
- * Simple decorator that provide spelling from a word
+ * Provide method to decorate a word, that means adding semantic information around the word (like a
+ * question) or transforming the word into a semantical set (like a reverese spelling). It
+ * hightlight the word for a cognitive entity (human), but hide it form a logical finite engine
+ * (computer)
  *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class SpellerWordDecorator implements WordDecorator {
-
+public interface WordDecorator {
     /**
-     * String that separate each charater from the word
-     */
-    private String separtor;
-
-    /**
-     * Constructor for the Speller Decorator. It spell a word, with a separator
+     * Function that decorate a word with semantic information.
      *
-     * @param seprator use to separate each char, for instance : ' ' or ', ' or '; ' ...
+     * @param original word
+     * @return the semantic infomation
      */
-    public SpellerWordDecorator(String seprator) {
-        this.separtor = seprator;
-    }
-
-    /**
-     * @see com.octo.captcha.component.worddecorator.WordDecorator#decorateWord(java.lang.String)
-     */
-    public String decorateWord(String original) {
-        String chars = "";
-        //transform the word by separating each character
-        for (int i = 0; i < original.length(); i++) {
-            chars += " " + original.charAt(i);
-            if (i < original.length() - 1) {
-                chars += separtor;
-            }
-        }
-        return chars;
-    }
-
+    public String decorateWord(String original);
 }

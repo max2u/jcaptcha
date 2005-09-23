@@ -462,9 +462,10 @@ DAMAGES.
                      END OF TERMS AND CONDITIONS
 */
 
+package com.octo.captcha.component.word.wordgenerator;
 
-package com.octo.captcha.component.wordgenerator;
-
+import com.octo.captcha.CaptchaException;
+import com.octo.captcha.component.word.ArrayDictionary;
 import junit.framework.TestCase;
 
 import java.util.Locale;
@@ -475,29 +476,75 @@ import java.util.Locale;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.0
  */
-public class RandomWordGeneratorTest extends TestCase {
+public class ComposeDictionaryWordGeneratorTest extends TestCase {
 
-    private RandomWordGenerator randomWordGenerator;
+    protected ComposeDictionaryWordGenerator composeDictionaryWordGenerator;
+    protected String[] wordList = {"1", "12", "123", "123456"};
+    protected int[] lengths = {1, 2, 3, 6};
+
+    protected String[] badwordList = {"a", "b", "c", "d"};
+    protected int[] badlengths = {1, 1, 1, 1};
+
+    protected String[] emptywordList = {};
+    protected int emptylength = 10;
 
     /**
-     * Constructor for RandomWordGeneratorTest.
+     * Constructor for ComposeDictionaryWordGeneratorTest.
      *
      * @param name
      */
-    public RandomWordGeneratorTest(String name) {
+    public ComposeDictionaryWordGeneratorTest(String name) {
         super(name);
     }
 
-    public void setUp() {
-        this.randomWordGenerator = new RandomWordGenerator("azertyuiopqsdfghjklmwxcvbn");
+    /**
+     * This method is the setup for each testcase.
+     */
+    protected void setUp() throws Exception {
+        super.setUp();
+        this.composeDictionaryWordGenerator =
+                new ComposeDictionaryWordGenerator(new ArrayDictionary(wordList));
     }
 
-    public void testGetWord() {
-        Integer wordLength = new Integer(10);
-        String pickWord = this.randomWordGenerator.getWord(wordLength, Locale.US);
-        assertNotNull(pickWord);
-        assertTrue(pickWord.length() > 0);
-        assertEquals(wordLength.intValue(), pickWord.length());
+    /**
+     * This testcase verify if the class works normaly.
+     */
+    public void testGetWordIntegerLocale() {
+        for (int i = 0; i < lengths.length; i++) {
+            String test = this.composeDictionaryWordGenerator.getWord(new Integer(this.lengths[i]), Locale.FRENCH);
+            assertNotNull(test);
+            assertTrue(test.length() > 0);
+            assertEquals(lengths[i], test.length());
+        }
     }
 
+    /**
+     * This testcase werify if it works with words with one letter in the
+     * dictionary.
+     */
+    public void testSmallWordWithOneLetter() {
+        this.composeDictionaryWordGenerator =
+                new ComposeDictionaryWordGenerator(new ArrayDictionary(this.badwordList));
+        for (int i = 0; i < badlengths.length; i++) {
+            String test = this.composeDictionaryWordGenerator.getWord(new Integer(this.badlengths[i]), Locale.FRENCH);
+            assertNotNull(test);
+            assertTrue(test.length() > 0);
+            assertEquals(badlengths[i], test.length());
+        }
+    }
+
+    /**
+     * this testcase verify if it works with words with no words in the
+     * dictionnary. We verify if the CaptchaException is correctly trapped.
+     */
+    public void testEmptyDictionnary() {
+        this.composeDictionaryWordGenerator =
+                new ComposeDictionaryWordGenerator(new ArrayDictionary(this.emptywordList));
+        try {
+            String test = this.composeDictionaryWordGenerator.getWord(new Integer(this.emptylength), Locale.FRENCH);
+            fail("Shouldn't use empty dictionnary");
+        } catch (CaptchaException e) {
+            assertNotNull(e);
+        }
+    }
 }

@@ -462,9 +462,12 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word.wordgenerator;
 
 import com.octo.captcha.CaptchaException;
+import com.octo.captcha.component.word.DefaultSizeSortedWordList;
+import com.octo.captcha.component.word.DictionaryReader;
+import com.octo.captcha.component.word.SizeSortedWordList;
 
 import java.util.Locale;
 
@@ -492,7 +495,7 @@ public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator {
      *         given locale
      */
     public String getWord(Integer lenght, Locale locale) {
-        WordList words = getWordList(locale);
+        SizeSortedWordList words = getWordList(locale);
         //get the middle
         int firstLenght = (lenght.intValue() / 2);
         //try to find a first word

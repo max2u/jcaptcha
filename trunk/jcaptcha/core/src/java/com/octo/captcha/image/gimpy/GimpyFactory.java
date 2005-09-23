@@ -467,7 +467,7 @@ package com.octo.captcha.image.gimpy;
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.CaptchaQuestionHelper;
 import com.octo.captcha.component.image.wordtoimage.WordToImage;
-import com.octo.captcha.component.wordgenerator.WordGenerator;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
 import com.octo.captcha.image.ImageCaptcha;
 
 import java.awt.image.BufferedImage;

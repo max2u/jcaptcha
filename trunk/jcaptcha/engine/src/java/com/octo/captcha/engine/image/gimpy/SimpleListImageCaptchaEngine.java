@@ -485,7 +485,7 @@ public class SimpleListImageCaptchaEngine
 
     protected void buildInitialFactories()
     {
-        com.octo.captcha.component.wordgenerator.WordGenerator wordGenerator = new com.octo.captcha.component.wordgenerator.RandomWordGenerator(
+        com.octo.captcha.component.word.wordgenerator.WordGenerator wordGenerator = new com.octo.captcha.component.word.wordgenerator.RandomWordGenerator(
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
         TextPaster textPaster = new RandomTextPaster(new Integer(5),
                 new Integer(8), Color.white);

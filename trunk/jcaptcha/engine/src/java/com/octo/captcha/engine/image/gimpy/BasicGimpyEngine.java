@@ -489,7 +489,7 @@ public class BasicGimpyEngine extends DefaultImageCaptchaEngine
     {
         //word generator
         //WordGenerator dictionnaryWords = new DictionaryWordGenerator(new FileDictionnary("toddlist"));
-        com.octo.captcha.component.wordgenerator.WordGenerator randomWords = new com.octo.captcha.component.wordgenerator.RandomWordGenerator(
+        com.octo.captcha.component.word.wordgenerator.WordGenerator randomWords = new com.octo.captcha.component.word.wordgenerator.RandomWordGenerator(
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
         //wordtoimage components

@@ -485,8 +485,8 @@ public class SimpleListSoundCaptchaEngine
 
     protected void buildInitialFactories()
     {
-        com.octo.captcha.component.wordgenerator.WordGenerator words = new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-            new com.octo.captcha.component.wordgenerator.FileDictionary("toddlist"));
+        com.octo.captcha.component.word.wordgenerator.WordGenerator words = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
+            new com.octo.captcha.component.word.FileDictionary("toddlist"));
 
         SoundConfigurator configurator = new FreeTTSSoundConfigurator("kevin16",
             "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory", 1.0f, 100, 70);

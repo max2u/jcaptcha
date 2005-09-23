@@ -468,9 +468,9 @@ import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurat
 import com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator;
 import com.octo.captcha.component.sound.wordtosound.FreeTTSWordToSound;
 import com.octo.captcha.component.sound.wordtosound.WordToSound;
-import com.octo.captcha.component.wordgenerator.ArrayDictionary;
-import com.octo.captcha.component.wordgenerator.DictionaryWordGenerator;
-import com.octo.captcha.component.wordgenerator.WordGenerator;
+import com.octo.captcha.component.word.ArrayDictionary;
+import com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
 import com.octo.captcha.sound.gimpy.GimpySoundFactory;
 import junit.framework.TestCase;
 

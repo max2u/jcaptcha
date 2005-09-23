@@ -470,9 +470,12 @@ import com.octo.captcha.component.image.deformation.ImageDeformation;
 import com.octo.captcha.component.image.deformation.ImageDeformationByFilters;
 import com.octo.captcha.component.image.fontgenerator.FontGenerator;
 import com.octo.captcha.component.image.fontgenerator.RandomFontGenerator;
-import com.octo.captcha.component.image.textpaster.BaffleRandomTextPaster;
 import com.octo.captcha.component.image.textpaster.TextPaster;
+import com.octo.captcha.component.image.textpaster.DecoratedRandomTextPaster;
+import com.octo.captcha.component.image.textpaster.textdecorator.BaffleTextDecorator;
+import com.octo.captcha.component.image.textpaster.textdecorator.TextDecorator;
 import com.octo.captcha.component.image.wordtoimage.DeformedComposedWordToImage;
+import com.octo.captcha.component.image.color.SingleColorGenerator;
 import com.octo.captcha.engine.image.ListImageCaptchaEngine;
 
 import java.awt.*;
@@ -517,13 +520,13 @@ public class DefaultGimpyEngine extends ListImageCaptchaEngine
                 new ImageFilter[]{water});
 
  //word generator
-        com.octo.captcha.component.wordgenerator.WordGenerator dictionnaryWords = new com.octo.captcha.component.wordgenerator.ComposeDictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionary(
+        com.octo.captcha.component.word.wordgenerator.WordGenerator dictionnaryWords = new com.octo.captcha.component.word.wordgenerator.ComposeDictionaryWordGenerator(
+                new com.octo.captcha.component.word.FileDictionary(
                         "toddlist"));
         //wordtoimage components
-        TextPaster randomPaster = new BaffleRandomTextPaster(new Integer(6), new Integer(
-                7), Color.black,
-                new Integer(2), Color.white);
+        TextPaster randomPaster = new DecoratedRandomTextPaster(new Integer(6), new Integer(
+                7),new SingleColorGenerator(Color.black)
+                ,new TextDecorator[]{new BaffleTextDecorator(new Integer(1),Color.white)});
         BackgroundGenerator back = new UniColorBackgroundGenerator(
                 new Integer(200), new Integer(100), Color.white);
 

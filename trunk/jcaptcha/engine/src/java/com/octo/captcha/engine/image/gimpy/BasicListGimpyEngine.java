@@ -486,9 +486,9 @@ public class    BasicListGimpyEngine
     protected void buildInitialFactories()
     {
         //word generator
-        com.octo.captcha.component.wordgenerator.WordGenerator dictionnaryWords =
-                new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionary(
+        com.octo.captcha.component.word.wordgenerator.WordGenerator dictionnaryWords =
+                new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
+                new com.octo.captcha.component.word.FileDictionary(
                         "toddlist"));
         //wordtoimage components
         TextPaster randomPaster = new DoubleRandomTextPaster(new Integer(6),

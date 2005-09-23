@@ -467,11 +467,12 @@ import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurat
 import com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator;
 import com.octo.captcha.component.sound.wordtosound.FreeTTSWordToSound;
 import com.octo.captcha.component.sound.wordtosound.WordToSound;
-import com.octo.captcha.component.worddecorator.SpellerWordDecorator;
-import com.octo.captcha.component.wordgenerator.DictionaryReader;
-import com.octo.captcha.component.wordgenerator.DictionaryWordGenerator;
-import com.octo.captcha.component.wordgenerator.WordGenerator;
-import com.octo.captcha.component.wordgenerator.WordList;
+import com.octo.captcha.component.word.worddecorator.SpellerWordDecorator;
+import com.octo.captcha.component.word.DictionaryReader;
+import com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
+import com.octo.captcha.component.word.DefaultSizeSortedWordList;
+import com.octo.captcha.component.word.SizeSortedWordList;
 import com.octo.captcha.engine.sound.utils.SoundToFile;
 import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
@@ -535,7 +536,6 @@ public class SoundEngineSample
         }
         catch (IOException e1)
         {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         String text = null;
@@ -550,7 +550,6 @@ public class SoundEngineSample
         }
         catch (IOException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -569,12 +568,12 @@ public class SoundEngineSample
     {
         private String[] list;
 
-        private WordList wordList;
+        private DefaultSizeSortedWordList wordList;
 
         public ArrayDictionary(String[] list)
         {
             this.list = list;
-            wordList = new WordList(Locale.getDefault());
+            wordList = new DefaultSizeSortedWordList(Locale.getDefault());
             for (int i = 0; i < list.length; i++)
             {
                 wordList.addWord(list[i]);
@@ -584,22 +583,22 @@ public class SoundEngineSample
         /*
          * (non-Javadoc)
          * 
-         * @see com.octo.captcha.component.wordgenerator.DictionaryReader#getWordList()
+         * @see com.octo.captcha.component.word.DictionaryReader#getWordList()
          */
-        public WordList getWordList()
+        public SizeSortedWordList getWordList()
         {
-            // TODO Auto-generated method stub
+
             return wordList;
         }
 
         /*
          * (non-Javadoc)
          * 
-         * @see com.octo.captcha.component.wordgenerator.DictionaryReader#getWordList(java.util.Locale)
+         * @see com.octo.captcha.component.word.DictionaryReader#getWordList(java.util.Locale)
          */
-        public WordList getWordList(Locale arg0)
+        public SizeSortedWordList getWordList(Locale arg0)
         {
-            // TODO Auto-generated method stub
+
             return wordList;
         }
 

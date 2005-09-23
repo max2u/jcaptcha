@@ -487,8 +487,8 @@ public class BaffleListGimpyEngine extends ListImageCaptchaEngine
     protected void buildInitialFactories()
     {
         //word generator
-        com.octo.captcha.component.wordgenerator.WordGenerator dictionnaryWords = new com.octo.captcha.component.wordgenerator.ComposeDictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionary(
+        com.octo.captcha.component.word.wordgenerator.WordGenerator dictionnaryWords = new com.octo.captcha.component.word.wordgenerator.ComposeDictionaryWordGenerator(
+                new com.octo.captcha.component.word.FileDictionary(
                         "toddlist"));
         //wordtoimage components
         TextPaster randomPaster = new BaffleRandomTextPaster(new Integer(8), new Integer(

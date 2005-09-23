@@ -164,12 +164,11 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                     psdel.setLong(1, time);
                     psdel.setLong(2, hash);
                     //psdel.setString(3, rs.getString(localeColumn));
-                    psdel.execute();
+                    psdel.addBatch();
 
                     if (log.isDebugEnabled()) {
-                        log.debug("removed captcha : " + time + ";"+hash);
+                        log.debug("remove captcha added to batch : " + time + ";"+hash);
                     }
-                    ;
 
                 } catch (IOException e) {
                     log.error("error during captcha deserialization, " +
@@ -180,9 +179,14 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                 }
 
             }
+            //execute batch delete
+            psdel.executeBatch();
+            log.debug("batch executed");
             rs.close();
-            //only add after commit
+            //commit the whole stuff
             con.commit();
+            log.debug("batch commited");
+            //only add after commit
             collection.addAll(temp);
         } catch (SQLException e) {
             log.error(DB_ERROR, e);
@@ -286,19 +290,24 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
 
                         ps.setBinaryStream(4, inpstream, outstr.size());
 
-                        ps.execute();
+                        ps.addBatch();
 
                         if (log.isDebugEnabled()) {
-                            log.debug("inserted captcha  " + currenttime +";"+hash);
+                            log.debug("insert captcha added to batch : " + currenttime +";"+hash);
                         }
-                        ;
+
                     } catch (IOException e) {
                         log.warn("error during captcha serialization, " +
                                 "check your class versions. removing row from database", e);
                     }
                 }
+                //exexute batch and commit()
+
+                ps.executeBatch();
+                log.debug("batch executed");
 
                 con.commit();
+                log.debug("batch commited");
 
             } catch (SQLException e) {
                 log.error(DB_ERROR, e);

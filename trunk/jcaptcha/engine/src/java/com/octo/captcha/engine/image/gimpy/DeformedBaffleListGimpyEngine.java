@@ -61,8 +61,8 @@ import com.octo.captcha.component.image.textpaster.TextPaster;
 import com.octo.captcha.component.image.wordtoimage.ComposedWordToImage;
 import com.octo.captcha.component.image.wordtoimage.DeformedComposedWordToImage;
 import com.octo.captcha.component.image.wordtoimage.WordToImage;
-import com.octo.captcha.component.wordgenerator.DictionaryWordGenerator;
-import com.octo.captcha.component.wordgenerator.WordGenerator;
+import com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
 import com.octo.captcha.engine.image.ListImageCaptchaEngine;
 import com.octo.captcha.image.gimpy.GimpyFactory;
 
@@ -140,7 +140,7 @@ public class DeformedBaffleListGimpyEngine extends ListImageCaptchaEngine
         ImageDeformation none = new ImageDeformationByFilters(null);
         //word generator
         WordGenerator words = new DictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionary(
+                new com.octo.captcha.component.word.FileDictionary(
                         "toddlist"));
         //wordtoimage components
         TextPaster paster = new BaffleRandomTextPaster(new Integer(6), new Integer(

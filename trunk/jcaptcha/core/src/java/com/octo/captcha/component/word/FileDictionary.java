@@ -462,98 +462,51 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word;
 
-import java.util.ArrayList;
+import com.octo.captcha.component.word.DefaultSizeSortedWordList;
+import com.octo.captcha.component.word.SizeSortedWordList;
+
 import java.util.Locale;
-import java.util.Random;
-import java.util.TreeMap;
+import java.util.ResourceBundle;
+import java.util.StringTokenizer;
 
 /**
- * <p>Container for words that is initialized from a Dictionnary. </p>
+ * <p>Implementation of the DictionaryReader interface, uses a .properties file
+ * to retrieve words and return a WordList.Constructed with the name of the
+ * properties file. It uses standard java mecanism for I18N</p>
  *
- * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
- * @version 1.0
+ * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
+ * @version 1.1
  */
-public class WordList {
+public class FileDictionary implements DictionaryReader {
 
-    private TreeMap sortedWords = new TreeMap();
+    private String myBundle;
 
-    private Locale locale;
-
-    private Random myRandom = new Random();
-
-    /**
-     * A word list has to be constructed with a locale
-     *
-     * @param locale
-     */
-    public WordList(Locale locale) {
-        this.locale = locale;
-    };
-
-    /**
-     * Return a locale for this list
-     *
-     * @return th e locale
-     */
-    public Locale getLocale() {
-        return locale;
+    public FileDictionary(String bundle) {
+        myBundle = bundle;
     }
 
-    /**
-     * Adds a word to the list
-     *
-     * @param word
-     */
-    public void addWord(String word) {
-        Integer lenght = new Integer(word.length());
-        if (sortedWords.containsKey(lenght)) {
-            ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
-            thisLenghtwords.add(word);
-            sortedWords.put(lenght, thisLenghtwords);
-        } else {
-            ArrayList thisLenghtwords = new ArrayList();
-            thisLenghtwords.add(word);
-            sortedWords.put(lenght, thisLenghtwords);
+    public SizeSortedWordList getWordList() {
+        ResourceBundle bundle = ResourceBundle.getBundle(myBundle);
+        SizeSortedWordList list = generateWordList(Locale.getDefault(), bundle);
+        return list;
+    }
+
+    public SizeSortedWordList getWordList(Locale locale) {
+        ResourceBundle bundle = ResourceBundle.getBundle(myBundle, locale);
+        SizeSortedWordList list = generateWordList(locale, bundle);
+        return list;
+    }
+
+    protected SizeSortedWordList generateWordList(Locale locale, ResourceBundle bundle) {
+        DefaultSizeSortedWordList list = new DefaultSizeSortedWordList(locale);
+        StringTokenizer tokenizer = new StringTokenizer(bundle.getString("words"), ";");
+        int count = tokenizer.countTokens();
+        for (int i = 0; i < count; i++) {
+            list.addWord(tokenizer.nextToken());
         }
-        //words.add(word);
-        //lengths.add(new Integer(word.length()));
-
+        return list;
     }
 
-    /**
-     * Return the min lenght of contained word in this wordlist
-     *
-     * @return the min lenght of contained word in this wordlist
-     */
-    public Integer getMinWord() {
-        return (Integer) sortedWords.firstKey();
-    }
-
-    /**
-     * Return the max lenght of contained word in this wordlist
-     *
-     * @return the max lenght of contained word in this wordlist
-     */
-    public Integer getMaxWord() {
-        return (Integer) sortedWords.lastKey();
-    }
-
-    /**
-     * Return a word of randomly choosen of the specified lenght. Return null if
-     * none found
-     *
-     * @param lenght
-     * @return a word of this lenght
-     */
-    public String getNextWord(Integer lenght) {
-        if (sortedWords.containsKey(lenght)) {
-            ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
-            int pickAWord = myRandom.nextInt(thisLenghtwords.size());
-            return (String) thisLenghtwords.get(pickAWord);
-        } else {
-            return null;
-        }
-    }
 }
