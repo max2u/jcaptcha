@@ -10,7 +10,7 @@ import com.octo.captcha.service.captchastore.MapCaptchaStore;
 import java.util.Locale;
 
 public class AbstractManageableCaptchaServiceTest extends AbstractCaptchaServiceTest {
-    public static int MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS = 2;
+    public static int MIN_GUARANTED_STORAGE_DELAY_IN_SECONDS = 3;
     public static int CAPTCHA_STORE_LOAD_BEFORE_GARBAGE_COLLECTION = 2 * SIZE;
     public static int MAX_CAPTCHA_STORE_SIZE = 3 * SIZE;
 

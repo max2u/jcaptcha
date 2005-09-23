@@ -466,6 +466,7 @@ package com.octo.captcha.service;
 import com.octo.captcha.Captcha;
 import com.octo.captcha.engine.CaptchaEngine;
 import com.octo.captcha.service.captchastore.CaptchaStore;
+import com.octo.captcha.service.captchastore.MapCaptchaStore;
 
 /**
  * <p><ul><li></li></ul></p>
@@ -476,6 +477,9 @@ import com.octo.captcha.service.captchastore.CaptchaStore;
 public class MockedCaptchaService extends AbstractCaptchaService {
     public static final String CLONE_CHALLENGE = "clonedChallenge";
 
+    public MockedCaptchaService(){
+        super(new MapCaptchaStore(),new MockCaptchaEngine());
+    }
 
     protected MockedCaptchaService(CaptchaStore captchaStore, CaptchaEngine captchaEngine) {
         super(captchaStore, captchaEngine);
