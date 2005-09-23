@@ -482,11 +482,9 @@ import java.awt.image.ImageFilter;
  * @deprecated
  */
 public class FilteredListGimpyEngine
-        extends com.octo.captcha.engine.image.ListImageCaptchaEngine
-{
+        extends com.octo.captcha.engine.image.ListImageCaptchaEngine {
 
-    protected void buildInitialFactories()
-    {
+    protected void buildInitialFactories() {
 
         //      build filters
         com.jhlabs.image.EmbossFilter emboss = new com.jhlabs.image.EmbossFilter();

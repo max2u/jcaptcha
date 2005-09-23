@@ -65,16 +65,13 @@ import java.awt.image.ImageFilter;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class SimpleFishEyeEngine extends ListImageCaptchaEngine
-{
+public class SimpleFishEyeEngine extends ListImageCaptchaEngine {
 
     /**
-     * this method should be implemented as folow : <ul> <li>First construct all
-     * the factories you want to initialize the gimpy with</li> <li>then call
-     * the this.addFactoriy method for each factory</li> </ul>
+     * this method should be implemented as folow : <ul> <li>First construct all the factories you want to initialize
+     * the gimpy with</li> <li>then call the this.addFactoriy method for each factory</li> </ul>
      */
-    protected void buildInitialFactories()
-    {
+    protected void buildInitialFactories() {
         //build filters
         com.jhlabs.image.SphereFilter sphere = new com.jhlabs.image.SphereFilter();
         com.jhlabs.image.RippleFilter ripple = new com.jhlabs.image.RippleFilter();
@@ -104,7 +101,6 @@ public class SimpleFishEyeEngine extends ListImageCaptchaEngine
                 new ImageFilter[]{water});
         ImageDeformation twirlDef = new ImageDeformationByFilters(
                 new ImageFilter[]{twirl});
-
 
         //add background from files
         BackgroundGenerator generator = new FileReaderRandomBackgroundGenerator(

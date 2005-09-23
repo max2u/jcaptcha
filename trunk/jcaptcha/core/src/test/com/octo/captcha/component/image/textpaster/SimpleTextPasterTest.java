@@ -21,8 +21,6 @@ public class SimpleTextPasterTest extends TestCase {
 
     /**
      * Constructor for SimpleTextPasterTest.
-     *
-     * @param name
      */
     public SimpleTextPasterTest(String name) {
         super(name);

@@ -485,8 +485,6 @@ public class DictionaryWordGeneratorTest extends TestCase {
 
     /**
      * Constructor for DictionaryWordGeneratorTest.
-     *
-     * @param name
      */
     public DictionaryWordGeneratorTest(String name) {
         super(name);

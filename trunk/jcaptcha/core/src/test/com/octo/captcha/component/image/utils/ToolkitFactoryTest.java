@@ -20,8 +20,6 @@ public class ToolkitFactoryTest extends TestCase {
 
     /**
      * Constructor for ToolkitFactoryTest.
-     *
-     * @param name
      */
     public ToolkitFactoryTest(String name) {
         super(name);

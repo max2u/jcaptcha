@@ -501,6 +501,7 @@ public class MockCaptcha implements Captcha {
      * Validation routine for the response.
      *
      * @param response to the question concerning the chalenge
+     *
      * @return true if the answer is correct, false otherwise.
      */
     public Boolean validateResponse(Object response) {
@@ -508,11 +509,10 @@ public class MockCaptcha implements Captcha {
     }
 
     /**
-     * Dispose the challenge, once this method is call the getChallenge method will return null.<br>
-     * It has been added for technical reasons : a captcha is always used in a two step fashion<br>
-     * First submit the challenge, and then wait until the response arrives.<br>
-     * It had been asked to have a method to dispose the challenge that is no longer used after being dipslayed.
-     * So here it is!
+     * Dispose the challenge, once this method is call the getChallenge method will return null.<br> It has been added
+     * for technical reasons : a captcha is always used in a two step fashion<br> First submit the challenge, and then
+     * wait until the response arrives.<br> It had been asked to have a method to dispose the challenge that is no
+     * longer used after being dipslayed. So here it is!
      */
     public void disposeChallenge() {
         isDisposed = true;

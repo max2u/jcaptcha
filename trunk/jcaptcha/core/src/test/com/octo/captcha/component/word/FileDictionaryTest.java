@@ -469,9 +469,6 @@ import junit.framework.TestCase;
 
 import java.util.Locale;
 
-import com.octo.captcha.component.word.DefaultSizeSortedWordList;
-import com.octo.captcha.component.word.FileDictionary;
-
 /**
  * <p>Description: </p>
  *
@@ -484,8 +481,6 @@ public class FileDictionaryTest extends TestCase {
 
     /**
      * Constructor for FileDictionaryTest.
-     *
-     * @param name
      */
     public FileDictionaryTest(String name) {
         super(name);

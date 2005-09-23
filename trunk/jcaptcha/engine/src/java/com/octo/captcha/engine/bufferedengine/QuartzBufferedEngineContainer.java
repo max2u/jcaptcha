@@ -13,17 +13,15 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * Quartz implmentation of the BufferedEngineContainer
- * 
+ *
  * @author Benoit Doumas
  */
-public class QuartzBufferedEngineContainer extends BufferedEngineContainer
-{
+public class QuartzBufferedEngineContainer extends BufferedEngineContainer {
 
     private static final Log log = LogFactory.getLog(QuartzBufferedEngineContainer.class.getName());
 
     public QuartzBufferedEngineContainer(CaptchaEngine engine, CaptchaBuffer memoryBuffer,
-        CaptchaBuffer diskBuffer, ContainerConfiguration containerConfiguration)
-    {
+                                         CaptchaBuffer diskBuffer, ContainerConfiguration containerConfiguration) {
         super(engine, memoryBuffer, diskBuffer, containerConfiguration);
     }
 

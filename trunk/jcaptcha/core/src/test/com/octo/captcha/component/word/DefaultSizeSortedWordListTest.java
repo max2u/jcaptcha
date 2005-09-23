@@ -469,8 +469,6 @@ import junit.framework.TestCase;
 
 import java.util.Locale;
 
-import com.octo.captcha.component.word.DefaultSizeSortedWordList;
-
 /**
  * <p>Description: </p>
  *
@@ -486,8 +484,6 @@ public class DefaultSizeSortedWordListTest extends TestCase {
 
     /**
      * Constructor for DefaultSizeSortedWordListTest.
-     *
-     * @param name
      */
     public DefaultSizeSortedWordListTest(String name) {
         super(name);

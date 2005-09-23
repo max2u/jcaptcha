@@ -481,8 +481,6 @@ public class DummyWordGeneratorTest extends TestCase {
 
     /**
      * Constructor for DummyWordGeneratorTest.
-     *
-     * @param name
      */
     public DummyWordGeneratorTest(String name) {
         super(name);

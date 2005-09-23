@@ -469,8 +469,7 @@ import junit.framework.TestCase;
 
 /**
  * <p/>
- * Description:
- * </p>
+ * Description: </p>
  *
  * @author Benoit Doumas
  * @version 1.0
@@ -491,8 +490,6 @@ public class SpellingFreeTTSWordToSoundTest extends TestCase {
 
     /**
      * Constructor for SimpleWordToImageTest.
-     *
-     * @param name
      */
     public SpellingFreeTTSWordToSoundTest(String name) {
         super(name);

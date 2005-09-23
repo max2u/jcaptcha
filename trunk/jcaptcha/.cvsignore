@@ -1,2 +1,7 @@
 target
 *.log
+.clover
+buffered.suml
+bufferedEngine.suml
+null.data
+null.index

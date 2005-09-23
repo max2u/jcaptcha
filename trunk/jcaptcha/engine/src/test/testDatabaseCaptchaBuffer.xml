@@ -2,22 +2,22 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-	<bean id="dataSource"
-	  class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" singleton="true">
+    <bean id="dataSource"
+          class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" singleton="true">
         <property name="driverClassName">
             <value>org.hsqldb.jdbcDriver</value>
 
         </property>
         <property name="url">
-                    <value>jdbc:hsqldb:mem:jcaptcha</value>
-                </property>
+            <value>jdbc:hsqldb:mem:jcaptcha</value>
+        </property>
 
         <property name="username">
-                    <value>sa</value>
-                </property>
+            <value>sa</value>
+        </property>
 
         <property name="password">
-                    <value></value>
+            <value></value>
         </property>
 
     </bean>

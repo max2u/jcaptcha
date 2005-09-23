@@ -30,19 +30,19 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
     private static final Log log = LogFactory.getLog(DatabaseCaptchaBuffer.class.getName());
 
     //database attributes
-    private  DataSource datasource;
+    private DataSource datasource;
     private String table = "JCAPTCHA_T";
-    private  String timeMillisColumn = "timemillis";
-    private  String hashCodeColumn = "hashCode";
-    private  String localeColumn = "locale";
-    private  String captchaColumn = "captcha";
-    private  static final String DB_ERROR = "SQL Error :";
+    private String timeMillisColumn = "timemillis";
+    private String hashCodeColumn = "hashCode";
+    private String localeColumn = "locale";
+    private String captchaColumn = "captcha";
+    private static final String DB_ERROR = "SQL Error :";
 
 
     public DatabaseCaptchaBuffer(DataSource datasource) {
         log.info("Initializing Buffer");
         this.datasource = datasource;
-        log.info("Buffer size : "+ size());
+        log.info("Buffer size : " + size());
         log.info("Buffer initialized");
     }
 
@@ -50,7 +50,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
         log.info("Initializing Buffer");
         this.datasource = datasource;
         this.table = table;
-        log.info("Buffer size : "+ size());
+        log.info("Buffer size : " + size());
         log.info("Buffer initialized");
     }
 
@@ -62,12 +62,9 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
         this.hashCodeColumn = hashCodeColumn;
         this.captchaColumn = captchaColumn;
         this.localeColumn = localeColumn;
-        log.info("Buffer size : "+ size());
+        log.info("Buffer size : " + size());
         log.info("Buffer initialized");
     }
-
-
-
 
     //Buffer methods
 
@@ -145,7 +142,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
             psdel = con.prepareStatement("delete from " + table + " where " + timeMillisColumn
                     + "= ? and " + hashCodeColumn
                     + "= ? ");//and " + localeColumn
-                    //+ "= ?");
+            //+ "= ?");
             ps.setString(1, locale.toString());
             ps.setMaxRows(number);
             //read
@@ -167,7 +164,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                     psdel.addBatch();
 
                     if (log.isDebugEnabled()) {
-                        log.debug("remove captcha added to batch : " + time + ";"+hash);
+                        log.debug("remove captcha added to batch : " + time + ";" + hash);
                     }
 
                 } catch (IOException e) {
@@ -293,7 +290,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
                         ps.addBatch();
 
                         if (log.isDebugEnabled()) {
-                            log.debug("insert captcha added to batch : " + currenttime +";"+hash);
+                            log.debug("insert captcha added to batch : " + currenttime + ";" + hash);
                         }
 
                     } catch (IOException e) {
@@ -338,7 +335,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
      */
     public int size() {
         Connection con = null;
-      PreparedStatement ps = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         int size = 0;
 
@@ -374,7 +371,7 @@ public class DatabaseCaptchaBuffer implements CaptchaBuffer {
             }
         }
 
-        return size;    
+        return size;
 
     }
 

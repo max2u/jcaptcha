@@ -21,8 +21,6 @@ public class DoubleTextPasterTest extends TestCase {
 
     /**
      * Constructor for DoubleTextPasterTest.
-     *
-     * @param name
      */
     public DoubleTextPasterTest(String name) {
         super(name);

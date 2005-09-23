@@ -7,8 +7,8 @@
 package com.octo.captcha.engine.bufferedengine;
 
 import com.octo.captcha.Captcha;
-import com.octo.captcha.CaptchaFactory;
 import com.octo.captcha.CaptchaException;
+import com.octo.captcha.CaptchaFactory;
 import com.octo.captcha.engine.CaptchaEngine;
 import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.engine.bufferedengine.buffer.CaptchaBuffer;
@@ -20,12 +20,11 @@ import org.apache.commons.logging.LogFactory;
 import java.util.*;
 
 /**
- * Abstact class that encapsulate a CaptchaEngine to allow buffering. A BufferedEngineContainer has
- * mainly one function : to provide cached captchas to increase performances. This is done through
- * two embedded buffers : a disk buffer and a memory buffer. When captchas are requested, the
- * bufferedEngine take them either from the memory buffer if not empty or directly from the engine.
- * Some good periods are defined with a scheduler to feed the disk buffer with captchas and some
- * others to swap captchas from the disk buffer to the memory buffer.
+ * Abstact class that encapsulate a CaptchaEngine to allow buffering. A BufferedEngineContainer has mainly one function
+ * : to provide cached captchas to increase performances. This is done through two embedded buffers : a disk buffer and
+ * a memory buffer. When captchas are requested, the bufferedEngine take them either from the memory buffer if not empty
+ * or directly from the engine. Some good periods are defined with a scheduler to feed the disk buffer with captchas and
+ * some others to swap captchas from the disk buffer to the memory buffer.
  *
  * @author Benoit Doumas
  */
@@ -53,8 +52,8 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
 
 
     /**
-     * Construct an BufferedEngineContainer with and Captcha engine, a memory buffer, a diskBuffer
-     * and a ContainerConfiguration.
+     * Construct an BufferedEngineContainer with and Captcha engine, a memory buffer, a diskBuffer and a
+     * ContainerConfiguration.
      *
      * @param engine                 engine to generate captcha for buffers
      * @param volatileBuffer         the memory buffer, which store captcha and provide a fast access to them
@@ -161,8 +160,8 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
 
 
     /**
-     * Method launch by a scheduler to swap captcha from disk buffer to the memory buffer. The ratio
-     * of swaping for each locale is defined in the configuration component.
+     * Method launch by a scheduler to swap captcha from disk buffer to the memory buffer. The ratio of swaping for each
+     * locale is defined in the configuration component.
      */
     public void swapCaptchasFromPersistentToVolatileMemory() {
 
@@ -190,7 +189,7 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
         //get them from persistent buffer
         Iterator captchasRatiosit = captchasRatios.mapIterator();
 
-        while (captchasRatiosit.hasNext()&&!shutdownCalled) {
+        while (captchasRatiosit.hasNext() && !shutdownCalled) {
             Locale locale = (Locale) captchasRatiosit.next();
             int swap = ((Integer) captchasRatios.get(locale)).intValue();
             if (log.isDebugEnabled()) {
@@ -218,22 +217,22 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
 
 
     /**
-     * Method launch by a scheduler to feed the disk buffer with captcha. The ratio of feeding for
-     * each locale is defined in the configuration component.
+     * Method launch by a scheduler to feed the disk buffer with captcha. The ratio of feeding for each locale is
+     * defined in the configuration component.
      */
     public void feedPersistentBuffer() {
 
         log.debug("entering feedPersistentBuffer()");
         //evaluate the total feed size
         int freePersistentBufferSize = config.getMaxPersistentMemorySize().intValue() - persistentBuffer.size();
-        freePersistentBufferSize = freePersistentBufferSize > 0 ?freePersistentBufferSize : 0 ;
+        freePersistentBufferSize = freePersistentBufferSize > 0 ? freePersistentBufferSize : 0;
         int totalFeedsize = freePersistentBufferSize > config.getFeedSize().intValue() ? config.getFeedSize().intValue() : freePersistentBufferSize;
 
-        log.info("Starting feed. Total feed size = "+totalFeedsize);
+        log.info("Starting feed. Total feed size = " + totalFeedsize);
 
         //feed the buffer for each locale
         MapIterator it = config.getLocaleRatio().mapIterator();
-        while (it.hasNext()&&!shutdownCalled) {
+        while (it.hasNext() && !shutdownCalled) {
             Locale locale = (Locale) it.next();
             double ratio = ((Double) it.getValue()).doubleValue();
             int ratioCount = (int) Math.round(totalFeedsize * ratio);
@@ -244,12 +243,12 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
             }
             //batch build and store captchas
             int toBuild = ratioCount;
-            while(toBuild > 0&&!shutdownCalled) {
-                int batch = toBuild>config.getFeedBatchSize().intValue()?config.getFeedBatchSize().intValue():toBuild;
+            while (toBuild > 0 && !shutdownCalled) {
+                int batch = toBuild > config.getFeedBatchSize().intValue() ? config.getFeedBatchSize().intValue() : toBuild;
                 ArrayList captchas = new ArrayList(batch);
                 //build captchas, batch sized
-                int builded=0;
-                for (int i = 0; i < batch ; i++) {
+                int builded = 0;
+                for (int i = 0; i < batch; i++) {
                     try {
                         captchas.add(engine.getNextCaptcha(locale));
                         builded++;
@@ -259,12 +258,12 @@ public abstract class BufferedEngineContainer implements CaptchaEngine {
                 }
                 //persist
                 persistentBuffer.putAllCaptcha(captchas, locale);
-    		    if (log.isInfoEnabled()) {
-                	log.info("feeded persistent buffer with  " + builded + " captchas for locale " + locale);
-            	}
-                toBuild-=builded;
+                if (log.isInfoEnabled()) {
+                    log.info("feeded persistent buffer with  " + builded + " captchas for locale " + locale);
+                }
+                toBuild -= builded;
             }
-            
+
         }
         log.info("Stopping feed : feeded persitentBuffer with : " + totalFeedsize + " captchas");
         log.info("Stopping feed : resulting persitentBuffer size : " + persistentBuffer.size());

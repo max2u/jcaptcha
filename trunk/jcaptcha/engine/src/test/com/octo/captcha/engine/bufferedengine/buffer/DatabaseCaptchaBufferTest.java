@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2005 Your Corporation. All Rights Reserved.
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 package com.octo.captcha.engine.bufferedengine.buffer;
 
@@ -28,8 +30,7 @@ public class DatabaseCaptchaBufferTest extends CaptchaBufferTestAbstract {
     public CaptchaBuffer getBuffer() {
         //just get initialize the database and create
         //get the datasource from spring conf
-                          this.datasource = (DataSource) (new XmlBeanFactory(new ClassPathResource("testDatabaseCaptchaBuffer.xml"))).getBean("dataSource");
-
+        this.datasource = (DataSource) (new XmlBeanFactory(new ClassPathResource("testDatabaseCaptchaBuffer.xml"))).getBean("dataSource");
 
         //drop and recreate the table
         Connection con = null;

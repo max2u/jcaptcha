@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2005 Your Corporation. All Rights Reserved.
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 package com.octo.captcha.text.math;
 
@@ -20,13 +22,10 @@ public class MathCaptcha extends TextCaptcha {
     }
 
     /**
-     * Validation routine from the CAPTCHA interface. this methods verify if the
-     * response is not null and a String and then compares the given response to
-     * the internal string.
+     * Validation routine from the CAPTCHA interface. this methods verify if the response is not null and a String and
+     * then compares the given response to the internal string.
      *
-     * @param response
-     * @return true if the given response equals the internal response, false
-     *         otherwise.
+     * @return true if the given response equals the internal response, false otherwise.
      */
     public final Boolean validateResponse(final Object response) {
         return (null != response && response instanceof String)
@@ -34,14 +33,14 @@ public class MathCaptcha extends TextCaptcha {
     }
 
     /**
-     * Very simple validation routine that compares the given response to the
-     * internal string.
+     * Very simple validation routine that compares the given response to the internal string.
      *
-     * @return true if the given response equals the internal response, false
-     *         otherwise.
+     * @return true if the given response equals the internal response, false otherwise.
      */
     private final Boolean validateResponse(final String response) {
         return new Boolean(response.equals(this.response));
-    };
+    }
+
+    ;
 
 }

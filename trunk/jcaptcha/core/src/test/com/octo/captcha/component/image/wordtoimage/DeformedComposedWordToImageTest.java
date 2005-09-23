@@ -39,8 +39,6 @@ public class DeformedComposedWordToImageTest extends TestCase {
 
     /**
      * Constructor for FilteredComposedWordToImageTest.
-     *
-     * @param name
      */
     public DeformedComposedWordToImageTest(String name) {
         super(name);

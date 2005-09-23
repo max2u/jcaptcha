@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2005 Your Corporation. All Rights Reserved.
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 package com.octo.captcha.component.image.textpaster;
 
@@ -18,9 +20,9 @@ import java.text.AttributedString;
 import java.util.Random;
 
 /**
- * This class is the decomposition of a single AttributedString into its component glyphs. It
- * wouldn't be necessary if Java2D correctly handled spacing issues with fonts changed
- * AffineTransformation -- there is a possibility that it will not be necessary with java 1.5
+ * This class is the decomposition of a single AttributedString into its component glyphs. It wouldn't be necessary if
+ * Java2D correctly handled spacing issues with fonts changed AffineTransformation -- there is a possibility that it
+ * will not be necessary with java 1.5
  */
 public class ChangeableAttributedString {
 
@@ -45,15 +47,14 @@ public class ChangeableAttributedString {
     private Random myRandom = new Random();
 
     /**
-     * In typography, kerning refers to adjusting the space between characters, especially by
-     * placing two characters closer together than normal. Kerning makes certain combinations of
-     * letters, such as WA, MW, TA, and VA, look better.
+     * In typography, kerning refers to adjusting the space between characters, especially by placing two characters
+     * closer together than normal. Kerning makes certain combinations of letters, such as WA, MW, TA, and VA, look
+     * better.
      */
     private int kerning;
 
     /**
-     * Given an attributed string and the graphics environment it lives in, pull it apart into its
-     * components.
+     * Given an attributed string and the graphics environment it lives in, pull it apart into its components.
      *
      * @param g2      graphics
      * @param aString attributed String
@@ -85,8 +86,6 @@ public class ChangeableAttributedString {
 
     /**
      * Draw all characters according to their computed positions
-     *
-     * @param g2
      */
     void drawString(Graphics2D g2) {
         for (int i = 0; i < length(); i++) {
@@ -95,10 +94,8 @@ public class ChangeableAttributedString {
     }
 
     /**
-     * Draw all characters according to their computed positions, and a color from the
-     * colorGenerator
+     * Draw all characters according to their computed positions, and a color from the colorGenerator
      *
-     * @param g2
      * @param colorGenerator generate color for each glyph
      */
     void drawString(Graphics2D g2, ColorGenerator colorGenerator) {
@@ -113,13 +110,15 @@ public class ChangeableAttributedString {
     }
 
     /**
-     * Given a background image (for size only), pick a random spot such that the entire string can
-     * be displayed. This method implicitly assumes that all resizing issues have been taken care of
-     * first. If you resize afterwards, any type of clipping is possible.
+     * Given a background image (for size only), pick a random spot such that the entire string can be displayed. This
+     * method implicitly assumes that all resizing issues have been taken care of first. If you resize afterwards, any
+     * type of clipping is possible.
      *
      * @param background    the image that will lie under the text
      * @param startingPoint the suggested starting point, or null if any point is acceptable.
+     *
      * @return a Point2D object indicating the initial starting point of the text
+     *
      * @throws com.octo.captcha.CaptchaException
      *          if the image size is too small, or the word too long, or the fonts too large.
      */
@@ -223,8 +222,8 @@ public class ChangeableAttributedString {
     }
 
     /**
-     * Rearrange the string so that all characters are treated as if they are as wide as the widest
-     * character in the same string.
+     * Rearrange the string so that all characters are treated as if they are as wide as the widest character in the
+     * same string.
      *
      * @param kerning the space between the characters
      */
@@ -239,8 +238,8 @@ public class ChangeableAttributedString {
     }
 
     /**
-     * Rearrange the string so that all characters are treated as if they are as wide as the widest
-     * character in the same string.
+     * Rearrange the string so that all characters are treated as if they are as wide as the widest character in the
+     * same string.
      *
      * @param kerning the space between the characters
      */
@@ -253,13 +252,13 @@ public class ChangeableAttributedString {
     }
 
     /**
-     * Gradually reduce spacing between letters until the total length is less than the final image
-     * width. In many cases, this will guarantee collisions between the letters.
+     * Gradually reduce spacing between letters until the total length is less than the final image width. In many
+     * cases, this will guarantee collisions between the letters.
      *
-     * @param imageWidth
      * @param maxReductionPct maximum percentage reduction
-     * @return if positive, the highest X value that can be safely used for placement of box; if
-     *         negative, there is no safe way to display the text without clipping the ends.
+     *
+     * @return if positive, the highest X value that can be safely used for placement of box; if negative, there is no
+     *         safe way to display the text without clipping the ends.
      */
     double reduceHorizontalSpacing(int imageWidth, double maxReductionPct) {
         double maxX = imageWidth - getTotalWidth();
@@ -278,9 +277,6 @@ public class ChangeableAttributedString {
 
     /**
      * Change the x,y values in the boundaries so they can be used for position.
-     *
-     * @param newX
-     * @param newY
      */
     void moveTo(double newX, double newY) {
         bounds[0].setRect(newX, newY, bounds[0].getWidth(), bounds[0].getHeight());

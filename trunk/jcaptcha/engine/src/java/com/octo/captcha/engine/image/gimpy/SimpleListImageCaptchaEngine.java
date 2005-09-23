@@ -480,11 +480,9 @@ import java.awt.*;
  * @version 1.0
  */
 public class SimpleListImageCaptchaEngine
-        extends com.octo.captcha.engine.image.ListImageCaptchaEngine
-{
+        extends com.octo.captcha.engine.image.ListImageCaptchaEngine {
 
-    protected void buildInitialFactories()
-    {
+    protected void buildInitialFactories() {
         com.octo.captcha.component.word.wordgenerator.WordGenerator wordGenerator = new com.octo.captcha.component.word.wordgenerator.RandomWordGenerator(
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
         TextPaster textPaster = new RandomTextPaster(new Integer(5),

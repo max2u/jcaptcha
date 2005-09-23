@@ -3,13 +3,11 @@
  */
 package com.octo.captcha.service.captchastore;
 
-import com.octo.captcha.service.MockCaptcha;
-import com.octo.captcha.service.CaptchaServiceException;
 import com.octo.captcha.Captcha;
+import com.octo.captcha.service.MockCaptcha;
+import junit.framework.TestCase;
 
 import java.util.Collection;
-
-import junit.framework.TestCase;
 
 /**
  * <p><ul><li></li></ul></p>
@@ -17,7 +15,7 @@ import junit.framework.TestCase;
  * @author <a href="mailto:marc.antoine.garrigue@gmail.com">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public abstract class CaptchaStoreTestAbstract extends TestCase{
+public abstract class CaptchaStoreTestAbstract extends TestCase {
 
     private CaptchaStore store;
     private Captcha capctha;
@@ -26,14 +24,13 @@ public abstract class CaptchaStoreTestAbstract extends TestCase{
 
     protected void setUp() throws Exception {
         super.setUp();
-        store=initStore();
-        capctha=new MockCaptcha();
+        store = initStore();
+        capctha = new MockCaptcha();
 
 
     }
 
     public abstract CaptchaStore initStore();
-
 
 
     public void testHasCaptcha() throws Exception {

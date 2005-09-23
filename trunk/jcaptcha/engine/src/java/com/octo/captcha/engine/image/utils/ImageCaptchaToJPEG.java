@@ -507,13 +507,13 @@ public class ImageCaptchaToJPEG {
         ImageCaptchaEngine pixCapchaEngine = null;
         if (className.equals("all")) {
             ImageCaptchaEngine[] engines = {
-                new BasicListGimpyEngine(),
-                new BaffleListGimpyEngine(),
-                new DefaultGimpyEngine(),
-                new DeformedBaffleListGimpyEngine(),
-                new DoubleRandomListGimpyEngine(),
-                new SimpleListImageCaptchaEngine(),
-                new SimpleFishEyeEngine()
+                    new BasicListGimpyEngine(),
+                    new BaffleListGimpyEngine(),
+                    new DefaultGimpyEngine(),
+                    new DeformedBaffleListGimpyEngine(),
+                    new DoubleRandomListGimpyEngine(),
+                    new SimpleListImageCaptchaEngine(),
+                    new SimpleFishEyeEngine()
             };
             for (int i = 0; i < engines.length; i++) {
                 pixCapchaEngine = engines[i];
@@ -525,8 +525,7 @@ public class ImageCaptchaToJPEG {
                     System.out.println("Errors with class " + pixCapchaEngine.getClass().getName());
                 }
             }
-        }
-        else {
+        } else {
 
             try {
                 pixCapchaEngine = (ImageCaptchaEngine) Class.forName(className).newInstance();
@@ -588,7 +587,7 @@ public class ImageCaptchaToJPEG {
                 ImageToFile.serialize(captcha.getImageChallenge(), outputFile);
                 sumFileCreation += System.currentTimeMillis() - t;
                 System.out.print(".");
-                if ( i % 100 == 99 ) {
+                if (i % 100 == 99) {
                     System.out.println("");
                 }
             }
@@ -596,8 +595,7 @@ public class ImageCaptchaToJPEG {
         finally {
             if (i < iterations) {
                 System.out.println("exited early! i=" + i);
-            }
-            else {
+            } else {
                 System.out.println("done");
             }
             DecimalFormat df = new DecimalFormat();

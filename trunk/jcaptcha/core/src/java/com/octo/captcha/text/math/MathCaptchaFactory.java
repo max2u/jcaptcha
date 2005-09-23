@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2005 Your Corporation. All Rights Reserved.
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 package com.octo.captcha.text.math;
 
@@ -11,8 +13,7 @@ import java.util.Locale;
 import java.util.Random;
 
 /**
- * The simpliest text captcha<br/>
- * <b>Do not use this in production!!!</b>
+ * The simpliest text captcha<br/> <b>Do not use this in production!!!</b>
  *
  * @author <a href="mailto:marc.antoine.garrigue@gmail.com">Marc-Antoine Garrigue</a>
  * @version 1.0

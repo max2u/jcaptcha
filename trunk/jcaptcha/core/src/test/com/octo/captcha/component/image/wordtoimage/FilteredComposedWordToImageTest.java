@@ -497,8 +497,6 @@ public class FilteredComposedWordToImageTest extends TestCase {
 
     /**
      * Constructor for FilteredComposedWordToImageTest.
-     *
-     * @param name
      */
     public FilteredComposedWordToImageTest(String name) {
         super(name);

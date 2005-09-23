@@ -489,6 +489,7 @@ public class MockCaptchaEngine implements com.octo.captcha.engine.CaptchaEngine 
      * This return a new captcha. It may be used directly.
      *
      * @param locale the desired locale
+     *
      * @return a new Captcha
      */
     public Captcha getNextCaptcha(Locale locale) {
@@ -504,6 +505,7 @@ public class MockCaptchaEngine implements com.octo.captcha.engine.CaptchaEngine 
 
     /**
      * @param factories new captcha factories for this engine
+     *
      * @throws com.octo.captcha.engine.CaptchaEngineException
      *          if the factories are invalid for this engine
      */

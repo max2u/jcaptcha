@@ -12,10 +12,7 @@
     
     <!-- General file checks -->
     <module name="FileLength"/>
-    <module name="Header">
-      <property name="headerFile" value="${checkstyle.header.file}"/>
-      <property name="ignoreLines" value="6"/>
-    </module>
+
     <module name="LineLength">
       <property name="ignorePattern" value="(@version|@see|^import)"/>
     </module>

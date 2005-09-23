@@ -1,14 +1,13 @@
 /*
- * Copyright (c) 2005 Your Corporation. All Rights Reserved.
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 package com.octo.captcha.module.acegi;
 
 import com.octo.captcha.service.CaptchaService;
 import com.octo.captcha.service.CaptchaServiceException;
 import net.sf.acegisecurity.captcha.CaptchaServiceProxy;
-
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author <a href="mailto:marc.antoine.garrigue@gmail.com">Marc-Antoine Garrigue</a>
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class JCaptchaServiceProxy implements CaptchaServiceProxy {
 
     private CaptchaService service;
-   
+
 
     public JCaptchaServiceProxy(CaptchaService service) {
         super();
@@ -26,15 +25,15 @@ public class JCaptchaServiceProxy implements CaptchaServiceProxy {
 
 
     public boolean validateReponseForId(String id, Object response) {
-        if(id==null||response==null||"".equals(id)){
+        if (id == null || response == null || "".equals(id)) {
             return false;
-        }else{
+        } else {
             try {
-              return  service.validateResponseForID(id,response).booleanValue();
+                return service.validateResponseForID(id, response).booleanValue();
             } catch (CaptchaServiceException e) {
                 return false;
             }
         }
-        
+
     }
 }

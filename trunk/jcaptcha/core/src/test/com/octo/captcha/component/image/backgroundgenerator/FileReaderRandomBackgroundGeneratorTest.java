@@ -965,9 +965,6 @@ public class FileReaderRandomBackgroundGeneratorTest extends TestCase {
 
     /**
      * Requires that directory be a directory, be readable, and have the right name.
-     *
-     * @param dir
-     * @param expectedName
      */
     private void assertValidDir(File dir, String expectedName) {
         assertTrue("should be readable", dir.canRead());

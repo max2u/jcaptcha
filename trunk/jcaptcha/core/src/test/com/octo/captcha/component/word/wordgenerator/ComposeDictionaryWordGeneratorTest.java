@@ -490,8 +490,6 @@ public class ComposeDictionaryWordGeneratorTest extends TestCase {
 
     /**
      * Constructor for ComposeDictionaryWordGeneratorTest.
-     *
-     * @param name
      */
     public ComposeDictionaryWordGeneratorTest(String name) {
         super(name);
@@ -519,8 +517,7 @@ public class ComposeDictionaryWordGeneratorTest extends TestCase {
     }
 
     /**
-     * This testcase werify if it works with words with one letter in the
-     * dictionary.
+     * This testcase werify if it works with words with one letter in the dictionary.
      */
     public void testSmallWordWithOneLetter() {
         this.composeDictionaryWordGenerator =
@@ -534,8 +531,8 @@ public class ComposeDictionaryWordGeneratorTest extends TestCase {
     }
 
     /**
-     * this testcase verify if it works with words with no words in the
-     * dictionnary. We verify if the CaptchaException is correctly trapped.
+     * this testcase verify if it works with words with no words in the dictionnary. We verify if the CaptchaException
+     * is correctly trapped.
      */
     public void testEmptyDictionnary() {
         this.composeDictionaryWordGenerator =

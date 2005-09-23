@@ -481,8 +481,6 @@ public class RandomWordGeneratorTest extends TestCase {
 
     /**
      * Constructor for RandomWordGeneratorTest.
-     *
-     * @param name
      */
     public RandomWordGeneratorTest(String name) {
         super(name);
