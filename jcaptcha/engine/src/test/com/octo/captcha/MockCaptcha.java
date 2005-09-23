@@ -461,57 +461,71 @@ DAMAGES.
 
                      END OF TERMS AND CONDITIONS
 */
+package com.octo.captcha;
 
-
-package com.octo.captcha.component.wordgenerator;
-
-import junit.framework.TestCase;
-
-import java.util.Locale;
+import com.octo.captcha.Captcha;
 
 /**
- * <p>Description: </p>
+ * <p><ul><li></li></ul></p>
  *
- * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
+ * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class FileDictionaryTest extends TestCase {
+public class MockCaptcha implements Captcha {
+    private boolean isDisposed = false;
+    private boolean asBeenCalled = false;
 
-    private FileDictionary fileDictionary;
+    public static final String QUESTION = "mockQuestion";
+    public static final String CHALLENGE = "mockChallenge";
 
     /**
-     * Constructor for FileDictionaryTest.
+     * Accessor captcha question.
      *
-     * @param name
+     * @return the question
      */
-    public FileDictionaryTest(String name) {
-        super(name);
+    public String getQuestion() {
+        return QUESTION;
     }
 
-    public void setUp() {
-        this.fileDictionary = new FileDictionary("toddlist");
+    /**
+     * Accerssor for the questionned challenge.
+     *
+     * @return the challenge (may be an image for image captcha...
+     */
+    public Object getChallenge() {
+        asBeenCalled = true;
+        return !isDisposed ? CHALLENGE : null;
     }
 
-    public void testGetWordList() {
-        WordList test = this.fileDictionary.getWordList();
-        assertNotNull(test);
-        String testWord = test.getNextWord(new Integer(8));
-        assertNotNull(testWord);
-        assertEquals(8, testWord.length());
-
-
+    /**
+     * Validation routine for the response.
+     *
+     * @param response to the question concerning the chalenge
+     * @return true if the answer is correct, false otherwise.
+     */
+    public Boolean validateResponse(Object response) {
+        return new Boolean(response.toString());
     }
 
-    public void testGetWordListLocale() {
-        WordList test = this.fileDictionary.getWordList(Locale.US);
-        Locale expected = Locale.US;
-        assertNotNull(test);
-        String testWord = test.getNextWord(new Integer(8));
-        assertNotNull(testWord);
-        assertEquals(8, testWord.length());
-        assertEquals(expected, test.getLocale());
+    /**
+     * Dispose the challenge, once this method is call the getChallenge method will return null.<br>
+     * It has been added for technical reasons : a captcha is always used in a two step fashion<br>
+     * First submit the challenge, and then wait until the response arrives.<br>
+     * It had been asked to have a method to dispose the challenge that is no longer used after being dipslayed.
+     * So here it is!
+     */
+    public void disposeChallenge() {
+        isDisposed = true;
+    }
 
-
+    /**
+     * This method should return true if the getChalenge method has been called (has been added in order to properly
+     * manage the captcha state.
+     *
+     * @return true if getChallenge has been called false otherwise.
+     */
+    public Boolean hasGetChalengeBeenCalled() {
+        return new Boolean(asBeenCalled);
     }
 
 }

@@ -467,7 +467,7 @@ package com.octo.captcha.sound.gimpy;
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurator;
 import com.octo.captcha.component.sound.wordtosound.FreeTTSWordToSound;
-import com.octo.captcha.component.wordgenerator.RandomWordGenerator;
+import com.octo.captcha.component.word.wordgenerator.RandomWordGenerator;
 import junit.framework.TestCase;
 
 public class SoundGimpyFactoryTest extends TestCase {

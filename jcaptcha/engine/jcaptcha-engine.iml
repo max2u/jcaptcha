@@ -9,13 +9,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="java version &quot;1.4.2_06&quot;" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="jcaptcha-core" />
     <orderEntry type="module-library">
       <library name="imaging">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/jhlabs/jars/imaging-01012005.jar!/" />
+          <root url="jar://$maven.repo$/jhlabs/jars/imaging-01012005.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -24,7 +24,7 @@
     <orderEntry type="module-library">
       <library name="freetts">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/freetts/jars/freetts-1.2.jar!/" />
+          <root url="jar://$maven.repo$/freetts/jars/freetts-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -33,7 +33,7 @@
     <orderEntry type="module-library">
       <library name="en_us">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/freetts/jars/en_us-1.2.jar!/" />
+          <root url="jar://$maven.repo$/freetts/jars/en_us-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -42,7 +42,7 @@
     <orderEntry type="module-library">
       <library name="cmu_us_kal">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/freetts/jars/cmu_us_kal-1.2.jar!/" />
+          <root url="jar://$maven.repo$/freetts/jars/cmu_us_kal-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -51,7 +51,7 @@
     <orderEntry type="module-library">
       <library name="cmu_time_awb">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/freetts/jars/cmu_time_awb-1.2.jar!/" />
+          <root url="jar://$maven.repo$/freetts/jars/cmu_time_awb-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -60,7 +60,7 @@
     <orderEntry type="module-library">
       <library name="cmutimelex">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/freetts/jars/cmutimelex-1.2.jar!/" />
+          <root url="jar://$maven.repo$/freetts/jars/cmutimelex-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -69,7 +69,7 @@
     <orderEntry type="module-library">
       <library name="cmulex">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/freetts/jars/cmulex-1.2.jar!/" />
+          <root url="jar://$maven.repo$/freetts/jars/cmulex-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -78,7 +78,7 @@
     <orderEntry type="module-library">
       <library name="quartz">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/quartz/jars/quartz-1.4.5.jar!/" />
+          <root url="jar://$maven.repo$/quartz/jars/quartz-1.4.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -87,7 +87,7 @@
     <orderEntry type="module-library">
       <library name="commons-logging">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/commons-logging/jars/commons-logging-1.0.4.jar!/" />
+          <root url="jar://$maven.repo$/commons-logging/jars/commons-logging-1.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -96,7 +96,7 @@
     <orderEntry type="module-library">
       <library name="commons-collections">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/commons-collections/jars/commons-collections-3.1.jar!/" />
+          <root url="jar://$maven.repo$/commons-collections/jars/commons-collections-3.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -105,7 +105,7 @@
     <orderEntry type="module-library">
       <library name="ehcache">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/ehcache/jars/ehcache-1.0.jar!/" />
+          <root url="jar://$maven.repo$/ehcache/jars/ehcache-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -114,7 +114,7 @@
     <orderEntry type="module-library">
       <library name="concurrent">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/concurrent/jars/concurrent-1.3.2.jar!/" />
+          <root url="jar://$maven.repo$/concurrent/jars/concurrent-1.3.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -123,7 +123,7 @@
     <orderEntry type="module-library">
       <library name="spring-dao">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/springframework/jars/spring-dao-1.2.jar!/" />
+          <root url="jar://$maven.repo$/springframework/jars/spring-dao-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -132,7 +132,7 @@
     <orderEntry type="module-library">
       <library name="spring">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/springframework/jars/spring-1.2.jar!/" />
+          <root url="jar://$maven.repo$/springframework/jars/spring-1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -141,7 +141,7 @@
     <orderEntry type="module-library">
       <library name="junit">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/junit/jars/junit-3.8.1.jar!/" />
+          <root url="jar://$maven.repo$/junit/jars/junit-3.8.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -150,7 +150,7 @@
     <orderEntry type="module-library">
       <library name="GroboUtils">
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/GroboUtils/jars/GroboUtils-5-core.jar!/" />
+          <root url="jar://$maven.repo$/GroboUtils/jars/GroboUtils-5-core.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -159,7 +159,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/hsqldb/jars/hsqldb-1.7.3.0.jar!/" />
+          <root url="jar://$maven.repo$/hsqldb/jars/hsqldb-1.7.3.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -168,7 +168,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/commons-pool/jars/commons-pool-1.1.jar!/" />
+          <root url="jar://$maven.repo$/commons-pool/jars/commons-pool-1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -177,7 +177,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://C:/Documents and Settings/mag/.maven/repository/commons-dbcp/jars/commons-dbcp-1.2.1.jar!/" />
+          <root url="jar://$maven.repo$/commons-dbcp/jars/commons-dbcp-1.2.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

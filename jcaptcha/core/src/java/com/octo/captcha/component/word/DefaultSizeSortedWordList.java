@@ -462,35 +462,98 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word;
 
+import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Random;
+import java.util.TreeMap;
 
 /**
- * <p>This interface defines methods to retrieve random words </p>.
+ * <p>Container for words that is initialized from a Dictionnary. </p>
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface WordGenerator {
+public class DefaultSizeSortedWordList implements SizeSortedWordList {
+
+    private TreeMap sortedWords = new TreeMap();
+
+    private Locale locale;
+
+    private Random myRandom = new Random();
 
     /**
-     * Return a word of lenght between min and max lenght
+     * A word list has to be constructed with a locale
+     *
+     * @param locale
+     */
+    public DefaultSizeSortedWordList(Locale locale) {
+        this.locale = locale;
+    };
+
+    /**
+     * Return a locale for this list
+     *
+     * @return th e locale
+     */
+    public Locale getLocale() {
+        return locale;
+    }
+
+    /**
+     * Adds a word to the list
+     *
+     * @param word
+     */
+    public void addWord(String word) {
+        Integer lenght = new Integer(word.length());
+        if (sortedWords.containsKey(lenght)) {
+            ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
+            thisLenghtwords.add(word);
+            sortedWords.put(lenght, thisLenghtwords);
+        } else {
+            ArrayList thisLenghtwords = new ArrayList();
+            thisLenghtwords.add(word);
+            sortedWords.put(lenght, thisLenghtwords);
+        }
+        //words.add(word);
+        //lengths.add(new Integer(word.length()));
+
+    }
+
+    /**
+     * Return the min lenght of contained word in this wordlist
+     *
+     * @return the min lenght of contained word in this wordlist
+     */
+    public Integer getMinWord() {
+        return (Integer) sortedWords.firstKey();
+    }
+
+    /**
+     * Return the max lenght of contained word in this wordlist
+     *
+     * @return the max lenght of contained word in this wordlist
+     */
+    public Integer getMaxWord() {
+        return (Integer) sortedWords.lastKey();
+    }
+
+    /**
+     * Return a word of randomly choosen of the specified lenght. Return null if
+     * none found
      *
      * @param lenght
-     * @return a String of lenght between min and max lenght
+     * @return a word of this lenght
      */
-    String getWord(Integer lenght);
-
-    /**
-     * Return a word of lenght between min and max lenght according to the given
-     * locale
-     *
-     * @param lenght the word lenght
-     * @param locale
-     * @return a String of lenght between min and max lenght according to the
-     *         given locale
-     */
-    String getWord(Integer lenght, Locale locale);
-
+    public String getNextWord(Integer lenght) {
+        if (sortedWords.containsKey(lenght)) {
+            ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
+            int pickAWord = myRandom.nextInt(thisLenghtwords.size());
+            return (String) thisLenghtwords.get(pickAWord);
+        } else {
+            return null;
+        }
+    }
 }

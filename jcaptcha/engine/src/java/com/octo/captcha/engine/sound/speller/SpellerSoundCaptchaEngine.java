@@ -466,7 +466,7 @@ package com.octo.captcha.engine.sound.speller;
 import com.octo.captcha.component.sound.soundconfigurator.FreeTTSSoundConfigurator;
 import com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator;
 import com.octo.captcha.component.sound.wordtosound.FreeTTSWordToSound;
-import com.octo.captcha.component.worddecorator.SpellerWordDecorator;
+import com.octo.captcha.component.word.worddecorator.SpellerWordDecorator;
 import com.octo.captcha.engine.sound.ListSoundCaptchaEngine;
 import com.octo.captcha.sound.speller.SpellerSoundFactory;
 
@@ -487,8 +487,8 @@ public class SpellerSoundCaptchaEngine extends ListSoundCaptchaEngine
      */
     protected void buildInitialFactories()
     {
-        com.octo.captcha.component.wordgenerator.WordGenerator words = new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-            new com.octo.captcha.component.wordgenerator.FileDictionary("toddlist"));
+        com.octo.captcha.component.word.wordgenerator.WordGenerator words = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
+            new com.octo.captcha.component.word.FileDictionary("toddlist"));
 
         SoundConfigurator configurator = new FreeTTSSoundConfigurator("kevin16",
             "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory", 1.0f, 100, 70);

@@ -462,48 +462,56 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word.wordgenerator;
 
 import java.util.Locale;
-import java.util.ResourceBundle;
-import java.util.StringTokenizer;
 
 /**
- * <p>Implementation of the DictionaryReader interface, uses a .properties file
- * to retrieve words and return a WordList.Constructed with the name of the
- * properties file. It uses standard java mecanism for I18N</p>
+ * <p>Description: dummy word generator contructed with a String returning the
+ * same string, with right length</p>
  *
- * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
- * @version 1.1
+ * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
+ * @version 1.0
  */
-public class FileDictionary implements DictionaryReader {
+public class DummyWordGenerator implements WordGenerator {
 
-    private String myBundle;
+    private String word = "JCAPTCHA";
 
-    public FileDictionary(String bundle) {
-        myBundle = bundle;
+    public DummyWordGenerator(String word) {
+        this.word = word == null || "".equals(word) ? this.word : word;
     }
 
-    public WordList getWordList() {
-        ResourceBundle bundle = ResourceBundle.getBundle(myBundle);
-        WordList list = generateWordList(Locale.getDefault(), bundle);
-        return list;
-    }
-
-    public WordList getWordList(Locale locale) {
-        ResourceBundle bundle = ResourceBundle.getBundle(myBundle, locale);
-        WordList list = generateWordList(locale, bundle);
-        return list;
-    }
-
-    protected WordList generateWordList(Locale locale, ResourceBundle bundle) {
-        WordList list = new WordList(locale);
-        StringTokenizer tokenizer = new StringTokenizer(bundle.getString("words"), ";");
-        int count = tokenizer.countTokens();
-        for (int i = 0; i < count; i++) {
-            list.addWord(tokenizer.nextToken());
+    /**
+     * Return a word of lenght between min and max lenght
+     *
+     * @param lenght
+     * @return a String of lenght between min and max lenght
+     */
+    public String getWord(Integer lenght) {
+        int mod = lenght.intValue() % word.length();
+        String cut = "";
+        int mul = (lenght.intValue() - mod) / word.length();
+        if (mod > 0) {
+            cut = word.substring(0, mod);
         }
-        return list;
+        StringBuffer returned = new StringBuffer();
+        for (int i = 0; i < mul; i++) {
+            returned.append(word);
+        }
+        returned.append(cut);
+        return returned.toString();
     }
 
+    /**
+     * Return a word of lenght between min and max lenght according to the given
+     * locale
+     *
+     * @param lenght the word lenght
+     * @param locale
+     * @return a String of lenght between min and max lenght according to the
+     *         given locale
+     */
+    public String getWord(Integer lenght, Locale locale) {
+        return getWord(lenght);
+    }
 }

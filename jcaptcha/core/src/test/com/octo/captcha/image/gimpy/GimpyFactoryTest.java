@@ -466,7 +466,7 @@ package com.octo.captcha.image.gimpy;
 
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.component.image.wordtoimage.SimpleWordToImage;
-import com.octo.captcha.component.wordgenerator.RandomWordGenerator;
+import com.octo.captcha.component.word.wordgenerator.RandomWordGenerator;
 import junit.framework.TestCase;
 
 public class GimpyFactoryTest extends TestCase {

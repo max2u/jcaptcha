@@ -462,23 +462,38 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word.wordgenerator;
 
+import com.octo.captcha.CaptchaException;
+import com.octo.captcha.component.word.DefaultSizeSortedWordList;
+import com.octo.captcha.component.word.SizeSortedWordList;
+import com.octo.captcha.component.word.DictionaryReader;
+
+import java.util.HashMap;
 import java.util.Locale;
 
 /**
- * <p>Description: dummy word generator contructed with a String returning the
- * same string, with right length</p>
+ * <p>WordGenerator based on a dictionary. Uses a Dictionary reader to retrieve
+ * words and an WordList to store the words retrieved. Be sure your dictionary
+ * contains words whose lenght covers the whole range specified in your factory,
+ * some rutime exception will occur!</p>
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class DummyWordGenerator implements WordGenerator {
+public class DictionaryWordGenerator implements WordGenerator {
 
-    private String word = "JCAPTCHA";
+    private Locale defaultLocale;
 
-    public DummyWordGenerator(String word) {
-        this.word = word == null || "".equals(word) ? this.word : word;
+    private DictionaryReader factory;
+
+    private HashMap localizedwords = new HashMap();
+
+    public DictionaryWordGenerator(DictionaryReader reader) {
+        this.factory = reader;
+        //add the default wordlist to the localisedWordList
+        this.defaultLocale = factory.getWordList().getLocale();
+        this.localizedwords.put(defaultLocale, factory.getWordList());
     }
 
     /**
@@ -487,31 +502,44 @@ public class DummyWordGenerator implements WordGenerator {
      * @param lenght
      * @return a String of lenght between min and max lenght
      */
-    public String getWord(Integer lenght) {
-        int mod = lenght.intValue() % word.length();
-        String cut = "";
-        int mul = (lenght.intValue() - mod) / word.length();
-        if (mod > 0) {
-            cut = word.substring(0, mod);
-        }
-        StringBuffer returned = new StringBuffer();
-        for (int i = 0; i < mul; i++) {
-            returned.append(word);
-        }
-        returned.append(cut);
-        return returned.toString();
+    public final String getWord(Integer lenght) {
+        return getWord(lenght, defaultLocale);
     }
 
     /**
      * Return a word of lenght between min and max lenght according to the given
      * locale
      *
-     * @param lenght the word lenght
+     * @param lenght
      * @param locale
      * @return a String of lenght between min and max lenght according to the
      *         given locale
      */
     public String getWord(Integer lenght, Locale locale) {
-        return getWord(lenght);
+        SizeSortedWordList words;
+        words = getWordList(locale);
+
+        String word = words.getNextWord(lenght);
+        //check if word with the specified lenght exist
+        if (word == null) {
+            //if not see if any
+            throw new CaptchaException("No word of lenght : " + lenght +
+                    " exists in dictionnary! please " +
+                    "update your dictionary or your range!");
+        }
+        return word;
+    }
+
+    final SizeSortedWordList getWordList(Locale locale) {
+        SizeSortedWordList words;
+        if (localizedwords.containsKey(locale)) {
+            words = (DefaultSizeSortedWordList) localizedwords.get(locale);
+        } else {
+
+            words = factory.getWordList(locale);
+            //add to cache
+            localizedwords.put(locale, words);
+        }
+        return words;
     }
 }

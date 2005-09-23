@@ -462,9 +462,8 @@ DAMAGES.
                      END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word.wordgenerator;
 
-import com.octo.captcha.CaptchaException;
 import junit.framework.TestCase;
 
 import java.util.Locale;
@@ -475,58 +474,46 @@ import java.util.Locale;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.0
  */
-public class DictionaryWordGeneratorTest extends TestCase {
+public class DummyWordGeneratorTest extends TestCase {
 
-    private DictionaryWordGenerator dictionaryWordGenerator;
-    private static String[] wordlist = {"1", "1234", "123456", "123456789", "123"};
-    private static int[] lenghts = {1, 4, 6, 9, 3};
-    private static Integer UNKNOWN_LENGHT = new Integer(100);
+    private DummyWordGenerator dummyWordGenerator;
+    private String expectedString = "JCAPTCHA";
 
     /**
-     * Constructor for DictionaryWordGeneratorTest.
+     * Constructor for DummyWordGeneratorTest.
      *
      * @param name
      */
-    public DictionaryWordGeneratorTest(String name) {
+    public DummyWordGeneratorTest(String name) {
         super(name);
     }
 
     public void setUp() {
-        this.dictionaryWordGenerator = new DictionaryWordGenerator(new ArrayDictionary(wordlist));
+        this.dummyWordGenerator = new DummyWordGenerator(this.expectedString);
+    }
+
+    public void testGetDefaultWord() {
+        this.dummyWordGenerator = new DummyWordGenerator(null);
+        String expected = this.expectedString;
+        Integer expectedLength = new Integer(8);
+        String word = this.dummyWordGenerator.getWord(new Integer(8));
+        assertEquals(expected, word);
     }
 
     public void testGetWordInteger() {
-        for (int i = 0; i < lenghts.length; i++) {
-            Integer length = new Integer(lenghts[i]);
-            String test = this.dictionaryWordGenerator.getWord(length);
-            assertNotNull(test);
-            assertTrue(test.length() > 0);
-            assertEquals(length.intValue(), test.length());
-
-        }
-        try {
-            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGHT);
-            fail("Should throw a CaptchaException");
-        } catch (CaptchaException e) {
-            assertNotNull(e.getMessage());
-        }
+        String expected = this.expectedString;
+        Integer expectedLength = new Integer(10);
+        String word = this.dummyWordGenerator.getWord(new Integer(10));
+        assertEquals(expected + expected.substring(0, 2), word);
+        //assertEquals(expectedLength.intValue(),word.length());
     }
 
     public void testGetWordIntegerLocale() {
-        for (int i = 0; i < lenghts.length; i++) {
-            Integer length = new Integer(lenghts[i]);
-            String test = this.dictionaryWordGenerator.getWord(length, Locale.US);
-            assertNotNull(test);
-            assertTrue(test.length() > 0);
-            assertEquals(length.intValue(), test.length());
-        }
-        try {
-            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGHT);
-            fail("Should throw a CaptchaException");
-        } catch (CaptchaException e) {
-            assertNotNull(e.getMessage());
-        }
+        String expected = this.expectedString;
+        Integer expectedLength = new Integer(10);
+        String word = this.dummyWordGenerator.getWord(new Integer(10), Locale.US);
+        assertEquals(expected + expected.substring(0, 2), word);
+        //assertEquals(expectedLength.intValue(),word.length());
     }
-
 
 }

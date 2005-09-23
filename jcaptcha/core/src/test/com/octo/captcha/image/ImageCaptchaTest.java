@@ -466,8 +466,8 @@ package com.octo.captcha.image;
 
 import com.octo.captcha.component.image.wordtoimage.SimpleWordToImage;
 import com.octo.captcha.component.image.wordtoimage.WordToImage;
-import com.octo.captcha.component.wordgenerator.DummyWordGenerator;
-import com.octo.captcha.component.wordgenerator.WordGenerator;
+import com.octo.captcha.component.word.wordgenerator.DummyWordGenerator;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
 import com.octo.captcha.image.gimpy.GimpyFactory;
 import junit.framework.TestCase;
 

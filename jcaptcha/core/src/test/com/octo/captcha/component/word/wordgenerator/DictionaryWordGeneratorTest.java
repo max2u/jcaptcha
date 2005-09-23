@@ -462,9 +462,10 @@ DAMAGES.
                      END OF TERMS AND CONDITIONS
 */
 
+package com.octo.captcha.component.word.wordgenerator;
 
-package com.octo.captcha.component.wordgenerator;
-
+import com.octo.captcha.CaptchaException;
+import com.octo.captcha.component.word.ArrayDictionary;
 import junit.framework.TestCase;
 
 import java.util.Locale;
@@ -475,70 +476,58 @@ import java.util.Locale;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.0
  */
-public class WordListTest extends TestCase {
-    private WordList wordList;
-    public static final String WORD1 = "test";
-    public static final String WORD2 = "testtest";
-    public static final String WORD3 = "te";
+public class DictionaryWordGeneratorTest extends TestCase {
 
+    private DictionaryWordGenerator dictionaryWordGenerator;
+    private static String[] wordlist = {"1", "1234", "123456", "123456789", "123"};
+    private static int[] lenghts = {1, 4, 6, 9, 3};
+    private static Integer UNKNOWN_LENGHT = new Integer(100);
 
     /**
-     * Constructor for WordListTest.
+     * Constructor for DictionaryWordGeneratorTest.
      *
      * @param name
      */
-    public WordListTest(String name) {
+    public DictionaryWordGeneratorTest(String name) {
         super(name);
     }
 
     public void setUp() {
-        this.wordList = new WordList(Locale.US);
-        this.wordList.addWord(WORD1);
+        this.dictionaryWordGenerator = new DictionaryWordGenerator(new ArrayDictionary(wordlist));
     }
 
-    public void testGetLocale() {
-        Locale expected = Locale.US;
-        Locale test = this.wordList.getLocale();
-        assertEquals(expected, test);
+    public void testGetWordInteger() {
+        for (int i = 0; i < lenghts.length; i++) {
+            Integer length = new Integer(lenghts[i]);
+            String test = this.dictionaryWordGenerator.getWord(length);
+            assertNotNull(test);
+            assertTrue(test.length() > 0);
+            assertEquals(length.intValue(), test.length());
+
+        }
+        try {
+            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGHT);
+            fail("Should throw a CaptchaException");
+        } catch (CaptchaException e) {
+            assertNotNull(e.getMessage());
+        }
     }
 
-    public void testAddWord() {
-        String test = this.wordList.getNextWord(new Integer(WORD2.length()));
-        assertNull(test);
-        test = this.wordList.getNextWord(new Integer(WORD1.length()));
-        assertNotNull(test);
-        this.wordList.addWord(WORD2);
-        test = this.wordList.getNextWord(new Integer(WORD1.length()));
-        assertNotNull(test);
-        test = this.wordList.getNextWord(new Integer(WORD2.length()));
-        assertNotNull(test);
-
+    public void testGetWordIntegerLocale() {
+        for (int i = 0; i < lenghts.length; i++) {
+            Integer length = new Integer(lenghts[i]);
+            String test = this.dictionaryWordGenerator.getWord(length, Locale.US);
+            assertNotNull(test);
+            assertTrue(test.length() > 0);
+            assertEquals(length.intValue(), test.length());
+        }
+        try {
+            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGHT);
+            fail("Should throw a CaptchaException");
+        } catch (CaptchaException e) {
+            assertNotNull(e.getMessage());
+        }
     }
 
-    public void testGetNextWord() {
-        String expected = WORD1;
-        String test = this.wordList.getNextWord(new Integer(WORD1.length()));
-        assertNotNull(test);
-        assertEquals(expected, test);
-        this.wordList.addWord(WORD2);
-        test = this.wordList.getNextWord(new Integer(WORD2.length()));
-        assertEquals(WORD2, test);
-    }
 
-    public void testGetMinWord() throws Exception {
-        assertEquals(WORD1.length(), this.wordList.getMinWord().intValue());
-        this.wordList.addWord(WORD2);
-        assertEquals(WORD1.length(), this.wordList.getMinWord().intValue());
-        this.wordList.addWord(WORD3);
-        assertEquals(WORD3.length(), this.wordList.getMinWord().intValue());
-    }
-
-    public void testGetMaxWord() throws Exception {
-        assertEquals(WORD1.length(), this.wordList.getMaxWord().intValue());
-        this.wordList.addWord(WORD2);
-        assertEquals(WORD2.length(), this.wordList.getMaxWord().intValue());
-        this.wordList.addWord(WORD3);
-        assertEquals(WORD2.length(), this.wordList.getMaxWord().intValue());
-
-    }
 }

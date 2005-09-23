@@ -462,7 +462,8 @@ DAMAGES.
                      END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+
+package com.octo.captcha.component.word.wordgenerator;
 
 import junit.framework.TestCase;
 
@@ -474,46 +475,29 @@ import java.util.Locale;
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin</a>
  * @version 1.0
  */
-public class DummyWordGeneratorTest extends TestCase {
+public class RandomWordGeneratorTest extends TestCase {
 
-    private DummyWordGenerator dummyWordGenerator;
-    private String expectedString = "JCAPTCHA";
+    private RandomWordGenerator randomWordGenerator;
 
     /**
-     * Constructor for DummyWordGeneratorTest.
+     * Constructor for RandomWordGeneratorTest.
      *
      * @param name
      */
-    public DummyWordGeneratorTest(String name) {
+    public RandomWordGeneratorTest(String name) {
         super(name);
     }
 
     public void setUp() {
-        this.dummyWordGenerator = new DummyWordGenerator(this.expectedString);
+        this.randomWordGenerator = new RandomWordGenerator("azertyuiopqsdfghjklmwxcvbn");
     }
 
-    public void testGetDefaultWord() {
-        this.dummyWordGenerator = new DummyWordGenerator(null);
-        String expected = this.expectedString;
-        Integer expectedLength = new Integer(8);
-        String word = this.dummyWordGenerator.getWord(new Integer(8));
-        assertEquals(expected, word);
-    }
-
-    public void testGetWordInteger() {
-        String expected = this.expectedString;
-        Integer expectedLength = new Integer(10);
-        String word = this.dummyWordGenerator.getWord(new Integer(10));
-        assertEquals(expected + expected.substring(0, 2), word);
-        //assertEquals(expectedLength.intValue(),word.length());
-    }
-
-    public void testGetWordIntegerLocale() {
-        String expected = this.expectedString;
-        Integer expectedLength = new Integer(10);
-        String word = this.dummyWordGenerator.getWord(new Integer(10), Locale.US);
-        assertEquals(expected + expected.substring(0, 2), word);
-        //assertEquals(expectedLength.intValue(),word.length());
+    public void testGetWord() {
+        Integer wordLength = new Integer(10);
+        String pickWord = this.randomWordGenerator.getWord(wordLength, Locale.US);
+        assertNotNull(pickWord);
+        assertTrue(pickWord.length() > 0);
+        assertEquals(wordLength.intValue(), pickWord.length());
     }
 
 }

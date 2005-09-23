@@ -209,11 +209,11 @@
 		</bean>
 
 
-	<bean id="filedict" class="com.octo.captcha.component.wordgenerator.FileDictionnary" >
+	<bean id="filedict" class="com.octo.captcha.component.word.FileDictionary" >
 		<constructor-arg index="0"><value>toddlist</value></constructor-arg>
 	</bean>
 
-	<bean id="wordgen" class="com.octo.captcha.component.wordgenerator.DictionaryWordGenerator" >
+	<bean id="wordgen" class="com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator" >
 		<constructor-arg><ref bean="filedict"/></constructor-arg>
 	</bean>
 

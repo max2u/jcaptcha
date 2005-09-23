@@ -533,8 +533,8 @@ public class FilteredBaffleListGimpyEngine
 
 
         //word generator
-        com.octo.captcha.component.wordgenerator.WordGenerator words = new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.wordgenerator.FileDictionary(
+        com.octo.captcha.component.word.wordgenerator.WordGenerator words = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
+                new com.octo.captcha.component.word.FileDictionary(
                         "toddlist"));
         //wordtoimage components
         TextPaster paster = new BaffleRandomTextPaster(new Integer(6), new Integer(

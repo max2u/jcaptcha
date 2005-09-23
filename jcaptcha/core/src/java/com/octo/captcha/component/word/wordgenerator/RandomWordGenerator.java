@@ -462,7 +462,7 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word.wordgenerator;
 
 import java.util.Locale;
 import java.util.Random;

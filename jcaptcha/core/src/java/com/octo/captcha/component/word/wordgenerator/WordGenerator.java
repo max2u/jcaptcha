@@ -462,20 +462,35 @@
                        END OF TERMS AND CONDITIONS
 */
 
-package com.octo.captcha.component.wordgenerator;
+package com.octo.captcha.component.word.wordgenerator;
 
 import java.util.Locale;
 
 /**
- * <p>Base interface used by the DictionaryWordGenerator to retrieve words.</p>
+ * <p>This interface defines methods to retrieve random words </p>.
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public interface DictionaryReader {
+public interface WordGenerator {
 
-    WordList getWordList();
+    /**
+     * Return a word of lenght between min and max lenght
+     *
+     * @param lenght
+     * @return a String of lenght between min and max lenght
+     */
+    String getWord(Integer lenght);
 
-    WordList getWordList(Locale locale);
+    /**
+     * Return a word of lenght between min and max lenght according to the given
+     * locale
+     *
+     * @param lenght the word lenght
+     * @param locale
+     * @return a String of lenght between min and max lenght according to the
+     *         given locale
+     */
+    String getWord(Integer lenght, Locale locale);
 
 }
