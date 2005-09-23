@@ -7,21 +7,15 @@
     <name>jcaptcha-module-roller</name>
     <package>com.octo.captcha.module.roller</package>
 
-    <description>
-  <![CDATA[
-      <b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
+    <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
 
 <br/>The open source java framework for captcha definition and integration
 <br/>
  <br/>
  The captcha roller module is a struts based plugin to configure and integrate a captcha service with the <a href="http://www.rollerweblogger.org/">rollerwebloger</a> system.<BR/>
- It uses the jcaptcha-core, jcaptcha-engine, jcaptcha-service, jcaptcha-module-base, jcaptcha-module-stuts.
- ]]>
-     </description>
+ It uses the jcaptcha-core, jcaptcha-engine, jcaptcha-service, jcaptcha-module-base, jcaptcha-module-stuts.]]></description>
 
-    <shortDescription>
-      JCAPTCHA Roller module : Roller plugin to Captcha-ize your  <a href="http://www.rollerweblogger.org/">rollerwebloger</a>
-      </shortDescription>
+    <shortDescription>JCAPTCHA Roller module : Roller plugin to Captcha-ize your roller web site</shortDescription>
 
 
     <dependencies>
