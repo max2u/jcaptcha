@@ -7,6 +7,12 @@
   xmlns:artifact="artifact"
   xmlns:ant="jelly:ant">
 
+<goal name="jcaptcha" description="build and package a jcaptcha distribution, builds the jcaptcha-maven site">
+        <attainGoal name="jcaptcha:all"/>
+
+</goal>
+  
+
   <goal name="jcaptcha:all" description="build and package a jcaptcha distribution, builds the jcaptcha-maven site">
         <attainGoal name="jcaptcha:clean"/>
         <attainGoal name="jcaptcha:deploy-jhlab"/>
@@ -43,7 +49,26 @@
         goals="jar:install"
         banner="jars"
         ignoreFailures="false"/>
+	
+	<ant:mkdir dir="${maven.build.dir}/all-jar/tojar"/>
+	
+	<unzip dest="${maven.build.dir}/all-jar/tojar">
+		<ant:fileset dir="${basedir}">
+	    		<include name="**/target/jcaptcha-*-${pom.currentVersion}.jar"/>
+	    		<include name="lib/imaging-01012005.jar"/>
+	    		<exclude name="target/**"/>
+	    	</ant:fileset>
+	</unzip>
+	
+    	<ant:copy todir="${maven.build.dir}/all-jar/tojar" file="${basedir}/LICENSE.txt"/>
+    
+    	<jar destfile="${maven.build.dir}/all-jar/${pom.artifactId}-all-${pom.currentVersion}.jar" basedir="${maven.build.dir}/all-jar/tojar"/>
+  	
+  	<ant:copy file="${maven.build.dir}/all-jar/${pom.artifactId}-all-${pom.currentVersion}.jar" todir="${maven.repo.local}/jcaptcha/jars"/>
+
      </goal>
+
+
 
 
 
@@ -60,24 +85,15 @@
   </goal>
 
    <goal name="jcaptcha:dist-bin" description="build and package a jcaptcha distribution">
-	<ant:mkdir dir="${maven.build.dir}/distributions/bin/tozip"/>
-	<ant:mkdir dir="${maven.build.dir}/distributions/bin/temp/unjared"/>
-    <ant:copy todir="${maven.build.dir}/distributions/bin/temp" flatten="true">
+
+    <ant:mkdir dir="${maven.build.dir}/distributions/bin/tozip"/>
+	
+    <ant:copy todir="${maven.build.dir}/distributions/bin/tozip" flatten="true">
     	<ant:fileset dir="${basedir}">
-    		<include name="**/jcaptcha*-${pom.currentVersion}.jar"/>
-    		<include name="**/imaging-01012005.jar"/>
-    		<exclude name="${maven.build.dir}"/>
+    		<include name="${maven.build.dir}/all-jar/jcaptcha-all-${pom.currentVersion}.jar"/>
+    		<include name="${basedir}/lib/imaging-01012005.jar"/>
     	</ant:fileset>
     </ant:copy>
-    
-    <unzip dest="${maven.build.dir}/distributions/bin/temp/unjared">
-		<fileset dir="${maven.build.dir}/distributions/bin/temp">
-			<include name="*.jar"/>
-		</fileset>
-	</unzip>
-
-  <jar destfile="${maven.build.dir}/distributions/bin/tozip/${pom.artifactId}-all-${pom.currentVersion}.jar" basedir="${maven.build.dir}/distributions/bin/temp/unjared">
-  </jar>
    
    <ant:copy todir="${maven.build.dir}/distributions/bin/tozip/">
     	<ant:fileset dir="${basedir}/engine/src/conf">
@@ -99,8 +115,7 @@
 
    </ant:copy>
 	
-   <ant:zip zipfile="${maven.build.dir}/distributions/${pom.artifactId}-bin-${pom.currentVersion}.zip"
-    	>
+   <ant:zip zipfile="${maven.build.dir}/distributions/${pom.artifactId}-bin-${pom.currentVersion}.zip">
     	<ant:fileset dir="${maven.build.dir}/distributions/bin/tozip">
     		
     	</ant:fileset>
