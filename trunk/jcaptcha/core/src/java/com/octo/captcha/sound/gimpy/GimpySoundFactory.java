@@ -467,8 +467,8 @@ package com.octo.captcha.sound.gimpy;
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.CaptchaQuestionHelper;
 import com.octo.captcha.component.sound.wordtosound.WordToSound;
-import com.octo.captcha.component.worddecorator.WordDecorator;
-import com.octo.captcha.component.wordgenerator.WordGenerator;
+import com.octo.captcha.component.word.worddecorator.WordDecorator;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
 import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
 
