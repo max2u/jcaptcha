@@ -1,8 +1,7 @@
 /*
- * Created on 3 mai 2005
- *
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 package com.octo.captcha.component.image.color;
 
@@ -12,8 +11,8 @@ import java.awt.*;
 import java.util.Random;
 
 /**
- * A RandomRangeColorGenerator returns a random color whose components (red, green, blue and alpha)
- * have been picked from user defined ranges.
+ * A RandomRangeColorGenerator returns a random color whose components (red, green, blue and alpha) have been picked
+ * from user defined ranges.
  *
  * @author Benoit Doumas
  * @author Christian Blavier
@@ -66,11 +65,6 @@ public class RandomRangeColorGenerator implements ColorGenerator {
 
     /**
      * Constructs a randomRangeColorGenerator with all components
-     *
-     * @param redComponentRange
-     * @param greenComponentRange
-     * @param blueComponentRange
-     * @param alphaComponentRange
      */
     public RandomRangeColorGenerator(int[] redComponentRange, int[] greenComponentRange,
                                      int[] blueComponentRange, int[] alphaComponentRange) {
@@ -89,21 +83,16 @@ public class RandomRangeColorGenerator implements ColorGenerator {
 
     /**
      * Constructs a randomColorGenerator with no alpha
-     *
-     * @param redComponentRange
-     * @param greenComponentRange
-     * @param blueComponentRange
      */
     public RandomRangeColorGenerator(int[] redComponentRange, int[] greenComponentRange,
                                      int blueComponentRange[]) {
         this(redComponentRange, greenComponentRange, blueComponentRange, new int[]{
-            OPAQUE_ALPHA_COMPONENT_VALUE, OPAQUE_ALPHA_COMPONENT_VALUE});
+                OPAQUE_ALPHA_COMPONENT_VALUE, OPAQUE_ALPHA_COMPONENT_VALUE});
     }
 
     /**
      * Validates that the start value is lesser than the end one
      *
-     * @param colorComponentRange
      * @throws CaptchaException in case of validation error
      */
     private void validateColorComponentRange(int[] colorComponentRange) throws CaptchaException {
@@ -120,7 +109,6 @@ public class RandomRangeColorGenerator implements ColorGenerator {
     /**
      * Validates that the color component value is in a authorized range
      *
-     * @param colorComponentValue
      * @throws CaptchaException in case of validation error
      */
     private void validateColorComponentValue(int colorComponentValue) throws CaptchaException {
@@ -149,6 +137,7 @@ public class RandomRangeColorGenerator implements ColorGenerator {
      *
      * @param start of the range
      * @param end   of the range
+     *
      * @return a random value
      */
     private int getRandomInRange(int start, int end) {

@@ -1,4 +1,3 @@
-
 package com.octo.captcha.engine.bufferedengine;
 
 import EDU.oswego.cs.dl.util.concurrent.ClockDaemon;
@@ -10,12 +9,11 @@ import org.springframework.beans.factory.BeanFactory;
 
 /**
  * Simple implmentation of the BufferedEngineContainer with ClockDaemon
- * 
+ *
  * @author Benoit Doumas
  * @author marc-antoine garrigue
  */
-public class SimpleBufferedEngineContainer extends BufferedEngineContainer
-{
+public class SimpleBufferedEngineContainer extends BufferedEngineContainer {
     private static final Log log = LogFactory.getLog(SimpleBufferedEngineContainer.class.getName());
 
     private ClockDaemon clockDaemonFeed;
@@ -30,9 +28,8 @@ public class SimpleBufferedEngineContainer extends BufferedEngineContainer
 
 
     public SimpleBufferedEngineContainer(CaptchaEngine engine, CaptchaBuffer memoryBuffer,
-        CaptchaBuffer diskBuffer, ContainerConfiguration containerConfiguration, int feedPeriod,
-        int swapPeriod)
-    {
+                                         CaptchaBuffer diskBuffer, ContainerConfiguration containerConfiguration, int feedPeriod,
+                                         int swapPeriod) {
         super(engine, memoryBuffer, diskBuffer, containerConfiguration);
 
         this.swapPeriod = new Long(swapPeriod);
@@ -43,8 +40,7 @@ public class SimpleBufferedEngineContainer extends BufferedEngineContainer
     /**
      * @see com.octo.captcha.engine.bufferedengine.BufferedEngineContainer#startScheduler()
      */
-    protected void startScheduler()
-    {
+    protected void startScheduler() {
         clockDaemonFeed = new ClockDaemon();
         clockDaemonSwap = new ClockDaemon();
         log.debug("daemons initialized");
@@ -52,47 +48,39 @@ public class SimpleBufferedEngineContainer extends BufferedEngineContainer
 
     }
 
-    protected void stopDaemon()
-    {
+    protected void stopDaemon() {
         this.clockDaemonFeed.shutDown();
         this.clockDaemonSwap.shutDown();
     }
 
-    protected void startDaemon()
-    {
+    protected void startDaemon() {
         clockDaemonFeed.executePeriodically(feedPeriod.longValue(), new SimpleDiskFeeder(), true);
 
 
         clockDaemonSwap.executePeriodically(swapPeriod.longValue(), new SimpleDiskToMemory(), true);
-        
-    }
-    
-    public class SimpleDiskFeeder implements Runnable
-    {
 
-        public void feedDisk()
-        {
+    }
+
+    public class SimpleDiskFeeder implements Runnable {
+
+        public void feedDisk() {
             feedPersistentBuffer();
         }
 
-        public void run()
-        {
+        public void run() {
             this.feedDisk();
         }
 
     }
-    
-    public class SimpleDiskToMemory  implements Runnable
-    {
-        
 
-        public void diskToMemory()
-        {
+    public class SimpleDiskToMemory implements Runnable {
+
+
+        public void diskToMemory() {
             swapCaptchasFromPersistentToVolatileMemory();
         }
 
-        public void run()
-        {
+        public void run() {
             this.diskToMemory();
         }
 

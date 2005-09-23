@@ -3,15 +3,8 @@
  */
 package com.octo.captcha.service.captchastore;
 
-import com.octo.captcha.Captcha;
-import com.octo.captcha.service.CaptchaServiceException;
-import com.octo.captcha.service.MockCaptcha;
-import junit.framework.TestCase;
-
-import java.util.Collection;
-
-import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.CacheException;
+import net.sf.ehcache.CacheManager;
 
 public class EhcacheCaptchaStoreTest extends CaptchaStoreTestAbstract {
     private static final String CACHE_NAME = "captchaTest";
@@ -30,7 +23,7 @@ public class EhcacheCaptchaStoreTest extends CaptchaStoreTestAbstract {
 
     protected void tearDown() throws Exception {
         super.tearDown();
-            CacheManager.getInstance().removeCache(CACHE_NAME);
+        CacheManager.getInstance().removeCache(CACHE_NAME);
     }
 
 }

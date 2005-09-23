@@ -483,17 +483,15 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * <p>Description: Generate a sample logo for the master webSite. Main method
- * takes one arg : the file path of the generated logo</p>
+ * <p>Description: Generate a sample logo for the master webSite. Main method takes one arg : the file path of the
+ * generated logo</p>
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class LogoGenerator
-{
+public class LogoGenerator {
 
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         TextPaster paster = new SimpleTextPaster(new Integer(8),
                 new Integer(8), Color.white);
         BackgroundGenerator back = new FileReaderRandomBackgroundGenerator(

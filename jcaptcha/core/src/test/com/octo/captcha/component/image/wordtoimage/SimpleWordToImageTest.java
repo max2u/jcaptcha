@@ -482,8 +482,6 @@ public class SimpleWordToImageTest extends TestCase {
 
     /**
      * Constructor for SimpleWordToImageTest.
-     *
-     * @param name
      */
     public SimpleWordToImageTest(String name) {
         super(name);

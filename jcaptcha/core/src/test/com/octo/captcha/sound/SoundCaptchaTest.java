@@ -478,8 +478,7 @@ import javax.sound.sampled.AudioInputStream;
 
 /**
  * <p/>
- * Description:
- * </p>
+ * Description: </p>
  *
  * @author <a href="mailto:mga@octo.com">Mathieu Gandin </a>
  * @version 1.0
@@ -493,8 +492,6 @@ public class SoundCaptchaTest extends TestCase {
 
     /**
      * Constructor for ImageCaptchaTest.
-     *
-     * @param name
      */
     public SoundCaptchaTest(String name) {
         super(name);
@@ -538,7 +535,6 @@ public class SoundCaptchaTest extends TestCase {
     //public void testValidateResponse() {
     //assertTrue(pixCaptcha.validateResponse(pixCaptcha.getResponse()).booleanValue());
     //}
-
     public void testGetImageChallenge() throws Exception {
         assertEquals(soundCaptcha.getSoundChallenge(), soundCaptcha.getChallenge());
     }

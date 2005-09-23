@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2005 Your Corporation. All Rights Reserved.
+ * jcaptcha, the open source java framework for captcha definition and integration
+ * Copyright (c) 2005 jcaptcha.net. All Rights Reserved.
+ * See the LICENSE.txt file distributed with this package.
  */
 
 package com.octo.captcha.text;
@@ -27,10 +29,8 @@ public abstract class TextCaptchaFactory implements CaptchaFactory {
     }
 
     /**
-     * build Localized captcha (don't forget those captcha are for human
-     * beings!).
+     * build Localized captcha (don't forget those captcha are for human beings!).
      *
-     * @param locale
      * @return a captcha corresponding to the locale
      */
     public final Captcha getCaptcha(final Locale locale) {

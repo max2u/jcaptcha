@@ -34,8 +34,10 @@ public class ContainerConfiguration {
      * @param localeRatio             locales and their ratio that should be feeded
      * @param maxVolatileMemorySize   in memory captcha buffer max size
      * @param maxPersistentMemorySize persistent captcha buffer max size
-     * @param swapSize                number of captchas that will be swapped from persistent to memory buffer each time
-     * @param feedSize                number of captchas that will be generated and stored to persistent buffer each time
+     * @param swapSize                number of captchas that will be swapped from persistent to memory buffer each
+     *                                time
+     * @param feedSize                number of captchas that will be generated and stored to persistent buffer each
+     *                                time
      */
     public ContainerConfiguration(Map localeRatio, int maxVolatileMemorySize, int maxPersistentMemorySize,
                                   int swapSize, int feedSize) {
@@ -54,9 +56,12 @@ public class ContainerConfiguration {
      * @param localeRatio                locales and their ratio that should be feeded
      * @param maxVolatileMemorySize      in memory captcha buffer max size
      * @param maxPersistentMemorySize    persistent captcha buffer max size
-     * @param swapSize                   number of captchas that will be swapped from persistent to memory buffer each time
-     * @param feedSize                   number of captchas that will be generated and stored to persistent buffer each time
-     * @param serveOnlyConfiguredLocales if set to true, serve only locales that are in configuration (only by language)
+     * @param swapSize                   number of captchas that will be swapped from persistent to memory buffer each
+     *                                   time
+     * @param feedSize                   number of captchas that will be generated and stored to persistent buffer each
+     *                                   time
+     * @param serveOnlyConfiguredLocales if set to true, serve only locales that are in configuration (only by
+     *                                   language)
      * @param defaultLocale              the default locale used by this engineContainer.
      */
     public ContainerConfiguration(Map localeRatio, int maxVolatileMemorySize, int maxPersistentMemorySize,
@@ -74,10 +79,14 @@ public class ContainerConfiguration {
      * @param localeRatio                locales and their ratio that should be feeded
      * @param maxVolatileMemorySize      in memory captcha buffer max size
      * @param maxPersistentMemorySize    persistent captcha buffer max size
-     * @param swapSize                   number of captchas that will be swapped from persistent to memory buffer each time
-     * @param feedSize                   number of captchas that will be generated and stored to persistent buffer each time
-     * @param feedBatchSize              max number of batch captchas to build when feeding, in order to preserve memory
-     * @param serveOnlyConfiguredLocales if set to true, serve only locales that are in configuration (only by language)
+     * @param swapSize                   number of captchas that will be swapped from persistent to memory buffer each
+     *                                   time
+     * @param feedSize                   number of captchas that will be generated and stored to persistent buffer each
+     *                                   time
+     * @param feedBatchSize              max number of batch captchas to build when feeding, in order to preserve
+     *                                   memory
+     * @param serveOnlyConfiguredLocales if set to true, serve only locales that are in configuration (only by
+     *                                   language)
      * @param defaultLocale              the default locale used by this engineContainer.
      */
     public ContainerConfiguration(Map localeRatio, int maxVolatileMemorySize, int maxPersistentMemorySize,

@@ -482,11 +482,9 @@ import java.awt.image.ImageFilter;
  * @deprecated
  */
 public class FilteredDoubleRandomListGimpyEngine
-        extends com.octo.captcha.engine.image.ListImageCaptchaEngine
-{
+        extends com.octo.captcha.engine.image.ListImageCaptchaEngine {
 
-    protected void buildInitialFactories()
-    {
+    protected void buildInitialFactories() {
 
         com.jhlabs.image.RippleFilter rippleBack = new com.jhlabs.image.RippleFilter();
 

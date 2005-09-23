@@ -75,11 +75,9 @@ import java.awt.image.ImageFilter;
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class DeformedBaffleListGimpyEngine extends ListImageCaptchaEngine
-{
+public class DeformedBaffleListGimpyEngine extends ListImageCaptchaEngine {
 
-    protected void buildInitialFactories()
-    {
+    protected void buildInitialFactories() {
 
         //build filters
         com.jhlabs.image.EmbossFilter emboss = new com.jhlabs.image.EmbossFilter();
@@ -162,7 +160,7 @@ public class DeformedBaffleListGimpyEngine extends ListImageCaptchaEngine
                 waterDef,
                 embossDef);
         this.addFactory(new GimpyFactory(words, word2image));
-  //      select filters for 2
+        //      select filters for 2
         word2image = new DeformedComposedWordToImage(font, back, paster,
                 rippleDefBack,
                 cristalDef,

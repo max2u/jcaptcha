@@ -471,27 +471,23 @@ import com.octo.captcha.engine.sound.ListSoundCaptchaEngine;
 import com.octo.captcha.sound.speller.SpellerSoundFactory;
 
 /**
- * <p>
- * Engine to generate a SpellerSound captcha. This captcha provide a sound that is the spelling of a
- * word
- * </p>
- * 
+ * <p/>
+ * Engine to generate a SpellerSound captcha. This captcha provide a sound that is the spelling of a word </p>
+ *
  * @author Benoit Doumas
  * @version 1.0
  */
-public class SpellerSoundCaptchaEngine extends ListSoundCaptchaEngine
-{
+public class SpellerSoundCaptchaEngine extends ListSoundCaptchaEngine {
 
     /**
      * @see com.octo.captcha.engine.sound.ListSoundCaptchaEngine#buildInitialFactories()
      */
-    protected void buildInitialFactories()
-    {
+    protected void buildInitialFactories() {
         com.octo.captcha.component.word.wordgenerator.WordGenerator words = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
-            new com.octo.captcha.component.word.FileDictionary("toddlist"));
+                new com.octo.captcha.component.word.FileDictionary("toddlist"));
 
         SoundConfigurator configurator = new FreeTTSSoundConfigurator("kevin16",
-            "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory", 1.0f, 100, 70);
+                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory", 1.0f, 100, 70);
         FreeTTSWordToSound wordToSound = new FreeTTSWordToSound(configurator, 4, 10);
 
         SpellerWordDecorator decorator = new SpellerWordDecorator(", ");

@@ -464,9 +464,6 @@ DAMAGES.
 
 package com.octo.captcha.component.word;
 
-import com.octo.captcha.component.word.DefaultSizeSortedWordList;
-import com.octo.captcha.component.word.DictionaryReader;
-
 import java.util.Locale;
 
 public class ArrayDictionary implements DictionaryReader {

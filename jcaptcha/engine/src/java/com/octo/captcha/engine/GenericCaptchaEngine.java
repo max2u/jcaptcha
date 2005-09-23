@@ -16,38 +16,31 @@ import java.util.Random;
  * @author <a href="mailto:marc.antoine.garrigue@gmail.com">Marc-Antoine Garrigue</a>
  * @version 1.0
  */
-public class GenericCaptchaEngine implements CaptchaEngine{
+public class GenericCaptchaEngine implements CaptchaEngine {
 
 
     private CaptchaFactory[] factories;
     private Random myRandom = new Random();
 
 
-
-
     /**
      * Default constructor : takes an array of ImageCaptchaFactories.
-     *
-     * @param factories
      */
-    public GenericCaptchaEngine(CaptchaFactory[] factories)
-    {
+    public GenericCaptchaEngine(CaptchaFactory[] factories) {
         this.factories = factories;
-        if (this.factories == null || this.factories.length == 0)
-        {
+        if (this.factories == null || this.factories.length == 0) {
             throw new CaptchaException("GenericCaptchaEngine cannot be " +
                     "constructed with a null or empty factories array");
         }
     }
 
 
-
     public CaptchaFactory[] getFactories() {
         return factories;
     }
 
-    public void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException{
-        if(factories==null||factories.length==0 ){
+    public void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException {
+        if (factories == null || factories.length == 0) {
             throw new CaptchaEngineException("impossible to set null or empty factories");
         }
         this.factories = factories;
@@ -67,6 +60,7 @@ public class GenericCaptchaEngine implements CaptchaEngine{
      * This return a new captcha. It may be used directly.
      *
      * @param locale the desired locale
+     *
      * @return a new Captcha
      */
     public Captcha getNextCaptcha(Locale locale) {

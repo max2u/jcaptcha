@@ -475,14 +475,13 @@ import java.util.Locale;
 import java.util.Random;
 
 /**
- * <p>
-
+ * <p/>
+ * <p/>
  * </p>
- * 
+ *
  * @author Benoit Doumas
  */
-public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine
-{
+public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
 
     private SoundCaptchaFactory[] factories;
 
@@ -490,52 +489,47 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine
 
     /**
      * Default constructor : takes an array of SoundCaptchaFactories.
-     * 
-     * @param factories
      */
-    public DefaultSoundCaptchaEngine(final SoundCaptchaFactory[] factories)
-    {
+    public DefaultSoundCaptchaEngine(final SoundCaptchaFactory[] factories) {
         this.factories = factories;
-        if (factories == null || factories.length == 0)
-        {
+        if (factories == null || factories.length == 0) {
             throw new CaptchaException("DefaultImageCaptchaEngine cannot be "
-                + "constructed with a null or empty factories array");
+                    + "constructed with a null or empty factories array");
         }
-    };
+    }
+
+    ;
 
     /**
      * This method build a SoundCaptchaFactory.
-     * 
+     *
      * @return a CaptchaFactory
      */
-    public final SoundCaptchaFactory getImageCaptchaFactory()
-    {
+    public final SoundCaptchaFactory getImageCaptchaFactory() {
         return factories[myRandom.nextInt(factories.length)];
     }
 
     /**
      * This method use an object parameter to build a CaptchaFactory.
-     * 
+     *
      * @return a SoundCaptcha
      */
-    public final SoundCaptcha getNextSoundCaptcha()
-    {
+    public final SoundCaptcha getNextSoundCaptcha() {
         return getImageCaptchaFactory().getSoundCaptcha();
     }
 
     /**
      * This return a new captcha. It may be used directly.
-     * 
-     * @param locale
-     *            the desired locale
+     *
+     * @param locale the desired locale
+     *
      * @return a new Captcha
      */
-    public SoundCaptcha getNextSoundCaptcha(Locale locale)
-    {
+    public SoundCaptcha getNextSoundCaptcha(Locale locale) {
         return getImageCaptchaFactory().getSoundCaptcha(locale);
     }
 
-     /**
+    /**
      * @return captcha factories used by this engine
      */
     public CaptchaFactory[] getFactories() {
@@ -546,17 +540,17 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine
      * @param factories new captcha factories for this engine
      */
     public void setFactories(CaptchaFactory[] factories) throws CaptchaEngineException {
-        if(factories==null||factories.length==0 ){
+        if (factories == null || factories.length == 0) {
             throw new CaptchaEngineException("impossible to set null or empty factories");
         }
-      ArrayList tempFactories = new ArrayList();
+        ArrayList tempFactories = new ArrayList();
 
-            for(int i = 0; i<factories.length;i++){
-                if(ImageCaptchaFactory.class.isAssignableFrom(factories[i].getClass())){
-                    throw new CaptchaEngineException("This factory is not a sound captcha factory "+factories[i].getClass());
-                }
-
+        for (int i = 0; i < factories.length; i++) {
+            if (ImageCaptchaFactory.class.isAssignableFrom(factories[i].getClass())) {
+                throw new CaptchaEngineException("This factory is not a sound captcha factory " + factories[i].getClass());
             }
+
+        }
 
         this.factories = (SoundCaptchaFactory[]) tempFactories.toArray(new SoundCaptchaFactory[factories.length]);
     }

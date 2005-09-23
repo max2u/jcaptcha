@@ -481,8 +481,6 @@ public class EhcacheManageableCaptchaServiceTest extends AbstractManageableCaptc
         CacheManager.getInstance().removeCache(EhcacheManageableCaptchaService.CACHE_NAME_PREFIX + EhcacheManageableCaptchaService.DEFAULT_CACHE_NAME);
     }
 
-
-
     /*
     OVERRIDE TO SKIP or replace
     */

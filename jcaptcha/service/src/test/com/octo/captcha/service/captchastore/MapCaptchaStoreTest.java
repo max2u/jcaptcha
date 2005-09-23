@@ -464,13 +464,6 @@ DAMAGES.
                      END OF TERMS AND CONDITIONS
 */
 
-import com.octo.captcha.Captcha;
-import com.octo.captcha.service.CaptchaServiceException;
-import com.octo.captcha.service.MockCaptcha;
-import junit.framework.TestCase;
-
-import java.util.Collection;
-
 public class MapCaptchaStoreTest extends CaptchaStoreTestAbstract {
 
     public CaptchaStore initStore() {

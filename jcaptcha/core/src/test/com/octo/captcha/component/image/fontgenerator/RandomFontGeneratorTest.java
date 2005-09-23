@@ -483,8 +483,6 @@ public class RandomFontGeneratorTest extends TestCase {
 
     /**
      * Constructor for RandomFontGeneratorTest.
-     *
-     * @param name
      */
     public RandomFontGeneratorTest(String name) {
         super(name);
