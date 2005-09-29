@@ -144,9 +144,7 @@
 
   <reports>
 	<report>maven-dashboard-plugin</report>
-  	<report>maven-changelog-plugin</report>
-  	<report>maven-file-activity-plugin</report>
-	<report>maven-license-plugin</report>
+  	<report>maven-license-plugin</report>
 	<report>maven-multiproject-plugin</report>
   </reports>
 
