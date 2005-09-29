@@ -88,13 +88,8 @@
 
     <ant:mkdir dir="${maven.build.dir}/distributions/bin/tozip"/>
 	
-    <ant:copy todir="${maven.build.dir}/distributions/bin/tozip" flatten="true">
-    	<ant:fileset dir="${basedir}">
-    		<include name="${maven.build.dir}/all-jar/jcaptcha-all-${pom.currentVersion}.jar"/>
-    		<include name="${basedir}/lib/imaging-01012005.jar"/>
-    	</ant:fileset>
-    </ant:copy>
-   
+    <ant:copy todir="${maven.build.dir}/distributions/bin/tozip" flatten="true" file="${maven.build.dir}/all-jar/jcaptcha-all-${pom.currentVersion}.jar"/>
+    	
    <ant:copy todir="${maven.build.dir}/distributions/bin/tozip/">
     	<ant:fileset dir="${basedir}/engine/src/conf">
     		<include name="**/*.jpg"/>
