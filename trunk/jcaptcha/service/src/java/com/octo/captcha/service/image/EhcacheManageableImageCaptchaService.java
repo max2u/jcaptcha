@@ -15,6 +15,7 @@ import java.util.Locale;
 
 /**
  * Base implementation of the EhcacheManageableImageCaptchaService.
+ * @deprecated
  */
 public abstract class EhcacheManageableImageCaptchaService extends EhcacheManageableCaptchaService implements ImageCaptchaService {
 

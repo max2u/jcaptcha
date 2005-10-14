@@ -26,6 +26,7 @@ import java.util.Locale;
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
+ * @deprecated
  */
 public abstract class EhcacheManageableCaptchaService
         extends AbstractCaptchaService

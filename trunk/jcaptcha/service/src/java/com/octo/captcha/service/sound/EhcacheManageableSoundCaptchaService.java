@@ -15,7 +15,8 @@ import javax.sound.sampled.AudioInputStream;
 import java.util.Locale;
 
 /**
- * Base implementation of the EhcacheManageableImageCaptchaService.
+ * Base implementation of the EhcacheManageableSoundCaptchaService.
+ * @deprecated
  */
 public abstract class EhcacheManageableSoundCaptchaService extends EhcacheManageableCaptchaService implements ImageCaptchaService {
 
