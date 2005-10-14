@@ -483,11 +483,12 @@ public class SpellerSoundCaptchaEngine extends ListSoundCaptchaEngine {
      * @see com.octo.captcha.engine.sound.ListSoundCaptchaEngine#buildInitialFactories()
      */
     protected void buildInitialFactories() {
-        com.octo.captcha.component.word.wordgenerator.WordGenerator words = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.word.FileDictionary("toddlist"));
+
+        com.octo.captcha.component.word.wordgenerator.WordGenerator words =
+                new com.octo.captcha.component.word.wordgenerator.RandomWordGenerator("0123456789");
 
         SoundConfigurator configurator = new FreeTTSSoundConfigurator("kevin16",
-                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory", 1.0f, 100, 70);
+                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory", 1.0f, 100, 110);
         FreeTTSWordToSound wordToSound = new FreeTTSWordToSound(configurator, 4, 10);
 
         SpellerWordDecorator decorator = new SpellerWordDecorator(", ");

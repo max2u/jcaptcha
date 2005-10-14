@@ -480,7 +480,6 @@ import java.util.Random;
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
- * @deprecated since beta 2 : use the ListImageCaptchaEngine instead.
  */
 public abstract class DefaultImageCaptchaEngine extends ImageCaptchaEngine {
 

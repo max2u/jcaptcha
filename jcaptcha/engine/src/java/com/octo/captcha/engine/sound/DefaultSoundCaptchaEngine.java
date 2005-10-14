@@ -498,14 +498,14 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
         }
     }
 
-    ;
+
 
     /**
      * This method build a SoundCaptchaFactory.
      *
      * @return a CaptchaFactory
      */
-    public final SoundCaptchaFactory getImageCaptchaFactory() {
+    public final SoundCaptchaFactory getSoundCaptchaFactory() {
         return factories[myRandom.nextInt(factories.length)];
     }
 
@@ -515,7 +515,7 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
      * @return a SoundCaptcha
      */
     public final SoundCaptcha getNextSoundCaptcha() {
-        return getImageCaptchaFactory().getSoundCaptcha();
+        return getSoundCaptchaFactory().getSoundCaptcha();
     }
 
     /**
@@ -526,7 +526,7 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
      * @return a new Captcha
      */
     public SoundCaptcha getNextSoundCaptcha(Locale locale) {
-        return getImageCaptchaFactory().getSoundCaptcha(locale);
+        return getSoundCaptchaFactory().getSoundCaptcha(locale);
     }
 
     /**
