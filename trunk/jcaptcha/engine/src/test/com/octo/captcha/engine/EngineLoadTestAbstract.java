@@ -34,7 +34,7 @@ public abstract class EngineLoadTestAbstract extends TestCase {
         }
     }
 
-    public void test_100It_0Del_1Us_2min() throws Throwable {
+        public void test_100It_0Del_1Us_2min() throws Throwable {
         int count = 100;
         int delay = 0;
         int users = 1;
