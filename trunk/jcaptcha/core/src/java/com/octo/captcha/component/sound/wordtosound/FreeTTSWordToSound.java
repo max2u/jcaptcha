@@ -51,9 +51,7 @@ public class FreeTTSWordToSound extends AbstractWordToSound implements WordToSou
     /**
      * Constructor for a FreeTTS implmentation of WordToSound. This constructor imply that WordToSound only use one
      * voice define by voiceName, with its own locale
-     *
-     * @param voiceName             Voice Name to be use to produce the sound by default (with getSound())
-     * @param voicePackages         Voice Packages where voices are defined see WordToSoundFreeTTS.defaultVoicePackage
+
      * @param minAcceptedWordLenght Lenght Minimal of generated words
      * @param maxAcceptedWordLenght Lenght Maximal of generated words
      */
@@ -134,20 +132,7 @@ public class FreeTTSWordToSound extends AbstractWordToSound implements WordToSou
         return sound;
     }
 
-    /**
-     * Add the package to the system properties, will be used by FreeTTS to find all data for voices.
-     */
-    private static void addToSystemesPropetites(String soundPackage) {
-        //get the prop, if not exist inti, else add to the prop
-        String packages = System.getProperty(FREETTS_PROPERTIES_KEY);
-        if (packages == null) {
-            packages = soundPackage;
-        } else if (packages.indexOf(soundPackage) == -1) {
-            packages += "," + soundPackage;
-        }
 
-        System.getProperties().put(FREETTS_PROPERTIES_KEY, packages);
-    }
 
     /**
      * Configue the voice with the SoundConfigurator
@@ -205,8 +190,6 @@ public class FreeTTSWordToSound extends AbstractWordToSound implements WordToSou
         /**
          * Constructs a InputStreamAudioPlayer
          *
-         * @param baseName the base name of the audio file
-         * @param type     the type of audio output
          */
         public InputStreamAudioPlayer() {
             debug = Utilities.getBoolean("com.sun.speech.freetts.audio.AudioPlayer.debug");
