@@ -26,7 +26,6 @@ public final class CaptchaQuestionHelper {
     private CaptchaQuestionHelper() {
     }
 
-    ;
 
     /**
      * Return a localized question for the catpcha
