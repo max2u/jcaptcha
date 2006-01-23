@@ -16,7 +16,7 @@ import java.text.AttributedString;
 /**
  * <p/>
  * Implementation skeleton for the WordToImage component </p> Basically this class implements the imageFromWord method
- * proceding as folow : <ul> <li>Checks the word lenght</li> <li>Creates an java.text.AttributedString from the
+ * proceding as folow : <ul> <li>Checks the word length</li> <li>Creates an java.text.AttributedString from the
  * word</li> <li>Apply font to the AttributedString using the abstract method getFont</li> <li>Create an image for the
  * background using the abstact method getBackround</li> <li>Put the text on the backround using the abstact method
  * pasteText</li> <li>Return the newly created image</li> </ul> <p/>This class implements the Template method pattern
@@ -29,7 +29,7 @@ public abstract class AbstractWordToImage implements WordToImage {
 
     /**
      * Creates an image of the provided String This method is a skeleton for creation algorithm. it proceeds as folows :
-     * <ul> <li>Checks the word lenght</li> <li>Creates an java.text.AttributedString from the word</li> <li>Apply font
+     * <ul> <li>Checks the word length</li> <li>Creates an java.text.AttributedString from the word</li> <li>Apply font
      * to the AttributedString using the abstract method getFont</li> <li>Create an image for the background using the
      * abstact method getBackround</li> <li>Put the text on the backround using the abstact method pasteText</li>
      * <li>Return the newly created image</li> </ul>
@@ -40,11 +40,11 @@ public abstract class AbstractWordToImage implements WordToImage {
      *          if word is invalid or if image generation fails.
      */
     public BufferedImage getImage(String word) throws CaptchaException {
-        int wordLenght;
+        int wordLength;
         //check word
-        wordLenght = checkWordLenght(word);
+        wordLength = checkWordLength(word);
         //create attribute string from word
-        AttributedString attributedWord = getAttributedString(word, wordLenght);
+        AttributedString attributedWord = getAttributedString(word, wordLength);
 
         //create backgound
         BufferedImage background = getBackround();
@@ -53,11 +53,11 @@ public abstract class AbstractWordToImage implements WordToImage {
 
     }
 
-    AttributedString getAttributedString(String word, int wordLenght) {
+    AttributedString getAttributedString(String word, int wordLength) {
         AttributedString attributedWord = new AttributedString(word);
         //apply font to string
 
-        for (int i = 0; i < wordLenght; i++) {
+        for (int i = 0; i < wordLength; i++) {
             Font font = getFont();//get the new font for next character
             //apply font to next character
             attributedWord.addAttribute(TextAttribute.FONT, font, i, i + 1);
@@ -65,18 +65,18 @@ public abstract class AbstractWordToImage implements WordToImage {
         return attributedWord;
     }
 
-    int checkWordLenght(String word) throws CaptchaException {
-        int wordLenght;
+    int checkWordLength(String word) throws CaptchaException {
+        int wordLength;
         if (word == null) {
             throw new CaptchaException("null word");
         } else {
-            wordLenght = word.length();
-            if (wordLenght > this.getMaxAcceptedWordLenght()
-                    || wordLenght < getMinAcceptedWordLenght()) {
-                throw new CaptchaException("invalid lenght word");
+            wordLength = word.length();
+            if (wordLength > this.getMaxAcceptedWordLength()
+                    || wordLength < getMinAcceptedWordLength()) {
+                throw new CaptchaException("invalid length word");
             }
         }
-        return wordLenght;
+        return wordLength;
     }
 
     /**

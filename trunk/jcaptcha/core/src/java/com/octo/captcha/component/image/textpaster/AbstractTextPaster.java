@@ -18,8 +18,8 @@ import java.util.Random;
  * <p/>
  * Base class for Test pasters. Sub classes must implement the pasteText(BufferedImage background, AttributedString
  * attributedWord) method that return an image containing the pasted string.</br> use constructor to specify your paster
- * properties. This base class use two Integers, maxAcceptedWordLenght and minAcceptedWordLenghtby wich are the lenght
- * boundaries for the implementation. By default minAcceptedWordLenght = 6 and maxAcceptedWordLenght = 20 </p>
+ * properties. This base class use two Integers, maxAcceptedWordLength and minAcceptedWordLength by wich are the length
+ * boundaries for the implementation. By default minAcceptedWordLength = 6 and maxAcceptedWordLength = 20 </p>
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue </a>
  * @version 1.0
@@ -31,12 +31,12 @@ public abstract class AbstractTextPaster implements TextPaster {
     public Random myRandom = new Random();
 
     /**
-     * Max lenght of a word
+     * Max length of a word
      */
     private int max = 20;
 
     /**
-     * Min lenght of a word
+     * Min length of a word
      */
     private int min = 6;
 
@@ -51,14 +51,14 @@ public abstract class AbstractTextPaster implements TextPaster {
     private boolean manageColorPerGlyph = false;
 
     /**
-     * Default constructor with just min and max lenght of a word
+     * Default constructor with just min and max length of a word
      *
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      */
-    AbstractTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght) {
-        this.max = maxAcceptedWordLenght != null ? maxAcceptedWordLenght.intValue() : this.max;
-        this.min = minAcceptedWordLenght != null && minAcceptedWordLenght.intValue() <= this.max ? minAcceptedWordLenght
+    AbstractTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength) {
+        this.max = maxAcceptedWordLength != null ? maxAcceptedWordLength.intValue() : this.max;
+        this.min = minAcceptedWordLength != null && minAcceptedWordLength.intValue() <= this.max ? minAcceptedWordLength
                 .intValue()
                 : Math.min(this.min, this.max - 1);
     }
@@ -66,12 +66,12 @@ public abstract class AbstractTextPaster implements TextPaster {
     /**
      * Default constructor with unique color of text
      *
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param textColor             Unique color of text
      */
-    AbstractTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght, Color textColor) {
-        this(minAcceptedWordLenght, maxAcceptedWordLenght);
+    AbstractTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength, Color textColor) {
+        this(minAcceptedWordLength, maxAcceptedWordLength);
 
         if (textColor != null) {
             this.colorGenerator = new SingleColorGenerator(textColor);
@@ -81,9 +81,9 @@ public abstract class AbstractTextPaster implements TextPaster {
     /**
      * Default Constructor with a color generator for the text
      */
-    AbstractTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    AbstractTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                        ColorGenerator colorGenerator) {
-        this(minAcceptedWordLenght, maxAcceptedWordLenght);
+        this(minAcceptedWordLength, maxAcceptedWordLength);
         if (colorGenerator == null) {
             throw new CaptchaException("ColorGenerator is null");
         }
@@ -96,25 +96,42 @@ public abstract class AbstractTextPaster implements TextPaster {
      *
      * @param manageColorPerGlyph Boolean to set if each glyph can have a new color from the color generator
      */
-    AbstractTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    AbstractTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                        ColorGenerator colorGenerator, Boolean manageColorPerGlyph) {
-        this(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
+        this(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator);
         this.manageColorPerGlyph = manageColorPerGlyph != null ? manageColorPerGlyph.booleanValue() : this.manageColorPerGlyph;
     }
 
     /**
-     * @return the max word lenght accepted by this word2image service
+     * @return the max word length accepted by this word2image service
+     * @deprecated misspelled, use {@link #getMaxAcceptedWordLength()} instead
      */
     public int getMaxAcceptedWordLenght() {
         return max;
     }
 
     /**
-     * @return the min word lenght accepted by this word2image service
+     * @return the min word length accepted by this word2image service
+     * @deprecated misspelled, use {@link #getMinAcceptedWordLength()} instead
      */
     public int getMinAcceptedWordLenght() {
         return min;
     }
+
+    /**
+     * @return the max word length accepted by this word2image service
+     */
+    public int getMaxAcceptedWordLength() {
+        return max;
+    }
+
+    /**
+     * @return the min word length accepted by this word2image service
+     */
+    public int getMinAcceptedWordLength() {
+        return min;
+    }
+
 
     /**
      * @return the color generator
@@ -135,7 +152,7 @@ public abstract class AbstractTextPaster implements TextPaster {
     /**
      * @param out
      * @param background
-     * @return
+     * @return a graphic2D
      */
     Graphics2D pasteBackgroundAndSetTextColor(BufferedImage out, final BufferedImage background) {
         Graphics2D pie = (Graphics2D) out.getGraphics();
@@ -147,7 +164,7 @@ public abstract class AbstractTextPaster implements TextPaster {
     }
 
     /**
-     * @return
+     * @return true if this component manage color per glyph
      */
     public boolean isManageColorPerGlyph() {
         return manageColorPerGlyph;

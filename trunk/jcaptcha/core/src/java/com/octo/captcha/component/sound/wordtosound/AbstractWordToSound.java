@@ -16,33 +16,40 @@ import javax.sound.sampled.AudioInputStream;
  * @version 1.0
  */
 public abstract class AbstractWordToSound implements WordToSound {
-    protected int maxAcceptedWordLenght;
+    protected int maxAcceptedWordLength;
 
-    protected int minAcceptedWordLenght;
+    protected int minAcceptedWordLength;
 
     protected SoundConfigurator configurator = null;
 
     /**
      * Constructor with a configurator
      *
-     * @param voiceName             Voice Name to be use to produce the sound by default (with getSound())
-     * @param voicePackages         Voice Packages where voices are defined see WordToSoundFreeTTS.defaultVoicePackage
-     * @param minAcceptedWordLenght Lenght Minimal of generated words
-     * @param maxAcceptedWordLenght Lenght Maximal of generated words
+     * @param configurator         the configuration for this particular voice
+     * @param minAcceptedWordLength Length Minimal of generated words
+     * @param maxAcceptedWordLength Length Maximal of generated words
      */
-    public AbstractWordToSound(SoundConfigurator configurator, int minAcceptedWordLenght,
-                               int maxAcceptedWordLenght) {
+    public AbstractWordToSound(SoundConfigurator configurator, int minAcceptedWordLength,
+                               int maxAcceptedWordLength) {
         this.configurator = configurator;
-        this.minAcceptedWordLenght = minAcceptedWordLenght;
-        this.maxAcceptedWordLenght = maxAcceptedWordLenght;
+        this.minAcceptedWordLength = minAcceptedWordLength;
+        this.maxAcceptedWordLength = maxAcceptedWordLength;
+    }
+
+    public int getMaxAcceptedWordLength() {
+        return maxAcceptedWordLength;
+    }
+
+    public int getMinAcceptedWordLength() {
+        return minAcceptedWordLength;
     }
 
     public int getMaxAcceptedWordLenght() {
-        return maxAcceptedWordLenght;
+        return maxAcceptedWordLength;
     }
 
     public int getMinAcceptedWordLenght() {
-        return minAcceptedWordLenght;
+        return minAcceptedWordLength;
     }
 
     /**

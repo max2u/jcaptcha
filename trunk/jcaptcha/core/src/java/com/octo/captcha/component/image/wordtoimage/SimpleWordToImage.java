@@ -25,7 +25,22 @@ public class SimpleWordToImage extends AbstractWordToImage {
     }
 
     /**
+     * @return the max word length accepted by this word2image service
+     */
+    public int getMaxAcceptedWordLength() {
+        return 10;
+    }
+
+    /**
+     * @return the min word length accepted by this word2image service
+     */
+    public int getMinAcceptedWordLength() {
+        return 1;
+    }
+
+    /**
      * @return the max word lenght accepted by this word2image service
+     * @deprecated misspelled, use {@link #getMaxAcceptedWordLength()} instead
      */
     public int getMaxAcceptedWordLenght() {
         return 10;
@@ -33,10 +48,12 @@ public class SimpleWordToImage extends AbstractWordToImage {
 
     /**
      * @return the min word lenght accepted by this word2image service
+     * @deprecated misspelled, use {@link #getMinAcceptedWordLength()} instead
      */
     public int getMinAcceptedWordLenght() {
         return 1;
     }
+
 
     /**
      * @return the generated image height
@@ -97,7 +114,7 @@ public class SimpleWordToImage extends AbstractWordToImage {
         Graphics graph = background.getGraphics();
         // calcul text position
 
-        int x = (getImageWidth() - getMaxAcceptedWordLenght()) / 2;
+        int x = (getImageWidth() - getMaxAcceptedWordLength()) / 2;
         int y = (getImageHeight() - getMinFontSize()) / 2;
         graph.drawString(attributedWord.getIterator(), x, y);
         graph.dispose();

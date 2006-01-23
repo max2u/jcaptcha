@@ -22,19 +22,19 @@ import java.text.AttributedString;
  */
 public class SimpleTextPaster extends AbstractTextPaster {
 
-    public SimpleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public SimpleTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                             Color textColor) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, textColor);
+        super(minAcceptedWordLength, maxAcceptedWordLength, textColor);
     }
 
-    public SimpleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public SimpleTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                             ColorGenerator colorGenerator) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator);
     }
 
-    public SimpleTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public SimpleTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                             ColorGenerator colorGenerator, Boolean manageColorPerGlyph) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
     }
 
     /**

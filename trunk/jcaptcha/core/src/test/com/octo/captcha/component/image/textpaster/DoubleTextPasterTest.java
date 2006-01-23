@@ -55,4 +55,15 @@ public class DoubleTextPasterTest extends TestCase {
                 this.doubleTextPaster.getMinAcceptedWordLenght());
     }
 
+    public void testGetMaxAcceptedWordLength() {
+            assertEquals(this.maxAcceptedWordLength.intValue(),
+                    this.doubleTextPaster.getMaxAcceptedWordLength());
+        }
+
+        public void testGetMinAcceptedWordLength() {
+            assertEquals(this.minAcceptedWordLength.intValue(),
+                    this.doubleTextPaster.getMinAcceptedWordLength());
+        }
+
+
 }

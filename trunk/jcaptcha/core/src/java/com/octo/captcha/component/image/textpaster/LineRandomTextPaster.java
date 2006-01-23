@@ -40,15 +40,15 @@ public class LineRandomTextPaster extends RandomTextPaster {
     private ColorGenerator linesColorGenerator = null;
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param textColor             Unique color of text
      * @param numberOfLinesPerGlyph Number of lines around glyphes
      * @param linesColor            Color of the lines
      */
-    public LineRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public LineRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                 Color textColor, Integer numberOfLinesPerGlyph, Color linesColor) {
-        this(minAcceptedWordLenght, maxAcceptedWordLenght,
+        this(minAcceptedWordLength, maxAcceptedWordLength,
                 textColor != null ? new SingleColorGenerator(textColor) : null, Boolean.FALSE,
                 numberOfLinesPerGlyph, new SingleColorGenerator(linesColor != null ? linesColor
                 : textColor));
@@ -56,47 +56,47 @@ public class LineRandomTextPaster extends RandomTextPaster {
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param numberOfLinesPerGlyph Number of lines around glyphes
      * @param linesColor            The color for the lines (one color for all lines)
      */
-    public LineRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public LineRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                 ColorGenerator colorGenerator, Integer numberOfLinesPerGlyph, Color linesColor) {
-        this(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, Boolean.FALSE,
+        this(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, Boolean.FALSE,
                 numberOfLinesPerGlyph, new SingleColorGenerator(linesColor != null ? linesColor
                 : colorGenerator.getNextColor()));
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param manageColorPerGlyph   Boolean to set if each glyph can have a new color from the color generator
      * @param numberOfLinesPerGlyph Number of lines around glyphes
      * @param linesColor            The color genator for the lines (one color for all lines)
      */
-    public LineRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public LineRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                 ColorGenerator colorGenerator, Boolean manageColorPerGlyph, Integer numberOfLinesPerGlyph,
                                 Color linesColor) {
-        this(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph,
+        this(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph,
                 numberOfLinesPerGlyph, new SingleColorGenerator(linesColor != null ? linesColor
                 : colorGenerator.getNextColor()));
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param manageColorPerGlyph   Boolean to set if each glyph can have a new color from the color generator
      * @param numberOfLinesPerGlyph Number of lines around the glyph
      * @param linesColorGenerator   The color genator for the lines (one color for all lines)
      */
-    public LineRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public LineRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                 ColorGenerator colorGenerator, Boolean manageColorPerGlyph, Integer numberOfLinesPerGlyph,
                                 ColorGenerator linesColorGenerator) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
         this.numberOfLinesPerGlyph = numberOfLinesPerGlyph != null ? numberOfLinesPerGlyph
                 : this.numberOfLinesPerGlyph;
         this.linesColorGenerator = linesColorGenerator != null ? linesColorGenerator
@@ -143,7 +143,6 @@ public class LineRandomTextPaster extends RandomTextPaster {
             Rectangle2D bounds = newAttrString.getBounds(j).getFrame();
             double circleMaxSize = (double) bounds.getWidth() / 2;
             for (int i = 0; i < numberOfLinesPerGlyph.intValue(); i++) {
-                double circleSize = circleMaxSize * (1 + myRandom.nextDouble()) / 2;
                 double circlex = bounds.getMinX() + bounds.getWidth() * 0.7 * myRandom.nextDouble();
                 double circley = bounds.getMinY() - bounds.getHeight() * 0.5
                         * myRandom.nextDouble();

@@ -490,7 +490,7 @@ public class SoundGimpyFactoryTest extends TestCase {
     public void testGetRandomRange() throws Exception {
     }
 
-    public void testGetRandomLenght() throws Exception {
+    public void testGetRandomLength() throws Exception {
 
     }
 

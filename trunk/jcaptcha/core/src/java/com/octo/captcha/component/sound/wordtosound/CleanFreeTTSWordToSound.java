@@ -21,12 +21,11 @@ public class CleanFreeTTSWordToSound extends AbstractFreeTTSWordToSound {
     }
 
     /**
-     * @see AbstractFreeTTSWordToSound#AbstractFreeTTSWordToSound(String,
-     *      String, int, int)
+     * @see AbstractFreeTTSWordToSound#AbstractFreeTTSWordToSound(com.octo.captcha.component.sound.soundconfigurator.SoundConfigurator, int, int)
      */
-    public CleanFreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLenght,
-                                   int maxAcceptedWordLenght) {
-        super(configurator, minAcceptedWordLenght, maxAcceptedWordLenght);
+    public CleanFreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLength,
+                                   int maxAcceptedWordLength) {
+        super(configurator, minAcceptedWordLength, maxAcceptedWordLength);
     }
 
     /**

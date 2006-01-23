@@ -19,14 +19,28 @@ import java.awt.image.BufferedImage;
 public interface WordToImage {
 
     /**
-     * @return the max word lenght accepted by this word2image service
-     */
-    int getMaxAcceptedWordLenght();
+      * @deprecated misspelled, use {@link #getMaxAcceptedWordLength()} instead
+      * @return the max word lenght accepted by this word2image service
+      */
+     int getMaxAcceptedWordLenght();
 
-    /**
-     * @return the min word lenght accepted by this word2image service
-     */
-    int getMinAcceptedWordLenght();
+     /**
+      * @deprecated misspelled, use {@link #getMinAcceptedWordLength()} instead
+      * @return the min word lenght accepted by this word2image service
+      */
+     int getMinAcceptedWordLenght();
+
+
+     /**
+      * @return the max word length accepted by this word2image service
+      */
+     int getMaxAcceptedWordLength();
+
+     /**
+      * @return the min word length accepted by this word2image service
+      */
+     int getMinAcceptedWordLength();
+
 
     /**
      * @return the generated image height

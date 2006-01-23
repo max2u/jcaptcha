@@ -22,5 +22,5 @@ public interface SizeSortedWordList {
 
     Integer getMaxWord();
 
-    String getNextWord(Integer lenght);
+    String getNextWord(Integer length);
 }

@@ -77,7 +77,7 @@ public class SpellerSoundFactory extends SoundCaptchaFactory {
      * @return a Sound Captcha
      */
     public SoundCaptcha getSoundCaptcha() {
-        String word = this.wordGenerator.getWord(getRandomLenght(), Locale.getDefault());
+        String word = this.wordGenerator.getWord(getRandomLength(), Locale.getDefault());
         AudioInputStream sound = this.word2Sound.getSound(wordDecorator.decorateWord(word));
         SoundCaptcha soundCaptcha = new SpellerSound(getQuestion(Locale.getDefault()), sound, word);
         return soundCaptcha;
@@ -89,7 +89,7 @@ public class SpellerSoundFactory extends SoundCaptchaFactory {
      * @return a localized sound captcha
      */
     public SoundCaptcha getSoundCaptcha(Locale locale) {
-        String word = this.wordGenerator.getWord(getRandomLenght(), locale);
+        String word = this.wordGenerator.getWord(getRandomLength(), locale);
         AudioInputStream sound = this.word2Sound.getSound(wordDecorator.decorateWord(word), locale);
         SoundCaptcha soundCaptcha = new SpellerSound(getQuestion(locale), sound, word);
         return soundCaptcha;
@@ -99,13 +99,13 @@ public class SpellerSoundFactory extends SoundCaptchaFactory {
         return CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY);
     }
 
-    protected Integer getRandomLenght() {
-        Integer wordLenght;
-        int range = getWordToSound().getMaxAcceptedWordLenght()
-                - getWordToSound().getMinAcceptedWordLenght();
+    protected Integer getRandomLength() {
+        Integer wordLength;
+        int range = getWordToSound().getMaxAcceptedWordLength()
+                - getWordToSound().getMinAcceptedWordLength();
         int randomRange = range != 0 ? myRandom.nextInt(range + 1) : 0;
-        wordLenght = new Integer(randomRange + getWordToSound().getMinAcceptedWordLenght());
-        return wordLenght;
+        wordLength = new Integer(randomRange + getWordToSound().getMinAcceptedWordLength());
+        return wordLength;
     }
 
 }

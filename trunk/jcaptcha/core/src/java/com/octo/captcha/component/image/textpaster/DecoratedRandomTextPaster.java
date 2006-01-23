@@ -25,27 +25,27 @@ public class DecoratedRandomTextPaster extends AbstractTextPaster {
     private TextDecorator[] decorators;
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param decorators            An array of decorators
      */
-    public DecoratedRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public DecoratedRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                      ColorGenerator colorGenerator, TextDecorator[] decorators) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator);
         this.decorators = decorators;
 
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param decorators            An array of decorators
      */
-    public DecoratedRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public DecoratedRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                      ColorGenerator colorGenerator, Boolean manageColorPerGlyph, TextDecorator[] decorators) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
         this.decorators = decorators;
 
     }

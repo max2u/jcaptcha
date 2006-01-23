@@ -517,15 +517,15 @@ public class ComposedWordToImageTest extends TestCase {
         assertNotNull(test);
     }
 
-    public void testGetMaxAcceptedWordLenght() {
+    public void testGetMaxAcceptedWordLength() {
         int expected = this.maxAcceptedWordLength.intValue();
-        int test = this.composedWordToImage.getMaxAcceptedWordLenght();
+        int test = this.composedWordToImage.getMaxAcceptedWordLength();
         assertEquals(expected, test);
     }
 
-    public void testGetMinAcceptedWordLenght() {
+    public void testGetMinAcceptedWordLength() {
         int expected = this.minAcceptedWordLength.intValue();
-        int test = this.composedWordToImage.getMinAcceptedWordLenght();
+        int test = this.composedWordToImage.getMinAcceptedWordLength();
         assertEquals(expected, test);
     }
 

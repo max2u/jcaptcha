@@ -52,12 +52,12 @@ public class FreeTTSWordToSound extends AbstractWordToSound implements WordToSou
      * Constructor for a FreeTTS implmentation of WordToSound. This constructor imply that WordToSound only use one
      * voice define by voiceName, with its own locale
 
-     * @param minAcceptedWordLenght Lenght Minimal of generated words
-     * @param maxAcceptedWordLenght Lenght Maximal of generated words
+     * @param minAcceptedWordLength Length Minimal of generated words
+     * @param maxAcceptedWordLength Length Maximal of generated words
      */
-    public FreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLenght,
-                              int maxAcceptedWordLenght) {
-        super(configurator, minAcceptedWordLenght, maxAcceptedWordLenght);
+    public FreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLength,
+                              int maxAcceptedWordLength) {
+        super(configurator, minAcceptedWordLength, maxAcceptedWordLength);
         //Voices use by freeTTS, we define where they are, currently in the java en_us.jar
         //add the package
         //addToSystemesPropetites(this.configurator.getLocation());

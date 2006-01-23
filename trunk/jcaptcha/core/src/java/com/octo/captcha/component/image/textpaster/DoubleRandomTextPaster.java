@@ -24,34 +24,34 @@ import java.text.AttributedString;
 public class DoubleRandomTextPaster extends RandomTextPaster {
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param textColor             Unique color of text
      */
-    public DoubleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public DoubleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   Color textColor) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, textColor);
+        super(minAcceptedWordLength, maxAcceptedWordLength, textColor);
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        color generator of text
      */
-    public DoubleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public DoubleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   ColorGenerator colorGenerator) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator);
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        color generator of text
      * @param manageColorPerGlyph   Boolean to set if each glyph can have a new color from the color generator
      */
-    public DoubleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public DoubleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   ColorGenerator colorGenerator, Boolean manageColorPerGlyph) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
     }
 
     /**

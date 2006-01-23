@@ -23,14 +23,14 @@ public class DummyWordGenerator implements WordGenerator {
     }
 
     /**
-     * Return a word of lenght between min and max lenght
+     * Return a word of length between min and max length
      *
-     * @return a String of lenght between min and max lenght
+     * @return a String of length between min and max length
      */
-    public String getWord(Integer lenght) {
-        int mod = lenght.intValue() % word.length();
+    public String getWord(Integer length) {
+        int mod = length.intValue() % word.length();
         String cut = "";
-        int mul = (lenght.intValue() - mod) / word.length();
+        int mul = (length.intValue() - mod) / word.length();
         if (mod > 0) {
             cut = word.substring(0, mod);
         }
@@ -43,13 +43,13 @@ public class DummyWordGenerator implements WordGenerator {
     }
 
     /**
-     * Return a word of lenght between min and max lenght according to the given locale
+     * Return a word of length between min and max length according to the given locale
      *
-     * @param lenght the word lenght
+     * @param length the word length
      *
-     * @return a String of lenght between min and max lenght according to the given locale
+     * @return a String of length between min and max length according to the given locale
      */
-    public String getWord(Integer lenght, Locale locale) {
-        return getWord(lenght);
+    public String getWord(Integer length, Locale locale) {
+        return getWord(length);
     }
 }

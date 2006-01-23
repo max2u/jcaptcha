@@ -54,4 +54,14 @@ public class SimpleTextPasterTest extends TestCase {
                 this.simpleTextPaster.getMinAcceptedWordLenght());
     }
 
+     public void testGetMaxAcceptedWordLength() {
+        assertEquals(this.maxAcceptedWordLength.intValue(),
+                this.simpleTextPaster.getMaxAcceptedWordLength());
+    }
+
+    public void testGetMinAcceptedWordLength() {
+        assertEquals(this.minAcceptedWordLength.intValue(),
+                this.simpleTextPaster.getMinAcceptedWordLength());
+    }
+
 }

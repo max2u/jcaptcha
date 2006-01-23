@@ -47,15 +47,15 @@ public class DefaultSizeSortedWordList implements SizeSortedWordList {
      * Adds a word to the list
      */
     public void addWord(String word) {
-        Integer lenght = new Integer(word.length());
-        if (sortedWords.containsKey(lenght)) {
-            ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
-            thisLenghtwords.add(word);
-            sortedWords.put(lenght, thisLenghtwords);
+        Integer length = new Integer(word.length());
+        if (sortedWords.containsKey(length)) {
+            ArrayList thisLengthWords = (ArrayList) sortedWords.get(length);
+            thisLengthWords.add(word);
+            sortedWords.put(length, thisLengthWords);
         } else {
-            ArrayList thisLenghtwords = new ArrayList();
-            thisLenghtwords.add(word);
-            sortedWords.put(lenght, thisLenghtwords);
+            ArrayList thisLengthWords = new ArrayList();
+            thisLengthWords.add(word);
+            sortedWords.put(length, thisLengthWords);
         }
         //words.add(word);
         //lengths.add(new Integer(word.length()));
@@ -63,33 +63,33 @@ public class DefaultSizeSortedWordList implements SizeSortedWordList {
     }
 
     /**
-     * Return the min lenght of contained word in this wordlist
+     * Return the min length of contained word in this wordlist
      *
-     * @return the min lenght of contained word in this wordlist
+     * @return the min length of contained word in this wordlist
      */
     public Integer getMinWord() {
         return (Integer) sortedWords.firstKey();
     }
 
     /**
-     * Return the max lenght of contained word in this wordlist
+     * Return the max length of contained word in this wordlist
      *
-     * @return the max lenght of contained word in this wordlist
+     * @return the max length of contained word in this wordlist
      */
     public Integer getMaxWord() {
         return (Integer) sortedWords.lastKey();
     }
 
     /**
-     * Return a word of randomly choosen of the specified lenght. Return null if none found
+     * Return a word of randomly choosen of the specified length. Return null if none found
      *
-     * @return a word of this lenght
+     * @return a word of this length
      */
-    public String getNextWord(Integer lenght) {
-        if (sortedWords.containsKey(lenght)) {
-            ArrayList thisLenghtwords = (ArrayList) sortedWords.get(lenght);
-            int pickAWord = myRandom.nextInt(thisLenghtwords.size());
-            return (String) thisLenghtwords.get(pickAWord);
+    public String getNextWord(Integer length) {
+        if (sortedWords.containsKey(length)) {
+            ArrayList thisLengthwords = (ArrayList) sortedWords.get(length);
+            int pickAWord = myRandom.nextInt(thisLengthwords.size());
+            return (String) thisLengthwords.get(pickAWord);
         } else {
             return null;
         }

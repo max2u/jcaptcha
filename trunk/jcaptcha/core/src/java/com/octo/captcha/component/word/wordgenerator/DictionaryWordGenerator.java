@@ -16,7 +16,7 @@ import java.util.Locale;
 
 /**
  * <p>WordGenerator based on a dictionary. Uses a Dictionary reader to retrieve words and an WordList to store the words
- * retrieved. Be sure your dictionary contains words whose lenght covers the whole range specified in your factory, some
+ * retrieved. Be sure your dictionary contains words whose length covers the whole range specified in your factory, some
  * rutime exception will occur!</p>
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
@@ -38,28 +38,28 @@ public class DictionaryWordGenerator implements WordGenerator {
     }
 
     /**
-     * Return a word of lenght between min and max lenght
+     * Return a word of length between min and max length
      *
-     * @return a String of lenght between min and max lenght
+     * @return a String of length between min and max length
      */
-    public final String getWord(Integer lenght) {
-        return getWord(lenght, defaultLocale);
+    public final String getWord(Integer length) {
+        return getWord(length, defaultLocale);
     }
 
     /**
-     * Return a word of lenght between min and max lenght according to the given locale
+     * Return a word of length between min and max length according to the given locale
      *
-     * @return a String of lenght between min and max lenght according to the given locale
+     * @return a String of length between min and max length according to the given locale
      */
-    public String getWord(Integer lenght, Locale locale) {
+    public String getWord(Integer length, Locale locale) {
         SizeSortedWordList words;
         words = getWordList(locale);
 
-        String word = words.getNextWord(lenght);
-        //check if word with the specified lenght exist
+        String word = words.getNextWord(length);
+        //check if word with the specified length exist
         if (word == null) {
             //if not see if any
-            throw new CaptchaException("No word of lenght : " + lenght +
+            throw new CaptchaException("No word of length : " + length +
                     " exists in dictionnary! please " +
                     "update your dictionary or your range!");
         }

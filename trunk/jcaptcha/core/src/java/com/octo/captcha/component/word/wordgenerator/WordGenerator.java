@@ -17,19 +17,19 @@ import java.util.Locale;
 public interface WordGenerator {
 
     /**
-     * Return a word of lenght between min and max lenght
+     * Return a word of length between min and max length
      *
-     * @return a String of lenght between min and max lenght
+     * @return a String of length between min and max length
      */
-    String getWord(Integer lenght);
+    String getWord(Integer length);
 
     /**
-     * Return a word of lenght between min and max lenght according to the given locale
+     * Return a word of length between min and max length according to the given locale
      *
-     * @param lenght the word lenght
+     * @param length the word length
      *
-     * @return a String of lenght between min and max lenght according to the given locale
+     * @return a String of length between min and max length according to the given locale
      */
-    String getWord(Integer lenght, Locale locale);
+    String getWord(Integer length, Locale locale);
 
 }
