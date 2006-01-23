@@ -21,14 +21,27 @@ import java.util.Locale;
  */
 public interface WordToSound {
     /**
-     * @return the max word lenght accepted by this wordTosound service
-     */
-    int getMaxAcceptedWordLenght();
+      * @deprecated misspelled, use {@link #getMaxAcceptedWordLength()} instead
+      * @return the max word lenght accepted by this word2image service
+      */
+     int getMaxAcceptedWordLenght();
 
-    /**
-     * @return the min word lenght accepted by this wordTosound service
-     */
-    int getMinAcceptedWordLenght();
+     /**
+      * @deprecated misspelled, use {@link #getMinAcceptedWordLength()} instead
+      * @return the min word lenght accepted by this word2image service
+      */
+     int getMinAcceptedWordLenght();
+
+
+     /**
+      * @return the max word length accepted by this word2image service
+      */
+     int getMaxAcceptedWordLength();
+
+     /**
+      * @return the min word length accepted by this word2image service
+      */
+     int getMinAcceptedWordLength();
 
     /**
      * Main method for this service Return a sound with the specified word

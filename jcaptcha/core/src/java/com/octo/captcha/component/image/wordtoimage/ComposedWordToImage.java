@@ -44,17 +44,35 @@ public class ComposedWordToImage extends AbstractWordToImage {
     }
 
     /**
-     * @return the max word lenght accepted by this word2image service
+     * @deprecated
+     * @return the max word length accepted by this word2image service
      */
     public int getMaxAcceptedWordLenght() {
         return textPaster.getMaxAcceptedWordLenght();
     }
 
     /**
-     * @return the min word lenght accepted by this word2image service
+     * @deprecated
+     * @return the min word length accepted by this word2image service
      */
     public int getMinAcceptedWordLenght() {
         return textPaster.getMinAcceptedWordLenght();
+    }
+
+
+
+    /**
+     * @return the max word length accepted by this word2image service
+     */
+    public int getMaxAcceptedWordLength() {
+        return textPaster.getMaxAcceptedWordLength();
+    }
+
+    /**
+     * @return the min word length accepted by this word2image service
+     */
+    public int getMinAcceptedWordLength() {
+        return textPaster.getMinAcceptedWordLength();
     }
 
     /**

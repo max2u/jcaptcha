@@ -515,6 +515,18 @@ public class SimpleWordToImageTest extends TestCase {
         assertEquals(expected, test);
     }
 
+      public void testGetMaxAcceptedWordLength() {
+        int test = this.simpleWordToImage.getMaxAcceptedWordLength();
+        int expected = 10;
+        assertEquals(expected, test);
+    }
+
+    public void testGetMinAcceptedWordLength() {
+        int test = this.simpleWordToImage.getMinAcceptedWordLength();
+        int expected = 1;
+        assertEquals(expected, test);
+    }
+
     public void testGetImageHeight() {
         int test = this.simpleWordToImage.getImageHeight();
         int expected = 50;

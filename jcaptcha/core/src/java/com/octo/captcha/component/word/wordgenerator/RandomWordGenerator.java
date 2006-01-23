@@ -26,27 +26,27 @@ public class RandomWordGenerator implements WordGenerator {
     }
 
     /**
-     * Return a word of lenght between min and max lenght
+     * Return a word of length between min and max length
      *
-     * @return a String of lenght between min and max lenght
+     * @return a String of length between min and max length
      */
-    public String getWord(Integer lenght) {
-        StringBuffer word = new StringBuffer(lenght.intValue());
-        for (int i = 0; i < lenght.intValue(); i++) {
+    public String getWord(Integer length) {
+        StringBuffer word = new StringBuffer(length.intValue());
+        for (int i = 0; i < length.intValue(); i++) {
             word.append(possiblesChars[myRandom.nextInt(possiblesChars.length)]);
         }
         return word.toString();
     }
 
     /**
-     * Return a word of lenght between min and max lenght according to the given locale
+     * Return a word of length between min and max length according to the given locale
      *
-     * @param lenght the word lenght
+     * @param length the word length
      *
-     * @return a String of lenght between min and max lenght according to the given locale
+     * @return a String of length between min and max length according to the given locale
      */
-    public String getWord(Integer lenght, Locale locale) {
-        return getWord(lenght);
+    public String getWord(Integer length, Locale locale) {
+        return getWord(length);
     }
 
 }

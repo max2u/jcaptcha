@@ -66,10 +66,10 @@ public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory {
      */
     public ImageCaptcha getImageCaptcha(Locale locale) {
 
-        //lenght
-        Integer wordLenght = getRandomLenght();
+        //length
+        Integer wordLength = getRandomLength();
 
-        String word = getWordGenerator().getWord(wordLenght, locale);
+        String word = getWordGenerator().getWord(wordLength, locale);
 
         BufferedImage image = null;
         try {
@@ -83,14 +83,14 @@ public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory {
         return captcha;
     }
 
-    protected Integer getRandomLenght() {
-        Integer wordLenght;
-        int range = getWordToImage().getMaxAcceptedWordLenght() -
-                getWordToImage().getMinAcceptedWordLenght();
+    protected Integer getRandomLength() {
+        Integer wordLength;
+        int range = getWordToImage().getMaxAcceptedWordLength() -
+                getWordToImage().getMinAcceptedWordLength();
         int randomRange = range != 0 ? myRandom.nextInt(range + 1) : 0;
-        wordLenght = new Integer(randomRange +
-                getWordToImage().getMinAcceptedWordLenght());
-        return wordLenght;
+        wordLength = new Integer(randomRange +
+                getWordToImage().getMinAcceptedWordLength());
+        return wordLength;
     }
 
 }

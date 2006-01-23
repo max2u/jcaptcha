@@ -19,7 +19,7 @@ import java.text.AttributedString;
 /**
  * <p>This implementation uses deformation components to distord the image. </br>It takes three array of deformations :
  * for the background image, for the text only, and for the final image it proceeds as folows : <ul> <li>Checks the word
- * lenght</li> <li>Creates an java.text.AttributedString from the word</li> <li>Create an image for the background a
+ * length</li> <li>Creates an java.text.AttributedString from the word</li> <li>Create an image for the background a
  * BackgroundGenerator component</li> <li>Apply background deformations</li> <li>Apply font to the AttributedString
  * using the abstract method getFont</li> <li>Create a transparent backround </li> <li>Put the text on the transparent
  * backround using the abstact method pasteText</li> <li>Apply the text deformations </li> <li>Paste the transparent
@@ -81,7 +81,7 @@ public class DeformedComposedWordToImage extends ComposedWordToImage {
 
     /**
      * Creates an image of the provided String This method is a skeleton for creation algorithm. it proceeds as folows :
-     * <ul> <li>Checks the word lenght</li> <li>Creates an java.text.AttributedString from the word</li> <li>Create an
+     * <ul> <li>Checks the word length</li> <li>Creates an java.text.AttributedString from the word</li> <li>Create an
      * image for the background using the abstact method getBackround</li> <li>Apply background filters</li> <li>Apply
      * font to the AttributedString using the abstract method getFont</li> <li>Create a transparent backround </li>
      * <li>Put the text on the transparent backround using the abstact method pasteText</li> <li>Apply the text filters
@@ -95,7 +95,7 @@ public class DeformedComposedWordToImage extends ComposedWordToImage {
      */
     public BufferedImage getImage(String word) throws CaptchaException {
         BufferedImage background = getBackround();
-        AttributedString aword = getAttributedString(word, checkWordLenght(word));
+        AttributedString aword = getAttributedString(word, checkWordLength(word));
         //copy background
         BufferedImage out = new BufferedImage(background.getWidth(), background.getHeight(),
                 background.getType());

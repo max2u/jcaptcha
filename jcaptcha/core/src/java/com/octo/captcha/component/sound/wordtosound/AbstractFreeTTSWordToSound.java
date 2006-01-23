@@ -35,9 +35,9 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound {
 
     private static String FREETTS_PROPERTIES_KEY = "freetts.voices";
 
-    private int maxAcceptedWordLenght;
+    private int maxAcceptedWordLength;
 
-    private int minAcceptedWordLenght;
+    private int minAcceptedWordLength;
 
     private SoundConfigurator configurator = null;
 
@@ -63,8 +63,8 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound {
         configurator = new FreeTTSSoundConfigurator(AbstractFreeTTSWordToSound.defaultVoiceName,
                 AbstractFreeTTSWordToSound.defaultVoicePackage, 1.0f, 100, 100);
 
-        minAcceptedWordLenght = 4;
-        maxAcceptedWordLenght = 6;
+        minAcceptedWordLength = 4;
+        maxAcceptedWordLength = 6;
         init();
     }
 
@@ -72,16 +72,15 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound {
      * Constructor for a FreeTTS implmentation of WordToSound. This constructor imply that WordToSound only use one
      * voice define by voiceName, with its own locale
      *
-     * @param voiceName             Voice Name to be use to produce the sound by default (with getSound())
-     * @param voicePackages         Voice Packages where voices are defined see WordToSoundFreeTTS.defaultVoicePackage
-     * @param minAcceptedWordLenght Lenght Minimal of generated words
-     * @param maxAcceptedWordLenght Lenght Maximal of generated words
+     * @param configurator          Voice configuration
+     * @param minAcceptedWordLength Length Minimal of generated words
+     * @param maxAcceptedWordLength Length Maximal of generated words
      */
-    public AbstractFreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLenght,
-                                      int maxAcceptedWordLenght) {
+    public AbstractFreeTTSWordToSound(SoundConfigurator configurator, int minAcceptedWordLength,
+                                      int maxAcceptedWordLength) {
         this.configurator = configurator;
-        this.minAcceptedWordLenght = minAcceptedWordLenght;
-        this.maxAcceptedWordLenght = maxAcceptedWordLenght;
+        this.minAcceptedWordLength = minAcceptedWordLength;
+        this.maxAcceptedWordLength = maxAcceptedWordLength;
         init();
     }
 
@@ -125,17 +124,30 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound {
         return addEffects(stringToSound(word));
     }
 
-    public int getMaxAcceptedWordLenght() {
-        return maxAcceptedWordLenght;
+    public int getMaxAcceptedWordLength() {
+        return maxAcceptedWordLength;
     }
 
-    public int getMinAcceptedWordLenght() {
-        return minAcceptedWordLenght;
+    public int getMinAcceptedWordLength() {
+        return minAcceptedWordLength;
     }
 
     /**
-     * @see com.octo.captcha.component.sound.wordtosound.AbstractWordToSound#modifySound(javax.sound.sampled.AudioInputStream)
+     * @return the max word lenght accepted by this word2image service
+     * @deprecated misspelled, use {@link #getMaxAcceptedWordLength()} instead
      */
+    public int getMaxAcceptedWordLenght() {
+        return maxAcceptedWordLength;
+    }
+
+    /**
+     * @return the min word lenght accepted by this word2image service
+     * @deprecated misspelled, use {@link #getMinAcceptedWordLength()} instead
+     */
+    public int getMinAcceptedWordLenght() {
+        return minAcceptedWordLength;
+    }
+
     protected abstract AudioInputStream addEffects(AudioInputStream sound);
 
     /**
@@ -231,8 +243,6 @@ public abstract class AbstractFreeTTSWordToSound implements WordToSound {
         /**
          * Constructs a InputStreamAudioPlayer
          *
-         * @param baseName the base name of the audio file
-         * @param type     the type of audio output
          */
         public InputStreamAudioPlayer() {
             debug = Utilities.getBoolean("com.sun.speech.freetts.audio.AudioPlayer.debug");

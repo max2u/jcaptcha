@@ -26,32 +26,32 @@ public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator {
     }
 
     /**
-     * Return a word of lenght between min and max lenght according to the given locale
+     * Return a word of length between min and max length according to the given locale
      *
-     * @return a String of lenght between min and max lenght according to the given locale
+     * @return a String of length between min and max length according to the given locale
      */
-    public String getWord(Integer lenght, Locale locale) {
+    public String getWord(Integer length, Locale locale) {
         SizeSortedWordList words = getWordList(locale);
         //get the middle
-        int firstLenght = (lenght.intValue() / 2);
+        int firstLength = (length.intValue() / 2);
         //try to find a first word
         String firstWord = null;
-        for (int i = firstLenght; i < 50; i++) {
-            firstWord = words.getNextWord(new Integer(firstLenght + i));
+        for (int i = firstLength; i < 50; i++) {
+            firstWord = words.getNextWord(new Integer(firstLength + i));
             if (firstWord != null) {
-                firstWord = firstWord.substring(0, firstLenght);
+                firstWord = firstWord.substring(0, firstLength);
                 break;
             }
         }
         String secondWord = null;
-        for (int i = firstLenght; i < 50; i++) {
-            secondWord = words.getNextWord(new Integer(lenght.intValue()
-                    - firstLenght + i));
+        for (int i = firstLength; i < 50; i++) {
+            secondWord = words.getNextWord(new Integer(length.intValue()
+                    - firstLength + i));
             if (secondWord != null) {
                 secondWord =
                         secondWord.substring(secondWord.length()
-                                - lenght.intValue()
-                                + firstLenght,
+                                - length.intValue()
+                                + firstLength,
                                 secondWord.length());
                 break;
             }
@@ -60,23 +60,23 @@ public class ComposeDictionaryWordGenerator extends DictionaryWordGenerator {
         //if first word is still null, try with a smaller int avoiding
         // infinite loop by chexking size
 
-        firstWord = checkAndFindSmaller(firstWord, firstLenght, locale);
-        secondWord = checkAndFindSmaller(secondWord, lenght.intValue()
-                - firstLenght, locale);
+        firstWord = checkAndFindSmaller(firstWord, firstLength, locale);
+        secondWord = checkAndFindSmaller(secondWord, length.intValue()
+                - firstLength, locale);
         return firstWord + secondWord;
 
     }
 
-    private String checkAndFindSmaller(String firstWord, int lenght,
+    private String checkAndFindSmaller(String firstWord, int length,
                                        Locale locale) {
         //if first word is still null, try with a smaller int
         // avoiding infinite loop by chexking size
         if (firstWord == null) {
-            if (lenght > 1) {
-                firstWord = getWord(new Integer(lenght), locale);
+            if (length > 1) {
+                firstWord = getWord(new Integer(length), locale);
             } else {
-                throw new CaptchaException("No word of lenght : " +
-                        lenght + " exists in dictionnary! please " +
+                throw new CaptchaException("No word of length : " +
+                        length + " exists in dictionnary! please " +
                         "update your dictionary or your range!");
             }
         }

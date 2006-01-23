@@ -85,14 +85,14 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
      */
     public SoundCaptcha getSoundCaptcha(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle(this.getClass().getName(),locale);
-        int lenght = getRandomLenght().intValue();
+        int length = getRandomLength().intValue();
 
-        //WordAndPosition[] wordsAndPositions = new WordAndPosition[lenght];
+        //WordAndPosition[] wordsAndPositions = new WordAndPosition[length];
         StringBuffer challenge = new StringBuffer();
         StringBuffer response = new StringBuffer();
-        for(int i=0;i<lenght;i++){
+        for(int i=0;i<length;i++){
             //get a new word
-            String word = this.wordGenerator.getWord(new Integer(getRandomLenght().intValue()), locale);
+            String word = this.wordGenerator.getWord(new Integer(getRandomLength().intValue()), locale);
             //add it to collection and add its position
             int position = Math.abs(myRandom.nextInt()%word.length());
             //append to challenge
@@ -104,7 +104,7 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
             challenge.append(" ");
             challenge.append(word);
             challenge.append(" ");
-            challenge.append(lenght-1==i?bundle.getString("end"):bundle.getString("transition"));
+            challenge.append(length -1==i?bundle.getString("end"):bundle.getString("transition"));
             //append to response
             response.append(word.charAt(position));
         }
@@ -120,17 +120,17 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
 
 
 
-    protected Integer getRandomLenght() {
-        /*Integer wordLenght;
+    protected Integer getRandomLength() {
+        /*Integer wordLength;
         int range = maxWords-minWords;
         int randomRange = range != 0 ? myRandom.nextInt(range + 1) : 0;
         return randomRange + minWords;*/
-         Integer wordLenght;
-        int range = getWordToSound().getMaxAcceptedWordLenght()
-                - getWordToSound().getMinAcceptedWordLenght();
+        Integer wordLength;
+        int range = getWordToSound().getMaxAcceptedWordLength()
+                - getWordToSound().getMinAcceptedWordLength();
         int randomRange = range != 0 ? myRandom.nextInt(range + 1) : 0;
-        wordLenght = new Integer(randomRange + getWordToSound().getMinAcceptedWordLenght());
-        return wordLenght;
+        wordLength = new Integer(randomRange + getWordToSound().getMinAcceptedWordLength());
+        return wordLength;
     }
 
 

@@ -48,14 +48,14 @@ public class BaffleRandomTextPaster extends RandomTextPaster {
     private ColorGenerator holesColorGenerator = null;
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param textColor             Unique color of text
      * @param holesColor            Color of the holes
      */
-    public BaffleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public BaffleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   Color textColor, Integer numberOfHolesPerGlyph, Color holesColor) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, textColor);
+        super(minAcceptedWordLength, maxAcceptedWordLength, textColor);
         this.numberOfHolesPerGlyph = numberOfHolesPerGlyph != null ? numberOfHolesPerGlyph
                 : this.numberOfHolesPerGlyph;
         this.holesColorGenerator = new SingleColorGenerator(holesColor != null ? holesColor
@@ -63,15 +63,15 @@ public class BaffleRandomTextPaster extends RandomTextPaster {
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param numberOfHolesPerGlyph Number of holes around glyphes
      * @param holesColor            The color for the glyphs (one color for all glyphes)
      */
-    public BaffleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public BaffleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   ColorGenerator colorGenerator, Integer numberOfHolesPerGlyph, Color holesColor) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator);
         this.numberOfHolesPerGlyph = numberOfHolesPerGlyph != null ? numberOfHolesPerGlyph
                 : this.numberOfHolesPerGlyph;
         this.holesColorGenerator = new SingleColorGenerator(holesColor != null ? holesColor
@@ -79,17 +79,17 @@ public class BaffleRandomTextPaster extends RandomTextPaster {
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param manageColorPerGlyph   Boolean to set if each glyph can have a new color from the color generator
      * @param numberOfHolesPerGlyph Number of holes around glyphes
      * @param holesColor            The color for the glyphs (one color for all glyphes)
      */
-    public BaffleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public BaffleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   ColorGenerator colorGenerator, Boolean manageColorPerGlyph, Integer numberOfHolesPerGlyph,
                                   Color holesColor) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
         this.numberOfHolesPerGlyph = numberOfHolesPerGlyph != null ? numberOfHolesPerGlyph
                 : this.numberOfHolesPerGlyph;
         this.holesColorGenerator = new SingleColorGenerator(holesColor != null ? holesColor
@@ -97,17 +97,17 @@ public class BaffleRandomTextPaster extends RandomTextPaster {
     }
 
     /**
-     * @param minAcceptedWordLenght Max lenght of a word
-     * @param maxAcceptedWordLenght Min lenght of a word
+     * @param minAcceptedWordLength Max length of a word
+     * @param maxAcceptedWordLength Min length of a word
      * @param colorGenerator        Color generatior for the text
      * @param manageColorPerGlyph   Boolean to set if each glyph can have a new color from the color generator
      * @param numberOfHolesPerGlyph Number of holes around the glyph
      * @param holesColorGenerator   The color genator for the glyphs (one color for all glyph)
      */
-    public BaffleRandomTextPaster(Integer minAcceptedWordLenght, Integer maxAcceptedWordLenght,
+    public BaffleRandomTextPaster(Integer minAcceptedWordLength, Integer maxAcceptedWordLength,
                                   ColorGenerator colorGenerator, Boolean manageColorPerGlyph, Integer numberOfHolesPerGlyph,
                                   ColorGenerator holesColorGenerator) {
-        super(minAcceptedWordLenght, maxAcceptedWordLenght, colorGenerator, manageColorPerGlyph);
+        super(minAcceptedWordLength, maxAcceptedWordLength, colorGenerator, manageColorPerGlyph);
         this.numberOfHolesPerGlyph = numberOfHolesPerGlyph != null ? numberOfHolesPerGlyph
                 : this.numberOfHolesPerGlyph;
         this.holesColorGenerator = holesColorGenerator != null ? holesColorGenerator

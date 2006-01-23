@@ -499,11 +499,11 @@ public class SpellingFreeTTSWordToSoundTest extends TestCase {
     }
 
 
-    public void testGetMaxAcceptedWordLenght() {
-        assertEquals(this.cleanFreeTTSwordToSound.getMaxAcceptedWordLenght(), 6);
+    public void testGetMaxAcceptedWordLength() {
+        assertEquals(this.cleanFreeTTSwordToSound.getMaxAcceptedWordLength(), 6);
     }
 
-    public void testGetMinAcceptedWordLenght() {
-        assertEquals(this.cleanFreeTTSwordToSound.getMinAcceptedWordLenght(), 3);
+    public void testGetMinAcceptedWordLength() {
+        assertEquals(this.cleanFreeTTSwordToSound.getMinAcceptedWordLength(), 3);
     }
 }

@@ -480,8 +480,8 @@ public class DictionaryWordGeneratorTest extends TestCase {
 
     private DictionaryWordGenerator dictionaryWordGenerator;
     private static String[] wordlist = {"1", "1234", "123456", "123456789", "123"};
-    private static int[] lenghts = {1, 4, 6, 9, 3};
-    private static Integer UNKNOWN_LENGHT = new Integer(100);
+    private static int[] lengths = {1, 4, 6, 9, 3};
+    private static Integer UNKNOWN_LENGTH = new Integer(100);
 
     /**
      * Constructor for DictionaryWordGeneratorTest.
@@ -495,8 +495,8 @@ public class DictionaryWordGeneratorTest extends TestCase {
     }
 
     public void testGetWordInteger() {
-        for (int i = 0; i < lenghts.length; i++) {
-            Integer length = new Integer(lenghts[i]);
+        for (int i = 0; i < lengths.length; i++) {
+            Integer length = new Integer(lengths[i]);
             String test = this.dictionaryWordGenerator.getWord(length);
             assertNotNull(test);
             assertTrue(test.length() > 0);
@@ -504,7 +504,7 @@ public class DictionaryWordGeneratorTest extends TestCase {
 
         }
         try {
-            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGHT);
+            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGTH);
             fail("Should throw a CaptchaException");
         } catch (CaptchaException e) {
             assertNotNull(e.getMessage());
@@ -512,15 +512,15 @@ public class DictionaryWordGeneratorTest extends TestCase {
     }
 
     public void testGetWordIntegerLocale() {
-        for (int i = 0; i < lenghts.length; i++) {
-            Integer length = new Integer(lenghts[i]);
+        for (int i = 0; i < lengths.length; i++) {
+            Integer length = new Integer(lengths[i]);
             String test = this.dictionaryWordGenerator.getWord(length, Locale.US);
             assertNotNull(test);
             assertTrue(test.length() > 0);
             assertEquals(length.intValue(), test.length());
         }
         try {
-            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGHT);
+            String test = this.dictionaryWordGenerator.getWord(UNKNOWN_LENGTH);
             fail("Should throw a CaptchaException");
         } catch (CaptchaException e) {
             assertNotNull(e.getMessage());
