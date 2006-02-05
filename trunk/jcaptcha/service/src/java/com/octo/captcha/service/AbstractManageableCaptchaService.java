@@ -6,6 +6,7 @@
 package com.octo.captcha.service;
 
 import com.octo.captcha.Captcha;
+import com.octo.captcha.engine.CaptchaEngine;
 import com.octo.captcha.service.captchastore.CaptchaStore;
 import org.apache.commons.collections.FastHashMap;
 
@@ -98,6 +99,20 @@ public abstract class AbstractManageableCaptchaService
         } catch (RuntimeException e) {
             throw new IllegalArgumentException(e.getMessage());
         }
+    }
+
+    /**
+     * @return the engine served by this service
+     */
+    public CaptchaEngine getEngine() {
+        return this.engine;
+    }
+
+    /**
+     * Updates the engine served by this service
+     */
+    public void setCaptchaEngine(CaptchaEngine engine) {
+        this.engine = engine;
     }
 
     /**
