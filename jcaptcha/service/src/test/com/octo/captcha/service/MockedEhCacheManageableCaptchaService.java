@@ -6,6 +6,7 @@
 package com.octo.captcha.service;
 
 import com.octo.captcha.Captcha;
+import com.octo.captcha.engine.CaptchaEngine;
 
 /**
  * User: mag Date: 17 oct. 2004 Time: 12:47:51
@@ -16,6 +17,22 @@ public class MockedEhCacheManageableCaptchaService extends EhcacheManageableCapt
 
                                                     int minGuarantedStorageDelayInSeconds, int maxCaptchaStoreSize) {
         super(captchaEngine, minGuarantedStorageDelayInSeconds, maxCaptchaStoreSize);
+    }
+
+    /**
+     * @return the engine served by this service
+     */
+    public CaptchaEngine getEngine() {
+        return this.engine;
+    }
+
+    /**
+     * Updates the engine served by this service
+     *
+     * @param engine
+     */
+    public void setCaptchaEngine(CaptchaEngine engine) {
+        this.engine =engine;
     }
 
     /**

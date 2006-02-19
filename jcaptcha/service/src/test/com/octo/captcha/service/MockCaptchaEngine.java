@@ -24,7 +24,7 @@ public class MockCaptchaEngine implements com.octo.captcha.engine.CaptchaEngine 
      * @return a new Captcha
      */
     public Captcha getNextCaptcha() {
-        return new MockCaptcha();
+        return new MockCaptcha(null);
     }
 
     /**
@@ -35,7 +35,7 @@ public class MockCaptchaEngine implements com.octo.captcha.engine.CaptchaEngine 
      * @return a new Captcha
      */
     public Captcha getNextCaptcha(Locale locale) {
-        return new MockCaptcha();
+        return new MockCaptcha(locale);
     }
 
     /**

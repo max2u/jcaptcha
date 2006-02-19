@@ -50,10 +50,10 @@ public class AbstractCaptchaServiceTest extends TestCase {
     public void testGetQuestionForID() throws Exception {
         for (int i = 0; i < SIZE; i++) {
             String id = String.valueOf(myRandom.nextInt());
-            assertEquals("Should always return The mock question",
-                    MockCaptcha.QUESTION, service.getQuestionForID(id));
-            assertEquals("Should always return The mock question",
-                    MockCaptcha.QUESTION, service.getQuestionForID(id));
+            assertEquals("Should always return The mock question and default locale",
+                    MockCaptcha.QUESTION_BASE+Locale.getDefault(), service.getQuestionForID(id));
+            assertEquals("Should always return The mock question and specified locale",
+                    MockCaptcha.QUESTION_BASE+Locale.CHINESE, service.getQuestionForID(id,Locale.CHINESE));
         }
 
     }
@@ -95,6 +95,14 @@ public class AbstractCaptchaServiceTest extends TestCase {
             assertTrue("Sould be ok", service.validateResponseForID(id, "true").booleanValue());
 
         }
+    }
+
+
+    public void testCaptchaRegenerationWhenNewLocaleIsAsked() throws Exception {
+        String french = service.getQuestionForID("1",Locale.FRENCH);
+        String english = service.getQuestionForID("1",Locale.ENGLISH);
+        assertFalse(french.equals(english));
+
     }
 
 
