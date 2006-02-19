@@ -35,17 +35,12 @@ public abstract class AbstractCaptchaService implements CaptchaService {
     }
 
 
-
-
     /**
      * Method to retrive the challenge corresponding to the given ticket from the store.
      *
      * @param ID the ticket provided by the buildCaptchaAndGetID method
-     *
      * @return the challenge
-     *
-     * @throws CaptchaServiceException
-     *          if the ticket is invalid
+     * @throws CaptchaServiceException if the ticket is invalid
      */
     public Object getChallengeForID(String ID) throws CaptchaServiceException {
         return this.getChallengeForID(ID, Locale.getDefault());
@@ -56,11 +51,8 @@ public abstract class AbstractCaptchaService implements CaptchaService {
      *
      * @param ID     ticket
      * @param locale the desired localized capthca
-     *
      * @return the localized challenge
-     *
-     * @throws CaptchaServiceException
-     *          if the ticket is invalid
+     * @throws CaptchaServiceException if the ticket is invalid
      */
     public Object getChallengeForID(String ID, Locale locale)
             throws CaptchaServiceException {
@@ -97,11 +89,8 @@ public abstract class AbstractCaptchaService implements CaptchaService {
      *
      * @param ID     ticket
      * @param locale the desired localized capthca
-     *
      * @return the localized question
-     *
-     * @throws CaptchaServiceException
-     *          if the ticket is invalid
+     * @throws CaptchaServiceException if the ticket is invalid
      */
     public String getQuestionForID(String ID, Locale locale) throws CaptchaServiceException {
         Captcha captcha;
@@ -113,7 +102,13 @@ public abstract class AbstractCaptchaService implements CaptchaService {
             captcha = this.store.getCaptcha(ID);
             if (captcha == null) {
                 captcha = generateAndStoreCaptcha(locale, ID);
+            }else if (locale != null) {
+                Locale storedlocale = this.store.getLocale(ID);
+                if (!locale.equals(storedlocale)) {
+                captcha = generateAndStoreCaptcha(locale, ID);
+                }
             }
+
         }
         return captcha.getQuestion();
     }
@@ -122,11 +117,8 @@ public abstract class AbstractCaptchaService implements CaptchaService {
      * Method to retrive the question corresponding to the given ticket from the store.
      *
      * @param ID the ticket provided by the buildCaptchaAndGetID method
-     *
      * @return the question
-     *
-     * @throws CaptchaServiceException
-     *          if the ticket is invalid
+     * @throws CaptchaServiceException if the ticket is invalid
      */
     public String getQuestionForID(String ID) throws CaptchaServiceException {
         return this.getQuestionForID(ID, Locale.getDefault());
@@ -137,11 +129,8 @@ public abstract class AbstractCaptchaService implements CaptchaService {
      * captcha from the store.
      *
      * @param ID the ticket provided by the buildCaptchaAndGetID method
-     *
      * @return true if the response is correct, false otherwise.
-     *
-     * @throws CaptchaServiceException
-     *          if the ticket is invalid
+     * @throws CaptchaServiceException if the ticket is invalid
      */
     public Boolean validateResponseForID(String ID, Object response)
             throws CaptchaServiceException {
@@ -157,7 +146,7 @@ public abstract class AbstractCaptchaService implements CaptchaService {
 
     protected Captcha generateAndStoreCaptcha(Locale locale, String ID) {
         Captcha captcha = engine.getNextCaptcha(locale);
-        this.store.storeCaptcha(ID, captcha);
+        this.store.storeCaptcha(ID, captcha, locale);
         return captcha;
     }
 

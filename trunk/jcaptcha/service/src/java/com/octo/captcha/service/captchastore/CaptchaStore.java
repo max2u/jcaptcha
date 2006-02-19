@@ -10,6 +10,7 @@ import com.octo.captcha.Captcha;
 import com.octo.captcha.service.CaptchaServiceException;
 
 import java.util.Collection;
+import java.util.Locale;
 
 /**
  * Provides a way to temporally store captchas with a unique key
@@ -31,17 +32,25 @@ public interface CaptchaStore {
      *
      * @throws com.octo.captcha.service.CaptchaServiceException
      *          if the captcha already exists, or if an error occurs during storing routine.
+     *
+     * @deprecated in order to implement the by locale generation, use the {@link #storeCaptcha(String, com.octo.captcha.Captcha, java.util.Locale)}
      */
     void storeCaptcha(String id, Captcha captcha) throws CaptchaServiceException;
 
     /**
-     * Retrieve the captcha for this key from the store.
+     * Store the captcha with the provided id as key. The key is assumed to be unique, so if the same key is used twice
+     * to store a captcha, the store will return an exception
      *
-     * @return the captcha for this id, null if not found
+     * @param id      the key
+     * @param captcha the captcha
+     * @param locale the locale used that triggers the captcha generation
      *
-     * @throws CaptchaServiceException if an error occurs during retrieving routine.
+     * @throws com.octo.captcha.service.CaptchaServiceException
+     *          if the captcha already exists, or if an error occurs during storing routine.
+     *
      */
-    Captcha getCaptcha(String id) throws CaptchaServiceException;
+    void storeCaptcha(String id, Captcha captcha, Locale locale) throws CaptchaServiceException;
+
 
     /**
      * Remove the captcha with the provided id as key.
@@ -53,6 +62,25 @@ public interface CaptchaStore {
      * @throws CaptchaServiceException if an error occurs during remove routine
      */
     boolean removeCaptcha(String id);
+
+
+    /**
+     * Retrieve the captcha for this key from the store.
+     *
+     * @return the captcha for this id, null if not found
+     *
+     * @throws CaptchaServiceException if an error occurs during retrieving routine.
+     */
+    Captcha getCaptcha(String id) throws CaptchaServiceException;
+
+    /**
+     * Retrieve the locale for this key from the store.
+     *
+     * @return the locale for this id, null if not found
+     *
+     * @throws CaptchaServiceException if an error occurs during retrieving routine.
+     */
+    Locale getLocale(String id) throws CaptchaServiceException;
 
 
     /**

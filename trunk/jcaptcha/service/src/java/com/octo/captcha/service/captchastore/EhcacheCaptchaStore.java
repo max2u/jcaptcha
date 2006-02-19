@@ -15,6 +15,7 @@ import org.apache.commons.logging.LogFactory;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Locale;
 
 /**
  * Ehcache implementation of the captcha store
@@ -58,7 +59,21 @@ public class EhcacheCaptchaStore implements CaptchaStore {
      *          if the captcha already exists, or if an error occurs during storing routine.
      */
     public void storeCaptcha(String id, Captcha captcha) throws CaptchaServiceException {
-        cache.put(new Element(id, captcha));
+        cache.put(new Element(id, new CaptchaAndLocale(captcha)));
+    }
+
+    /**
+     * Store the captcha with the provided id as key. The key is assumed to be unique, so if the same key is used twice
+     * to store a captcha, the store will return an exception
+     *
+     * @param id      the key
+     * @param captcha the captcha
+     * @param locale  the locale used that triggers the captcha generation
+     * @throws com.octo.captcha.service.CaptchaServiceException
+     *          if the captcha already exists, or if an error occurs during storing routine.
+     */
+    public void storeCaptcha(String id, Captcha captcha, Locale locale) throws CaptchaServiceException {
+        cache.put(new Element(id, new CaptchaAndLocale(captcha,locale)));
     }
 
     /**
@@ -73,7 +88,30 @@ public class EhcacheCaptchaStore implements CaptchaStore {
         try {
             Element el = cache.get(id);
             if (el != null) {
-                return (Captcha) el.getValue();
+                return ((CaptchaAndLocale) el.getValue()).getCaptcha();
+            } else {
+                return null;
+            }
+        } catch (CacheException e) {
+            log.error(e);
+            return null;
+        }
+    }
+
+
+    /**
+     * Retrieve the locale for this key from the store.
+     *
+     * @return the locale for this id, null if not found
+     * @throws com.octo.captcha.service.CaptchaServiceException
+     *          if an error occurs during retrieving routine.
+     */
+    public Locale getLocale(String id) throws CaptchaServiceException {
+
+        try {
+            Element el = cache.get(id);
+            if (el != null) {
+                return ((CaptchaAndLocale) el.getValue()).getLocale();
             } else {
                 return null;
             }

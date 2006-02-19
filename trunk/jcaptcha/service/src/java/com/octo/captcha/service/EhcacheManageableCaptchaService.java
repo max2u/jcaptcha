@@ -317,18 +317,13 @@ public abstract class EhcacheManageableCaptchaService
 
     private Collection copyCacheContent() throws CacheException {
         Cache currentcache = cacheManager.getCache(captchaStoreCacheName);
-        Iterator it = currentcache.getKeys().iterator();
+        Iterator it = store.getKeys().iterator();
         Collection els = new HashSet();
         while (it.hasNext()) {
-            try {
                 Element el = currentcache.get(it.next().toString());
                 if (el != null) {
                     els.add(el);
                 }
-                ;
-            } catch (CacheException e) {
-                log.error(e);
-            }
         }
         return els;
 
@@ -340,32 +335,21 @@ public abstract class EhcacheManageableCaptchaService
     ///****
 
     protected Captcha generateAndStoreCaptcha(Locale locale, String ID) {
-        Cache cache = getCache();
-        try {
-            if (cache.getSize() >= this.captchaStoreMaxSize) {
+            if (store.getSize() >= this.captchaStoreMaxSize) {
                 //impossible ! has to wait
                 throw new CaptchaServiceException("Store is full," +
                         " try to increase CaptchaStore Size or " +
                         "to decrease time out");
 
             }
-        } catch (CacheException e) {
 
-            log.error(e);
-
-        }
         Captcha captcha = this.engine.getNextCaptcha(locale);
         this.numberOfGeneratedCaptchas++;
-
-        Element el = new Element(ID, captcha);
-        cache.remove(el);
-        cache.put(el);
+        store.storeCaptcha(ID, captcha, locale);
         return captcha;
     }
 
-    private Cache getCache() {
-        return this.cacheManager.getCache(captchaStoreCacheName);
-    }
+
 
 
     /**

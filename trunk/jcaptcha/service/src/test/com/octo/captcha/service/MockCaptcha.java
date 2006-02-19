@@ -7,6 +7,8 @@ package com.octo.captcha.service;
 
 import com.octo.captcha.Captcha;
 
+import java.util.Locale;
+
 /**
  * <p><ul><li></li></ul></p>
  *
@@ -17,8 +19,17 @@ public class MockCaptcha implements Captcha {
     private boolean isDisposed = false;
     private boolean asBeenCalled = false;
 
-    public static final String QUESTION = "mockQuestion";
+    public String questionAndLocale = "mockQuestion";
     public static final String CHALLENGE = "mockChallenge";
+    public static final String QUESTION_BASE = "mockQuestion";
+
+
+    public MockCaptcha(Locale locale) {
+        if(locale==null){
+            locale = Locale.getDefault();
+        }
+        questionAndLocale=questionAndLocale+locale;
+    }
 
     /**
      * Accessor captcha question.
@@ -26,7 +37,7 @@ public class MockCaptcha implements Captcha {
      * @return the question
      */
     public String getQuestion() {
-        return QUESTION;
+        return questionAndLocale;
     }
 
     /**

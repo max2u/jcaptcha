@@ -10,6 +10,7 @@ import com.octo.captcha.service.MockCaptcha;
 import junit.framework.TestCase;
 
 import java.util.Collection;
+import java.util.Locale;
 
 /**
  * <p><ul><li></li></ul></p>
@@ -27,9 +28,7 @@ public abstract class CaptchaStoreTestAbstract extends TestCase {
     protected void setUp() throws Exception {
         super.setUp();
         store = initStore();
-        capctha = new MockCaptcha();
-
-
+        capctha = new MockCaptcha(null);
     }
 
     public abstract CaptchaStore initStore();
@@ -57,6 +56,21 @@ public abstract class CaptchaStoreTestAbstract extends TestCase {
         }
 
     }
+
+
+    public void testStoreCaptchaAndLocale() throws Exception {
+
+
+          for (int i = 0; i < SIZE; i++) {
+              store.storeCaptcha(String.valueOf(i), capctha, Locale.FRENCH);
+          }
+          for (int i = 0; i < SIZE; i++) {
+              assertEquals(Locale.FRENCH,store.getLocale(String.valueOf(i)));
+          }
+
+      }
+
+
 
     public void testRemoveCaptcha() throws Exception {
 
