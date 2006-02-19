@@ -45,18 +45,17 @@ public class ImageDeformationByFilters implements ImageDeformation {
      */
     public BufferedImage deformImage(BufferedImage image) {
         if (filters != null) {
-            BufferedImage clone = new BufferedImage(image.getWidth(), image.getHeight(), image
-                    .getType());
-            clone.getGraphics().drawImage(image, 0, 0, null, null);
+            BufferedImage clone = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
+            //clone.getGraphics().drawImage(image, 0, 0, null, null);
             FilteredImageSource filtered;
+            Image temp=null;
 
             for (int i = 0; i < filters.length; i++) {
                 ImageFilter filter = filters[i];
-                filtered = new FilteredImageSource(clone.getSource(), filter);
-                Image temp = ToolkitFactory.getToolkit().createImage(filtered);
-                clone.getGraphics().drawImage(temp, 0, 0, new Color(255, 255, 255, 0), null);
+                filtered = new FilteredImageSource(image.getSource(), filter);
+                temp = ToolkitFactory.getToolkit().createImage(filtered);
             }
-
+            clone.getGraphics().drawImage(temp, 0, 0, null);
             clone.getGraphics().dispose();
             return clone;
         } else {
