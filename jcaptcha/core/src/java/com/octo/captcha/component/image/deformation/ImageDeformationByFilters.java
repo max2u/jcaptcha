@@ -44,7 +44,7 @@ public class ImageDeformationByFilters implements ImageDeformation {
      * @return the deformed image
      */
     public BufferedImage deformImage(BufferedImage image) {
-        if (filters != null) {
+        if (filters != null&&filters.length>0) {
             BufferedImage clone = new BufferedImage(image.getWidth(), image.getHeight(), image.getType());
             //clone.getGraphics().drawImage(image, 0, 0, null, null);
             FilteredImageSource filtered;
