@@ -11,21 +11,24 @@ import java.util.Locale;
 /**
  * <p>Main interface of the package. Used by client applications to expose Captchas Challenge validate the response in a
  * transparent and easy way. The flow of operations for using this service is : <ul> <li>Call the getQuestionForID
- * method to retrive a challenge and present it to the final user.(could be localized)</li> <li>Call the
+ * method to retrieve a question concerning a challenge and present it to the final user.(could be localized)</li> <li>Call the
  * getChallengeForID method to retrive a challenge and present it to the final user.(could be localized)</li> <li>Call
  * the validateResponseForID method to know if the final user is a human or not.</li> </ul>
  * <p/>
- * Developpers should implement this interface using the following rules : <br/> When the getChallengeForID method is
+ * Developpers should implement this interface using the following rules :
+ * <br/> When the getChallengeForID method is
  * called, If no captcha exist for this id, create a new captcha return the challenge.
  * <p/>
  * else if the getChallenge method has been called on the stored captcha, generate a new captcha, else return this
  * captcha challenge.
+ * <br/> When the getQuestionForId method is
+ * called, If no captcha exist for this id, create a new captcha return the challenge.
  * <p/>
- * <br/> The getQuestionForId should be called after the getChallenge (because this generate a new captcha), and must
- * first see if a captcha is associated with this ID : If no, associates a new one. When the getQuestionForId method is
- * called return the question <br/> When the validateResponseForID method is called. Throw a CaptchaServiceException if
+ * else if the a captcha with this id exist, verify the locale (if specified). If the locale match return the same question, else regenerate a captcha and returns the corresponding question.
+ * <p/>
+ * <br/>Throw a CaptchaServiceException if
  * the ID is invalid else return a boolean, and free the ID (remove the captcha). <br/> All method may throw a
- * CaptchaServiceException if an error occurs during Captcha Generation. </p>
+ * CaptchaException if an error occurs during Captcha Generation. </p>
  *
  * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
  * @version 1.0
