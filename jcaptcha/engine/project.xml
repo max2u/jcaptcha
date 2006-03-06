@@ -9,22 +9,14 @@
     <package>com.octo.captcha.engine</package>
 
 
-    <description>
-        <![CDATA[
-      <b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
+    <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
 <br/>The open source java framework for captcha definition and integration
 <br/>
  A captcha engine is able to provides captchas and localized captchas.<BR/>
  This jar aims to provide interfaces and implementation of generic and typed captcha engines.<BR/>
- It uses the jcaptcha-core factories to build captchas.
-
-
-  ]]>
-    </description>
+ It uses the jcaptcha-core factories to build captchas.]]></description>
     <!-- a short description of what the project does -->
-    <shortDescription>
-        JCAPTCHA engine : Ready to use captcha tests configurations
-    </shortDescription>
+    <shortDescription>JCAPTCHA engine : Ready to use captcha tests configurations</shortDescription>
 
 
     <dependencies>
