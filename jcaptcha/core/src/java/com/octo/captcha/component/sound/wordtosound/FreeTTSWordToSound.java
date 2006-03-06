@@ -32,7 +32,7 @@ public class FreeTTSWordToSound extends AbstractWordToSound implements WordToSou
 
     public static String defaultVoicePackage = "com.sun.speech.freetts.en.us.cmu_time_awb.AlanVoiceDirectory,com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory";
 
-    private static String FREETTS_PROPERTIES_KEY = "freetts.voices";
+    //private static String FREETTS_PROPERTIES_KEY = "freetts.voices";
 
 
     private Voice voice = null;
@@ -46,7 +46,6 @@ public class FreeTTSWordToSound extends AbstractWordToSound implements WordToSou
 
     private VoiceManager voiceManager = null;
 
-    private boolean isInitiated = false;
 
     /**
      * Constructor for a FreeTTS implmentation of WordToSound. This constructor imply that WordToSound only use one
