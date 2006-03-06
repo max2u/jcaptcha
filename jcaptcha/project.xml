@@ -20,9 +20,7 @@
   <inceptionYear>2003</inceptionYear>
   <package>com.octo.captcha</package>
 
-  <description>
-     <![CDATA[
-  <b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
+  <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
 <br/>The open source java framework for captcha definition and integration
 <br/>
 <table>
@@ -74,20 +72,15 @@
 <td><img src="samples/SimpleFishEyeEngineCaptcha_1.jpg"/></td>
 <td><img src="samples/SimpleFishEyeEngineCaptcha_2.jpg"/></td>
 </tr>
-</table><br/>
-   ]]>
-  </description>
+</table><br/>]]></description>
 
-  <shortDescription>
-     JCAPTCHA
-    </shortDescription>
+  <shortDescription>JCAPTCHA</shortDescription>
 
-  <url/>
-  <repository>
-  <connection>scm:cvs:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jcaptcha:jcaptcha</connection>
-    <url>http://cvs.sourceforge.net/viewcvs.py/jcaptcha/jcaptcha/</url>
+    <repository>
+    <connection>scm:cvs:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jcaptcha:jcaptcha</connection>
+      <url>http://cvs.sourceforge.net/viewcvs.py/jcaptcha/jcaptcha/</url>
 
-   </repository>
+     </repository>
    <mailingLists>
     <mailingList>
       <name>JCaptcha User List</name>
