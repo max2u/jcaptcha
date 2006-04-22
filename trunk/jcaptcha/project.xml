@@ -23,56 +23,110 @@
   <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
 <br/>The open source java framework for captcha definition and integration
 <br/>
-<table>
-<tr>
-<th>Engine name</th>
-<th>Sample 1</th>
-<th>Sample 2</th>
-<th>Sample 3</th>
-</tr>
-<tr>
-<td>DefaultGimpyEngineCaptcha</td>
-<td><img src="samples/DefaultGimpyEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/DefaultGimpyEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/DefaultGimpyEngineCaptcha_2.jpg"/></td>
-</tr>
-<tr>
-<td>BaffleListGimpyEngineCaptcha</td>
-<td><img src="samples/BaffleListGimpyEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/BaffleListGimpyEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/BaffleListGimpyEngineCaptcha_2.jpg"/></td>
-</tr>
-<tr>
-<td>BasicListGimpyEngineCaptcha</td>
-<td><img src="samples/BasicListGimpyEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/BasicListGimpyEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/BasicListGimpyEngineCaptcha_2.jpg"/></td>
-</tr>
-<tr>
-<td>DeformedBaffleListGimpyEngineCaptcha</td>
-<td><img src="samples/DeformedBaffleListGimpyEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/DeformedBaffleListGimpyEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/DeformedBaffleListGimpyEngineCaptcha_2.jpg"/></td>
-</tr>
-<tr>
-<td>DoubleRandomListGimpyEngineCaptcha</td>
-<td><img src="samples/DoubleRandomListGimpyEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/DoubleRandomListGimpyEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/DoubleRandomListGimpyEngineCaptcha_2.jpg"/></td>
-</tr>
-<tr>
-<td>SimpleListImageCaptchaEngineCaptcha</td>
-<td><img src="samples/SimpleListImageCaptchaEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/SimpleListImageCaptchaEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/SimpleListImageCaptchaEngineCaptcha_2.jpg"/></td>
-</tr>
-<tr>
-<td>SimpleFishEyeEngineCaptcha</td>
-<td><img src="samples/SimpleFishEyeEngineCaptcha_0.jpg"/></td>
-<td><img src="samples/SimpleFishEyeEngineCaptcha_1.jpg"/></td>
-<td><img src="samples/SimpleFishEyeEngineCaptcha_2.jpg"/></td>
-</tr>
-</table><br/>]]></description>
+                <table>
+                    <tr>
+                        <th>Engine name</th>
+                        <th>Sample 1</th>
+                        <th>Sample 2</th>
+                        <th>Sample 3</th>
+                    </tr>
+                    <tr>
+                        <td>SpellerSoundCaptchaEngine</td>
+                        <td>
+                            <embed src="samples/challenge1.wav" autostart="false"/>
+                        </td>
+                        <td>
+                            <embed src="samples/challenge2.wav" autostart="false"/>
+                        </td>
+                        <td>
+                            <embed src="samples/challenge3.wav" autostart="false"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DefaultGimpyEngineCaptcha</td>
+                        <td>
+                            <img src="samples/DefaultGimpyEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/DefaultGimpyEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/DefaultGimpyEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>BaffleListGimpyEngineCaptcha</td>
+                        <td>
+                            <img src="samples/BaffleListGimpyEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/BaffleListGimpyEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/BaffleListGimpyEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>BasicListGimpyEngineCaptcha</td>
+                        <td>
+                            <img src="samples/BasicListGimpyEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/BasicListGimpyEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/BasicListGimpyEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DeformedBaffleListGimpyEngineCaptcha</td>
+                        <td>
+                            <img src="samples/DeformedBaffleListGimpyEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/DeformedBaffleListGimpyEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/DeformedBaffleListGimpyEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DoubleRandomListGimpyEngineCaptcha</td>
+                        <td>
+                            <img src="samples/DoubleRandomListGimpyEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/DoubleRandomListGimpyEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/DoubleRandomListGimpyEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SimpleListImageCaptchaEngineCaptcha</td>
+                        <td>
+                            <img src="samples/SimpleListImageCaptchaEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/SimpleListImageCaptchaEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/SimpleListImageCaptchaEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SimpleFishEyeEngineCaptcha</td>
+                        <td>
+                            <img src="samples/SimpleFishEyeEngineCaptcha_0.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/SimpleFishEyeEngineCaptcha_1.jpg"/>
+                        </td>
+                        <td>
+                            <img src="samples/SimpleFishEyeEngineCaptcha_2.jpg"/>
+                        </td>
+                    </tr>
+                </table><br/>]]></description>
 
   <shortDescription>JCAPTCHA</shortDescription>
 
@@ -110,7 +164,6 @@
     <developer>
       <name>Sébastien Brunot</name>
       <id>sbrunot</id>
-      <email>sbrunot@octo.com</email>
       <organization>Octo</organization>
       <roles>
         <role>Java Developer</role>
@@ -119,7 +172,15 @@
     <developer>
       <name>Mathieu Gandin</name>
       <id>mgandin</id>
-      <email>mgandin@octo.com</email>
+
+      <organization>Octo</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+        <developer>
+      <name>Benoit Doumas</name>
+      <id>mdoumas</id>
       <organization>Octo</organization>
       <roles>
         <role>Java Developer</role>
