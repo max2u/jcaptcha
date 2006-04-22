@@ -75,20 +75,22 @@
         <dependency>
             <groupId>roller</groupId>
             <artifactId>rollerweb</artifactId>
-            <version>1.0-RC2</version>
+            <version>2.1.1</version>
             <jar/>
             <type/>
-            <url>http://java.sun.com</url>
+            <url>https://roller.dev.java.net/servlets/ProjectDocumentList?folderID=4920
+                &expandFolder=4920&folderID=0</url>
             <properties/>
         </dependency>
 
         <dependency>
             <groupId>roller</groupId>
             <artifactId>rollerbeans</artifactId>
-            <version>1.0-RC2</version>
+            <version>2.1.1</version>
             <jar/>
             <type/>
-            <url>http://java.sun.com</url>
+            <url>https://roller.dev.java.net/servlets/ProjectDocumentList?folderID=4920
+                &expandFolder=4920&folderID=0</url>
             <properties/>
         </dependency>
 
@@ -98,7 +100,7 @@
             <version>1.3</version>
             <jar/>
             <type/>
-            <url>http://java.sun.com</url>
+
             <properties/>
         </dependency>
     </dependencies>

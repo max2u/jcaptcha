@@ -13,7 +13,7 @@
 <br/>
  <br/>
  The captcha acegi-security module is a captcha proxy plugin to integrate a captcha service with the <a href="http://acegisecurity.sourceforge.net/">acegi security</a> framework.<BR/>
- It uses the jcaptcha-core, jcaptcha-service]]></description>
+ It uses jcaptcha-core, jcaptcha-engine and jcaptcha-service]]></description>
 
     <shortDescription>JCAPTCHA ACEGI module : acegi captcha proxy to Captcha-ize your application</shortDescription>
 
@@ -49,8 +49,8 @@
         <dependency>
             <groupId>acegisecurity</groupId>
             <artifactId>acegi-security</artifactId>
-            <version>0.9.0-SNAPSHOT</version>
-            <url>http://jcaptcha.sourceforge.net</url>
+            <version>0.9.0</version>
+
         </dependency>
 
 
