@@ -79,7 +79,7 @@
             <jar/>
             <type/>
             <url>https://roller.dev.java.net/servlets/ProjectDocumentList?folderID=4920
-                &expandFolder=4920&folderID=0</url>
+                &amp;expandFolder=4920&amp;folderID=0</url>
             <properties/>
         </dependency>
 
@@ -90,7 +90,7 @@
             <jar/>
             <type/>
             <url>https://roller.dev.java.net/servlets/ProjectDocumentList?folderID=4920
-                &expandFolder=4920&folderID=0</url>
+                &amp;expandFolder=4920&amp;folderID=0</url>
             <properties/>
         </dependency>
 
