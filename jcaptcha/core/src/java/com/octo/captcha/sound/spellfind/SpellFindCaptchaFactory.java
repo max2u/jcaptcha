@@ -5,16 +5,19 @@
  */
 package com.octo.captcha.sound.spellfind;
 
-import com.octo.captcha.sound.SoundCaptchaFactory;
-import com.octo.captcha.sound.SoundCaptcha;
-import com.octo.captcha.sound.speller.SpellerSound;
-import com.octo.captcha.component.word.wordgenerator.WordGenerator;
-import com.octo.captcha.component.sound.wordtosound.WordToSound;
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.CaptchaQuestionHelper;
+import com.octo.captcha.component.sound.wordtosound.WordToSound;
+import com.octo.captcha.component.word.wordgenerator.WordGenerator;
+import com.octo.captcha.sound.SoundCaptcha;
+import com.octo.captcha.sound.SoundCaptchaFactory;
+import com.octo.captcha.sound.speller.SpellerSound;
 
 import javax.sound.sampled.AudioInputStream;
-import java.util.*;
+import java.security.SecureRandom;
+import java.util.Locale;
+import java.util.Random;
+import java.util.ResourceBundle;
 
 /**
  * <p><ul><li></li></ul></p>
@@ -24,11 +27,11 @@ import java.util.*;
  */
 public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
 
-      private WordGenerator wordGenerator;
+    private WordGenerator wordGenerator;
 
     private WordToSound word2Sound;
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 //
 //    private int minWords;
 //    private int maxWords;
@@ -40,7 +43,6 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
 
     /**
      * Construct a GimpySoundFactory from a word generator component and a wordtosound component
-     *
      */
     public SpellFindCaptchaFactory(WordGenerator wordGenerator, WordToSound word2Sound) {
         if (wordGenerator == null) {
@@ -80,31 +82,30 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
 
     /**
      * @param locale the locale
-     *
      * @return a localized sound captcha
      */
     public SoundCaptcha getSoundCaptcha(Locale locale) {
-        ResourceBundle bundle = ResourceBundle.getBundle(this.getClass().getName(),locale);
+        ResourceBundle bundle = ResourceBundle.getBundle(this.getClass().getName(), locale);
         int length = getRandomLength().intValue();
 
         //WordAndPosition[] wordsAndPositions = new WordAndPosition[length];
         StringBuffer challenge = new StringBuffer();
         StringBuffer response = new StringBuffer();
-        for(int i=0;i<length;i++){
+        for (int i = 0; i < length; i++) {
             //get a new word
             String word = this.wordGenerator.getWord(new Integer(getRandomLength().intValue()), locale);
             //add it to collection and add its position
-            int position = Math.abs(myRandom.nextInt()%word.length());
+            int position = Math.abs(myRandom.nextInt() % word.length());
             //append to challenge
             challenge.append(bundle.getString("number"));
             challenge.append(" ");
-            challenge.append(position+1);
+            challenge.append(position + 1);
             challenge.append(" ");
             challenge.append(bundle.getString("word"));
             challenge.append(" ");
             challenge.append(word);
             challenge.append(" ");
-            challenge.append(length -1==i?bundle.getString("end"):bundle.getString("transition"));
+            challenge.append(length - 1 == i ? bundle.getString("end") : bundle.getString("transition"));
             //append to response
             response.append(word.charAt(position));
         }
@@ -117,7 +118,6 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
     protected String getQuestion(Locale locale) {
         return CaptchaQuestionHelper.getQuestion(locale, BUNDLE_QUESTION_KEY);
     }
-
 
 
     protected Integer getRandomLength() {
@@ -133,17 +133,16 @@ public class SpellFindCaptchaFactory extends SoundCaptchaFactory {
         return wordLength;
     }
 
+    /*
 
-          /*
-
-    private class WordAndPosition{
-        public WordAndPosition(String word, int position) {
-            this.word = word;
-            this.position = position;
-        }
-
-        String word;
-        int position;
+private class WordAndPosition{
+public WordAndPosition(String word, int position) {
+    this.word = word;
+    this.position = position;
 }
-            */
+
+String word;
+int position;
+}
+    */
 }

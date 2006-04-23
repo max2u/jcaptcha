@@ -470,6 +470,7 @@ import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.image.ImageCaptcha;
 import com.octo.captcha.image.ImageCaptchaFactory;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -484,7 +485,7 @@ import java.util.Random;
 public abstract class DefaultImageCaptchaEngine extends ImageCaptchaEngine {
 
     private ImageCaptchaFactory[] factories;
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * Default constructor : takes an array of ImageCaptchaFactories.
@@ -521,7 +522,6 @@ public abstract class DefaultImageCaptchaEngine extends ImageCaptchaEngine {
      * This return a new captcha. It may be used directly.
      *
      * @param locale the desired locale
-     *
      * @return a new Captcha
      */
     public ImageCaptcha getNextImageCaptcha(Locale locale) {

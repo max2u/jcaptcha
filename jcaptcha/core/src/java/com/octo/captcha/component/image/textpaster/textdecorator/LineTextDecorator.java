@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.QuadCurve2D;
 import java.awt.geom.Rectangle2D;
+import java.security.SecureRandom;
 import java.text.AttributedString;
 import java.util.Random;
 
@@ -27,7 +28,7 @@ import java.util.Random;
  */
 public class LineTextDecorator implements TextDecorator {
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * Number of holes per glyph. Default : 3

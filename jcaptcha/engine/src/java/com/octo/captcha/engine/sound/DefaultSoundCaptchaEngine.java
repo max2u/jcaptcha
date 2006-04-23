@@ -470,6 +470,7 @@ import com.octo.captcha.image.ImageCaptchaFactory;
 import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -485,7 +486,7 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
 
     private SoundCaptchaFactory[] factories;
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * Default constructor : takes an array of SoundCaptchaFactories.
@@ -497,7 +498,6 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
                     + "constructed with a null or empty factories array");
         }
     }
-
 
 
     /**
@@ -522,7 +522,6 @@ public class DefaultSoundCaptchaEngine extends SoundCaptchaEngine {
      * This return a new captcha. It may be used directly.
      *
      * @param locale the desired locale
-     *
      * @return a new Captcha
      */
     public SoundCaptcha getNextSoundCaptcha(Locale locale) {

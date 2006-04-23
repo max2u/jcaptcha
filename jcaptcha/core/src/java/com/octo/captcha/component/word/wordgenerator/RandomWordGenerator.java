@@ -6,6 +6,7 @@
 
 package com.octo.captcha.component.word.wordgenerator;
 
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
@@ -19,7 +20,7 @@ public class RandomWordGenerator implements WordGenerator {
 
     private char[] possiblesChars;
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     public RandomWordGenerator(String acceptedChars) {
         possiblesChars = acceptedChars.toCharArray();
@@ -42,7 +43,6 @@ public class RandomWordGenerator implements WordGenerator {
      * Return a word of length between min and max length according to the given locale
      *
      * @param length the word length
-     *
      * @return a String of length between min and max length according to the given locale
      */
     public String getWord(Integer length, Locale locale) {

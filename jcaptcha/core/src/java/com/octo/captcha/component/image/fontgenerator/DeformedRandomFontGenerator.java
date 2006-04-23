@@ -8,6 +8,7 @@ package com.octo.captcha.component.image.fontgenerator;
 
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -18,7 +19,7 @@ import java.util.Random;
  */
 public class DeformedRandomFontGenerator extends RandomFontGenerator {
 
-    private Random rng = new Random();
+    private Random rng = new SecureRandom();
 
     public DeformedRandomFontGenerator(Integer minFontSize,
                                        Integer maxFontSize) {

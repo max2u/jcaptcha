@@ -470,6 +470,7 @@ import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -487,7 +488,7 @@ public abstract class ListSoundCaptchaEngine extends SoundCaptchaEngine {
 
     List factories = new ArrayList();
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     public ListSoundCaptchaEngine() {
         buildInitialFactories();

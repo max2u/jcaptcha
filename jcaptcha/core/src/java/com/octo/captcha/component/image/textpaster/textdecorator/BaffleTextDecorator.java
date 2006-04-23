@@ -12,6 +12,7 @@ import com.octo.captcha.component.image.textpaster.ChangeableAttributedString;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
+import java.security.SecureRandom;
 import java.text.AttributedString;
 import java.util.Random;
 
@@ -26,7 +27,7 @@ import java.util.Random;
  */
 public class BaffleTextDecorator implements TextDecorator {
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * circleXRatio

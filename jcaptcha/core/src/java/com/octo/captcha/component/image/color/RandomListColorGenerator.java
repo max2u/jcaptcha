@@ -8,6 +8,7 @@ package com.octo.captcha.component.image.color;
 import com.octo.captcha.CaptchaException;
 
 import java.awt.*;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -25,7 +26,7 @@ public class RandomListColorGenerator implements ColorGenerator {
     /**
      * Use for random color selection
      */
-    private Random random = new Random();
+    private Random random = new SecureRandom();
 
     /**
      * Constructor that take an array of Color
