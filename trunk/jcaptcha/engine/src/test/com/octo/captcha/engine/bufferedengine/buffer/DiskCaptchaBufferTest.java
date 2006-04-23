@@ -10,13 +10,13 @@ import java.util.Collection;
 
 public class DiskCaptchaBufferTest extends CaptchaBufferTestAbstract {
 
-    protected String dirName = System.getProperty("java.io.tempdir");
+    protected String dirName = System.getProperty("java.io.tmpdir");
 
     /**
      * @see com.octo.captcha.engine.bufferedengine.buffer.CaptchaBufferTestAbstract#getBuffer()
      */
     public CaptchaBuffer getBuffer() {
-        return new DiskCaptchaBuffer(dirName, false);
+        return new DiskCaptchaBuffer(dirName + "captchaBuffer", false);
     }
 
     /**
