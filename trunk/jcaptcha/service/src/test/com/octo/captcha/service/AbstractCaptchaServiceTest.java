@@ -8,6 +8,7 @@ package com.octo.captcha.service;
 import com.octo.captcha.service.captchastore.MapCaptchaStore;
 import junit.framework.TestCase;
 
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
