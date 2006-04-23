@@ -71,7 +71,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$maven.repo$/roller/jars/rollerweb--2.1.1.jar!/" />
+          <root url="jar://$maven.repo$/roller/jars/rollerbeans-2.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -80,7 +80,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$maven.repo$/roller/jars/rollerbeans-2.1.1.jar!/" />
+          <root url="jar://$maven.repo$/roller/jars/rollerweb-2.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
