@@ -30,8 +30,34 @@
                         <th>Sample 2</th>
                         <th>Sample 3</th>
                     </tr>
+<tr>
+                        <td>SimpleListSoundCaptchaEngine</td>
+                        <td>
+                            <embed src="samples/SimpleListSoundCaptchaEngineCaptcha_0.wav" autostart="false"/>
+                        </td>
+                        <td>
+                            <embed src="samples/SimpleListSoundCaptchaEngineCaptcha_1.wav" autostart="false"/>
+                        </td>
+                        <td>
+                            <embed src="samples/SimpleListSoundCaptchaEngineCaptcha_2.wav" autostart="false"/>
+                        </td>
+                    </tr>
+
+<tr>
+                        <td>SpellerSoundCaptchaEngine : numbers</td>
+                        <td>
+                            <embed src="samples/SpellerSoundCaptchaEngineCaptcha_0.wav" autostart="false"/>
+                        </td>
+                        <td>
+                            <embed src="samples/SpellerSoundCaptchaEngineCaptcha_1.wav" autostart="false"/>
+                        </td>
+                        <td>
+                            <embed src="samples/SpellerSoundCaptchaEngineCaptcha_2.wav" autostart="false"/>
+                        </td>
+                    </tr>
+
                     <tr>
-                        <td>SpellerSoundCaptchaEngine</td>
+                        <td>SpellerSoundCaptchaEngine : letters</td>
                         <td>
                             <embed src="samples/challenge1.wav" autostart="false"/>
                         </td>
