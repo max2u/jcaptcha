@@ -6,9 +6,7 @@
     <name>jcaptcha-core</name>
     <package>com.octo.captcha</package>
 
-    <description>
-        <![CDATA[
-  <b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
+    <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
 <br/>The open source java framework for captcha definition and integration
 <br/>
 
@@ -16,13 +14,9 @@
  A captcha can only be built by a captcha factory that provides methods to build localized captchas.<br/>
  This jar aims to provide interfaces and implementation of generic and typed captcha and captcha factories.<BR/>
  It uses the word generator, types sub packages (image and sound) components (word to image, word to sound)
- to build typed captchas captchas.
-  ]]>
-    </description>
+ to build typed captchas captchas.]]></description>
 
-    <shortDescription>
-        JCAPTCHA core : tests definition and components to build them.
-    </shortDescription>
+    <shortDescription>JCAPTCHA core : tests definition and components to build them.</shortDescription>
 
     <dependencies>
         <dependency>
