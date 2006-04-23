@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<document>
+
+    <meta name="keyword" content="captcha, java, engine, jcaptcha"/>
+
+    <body>
+
+        <section name="Main interfaces...">
+
+            <p>
+                The main interface of this package is the CaptchaEngine interface. It provides method to retrieve new
+                Captchas.
+            </p>
+            <p>
+                Implementations are typed (image or sound) and use CaptchaFactory to build captchas.
+            </p>
+
+        </section>
+
+        <section name="...and sample engines">
+            <p>
+                This module provides lots of ready to use engines :
+                <a href="/multiproject/jcaptcha-engine/xref/index.html">see source.</a>
+            </p>
+            <p>
+                See also home page samples :
+                <a href="http://www.jcaptcha.net">home</a>
+            </p>
+            <p>
+                See the test report section for performance tests results.
+            </p>
+
+        </section>
+    </body>
+</document>
