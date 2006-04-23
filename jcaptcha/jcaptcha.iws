@@ -351,58 +351,88 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="project.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="project.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module-roller/project.xml">
           <provider editor-type-id="pomEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="44" selection-start="3086" selection-end="3086" vertical-scroll-proportion="0.6944801">
+            <state line="90" column="44" selection-start="3086" selection-end="3086" vertical-scroll-proportion="3.1352458">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="overview.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module-roller/xdocs/overview.xml">
+      <file leaf-file-name="project.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project.xml">
+          <provider editor-type-id="pomEditor">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="33" column="56" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.6270492">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="overview.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/xdocs/overview.xml">
+      <file leaf-file-name="maven.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/maven.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="632" selection-end="632" vertical-scroll-proportion="0.48511165">
+            <state line="20" column="0" selection-start="654" selection-end="654" vertical-scroll-proportion="0.3631068">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navigation.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/xdocs/navigation.xml">
+      <file leaf-file-name="build.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="172" selection-end="228" vertical-scroll-proportion="0.10353228">
+            <state line="53" column="42" selection-start="1752" selection-end="1752" vertical-scroll-proportion="1.1">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.inc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xdocs/footer.inc">
+      <file leaf-file-name="DefaultSoundCaptchaEngine.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/DefaultSoundCaptchaEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="44" selection-start="361" selection-end="361" vertical-scroll-proportion="0.23200993">
+            <state line="483" column="13" selection-start="24898" selection-end="24898" vertical-scroll-proportion="-1.0757282">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="overview.inc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xdocs/overview.inc">
+      <file leaf-file-name="SimpleListSoundCaptchaEngine.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/gimpy/SimpleListSoundCaptchaEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="480" column="13" selection-start="24998" selection-end="24998" vertical-scroll-proportion="0.4621359">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoundToFile.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/utils/SoundToFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="478" column="13" selection-start="24765" selection-end="24765" vertical-scroll-proportion="0.38490567">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageCaptchaToJPEG.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/image/utils/ImageCaptchaToJPEG.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="482" column="13" selection-start="25077" selection-end="25077" vertical-scroll-proportion="0.33203885">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SoundCaptchaToWAV.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/utils/SoundCaptchaToWAV.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="481" column="13" selection-start="25884" selection-end="25884" vertical-scroll-proportion="0.3961165">
               <folding />
             </state>
           </provider>
@@ -412,33 +442,6 @@
         <entry file="file://$PROJECT_DIR$/xdocs/sub_nav.inc">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractManageableCaptchaService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/java/com/octo/captcha/service/AbstractManageableCaptchaService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="22" selection-start="805" selection-end="805" vertical-scroll-proportion="-6.503722">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkstyle.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/checkstyle.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.231425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navigation.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xdocs/navigation.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="44" selection-start="273" selection-end="273" vertical-scroll-proportion="0.12423874">
               <folding />
             </state>
           </provider>
@@ -663,7 +666,7 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="component" />
+        <option name="myItemId" value="service" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -677,15 +680,7 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="component" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sound" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="wordtosound" />
+        <option name="myItemId" value="engine" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -699,7 +694,25 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="component" />
+        <option name="myItemId" value="engine" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="sound" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="jcaptcha.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="com.octo.captcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="engine" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
@@ -707,7 +720,91 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="soundconfigurator" />
+        <option name="myItemId" value="utils" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="jcaptcha.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="com.octo.captcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="engine" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="sound" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="speller" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="jcaptcha.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="com.octo.captcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="engine" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="sound" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="gimpy" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="jcaptcha.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="com.octo.captcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="engine" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="image" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="jcaptcha.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="com.octo.captcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="engine" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="image" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="utils" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -786,24 +883,6 @@
         <option name="myItemId" value="jcaptcha.ipr" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="root" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha\xdocs" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="jcaptcha.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-      </PATH_ELEMENT>
     </PATH>
     <PATH>
       <PATH_ELEMENT>
@@ -853,40 +932,8 @@
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="jcaptcha-core" />
+        <option name="myItemId" value="jcaptcha-engine" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="jcaptcha.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="jcaptcha-core" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha\core" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="jcaptcha.ipr" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="jcaptcha-core" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha\core" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha\core\xdocs" />
-        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
     </PATH>
   </component>
@@ -960,6 +1007,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.octo.captcha.engine.sound.utils" />
       <recent name="com.octo.captcha.component.sound.wordtosound" />
     </key>
     <key name="IntroduceConstantDialog.RECENTS_KEY">
@@ -971,24 +1019,167 @@
       <recent name="com.octo.captcha.component.word" />
     </key>
   </component>
-  <component name="RestoreUpdateTree" />
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="23/04/06 16:52" ActionInfo="Check Status">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+            <PATH>C:\root\share\captcha\co\rc3\jcaptcha\module-roller\xdocs\main.xml</PATH>
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\maven.xml</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleFishEyeEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleFishEyeEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\BaffleListGimpyEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\BaffleListGimpyEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DefaultGimpyEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DefaultGimpyEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DeformedBaffleListGimpyEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DoubleRandomListGimpyEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\.cvsignore</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\BaffleListGimpyEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DefaultGimpyEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DeformedBaffleListGimpyEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DoubleRandomListGimpyEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DoubleRandomListGimpyEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\BasicListGimpyEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\project.xml</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\BasicListGimpyEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleListImageCaptchaEngineCaptcha_1.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\jcaptcha.iws</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleListImageCaptchaEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\BasicListGimpyEngineCaptcha_0.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\DeformedBaffleListGimpyEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleFishEyeEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleListImageCaptchaEngineCaptcha_2.jpg</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\build.properties</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleListSoundCaptchaEngineCaptcha_1.wav</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SpellerSoundCaptchaEngineCaptcha_1.wav</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleListSoundCaptchaEngineCaptcha_0.wav</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SpellerSoundCaptchaEngineCaptcha_2.wav</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SimpleListSoundCaptchaEngineCaptcha_2.wav</PATH>
+          <PATH>C:\root\share\captcha\co\rc3\jcaptcha\xdocs\samples\SpellerSoundCaptchaEngineCaptcha_0.wav</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Unknown" />
+          <option name="myStatusName" value="Unknown" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN_TYPE" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally modified removed from server" />
+          <option name="myStatusName" value="Locally modified removed from server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MOD_REMOVED_FROM_SERVER" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed modified on server" />
+          <option name="myStatusName" value="Locally removed modified on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED_MODIFIED_ON_SERVER" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created by second party" />
+          <option name="myStatusName" value="Created by second party" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED_BY_SECOND_PARTY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Binary file has to be merged" />
+          <option name="myStatusName" value="Binary file has to be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="BINARY_MERGED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
+  </component>
   <component name="RunManager">
-    <activeType name="JUnit" />
-    <tempConfiguration selected="true" default="false" name="com.octo.captcha.component.sound.wordtosound" type="JUnit" factoryName="JUnit">
-      <module name="jcaptcha-core" />
+    <activeType name="Application" />
+    <tempConfiguration selected="false" default="false" name="SoundCaptchaToWAV" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.octo.captcha.engine.sound.utils.SoundCaptchaToWAV" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="all c:\temp 10" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.octo.captcha.component.sound.wordtosound" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ADDITIONAL_CLASS_PATH" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <module name="jcaptcha-engine" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
     </tempConfiguration>
@@ -1098,37 +1289,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
-    <configuration selected="true" default="false" name="tomcat" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="8000" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="8000" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-    </configuration>
-    <configuration selected="true" default="false" name="SFR" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote">
-      <option name="WORKING_DIRECTORY" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="8000" />
-      <option name="LOCAL" value="false" />
-      <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8000/" />
-      <option name="COMMON_VM_ARGUMENTS" value="" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="4841" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-    </configuration>
-    <configuration selected="false" default="false" name="FileDictionaryTest" type="JUnit" factoryName="JUnit">
+    <configuration selected="true" default="false" name="FileDictionaryTest" type="JUnit" factoryName="JUnit">
       <module name="jcaptcha-core" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" value="" />
@@ -1218,6 +1379,47 @@
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
     </configuration>
+    <configuration selected="true" default="false" name="SFR" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Remote">
+      <option name="WORKING_DIRECTORY" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8000" />
+      <option name="LOCAL" value="false" />
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8000/" />
+      <option name="COMMON_VM_ARGUMENTS" value="" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="4841" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+    </configuration>
+    <configuration selected="true" default="false" name="tomcat" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8000" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8000" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+    </configuration>
+    <configuration selected="true" default="false" name="Unnamed" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.octo.captcha.engine.image.utils.ImageCaptchaToJPEG" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="all $PROJECT_DIR$/target/docs/samples 3" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/target/distributions/bin/tozip" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <module name="jcaptcha-engine" />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+    </configuration>
   </component>
   <component name="SamePlugin.Configuration">
     <option name="minimumSizeOfFragment" value="10" />
@@ -1301,7 +1503,7 @@
       <window_info id="CVS" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33028573" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.3298731" order="7" />
       <window_info id="Digger" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.32296297" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.32296297" order="0" />
       <window_info id="Raven" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.32962963" order="3" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.24962963" order="1" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33256352" order="1" />
@@ -1312,14 +1514,14 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.32951945" order="8" />
       <window_info id="Favorites" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="1" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="docked" type="docked" visible="false" weight="0.4710648" order="2" x="30" y="84" width="1348" height="830" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="docked" type="docked" visible="false" weight="0.4702517" order="2" x="30" y="84" width="1348" height="830" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.25" order="2" />
       <window_info id="File View" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="sliding" type="sliding" visible="false" weight="0.4" order="0" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.39814815" order="4" />
       <window_info id="Hibernate Tools" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
       <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="sliding" type="sliding" visible="false" weight="0.7878338" order="3" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.3249428" order="8" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="true" weight="0.3249428" order="8" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="0" />
       <window_info id="Aspects" active="false" anchor="right" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="3" />
       <window_info id="IView" active="false" anchor="bottom" auto_hide="false" internal_type="docked" type="docked" visible="false" weight="0.33" order="8" />
@@ -1409,65 +1611,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/xdocs/nav.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module-roller/xdocs/navigation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="57" selection-start="738" selection-end="738" vertical-scroll-proportion="0.39342266">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module-roller/src/java/com/octo/captcha/module/roller/JCaptchaCommentAuthenticator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="29" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.4007444">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module-base/project.xml">
-      <provider editor-type-id="pomEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="26" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.07317073">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/java/com/octo/captcha/service/AbstractCaptchaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="918" selection-end="918" vertical-scroll-proportion="-2.110422">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/src/java/com/octo/captcha/service/AbstractManageableCaptchaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="22" selection-start="805" selection-end="805" vertical-scroll-proportion="-6.503722">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checkstyle.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.231425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xdocs/navigation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="44" selection-start="273" selection-end="273" vertical-scroll-proportion="0.12423874">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module-roller/xdocs/overview.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1510,12 +1653,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/DefaultSoundCaptchaEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="483" column="13" selection-start="24898" selection-end="24898" vertical-scroll-proportion="-1.0757282">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/gimpy/SimpleListSoundCaptchaEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="480" column="13" selection-start="24998" selection-end="24998" vertical-scroll-proportion="0.4621359">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/utils/SoundToFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="478" column="13" selection-start="24765" selection-end="24765" vertical-scroll-proportion="0.38490567">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/image/utils/ImageCaptchaToJPEG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="482" column="13" selection-start="25077" selection-end="25077" vertical-scroll-proportion="0.33203885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/src/java/com/octo/captcha/engine/sound/utils/SoundCaptchaToWAV.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="481" column="13" selection-start="25884" selection-end="25884" vertical-scroll-proportion="0.3961165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="42" selection-start="1752" selection-end="1752" vertical-scroll-proportion="1.1">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/module-roller/project.xml">
       <provider editor-type-id="pomEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="44" selection-start="3086" selection-end="3086" vertical-scroll-proportion="0.6944801">
+        <state line="90" column="44" selection-start="3086" selection-end="3086" vertical-scroll-proportion="3.1352458">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.xml">
+      <provider editor-type-id="pomEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="56" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.6270492">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maven.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="654" selection-end="654" vertical-scroll-proportion="0.3631068">
           <folding />
         </state>
       </provider>
