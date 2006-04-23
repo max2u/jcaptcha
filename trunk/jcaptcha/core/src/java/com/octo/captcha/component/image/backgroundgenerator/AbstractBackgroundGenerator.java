@@ -6,6 +6,7 @@
 
 package com.octo.captcha.component.image.backgroundgenerator;
 
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -23,7 +24,7 @@ public abstract class AbstractBackgroundGenerator
     private int height = 100;
     private int width = 200;
 
-    Random myRandom = new Random();
+    Random myRandom = new SecureRandom();
 
     /**
      * Default constructor takes a width and a height of the generated backgrounds

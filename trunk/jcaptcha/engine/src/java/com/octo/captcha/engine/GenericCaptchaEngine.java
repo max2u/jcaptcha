@@ -7,6 +7,7 @@ import com.octo.captcha.Captcha;
 import com.octo.captcha.CaptchaException;
 import com.octo.captcha.CaptchaFactory;
 
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
@@ -20,7 +21,7 @@ public class GenericCaptchaEngine implements CaptchaEngine {
 
 
     private CaptchaFactory[] factories;
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
 
     /**
@@ -60,7 +61,6 @@ public class GenericCaptchaEngine implements CaptchaEngine {
      * This return a new captcha. It may be used directly.
      *
      * @param locale the desired locale
-     *
      * @return a new Captcha
      */
     public Captcha getNextCaptcha(Locale locale) {

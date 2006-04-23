@@ -13,6 +13,7 @@ import com.octo.captcha.component.word.wordgenerator.WordGenerator;
 import com.octo.captcha.image.ImageCaptcha;
 
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ import java.util.Random;
  */
 public class GimpyFactory extends com.octo.captcha.image.ImageCaptchaFactory {
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
     private WordToImage wordToImage;
     private WordGenerator wordGenerator;
 

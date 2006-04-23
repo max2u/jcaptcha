@@ -15,6 +15,7 @@ import com.octo.captcha.sound.SoundCaptcha;
 import com.octo.captcha.sound.SoundCaptchaFactory;
 
 import javax.sound.sampled.AudioInputStream;
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
@@ -31,7 +32,7 @@ public class GimpySoundFactory extends SoundCaptchaFactory {
 
     private WordDecorator wordDecorator;
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * The bundle question key for CaptchaQuestionHelper
@@ -103,7 +104,6 @@ public class GimpySoundFactory extends SoundCaptchaFactory {
 
     /**
      * @param locale the locale
-     *
      * @return a localized sound captcha
      */
     public SoundCaptcha getSoundCaptcha(Locale locale) {

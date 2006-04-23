@@ -15,6 +15,7 @@ import com.octo.captcha.image.ImageCaptchaFactory;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class FishEyeFactory extends ImageCaptchaFactory {
 
     public static final String BUNDLE_QUESTION_KEY = FishEye.class.getName();
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
     private BackgroundGenerator generator;
     private ImageDeformation deformation;
     private Integer tolerance;
@@ -42,7 +43,6 @@ public class FishEyeFactory extends ImageCaptchaFactory {
      * @param deformation a deformation to be apply on the background
      * @param scale       the size of the defprmed part (percent)
      * @param tolerance   the tolerence (see FishEye)
-     *
      * @see FishEye
      */
     public FishEyeFactory(BackgroundGenerator generator,

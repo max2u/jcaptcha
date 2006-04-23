@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -43,7 +44,7 @@ public class PuzzleImageDeformation implements ImageDeformation {
      */
     private boolean manageRowAndColRandomly = false;
 
-    private Random random = new Random();
+    private Random random = new SecureRandom();
 
     /**
      * Conststruct a PuzzleImageDeformation, with the numbers of colums and rows. If manageRowAndColRandomly is set to

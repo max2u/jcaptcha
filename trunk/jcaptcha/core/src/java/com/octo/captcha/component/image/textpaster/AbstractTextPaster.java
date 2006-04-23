@@ -12,6 +12,7 @@ import com.octo.captcha.component.image.color.SingleColorGenerator;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -28,7 +29,7 @@ public abstract class AbstractTextPaster implements TextPaster {
     /**
      * Comment for <code>myRandom</code>
      */
-    public Random myRandom = new Random();
+    public Random myRandom = new SecureRandom();
 
     /**
      * Max length of a word

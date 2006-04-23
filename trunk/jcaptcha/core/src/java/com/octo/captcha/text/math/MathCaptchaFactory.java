@@ -9,6 +9,7 @@ import com.octo.captcha.CaptchaQuestionHelper;
 import com.octo.captcha.text.TextCaptcha;
 import com.octo.captcha.text.TextCaptchaFactory;
 
+import java.security.SecureRandom;
 import java.util.Locale;
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class MathCaptchaFactory extends TextCaptchaFactory {
 
     private static final String BUNDLE_QUESTION_KEY = MathCaptcha.class.getName();
 
-    Random myRamdom = new Random();
+    Random myRamdom = new SecureRandom();
 
     public MathCaptchaFactory() {
     }

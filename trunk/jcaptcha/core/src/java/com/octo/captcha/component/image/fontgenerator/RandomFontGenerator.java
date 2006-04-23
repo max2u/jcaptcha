@@ -7,6 +7,7 @@
 package com.octo.captcha.component.image.fontgenerator;
 
 import java.awt.*;
+import java.security.SecureRandom;
 import java.util.*;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class RandomFontGenerator extends AbstractFontGenerator {
             "Times Roman",
     };
 
-    protected Random myRandom = new Random();
+    protected Random myRandom = new SecureRandom();
 
     public RandomFontGenerator(Integer minFontSize, Integer maxFontSize) {
         super(minFontSize, maxFontSize);
@@ -101,7 +102,6 @@ public class RandomFontGenerator extends AbstractFontGenerator {
      * Create an array of fonts that is known to properly represent all the characters in requiredCharacters.
      *
      * @return array of fonts
-     *
      * @see #requiredCharacters
      */
     private List initializeFonts(Font[] uncheckFonts) {

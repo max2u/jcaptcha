@@ -15,6 +15,7 @@ import java.awt.font.TextAttribute;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.text.AttributedCharacterIterator;
 import java.text.AttributedString;
 import java.util.Random;
@@ -44,7 +45,7 @@ public class ChangeableAttributedString {
     /**
      * Comment for <code>myRandom</code>
      */
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * In typography, kerning refers to adjusting the space between characters, especially by placing two characters
@@ -116,9 +117,7 @@ public class ChangeableAttributedString {
      *
      * @param background    the image that will lie under the text
      * @param startingPoint the suggested starting point, or null if any point is acceptable.
-     *
      * @return a Point2D object indicating the initial starting point of the text
-     *
      * @throws com.octo.captcha.CaptchaException
      *          if the image size is too small, or the word too long, or the fonts too large.
      */
@@ -256,7 +255,6 @@ public class ChangeableAttributedString {
      * cases, this will guarantee collisions between the letters.
      *
      * @param maxReductionPct maximum percentage reduction
-     *
      * @return if positive, the highest X value that can be safely used for placement of box; if negative, there is no
      *         safe way to display the text without clipping the ends.
      */

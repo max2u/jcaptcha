@@ -470,6 +470,7 @@ import com.octo.captcha.engine.CaptchaEngineException;
 import com.octo.captcha.image.ImageCaptcha;
 import com.octo.captcha.image.ImageCaptchaFactory;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -486,7 +487,7 @@ public abstract class ListImageCaptchaEngine
         extends com.octo.captcha.engine.image.ImageCaptchaEngine {
 
     List factories = new ArrayList();
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     public ListImageCaptchaEngine() {
         buildInitialFactories();

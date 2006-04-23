@@ -107,17 +107,17 @@ public class SimpleFishEyeEngine extends ListImageCaptchaEngine {
                 new Integer(250), new Integer(250),
                 "./fisheyebackgrounds");
         addFactory(
-                new FishEyeFactory(generator, sphereDef, new Integer(30),
-                        new Integer(11)));
+                new FishEyeFactory(generator, sphereDef, new Integer(10),
+                        new Integer(5)));
         addFactory(
-                new FishEyeFactory(generator, rippleDef, new Integer(30),
-                        new Integer(11)));
+                new FishEyeFactory(generator, rippleDef, new Integer(10),
+                        new Integer(5)));
         addFactory(
-                new FishEyeFactory(generator, waterDef, new Integer(30),
-                        new Integer(11)));
+                new FishEyeFactory(generator, waterDef, new Integer(10),
+                        new Integer(5)));
         addFactory(
-                new FishEyeFactory(generator, twirlDef, new Integer(30),
-                        new Integer(11)));
+                new FishEyeFactory(generator, twirlDef, new Integer(10),
+                        new Integer(5)));
 
     }
 }

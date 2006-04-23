@@ -6,6 +6,7 @@
 
 package com.octo.captcha.component.word;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -23,7 +24,7 @@ public class DefaultSizeSortedWordList implements SizeSortedWordList {
 
     private Locale locale;
 
-    private Random myRandom = new Random();
+    private Random myRandom = new SecureRandom();
 
     /**
      * A word list has to be constructed with a locale

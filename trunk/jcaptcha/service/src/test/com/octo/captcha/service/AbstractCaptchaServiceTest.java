@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class AbstractCaptchaServiceTest extends TestCase {
 
-    protected Random myRandom = new Random();
+    protected Random myRandom = new SecureRandom();
 
     protected AbstractCaptchaService service = new MockedCaptchaService(new MapCaptchaStore(),
             new MockCaptchaEngine());
@@ -51,9 +51,9 @@ public class AbstractCaptchaServiceTest extends TestCase {
         for (int i = 0; i < SIZE; i++) {
             String id = String.valueOf(myRandom.nextInt());
             assertEquals("Should always return The mock question and default locale",
-                    MockCaptcha.QUESTION_BASE+Locale.getDefault(), service.getQuestionForID(id));
+                    MockCaptcha.QUESTION_BASE + Locale.getDefault(), service.getQuestionForID(id));
             assertEquals("Should always return The mock question and specified locale",
-                    MockCaptcha.QUESTION_BASE+Locale.CHINESE, service.getQuestionForID(id,Locale.CHINESE));
+                    MockCaptcha.QUESTION_BASE + Locale.CHINESE, service.getQuestionForID(id, Locale.CHINESE));
         }
 
     }
@@ -99,8 +99,8 @@ public class AbstractCaptchaServiceTest extends TestCase {
 
 
     public void testCaptchaRegenerationWhenNewLocaleIsAsked() throws Exception {
-        String french = service.getQuestionForID("1",Locale.FRENCH);
-        String english = service.getQuestionForID("1",Locale.ENGLISH);
+        String french = service.getQuestionForID("1", Locale.FRENCH);
+        String english = service.getQuestionForID("1", Locale.ENGLISH);
         assertFalse(french.equals(english));
 
     }
