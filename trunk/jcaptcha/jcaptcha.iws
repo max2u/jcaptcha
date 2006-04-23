@@ -351,13 +351,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="project.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="project.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/module-roller/project.xml">
           <provider editor-type-id="pomEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="21" selection-start="3248" selection-end="3248" vertical-scroll-proportion="0.7381258">
+            <state line="90" column="44" selection-start="3086" selection-end="3086" vertical-scroll-proportion="0.6944801">
               <folding />
             </state>
           </provider>
@@ -399,8 +399,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="overview.inc" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="overview.inc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xdocs/overview.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sub_nav.inc" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xdocs/sub_nav.inc">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -411,7 +420,7 @@
       <file leaf-file-name="AbstractManageableCaptchaService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/src/java/com/octo/captcha/service/AbstractManageableCaptchaService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="22" selection-start="805" selection-end="805" vertical-scroll-proportion="-6.5397024">
+            <state line="24" column="22" selection-start="805" selection-end="805" vertical-scroll-proportion="-6.503722">
               <folding />
             </state>
           </provider>
@@ -420,7 +429,7 @@
       <file leaf-file-name="checkstyle.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/checkstyle.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.2667478">
+            <state line="3" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.231425">
               <folding />
             </state>
           </provider>
@@ -430,15 +439,6 @@
         <entry file="file://$PROJECT_DIR$/xdocs/navigation.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="6" column="44" selection-start="273" selection-end="273" vertical-scroll-proportion="0.12423874">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractCaptchaService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/src/java/com/octo/captcha/service/AbstractCaptchaService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="22" selection-start="918" selection-end="918" vertical-scroll-proportion="-2.110422">
               <folding />
             </state>
           </provider>
@@ -778,6 +778,24 @@
       </PATH_ELEMENT>
       <PATH_ELEMENT>
         <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="jcaptcha.ipr" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="root" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha" />
+        <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="PsiDirectory:C:\root\share\captcha\co\rc3\jcaptcha\xdocs" />
         <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
       </PATH_ELEMENT>
     </PATH>
@@ -1324,7 +1342,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="PUT_FOCUS_INTO_COMMENT" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="FWK-47&#10;Update the roller jars, use the same version of commons-*, update the acegi security module description" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding sample sound challenges, omited includes." />
     <option name="SAVE_LAST_COMMIT_MESSAGE" value="true" />
     <option name="CHECKIN_DIALOG_SPLITTER_PROPORTION" value="0.8" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1338,7 +1356,6 @@
     <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Clean" />
     <MESSAGE value="Refactoring the word generation stuff" />
     <MESSAGE value="FWK-41&#10;Replacing the mispelled lenght everywhere" />
     <MESSAGE value="FWK-42&#10;Captcha is not regenerated when retrieving question for a different locale" />
@@ -1348,6 +1365,7 @@
     <MESSAGE value="Formating xdoc" />
     <MESSAGE value="WEB-3 &#10;Clean the maven site" />
     <MESSAGE value="FWK-47&#10;Update the roller jars, use the same version of commons-*, update the acegi security module description" />
+    <MESSAGE value="Adding sample sound challenges, omited includes." />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -1391,16 +1409,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module-acegi/project.xml">
-      <provider editor-type-id="pomEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="11" selection-start="1867" selection-end="1867" vertical-scroll-proportion="0.7715019">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xdocs/nav.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1441,14 +1449,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/src/java/com/octo/captcha/service/AbstractManageableCaptchaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="22" selection-start="805" selection-end="805" vertical-scroll-proportion="-6.5397024">
+        <state line="24" column="22" selection-start="805" selection-end="805" vertical-scroll-proportion="-6.503722">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/checkstyle.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.2667478">
+        <state line="3" column="13" selection-start="113" selection-end="113" vertical-scroll-proportion="-1.231425">
           <folding />
         </state>
       </provider>
@@ -1456,16 +1464,6 @@
     <entry file="file://$PROJECT_DIR$/xdocs/navigation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="44" selection-start="273" selection-end="273" vertical-scroll-proportion="0.12423874">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module-roller/project.xml">
-      <provider editor-type-id="pomEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="21" selection-start="3248" selection-end="3248" vertical-scroll-proportion="0.7381258">
           <folding />
         </state>
       </provider>
@@ -1501,6 +1499,23 @@
     <entry file="file://$PROJECT_DIR$/xdocs/overview.inc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xdocs/sub_nav.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module-roller/project.xml">
+      <provider editor-type-id="pomEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="44" selection-start="3086" selection-end="3086" vertical-scroll-proportion="0.6944801">
           <folding />
         </state>
       </provider>

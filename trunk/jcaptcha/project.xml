@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <project>
-  <pomVersion>3</pomVersion>
-  <id>jcaptcha</id>
-  <name>jcaptcha</name>
-  <groupId>jcaptcha</groupId>
-  <currentVersion>${project.version}</currentVersion>
+    <pomVersion>3</pomVersion>
+    <id>jcaptcha</id>
+    <name>jcaptcha</name>
+    <groupId>jcaptcha</groupId>
+    <currentVersion>${project.version}</currentVersion>
 
-  <organization>
-    <!-- The full name of the organization. -->
-    <name>JCaptcha corp.</name>
-    <!-- The URL to the organization's home page. -->
-    <url>http://www.jcaptcha.net/</url>
-    <!-- The URL to the organization's logo image. This can be an URL relative to the base directory of the generated
-         web site, (e.g., /images/org-logo.png) or an absolute URL (e.g., http://my.corp/logo.png). This value is used
-         when generating the project documentation. -->
-    <logo>/jcaptcha-logo.jpg</logo>
-  </organization>
-  <inceptionYear>2003</inceptionYear>
-  <package>com.octo.captcha</package>
+    <organization>
+        <!-- The full name of the organization. -->
+        <name>JCaptcha corp.</name>
+        <!-- The URL to the organization's home page. -->
+        <url>http://www.jcaptcha.net/</url>
+        <!-- The URL to the organization's logo image. This can be an URL relative to the base directory of the generated
+   web site, (e.g., /images/org-logo.png) or an absolute URL (e.g., http://my.corp/logo.png). This value is used
+   when generating the project documentation. -->
+        <logo>/jcaptcha-logo.jpg</logo>
+    </organization>
+    <inceptionYear>2003</inceptionYear>
+    <package>com.octo.captcha</package>
 
-  <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
+    <description><![CDATA[<b>JCAPTCHA</b>, for <b>J</b>ava <b>C</b>ompletely <b>A</b>utomated <b>P</b>ublic <b>T</b>est to tell <b>C</b>omputers and <b>H</b>umans <b>A</b>part
 <br/>The open source java framework for captcha definition and integration
 <br/>
                 <table>
@@ -128,78 +128,78 @@
                     </tr>
                 </table><br/>]]></description>
 
-  <shortDescription>JCAPTCHA</shortDescription>
+    <shortDescription>JCAPTCHA</shortDescription>
 
     <repository>
-    <connection>scm:cvs:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jcaptcha:jcaptcha</connection>
-      <url>http://cvs.sourceforge.net/viewcvs.py/jcaptcha/jcaptcha/</url>
+        <connection>scm:cvs:pserver:anonymous@cvs.sourceforge.net:/cvsroot/jcaptcha:jcaptcha</connection>
+        <url>http://cvs.sourceforge.net/viewcvs.py/jcaptcha/jcaptcha/</url>
 
-     </repository>
-   <mailingLists>
-    <mailingList>
-      <name>JCaptcha User List</name>
-      <subscribe>jcaptcha-users@lists.sourceforge.net</subscribe>
-      <unsubscribe>jcaptcha-users-unsubscribe@lists.sourceforge.net</unsubscribe>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=jcaptcha-users</archive>
-    </mailingList>
-    <mailingList>
-      <name>JCaptcha Developer List</name>
-      <subscribe>jcaptcha-devs@lists.sourceforge.net</subscribe>
-      <unsubscribe>jcaptcha-devs-unsubscribe@lists.sourceforge.net</unsubscribe>
-      <archive>http://sourceforge.net/mailarchive/forum.php?forum=jcaptcha-devs</archive>
-    </mailingList>
-   </mailingLists>
+    </repository>
+    <mailingLists>
+        <mailingList>
+            <name>JCaptcha User List</name>
+            <subscribe>jcaptcha-users@lists.sourceforge.net</subscribe>
+            <unsubscribe>jcaptcha-users-unsubscribe@lists.sourceforge.net</unsubscribe>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum=jcaptcha-users</archive>
+        </mailingList>
+        <mailingList>
+            <name>JCaptcha Developer List</name>
+            <subscribe>jcaptcha-devs@lists.sourceforge.net</subscribe>
+            <unsubscribe>jcaptcha-devs-unsubscribe@lists.sourceforge.net</unsubscribe>
+            <archive>http://sourceforge.net/mailarchive/forum.php?forum=jcaptcha-devs</archive>
+        </mailingList>
+    </mailingLists>
 
     <developers>
-    <developer>
-      <name>Marc-Antoine Garrigue</name>
-      <id>magarrigue</id>
-      <email>magarrigue@octo.com</email>
-      <organization>Octo</organization>
-      <roles>
-        <role>Project Leader</role>
-        <role>Java Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Sébastien Brunot</name>
-      <id>sbrunot</id>
-      <organization>Octo</organization>
-      <roles>
-        <role>Java Developer</role>
-      </roles>
-    </developer>
-    <developer>
-      <name>Mathieu Gandin</name>
-      <id>mgandin</id>
-
-      <organization>Octo</organization>
-      <roles>
-        <role>Java Developer</role>
-      </roles>
-    </developer>
         <developer>
-      <name>Benoit Doumas</name>
-      <id>mdoumas</id>
-      <organization>Octo</organization>
-      <roles>
-        <role>Java Developer</role>
-      </roles>
-    </developer>
+            <name>Marc-Antoine Garrigue</name>
+            <id>magarrigue</id>
+            <email>magarrigue@octo.com</email>
+            <organization>Octo</organization>
+            <roles>
+                <role>Project Leader</role>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Sébastien Brunot</name>
+            <id>sbrunot</id>
+            <organization>Octo</organization>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Mathieu Gandin</name>
+            <id>mgandin</id>
 
-  </developers>
+            <organization>Octo</organization>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Benoit Doumas</name>
+            <id>mdoumas</id>
+            <organization>Octo</organization>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+
+    </developers>
 
 
- <dependencies>
-  </dependencies>
+    <dependencies>
+    </dependencies>
 
-  <build>
-  </build>
+    <build>
+    </build>
 
-  <reports>
-	<report>maven-dashboard-plugin</report>
-  	<report>maven-license-plugin</report>
-	<report>maven-multiproject-plugin</report>
-  </reports>
+    <reports>
+        <report>maven-dashboard-plugin</report>
+        <report>maven-license-plugin</report>
+        <report>maven-multiproject-plugin</report>
+    </reports>
 
 </project>
