@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<document>
+
+    <meta name="keyword" content="captcha, java, core, jcaptcha"/>
+
+    <body>
+
+        <section name="Purpose">
+
+            <p>
+
+                <ul>
+                    <li>This module provides commomns utilities to help developers to build their own modules</li>
+                    <li>It provides a config class that contains main attributes used by all sub modules</li>
+                </ul>
+            </p>
+
+        </section>
+
+    </body>
+</document>
