@@ -1,20 +1,3 @@
-/*
- * JCaptcha, the open source java framework for captcha definition and integration
- * Copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
-
-/*
- * jcaptcha, the open source java framework for captcha definition and integration
- * copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
-
-/*
- * jcaptcha, the open source java framework for captcha definition and integration
- * copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
 
 package com.octo.captcha.engine.image.gimpy;
 
@@ -38,14 +21,16 @@ import java.awt.*;
  * @deprecated
  */
 public class MultipleGimpyEngine
-        extends com.octo.captcha.engine.image.DefaultImageCaptchaEngine {
+        extends com.octo.captcha.engine.image.DefaultImageCaptchaEngine
+{
 
     static com.octo.captcha.image.ImageCaptchaFactory[] factories;
 
-    static {
+    static
+    {
         //word generator
-        com.octo.captcha.component.word.wordgenerator.WordGenerator dictionnaryWords = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.word.FileDictionary(
+        com.octo.captcha.component.wordgenerator.WordGenerator dictionnaryWords = new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
+                new com.octo.captcha.component.wordgenerator.FileDictionnary(
                         "toddlist"));
 
         //wordtoimage components
@@ -63,6 +48,7 @@ public class MultipleGimpyEngine
                 new Integer(30), new Integer(45));
         FontGenerator shearedFont = new TwistedAndShearedRandomFontGenerator(
                 new Integer(30), new Integer(45));
+
 
         //word2image 1
         com.octo.captcha.component.image.wordtoimage.WordToImage word2image = new com.octo.captcha.component.image.wordtoimage.ComposedWordToImage(
@@ -111,7 +97,8 @@ public class MultipleGimpyEngine
 
     }
 
-    public MultipleGimpyEngine() {
+    public MultipleGimpyEngine()
+    {
 
         super(factories);
 

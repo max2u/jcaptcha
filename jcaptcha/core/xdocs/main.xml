@@ -1,10 +1,4 @@
 <?xml version="1.0"?>
-<!--
-  ~ JCaptcha, the open source java framework for captcha definition and integration
-  ~ Copyright (c)  2007 jcaptcha.net. All Rights Reserved.
-  ~ See the LICENSE.txt file distributed with this package.
-  -->
-
 <document>
 
     <meta name="keyword" content="captcha, java, core, jcaptcha"/>
@@ -13,13 +7,12 @@
 
         <section name="Main interfaces...">
             <p>
-                The two main interfaces of this package are :
+The two main interfaces of this package are :
                 <ul>
                     <li>Captcha : a representation of the 'are you human' test</li>
 
-                    It is basically composed of a question, a challenge, and a validation routine.
-                    <li>CaptchaFactory : the Captcha builder, that use others CoreModule components to build
-                        captchas</li>
+It is basically composed of a question, a challenge, and a validation routine.
+                    <li>CaptchaFactory : the Captcha builder, that use others CoreModule components to build captchas</li>
                 </ul>
             </p>
             <section name="UML">
@@ -32,18 +25,16 @@
 
         <section name="...and components">
             <p>
-                This module defines also a component sub package that contains components used by factories to build
-                captchas.
-                Components are used by Captcha factories to build captchas.
+           This module defines also a component sub package that contains components used by factories to build captchas.
+           Components are used by Captcha factories to build captchas.
             </p>
 
-            A component may be developped from scratch, or may use an external librairy to provide desired
-            fonctionality.
+            A component may be developped from scratch, or may use an external librairy to provide desired fonctionality.
             <br/>
             A component always provide an interface and some implementations.
             <br/>
 
-            Current components are divided into three categories (that technicaly are in sub packages):
+           Current components are divided into three categories (that technicaly are in sub packages):
             <br/>
             <p>
                 <table cellpadding='3' cellspacing='2'>
@@ -113,14 +104,12 @@
                     <tr>
                         <td>com.octo.captcha.image.wordtoimage</td>
                         <td>word to image component</td>
-                        <td>create an image from a string,</td>
+                        <td>create an image from a string, </td>
                         <td>DeformedComposedWordToImage</td>
                     </tr>
                     <tr>
                         <td align='center' colspan='5'>
-                            <b>Sounds</b>
-
-                            
+                            <b>Sounds</b> Still in development
                         </td>
                     </tr>
                     <tr>
