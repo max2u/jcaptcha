@@ -1,21 +1,3 @@
-/*
- * JCaptcha, the open source java framework for captcha definition and integration
- * Copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
-
-/*
- * jcaptcha, the open source java framework for captcha definition and integration
- * copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
-
-/*
- * jcaptcha, the open source java framework for captcha definition and integration
- * copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
-
 package com.octo.captcha.component.image.textpaster;
 
 import com.octo.captcha.CaptchaException;
@@ -39,6 +21,8 @@ public class DoubleTextPasterTest extends TestCase {
 
     /**
      * Constructor for DoubleTextPasterTest.
+     *
+     * @param name
      */
     public DoubleTextPasterTest(String name) {
         super(name);
@@ -72,16 +56,5 @@ public class DoubleTextPasterTest extends TestCase {
         assertEquals(this.minAcceptedWordLength.intValue(),
                 this.doubleTextPaster.getMinAcceptedWordLenght());
     }
-
-    public void testGetMaxAcceptedWordLength() {
-            assertEquals(this.maxAcceptedWordLength.intValue(),
-                    this.doubleTextPaster.getMaxAcceptedWordLength());
-        }
-
-        public void testGetMinAcceptedWordLength() {
-            assertEquals(this.minAcceptedWordLength.intValue(),
-                    this.doubleTextPaster.getMinAcceptedWordLength());
-        }
-
 
 }

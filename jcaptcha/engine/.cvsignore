@@ -1,12 +1,2 @@
 target
-*.properties
-*.log
-.classpath
-.project
-.ruleset
-.settings
-.springBeans
-bin
-conf
-null.data
-null.index
+jcaptcha-engine.iml

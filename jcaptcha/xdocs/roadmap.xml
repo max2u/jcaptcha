@@ -1,10 +1,4 @@
 <?xml version="1.0"?>
-<!--
-  ~ JCaptcha, the open source java framework for captcha definition and integration
-  ~ Copyright (c)  2007 jcaptcha.net. All Rights Reserved.
-  ~ See the LICENSE.txt file distributed with this package.
-  -->
-
 <document>
 
     <meta name="keyword" content="captcha, java, core, jcaptcha"/>
@@ -25,8 +19,7 @@
                 <ul>
                     <li>Web service module</li>
                     <li>Sound test implementation</li>
-                    <li>Text test implementation</li>
-                    <li>Logic/math test implementation</li>
+                    <li>JRoller how to</li>
                     <li>Documentation, documentation, documentation...</li>
                 </ul>
             </p>

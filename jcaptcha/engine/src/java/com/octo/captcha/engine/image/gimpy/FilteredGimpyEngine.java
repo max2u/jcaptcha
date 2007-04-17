@@ -1,19 +1,51 @@
-/*
- * JCaptcha, the open source java framework for captcha definition and integration
- * Copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
+/* ====================================================================
+ * The Apache Software License, Version 1.1
+ *
+ * Copyright (c) 2000 The Apache Software Foundation.  All rights
+ * reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * 3. The end-user documentation included with the redistribution,
+ *    if any, must include the following acknowledgment:
+ *       "This product includes software developed by the
+ *        Apache Software Foundation (http://www.apache.org/)."
+ *    Alternately, this acknowledgment may appear in the software itself,
+ *    if and wherever such third-party acknowledgments normally appear.
+ *
+ * 4. The names "Apache" and "Apache Software Foundation" must
+ *    not be used to endorse or promote products derived from this
+ *    software without prior written permission. For written
+ *    permission, please contact apache@apache.org.
+ *
+ * 5. Products derived from this software may not be called "Apache",
+ *    nor may "Apache" appear in their name, without prior written
+ *    permission of the Apache Software Foundation.
+ *
+ * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED.  IN NO EVENT SHALL THE APACHE SOFTWARE FOUNDATION OR
+ * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ * ====================================================================
 
-/*
- * jcaptcha, the open source java framework for captcha definition and integration
- * copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
- */
-
-/*
- * jcaptcha, the open source java framework for captcha definition and integration
- * copyright (c)  2007 jcaptcha.net. All Rights Reserved.
- * See the LICENSE.txt file distributed with this package.
  */
 
 package com.octo.captcha.engine.image.gimpy;
@@ -25,23 +57,26 @@ import com.octo.captcha.component.image.fontgenerator.RandomFontGenerator;
 import com.octo.captcha.component.image.textpaster.RandomTextPaster;
 import com.octo.captcha.component.image.textpaster.TextPaster;
 
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.ImageFilter;
 
 /**
- * <p>Static factory initializer, instanciates a ImageCaptchaFactory. This class is a sample which demonstrate how to
- * use teh jhlabs filter with the Filtered</p>
+ * <p>Static factory initializer, instanciates a ImageCaptchaFactory. This class
+ * is a sample which demonstrate how to use teh jhlabs filter with the
+ * Filtered</p>
  *
- * @author <a href="mailto:mag@jcaptcha.net">Marc-Antoine Garrigue</a>
+ * @author <a href="mailto:mag@octo.com">Marc-Antoine Garrigue</a>
  * @version 1.0
- * @deprecated
+ * @deprecated 
  */
 public class FilteredGimpyEngine
-        extends com.octo.captcha.engine.image.DefaultImageCaptchaEngine {
+        extends com.octo.captcha.engine.image.DefaultImageCaptchaEngine
+{
 
     static com.octo.captcha.image.ImageCaptchaFactory[] factories;
 
-    static {
+    static
+    {
         //build filters
         com.jhlabs.image.EmbossFilter emboss = new com.jhlabs.image.EmbossFilter();
         com.jhlabs.image.SphereFilter sphere = new com.jhlabs.image.SphereFilter();
@@ -91,9 +126,10 @@ public class FilteredGimpyEngine
                 new Integer(200), new Integer(100));
         FontGenerator font = new RandomFontGenerator(new Integer(25),
                 new Integer(35));
-        com.octo.captcha.component.word.wordgenerator.WordGenerator words = new com.octo.captcha.component.word.wordgenerator.DictionaryWordGenerator(
-                new com.octo.captcha.component.word.FileDictionary(
+        com.octo.captcha.component.wordgenerator.WordGenerator words = new com.octo.captcha.component.wordgenerator.DictionaryWordGenerator(
+                new com.octo.captcha.component.wordgenerator.FileDictionnary(
                         "toddlist"));
+
 
         //build factories
         factories = new com.octo.captcha.image.ImageCaptchaFactory[3];
@@ -122,7 +158,8 @@ public class FilteredGimpyEngine
 
     }
 
-    public FilteredGimpyEngine() {
+    public FilteredGimpyEngine()
+    {
 
         super(factories);
 
